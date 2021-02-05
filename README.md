@@ -1,7 +1,7 @@
 # food_o_cycle
 CALU CIS 490/492 Project
 
-This application is to connect food donors to food banks.
+This application is designed to connect food donors to food banks.
 
 Styling template obtained from https://www.free-css.com/free-css-templates/page246/freshshop.
 
