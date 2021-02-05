@@ -3,4 +3,120 @@ CALU CIS 490/492 Project
 
 This application is to connect food donors to food banks.
 
-Directory Structure
+Styling template obtained from https://www.free-css.com/free-css-templates/page246/freshshop.
+
+Directory Structure (in progress):
+
+-dir:css
+  -all.css
+  -animate.css
+  -baguetteBox.min.css
+  -bootsnav.css
+  -bootstrap.min.css
+  -bootstrap-select.css
+  -carousel-ticker.css
+  -code_animate.css
+  -custom.css
+  -jquery-ui.css
+  -owl.carousel.min.css
+  -responsive.css
+  -style.css
+  -superslides.css
+-dir:fonts
+-dir:images
+  -dir:payment-icon
+    -1.png
+    -2.png
+    -3.png
+    -4.png
+    -5.png
+    -6.png
+    -7.png
+  -about-img.jpg
+  -add-img-01.jpg
+  -add-img-02.jpg
+  -all-bg-title.jpg
+  -apple-touch-icon.png
+  -banner-01.jpg
+  -banner-02.jpg
+  -banner-03.jpg
+  -big-img-01.jpg
+  -big-img-02.jpg
+  -big-img-03.jpg
+  -blog-img-01.jpg
+  -blog-img-02.jpg
+  -blog-img.jpg
+  -categories_img_01.jpg
+  -categories_img_02.jpg
+  -categories_img_03.jpg
+  -contact-bg.jpg
+  -favicon.ico
+  -filenames.txt
+  -gallery-img-01.jpg
+  -gallery-img-02.jpg
+  -gallery-img-03.jpg
+  -gallery-img-04.jpg
+  -gallery-img-05.jpg
+  -gallery-img-06.jpg
+  -gallery-img-07.jpg
+  -gallery-img-08.jpg
+  -gallery-img-09.jpg
+  -gallery-img-10.jpg
+  -gallery-img-11.jpg
+  -gallery-img-12.jpg
+  -img-1.jpg
+  -img-2.jpg
+  -img-3.jpg
+  -img-pro-01.jpg
+  -img-pro-02.jpg
+  -img-pro-03.jpg
+  -img-pro-04.jpg
+  -ins-bg.jpg
+  -instagram-img-01.jpg
+  -instagram-img-02.jpg
+  -instagram-img-03.jpg
+  -instagram-img-04.jpg
+  -instagram-img-05.jpg
+  -instagram-img-06.jpg
+  -instagram-img-07.jpg
+  -instagram-img-08.jpg
+  -instagram-img-09.jpg
+  -logo.png
+  -smp-img-01.jpg
+  -smp-img-02.jpg
+  -smp-img-03.jpg
+-dir:js
+  -baguetteBox.min.js
+  -bootsnav.js
+  -bootstrap.min.js
+  -bootstrap-select.js
+  -contact-form-script.js
+  -custom.js
+  -form-validator.min.js
+  -images-loaded.min.js
+  -inewsticker.js
+  -isotope.min.js
+  -jquery.nicescroll.min.js
+  -jquery.superslides.min.js
+  -jquery-3.2.1.min.js
+  -jquery-ui.js
+  -owl.carousel.min.js
+  -popper.min.js
+-dir:php
+  -form-process.php
+-dir:webfonts
+  -fa-brands-400.eot
+  -fa-brands-400.svg
+  -fa-brands-400.ttf
+  -fa-brands-400.woff
+  -fa-brands-400.woff2
+  -fa-regular-400.eot
+  -fa-regular-400.svg
+  -fa-regular-400.ttf
+  -fa-regular-400.woff
+  -fa-regular-400.woff2
+  -fa-solid-900.eot
+  -fa-solid-900.svg
+  -fa-solid-900.ttf
+  -fa-solid-900.woff
+  -fa-solid-900.woff2
