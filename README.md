@@ -8,7 +8,7 @@ Styling template obtained from https://www.free-css.com/free-css-templates/page2
 Directory Structure (in progress):<br />
 <br />
 -dir:css<br />
-&nbsp;&nbsp;&nbsp;-all.css<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-all.css<br />
   -animate.css<br />
   -baguetteBox.min.css<br />
   -bootsnav.css<br />
