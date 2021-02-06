@@ -84,6 +84,10 @@ Directory Structure (in progress):<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-smp-img-01.jpg<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-smp-img-02.jpg<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-smp-img-03.jpg<br />
+<br />-dir:inc<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-footer.php<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-header.php<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-js_to_include.php<br />
 <br />-dir:js<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-baguetteBox.min.js<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-bootsnav.js<br />
