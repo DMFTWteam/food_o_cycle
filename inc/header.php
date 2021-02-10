@@ -105,7 +105,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/Logo1.png" class="logo" alt=""></a>
+                    <a class="navbar-brand" href="index.html"><img src="images/Logo1.png" class="logo" style="height:40px; width:40px;" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 
