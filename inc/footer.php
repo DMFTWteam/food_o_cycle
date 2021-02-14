@@ -32,10 +32,10 @@
 							<h3>Social Media</h3>
 							<p>Check out our impact and follow our journey on social media!</p>
 							<ul>
-                                <li style='left: 0%; position: relative;'><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-								<li style='left: 25%; position: relative;'><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                                <li style='left: 50%; position: relative;'><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-								<li style='left: 75%; position: relative;'><a href="#"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li>
+                                <li style='left: 0%; position: relative;'><a href="#" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+								<li style='left: 25%; position: relative;'><a href="#" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                                <li style='left: 50%; position: relative;'><a href="#" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+								<li style='left: 75%; position: relative;'><a href="#" target="_blank"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li>
                             </ul>
 						</div>
 					</div>
@@ -53,12 +53,10 @@
                         <div class="footer-link">
                             <h4>Information</h4>
                             <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Customer Service</a></li>
-                                <li><a href="#">Our Sitemap</a></li>
+                                <li><a href="about">About Us</a></li>
+                                <li><a href="contact.php">Customer Service</a></li>
                                 <li><a href="#">Terms &amp; Conditions</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Delivery Information</a></li>
                             </ul>
                         </div>
                     </div>
@@ -67,13 +65,13 @@
                             <h4>Contact Us</h4>
                             <ul>
                                 <li>
-                                    <p><i class="fas fa-map-marker-alt"></i>Address: Food O' Cycle <br>3756 Preston Street <br>Wichita, KS 67213 </p>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address: <a href="https://goo.gl/maps/uaWuAhrxJonjdKsX6" target="_blank">Food O' Cycle <br>301 3rd Avenue <br>Pittsburgh, PA 15222 </a></p>
                                 </li>
                                 <li>
                                     <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-9655552658">(965) 555-2658</a></p>
                                 </li>
                                 <li>
-                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:foodocycle@gmail.com">foodocycle@gmail.com</a></p>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:support@foodocycle.com">support@foodocycle.com</a></p>
                                 </li>
                             </ul>
                         </div>

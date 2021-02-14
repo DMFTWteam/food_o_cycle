@@ -7,12 +7,12 @@
 <html lang="en">
 <!-- Basic -->
 	<body>
-		<form class="mt-3 collapse review-form-box" id="formRegister">
-		<div class="col-sm-6 col-lg-6 mb-3">
-            <div class="title-left">
+	<div class="col-sm-6 col-lg-6 mb-3"></div>
+		<form class="mt-3 review-form-box" id="formRegister">
+		<div class="Center col-sm-6 col-lg-6 mb-3">
+            <div class="title-middle">
                 <h3>Create New Account</h3>
             </div>
-            <h5><a data-toggle="collapse" href="#formRegister" role="button" aria-expanded="false">Click here to Register</a></h5>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="InputName" class="mb-0">First Name</label>
@@ -28,7 +28,7 @@
                         <input type="password" class="form-control" id="InputPassword1" placeholder="Password"> </div>
                 </div>
         </div>
-		<div class="col-sm-6 col-lg-6 mb-3">
+		<div class="Center col-sm-6 col-lg-6 mb-3">
             <div class="form-row">
 				<div class="form-group col-md-6">
                     <label for="DonorBox" class="mb-0">Donor</label>
@@ -38,7 +38,7 @@
                     <input type="checkbox" class="form-control" id="BankBox"> </div>
             </div>
         </div>
-		<div class="col-sm-6 col-lg-6 mb-3">
+		<div class="Center col-sm-6 col-lg-6 mb-3">
             <div class="form-row">
 				<div class="form-group col-md-6">
                     <label for="BusinesName" class="mb-0">Busines Name</label>
@@ -54,6 +54,7 @@
 </html>
 
 <?php
-	include 'inc/footer.php';
+
 	include 'inc/js_to_include.php';
+	include 'inc/footer.php';
 ?>
