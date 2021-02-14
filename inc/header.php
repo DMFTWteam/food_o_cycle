@@ -115,7 +115,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/Logo3.png" class="logo" style="height:150px; width:150px;" alt="https://i.stack.imgur.com/y9DpT.jpg"></a>
+                    <a class="navbar-brand" href="index.php"><img src="images/Logo3.png" class="logo" style="height:150px; width:150px;" alt="https://i.stack.imgur.com/y9DpT.jpg"></a>
 
                 </div>
                 <!-- End Header Navigation -->
