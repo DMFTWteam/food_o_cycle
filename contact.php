@@ -7,7 +7,9 @@
 <html lang="en">
 	<body>
 		<form class="mt-3 review-form-box" id="formRegister">
-		<div class="col-lg-12">
+		<div class="container">
+            <div class="row">
+                <div class="col-lg-12">
             <div class="title-middle">
                 <h3>Contact Us!</h3>
             </div>
@@ -21,6 +23,8 @@
                 </div>
 			<button type="submit" class="btn hvr-hover">Submit Message</button>
         </div>
+		</div>
+		</div>
 			
 		</form>
 	</body>
