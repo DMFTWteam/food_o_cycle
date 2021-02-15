@@ -20,7 +20,7 @@
                                 <label for="ConfirmPassword" class="mb-0">Confirm Password</label>
                                 <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password"> </div>
                         </div>
-                        <button type="submit" class="btn hvr-hover">Login</button>
+                        <button type="submit" class="btn hvr-hover">Submit</button>
 						<button type="submit" class="btn hvr-hover">Cancel</button>
                     </form>
                 </div>
