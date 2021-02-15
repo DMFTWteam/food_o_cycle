@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<body>
-	<div class="col-sm-6 col-lg-6 mb-3"></div>
 		<form class="mt-3 review-form-box" id="formRegister">
 		<div class="Center col-sm-6 col-lg-6 mb-3">
             <div class="title-middle">
@@ -20,9 +19,9 @@
                         <label for="InputEmail1" class="mb-0">Email Address</label>
                         <input type="email" class="form-control" id="InputEmail1" placeholder="Enter Email"> </div>
                 </div>
-        </div>
 			<button type="submit" class="btn hvr-hover">Submit Message</button>
         </div>
+			
 		</form>
 	</body>
 </html>
