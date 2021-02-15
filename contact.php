@@ -7,7 +7,7 @@
 <html lang="en">
 	<body>
 		<form class="mt-3 review-form-box" id="formRegister">
-		<div class="Center col-sm-6 col-lg-6 mb-3">
+		<div class="col-lg-12">
             <div class="title-middle">
                 <h3>Contact Us!</h3>
             </div>
