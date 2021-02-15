@@ -30,7 +30,7 @@
         </div>
 		</div>
 		</form>
-		<form class="mt-3 review-form-box" id="formRegister">
+		<form class="mt-3 review-form-box" id="formRegister" style="margin-bottom: 10%;">
             <div class="row">
                 <div class="col-lg-12">
             <div class="title-left">
