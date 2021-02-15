@@ -22,7 +22,7 @@ Directory Structure (in progress):<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-responsive.css<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-style.css<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-superslides.css<br />
--dir:db<br />
+<br />-dir:db<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-foodocycle.sql<br />
 <br />-dir:images<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-dir:payment-icon<br />
