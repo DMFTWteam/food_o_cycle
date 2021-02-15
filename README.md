@@ -123,4 +123,10 @@ Directory Structure (in progress):<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-fa-solid-900.ttf<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-fa-solid-900.woff<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-fa-solid-900.woff2<br />
+<br />-admin.php<br />
+<br />-forgotPassword.php<br />
 <br />-index.php<br />
+<br />-login.php<br />
+<br />-README.md<br />
+<br />-register.php<br />
+<br />-resetPassword.php<br />

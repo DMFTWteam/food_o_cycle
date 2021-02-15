@@ -7,7 +7,9 @@
 <html lang="en">
 <!-- Basic -->
 	<body>
-		<div class="Center col-sm-6 col-lg-6 mb-3" >
+		<div class="container">
+            <div class="row">
+                <div class="col-lg-12">
                     <div class="title-center">
                         <h3>Reset Password</h3>
                     </div>
@@ -24,6 +26,8 @@
 						<button type="submit" class="btn hvr-hover">Cancel</button>
                     </form>
                 </div>
+			</div>
+		</div>
 				
 	</body>
 </html>
