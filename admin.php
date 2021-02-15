@@ -39,7 +39,7 @@
 			<div class="row">
                 <div class="col-lg-12">
                     <div class="table-main table-responsive">
-                        <table class="table" style="margin-bottom: 10%;">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>Business Name</th>
@@ -70,7 +70,7 @@
             </div>
 			<div class="row">
                 <div class="col-lg-12">
-					<button type="submit" class="btn hvr-hover">Download Logs</button>
+					<button type="submit" class="btn hvr-hover"  style="margin-bottom: 10%;">Download Logs</button>
 				</div>
 			</div>
         </div>
