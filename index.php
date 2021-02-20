@@ -9,7 +9,7 @@ include 'inc/header.php';
     <div id="slides-shop" class="cover-slides">
         <ul class="slides-container">
             <li class="text-center">
-                <img src="images/banner-01.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg">
+                <img src="images/banner-01.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found?text=No+Image+Found">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -22,7 +22,7 @@ include 'inc/header.php';
                 </div>
             </li>
             <li class="text-center">
-                <img src="images/banner-02.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg">
+                <img src="images/banner-02.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -35,7 +35,7 @@ include 'inc/header.php';
                 </div>
             </li>
             <li class="text-center">
-                <img src="images/banner-03.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg">
+                <img src="images/banner-03.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -61,37 +61,37 @@ include 'inc/header.php';
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://i.stack.imgur.com/y9DpT.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Produce</a>
                     </div>
                 </div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://i.stack.imgur.com/y9DpT.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Perishables</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://i.stack.imgur.com/y9DpT.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Canned Goods</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://i.stack.imgur.com/y9DpT.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Seasonings and Condiments</a>
                     </div>
                 </div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://i.stack.imgur.com/y9DpT.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Beverages</a>
                     </div>
                 </div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://i.stack.imgur.com/y9DpT.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Miscellaneous</a>
                     </div>
                 </div>
@@ -236,7 +236,7 @@ include 'inc/header.php';
                 <div class="col-md-6 col-lg-4 col-xl-4">
                     <div class="blog-box">
                         <div class="blog-img">
-                            <img class="img-fluid" src="images/blog-img.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                            <img class="img-fluid" src="images/blog-img.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
@@ -254,7 +254,7 @@ include 'inc/header.php';
                 <div class="col-md-6 col-lg-4 col-xl-4">
                     <div class="blog-box">
                         <div class="blog-img">
-                            <img class="img-fluid" src="images/blog-img-01.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                            <img class="img-fluid" src="images/blog-img-01.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
@@ -272,7 +272,7 @@ include 'inc/header.php';
                 <div class="col-md-6 col-lg-4 col-xl-4">
                     <div class="blog-box">
                         <div class="blog-img">
-                            <img class="img-fluid" src="images/blog-img-02.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                            <img class="img-fluid" src="images/blog-img-02.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
@@ -298,7 +298,7 @@ include 'inc/header.php';
         <div class="main-instagram owl-carousel owl-theme">
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="images/instagram-img-01.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                    <img src="images/instagram-img-01.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -306,7 +306,7 @@ include 'inc/header.php';
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="images/instagram-img-02.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                    <img src="images/instagram-img-02.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -314,7 +314,7 @@ include 'inc/header.php';
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="images/instagram-img-03.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                    <img src="images/instagram-img-03.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -322,7 +322,7 @@ include 'inc/header.php';
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="images/instagram-img-04.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                    <img src="images/instagram-img-04.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -330,7 +330,7 @@ include 'inc/header.php';
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="images/instagram-img-05.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                    <img src="images/instagram-img-05.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -338,7 +338,7 @@ include 'inc/header.php';
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="images/instagram-img-06.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                    <img src="images/instagram-img-06.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -346,7 +346,7 @@ include 'inc/header.php';
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="images/instagram-img-07.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                    <img src="images/instagram-img-07.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -354,7 +354,7 @@ include 'inc/header.php';
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="images/instagram-img-08.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                    <img src="images/instagram-img-08.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -362,7 +362,7 @@ include 'inc/header.php';
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="images/instagram-img-09.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                    <img src="images/instagram-img-09.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -370,7 +370,7 @@ include 'inc/header.php';
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="images/instagram-img-05.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg" />
+                    <img src="images/instagram-img-05.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>

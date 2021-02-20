@@ -7,8 +7,11 @@
 <html lang="en">
 <!-- Basic -->
 	<body>
+	<div class="container">
 		<form class="mt-3 review-form-box" id="formRegister">
-		<div class=" Center col-sm-6 col-lg-6 mb-3">
+		
+            <div class="row">
+                <div class="col-lg-12">
             <div class="title-left">
                 <h3>Verify Account Information</h3>
             </div>
@@ -25,9 +28,11 @@
                 </div>
 				<button type="submit" class="btn hvr-hover">Submit</button>
         </div>
+		</div>
 		</form>
-		<form class="mt-3 review-form-box" id="formRegister">
-		<div class="Center col-sm-6 col-lg-6 mb-3">
+		<form class="mt-3 review-form-box" id="formRegister" style="margin-bottom: 10%;">
+            <div class="row">
+                <div class="col-lg-12">
             <div class="title-left">
                 <h3>Verification Code</h3>
             </div>
@@ -38,7 +43,9 @@
                 </div>
 				<button type="submit" class="btn hvr-hover">Submit</button>
         </div>
+		</div>
 		</form>
+		</div>
 	</body>
 </html>
 

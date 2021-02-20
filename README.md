@@ -22,6 +22,8 @@ Directory Structure (in progress):<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-responsive.css<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-style.css<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-superslides.css<br />
+<br />-dir:db<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-foodocycle.sql<br />
 <br />-dir:images<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-dir:payment-icon<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.png<br />
@@ -123,4 +125,13 @@ Directory Structure (in progress):<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-fa-solid-900.ttf<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-fa-solid-900.woff<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-fa-solid-900.woff2<br />
+<br />-about.php<br />
+<br />-admin.php<br />
+<br />-contact.php<br />
+<br />-forgotPassword.php<br />
+<br />-help.php<br />
 <br />-index.php<br />
+<br />-login.php<br />
+<br />-README.md<br />
+<br />-register.php<br />
+<br />-resetPassword.php<br />

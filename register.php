@@ -7,9 +7,11 @@
 <html lang="en">
 <!-- Basic -->
 	<body>
-	<div class="col-sm-6 col-lg-6 mb-3"></div>
-		<form class="mt-3 review-form-box" id="formRegister">
-		<div class="Center col-sm-6 col-lg-6 mb-3">
+	
+		<div class="container">
+		<form class="mt-3 review-form-box" id="formRegister" style="margin-bottom: 10%;">
+            <div class="row">
+                <div class="col-lg-12">
             <div class="title-middle">
                 <h3>Create New Account</h3>
             </div>
@@ -28,7 +30,9 @@
                         <input type="password" class="form-control" id="InputPassword1" placeholder="Password"> </div>
                 </div>
         </div>
-		<div class="Center col-sm-6 col-lg-6 mb-3">
+		</div>
+            <div class="row">
+                <div class="col-lg-12">
             <div class="form-row">
 				<div class="form-group col-md-6">
                     <label for="DonorBox" class="mb-0">Donor</label>
@@ -38,7 +42,9 @@
                     <input type="checkbox" class="form-control" id="BankBox"> </div>
             </div>
         </div>
-		<div class="Center col-sm-6 col-lg-6 mb-3">
+		</div>
+				<div class="row">
+                <div class="col-lg-12">
             <div class="form-row">
 				<div class="form-group col-md-6">
                     <label for="BusinesName" class="mb-0">Busines Name</label>
@@ -49,7 +55,9 @@
             </div>
 			<button type="submit" class="btn hvr-hover">Create Account</button>
         </div>
+		</div>
 		</form>
+		</div>
 	</body>
 </html>
 
