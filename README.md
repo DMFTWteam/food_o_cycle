@@ -135,3 +135,4 @@ Directory Structure (in progress):<br />
 <br />-README.md<br />
 <br />-register.php<br />
 <br />-resetPassword.php<br />
+<br />-userhome.php<br />
