@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<body>
-		<form class="mt-3 review-form-box" id="formRegister">
+		<form class="mt-3 review-form-box" id="form-contact">
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -21,6 +21,10 @@
                         <label for="InputEmail1" class="mb-0">Email Address</label>
                         <input type="email" class="form-control" id="InputEmail1" placeholder="Enter Email"> </div>
                 </div>
+				<div class="form-group">
+					<label for="ContactMessage">Message</label>
+					<textarea class="form-control" id="ContactMessage" rows="3"></textarea>
+				</div>
 			<button type="submit" class="btn hvr-hover">Submit Message</button>
         </div>
 		</div>
