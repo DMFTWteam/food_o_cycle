@@ -6,13 +6,25 @@
 <!DOCTYPE html>
 <html lang="en">
 	<body>
+	<!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Contact</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                        <li class="breadcrumb-item active">Contact</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
 		<form class="mt-3 review-form-box" id="formRegister">
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
-            <div class="title-middle">
-                <h3>Contact Us!</h3>
-            </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="InputName" class="mb-0">Contact Name</label>

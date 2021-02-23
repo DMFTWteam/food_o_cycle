@@ -4,22 +4,30 @@ include 'inc/header.php';
 <!DOCTYPE html>
 <html lang="en">
 	<body>
-
-    <div id="slides-shop" class="cover-slides">
-        <ul class="slides-container">
-            <li class="text-center">
-                <img src="images/banner-01.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>About <br> Food O' Cycle</strong></h1>
-                            <p class="m-b-40"><i>This is where we will have info about our business!</i></p>
-                        </div>
-                    </div>
+<!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>About</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                        <li class="breadcrumb-item active">About</li>
+                    </ul>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
+    <!-- End All Title Box -->
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="form-row">
+                    <p style="margin-left: auto; margin-right: auto; width: 32em; margin-top: 50px; margin-bottom: 40px">This is where information about our business will go!<p>
+				</div>
+        </div>
+		</div>
+		</div>
 	</body>
 </html>
 <?php
