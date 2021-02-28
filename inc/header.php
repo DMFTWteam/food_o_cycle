@@ -28,12 +28,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
 	
-	<style> 
-        .Center { 
-            left: 50%; 
-            margin-left: -400px; 
-        } 
-    </style> 
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -130,7 +124,7 @@
                             <ul class="dropdown-menu">
 								<li><a href="#">Sidebar Shop</a></li>
 								<li><a href="#">Shop Detail</a></li>
-                                <li><a href="#">Cart</a></li>
+                                <li><a href="cart.php">Cart</a></li>
                                 <li><a href="#">Checkout</a></li>
                                 <li><a href="#">My Account</a></li>
                                 <li><a href="#">Wishlist</a></li>
@@ -177,7 +171,7 @@
                             <p>1x - <span class="price">$40.00</span></p>
                         </li>
                         <li class="total">
-                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <a href="cart.php" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
                             <span class="float-right"><strong>Total</strong>: $180.00</span>
                         </li>
                     </ul>
@@ -201,7 +195,6 @@
     </div>
     <!-- End Top Search -->
 
-    
 	
 </body>
 
