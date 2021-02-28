@@ -4,22 +4,32 @@ include 'inc/header.php';
 <!DOCTYPE html>
 <html lang="en">
 	<body>
-
-    <div id="slides-shop" class="cover-slides">
-        <ul class="slides-container">
-            <li class="text-center">
-                <img src="images/banner-01.jpg" alt="https://i.stack.imgur.com/y9DpT.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>About <br> Food O' Cycle</strong></h1>
-                            <p class="m-b-40"><i>This is where we will have info about our business!</i></p>
-                        </div>
-                    </div>
+<!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>About Food O' Cycle</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                        <li class="breadcrumb-item active">About</li>
+                    </ul>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
+    <!-- End All Title Box -->
+			<div class="row">
+				<div class="col-lg-4 offset-lg-4">
+					<div class="about-content">
+						Food O' Cycle started off with the simple idea of reducing waste,
+						while trying to reduce community hunger at the same time. To do so, we had to come up with
+						a way of connecting businesses that could donate, and the organizations that could accept these 
+						donations.
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
 <?php
