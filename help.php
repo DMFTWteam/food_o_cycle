@@ -5,6 +5,21 @@ include 'inc/header.php';
 <html lang="en">
 <!-- Basic -->
 	<body>
+	<!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Help</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                        <li class="breadcrumb-item active">Help</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
     <!-- Start FAQ  -->
 	<!-- If the products box class works for this then keep it, if not update it -->
     <div class="products-box">
