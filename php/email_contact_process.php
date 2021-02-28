@@ -1,37 +1,31 @@
 <?php
-
+//Starting a session
+session_start();
 $errorMSG = "";
-
+$msgSuccess = False;
 // NAME
-if (empty($_POST["name"])) {
+if (empty($_POST["InputName"])) {
     $errorMSG = "Name is required ";
 } else {
-    $name = $_POST["name"];
+    $name = $_POST["InputName"];
 }
 
 // EMAIL
-if (empty($_POST["email"])) {
+if (empty($_POST["InputEmail"])) {
     $errorMSG .= "Email is required ";
 } else {
-    $email = $_POST["email"];
-}
-
-// Subject
-if (empty($_POST["subject"])) {
-    $errorMSG .= "Subject is required ";
-} else {
-    $subject = $_POST["guest"];
+    $email = $_POST["InputEmail"];
 }
 
 // MESSAGE
-if (empty($_POST["message"])) {
+if (empty($_POST["ContactMessage"])) {
     $errorMSG .= "Message is required ";
 } else {
-    $message = $_POST["message"];
+    $message = $_POST["ContactMessage"];
 }
 
 
-$EmailTo = "armanmia7@gmail.com";
+$EmailTo = "xyz@foodocycle.com";
 $Subject = "New Message Received";
 
 // prepare email body text
@@ -42,28 +36,30 @@ $Body .= "\n";
 $Body .= "Email: ";
 $Body .= $email;
 $Body .= "\n";
-$Body .= "guest: ";
-$Body .= $guest;
-$Body .= "\n";
-$Body .= "event: ";
-$Body .= $event;
-$Body .= "\n";
 $Body .= "Message: ";
 $Body .= $message;
 $Body .= "\n";
 
 // send email
-$success = mail($EmailTo, $Subject, $Body, "From:".$email);
+// SETTING TO TRUE UNTIL SERVER IS SETUP FOR EMAIL
+//$success = mail($EmailTo, $Subject, $Body, "From:".$email);
+$success = True;
 
 // redirect to success page
 if ($success && $errorMSG == ""){
-   echo "success";
+   $_SESSION['msgSuccess'] = True;
+   header("Location: ..\contact.php");
 }else{
+	//TO DO: Create failure alerts
     if($errorMSG == ""){
-        echo "Something went wrong :(";
+        $errorMSG = "Something went wrong :(";
+		//Unsuccessful
+		header("Location: ..\contact.php");
     } else {
-        echo $errorMSG;
+        //Unsuccessful
+		header("Location: ..\contact.php");
     }
 }
+//D
 
 ?>
