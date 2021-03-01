@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION)){header('Location: https://foodocycle.com/login.php');
+if(!session_id()){header('Location: https://foodocycle.com/login.php');
 						exit();}
 include 'inc/header.php';
 ?>
