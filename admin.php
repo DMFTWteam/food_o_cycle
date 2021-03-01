@@ -1,6 +1,6 @@
 <?php
-if(!session_id()){header('Location: https://foodocycle.com/login.php');
-						exit();}
+/*if(!isset($_SESSION['email']){header('Location: https://foodocycle.com/login.php');
+						exit();}*/
 	include 'inc/header.php';
 ?>
 
