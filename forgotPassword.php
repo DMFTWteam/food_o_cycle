@@ -1,6 +1,9 @@
 <?php
 	include 'inc/header.php';
-	
+	$_SESSION['email']=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
+	if(isset($_SESSION['email'])){
+		var_dump($_SESSION['email']);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -23,26 +26,27 @@
     </div>
     <!-- End All Title Box -->
 	<div class="container">
-		<form class="mt-3 review-form-box" id="formRegister">
+		<form class="mt-3 review-form-box" name="formRegister" action='forgotPassword.php' method='post'>
 		
             <div class="row">
                 <div class="col-lg-12">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="InputName" class="mb-0">First Name</label>
-                        <input type="text" class="form-control" id="InputName" placeholder="First Name"> </div>
+                        <input type="text" class="form-control" name="InputName" placeholder="First Name"> </div>
                     <div class="form-group col-md-6">
                         <label for="InputLastname" class="mb-0">Last Name</label>
-                        <input type="text" class="form-control" id="InputLastname" placeholder="Last Name"> </div>
+                        <input type="text" class="form-control" name="InputLastname" placeholder="Last Name"> </div>
                     <div class="form-group col-md-6">
                         <label for="InputEmail1" class="mb-0">Email Address</label>
-                        <input type="email" class="form-control" id="InputEmail1" placeholder="Enter Email"> </div>
+                        <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email"> </div>
                 </div>
 				<button type="submit" class="btn hvr-hover">Submit</button>
         </div>
 		</div>
 		</form>
-		<form class="mt-3 review-form-box" id="formRegister" style="margin-bottom: 10%;">
+	<?php if(isset($_SESSION['email'])){ ?>
+		<form class="mt-3 review-form-box" name="formRegister" style="margin-bottom: 10%;" action='resetPassword.php' method='post'>
             <div class="row">
                 <div class="col-lg-12">
             <div class="title-left">
@@ -51,12 +55,13 @@
 				<div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="Code" class="mb-0">Enter code below:</label>
-                        <input type="text" class="form-control" id="Code" placeholder="Verification Code"> </div>
+                        <input type="text" class="form-control" name="Code" placeholder="Verification Code"> </div>
                 </div>
 				<button type="submit" class="btn hvr-hover">Submit</button>
         </div>
 		</div>
 		</form>
+	<?php  }  ?>
 		</div>
 	</body>
 </html>
