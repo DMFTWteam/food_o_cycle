@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(!isset($_SESSION)){header('Location: https://foodocycle.com/login.php');
 						exit();}
 include 'inc/header.php';
