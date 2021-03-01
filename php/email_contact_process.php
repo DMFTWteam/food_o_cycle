@@ -25,7 +25,7 @@ if (empty($_POST["ContactMessage"])) {
 }
 
 
-$EmailTo = "xyz@foodocycle.com";
+$EmailTo = "admin@foodocycle.com";
 $Subject = "New Message Received";
 
 // prepare email body text
