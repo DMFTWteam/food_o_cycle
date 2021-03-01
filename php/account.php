@@ -1,7 +1,8 @@
 <?php
 	ini_set("session.use_trans_sid",true);
 	session_start();
-
+	$_SESSION['cookie_support']=0;
+	
 	$_SESSION['email']=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
 	$_SESSION['password']=filter_input(INPUT_POST, 'InputPassword');
 	$path=filter_input(INPUT_POST, 'path');
