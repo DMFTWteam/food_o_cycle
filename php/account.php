@@ -15,7 +15,7 @@
 	if($_SESSION['email'] == null || $_SESSION['email'] == false || $_SESSION['password'] == null){
 		header('Location: https://foodocycle.com/login.php');
 	}else{
-		header('Location: https://foodocycle.com/fbhome.php');
+		header('Location: https://foodocycle.com/shop.php');
 		/*if($_SESSION['account_type'] === 'admin'){
 			header('Location: https://foodocycle.com/admin.php');
 		}else if($_SESSION['account_type'] === 'food_bank'){
