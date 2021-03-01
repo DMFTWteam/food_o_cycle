@@ -2,8 +2,8 @@
 	
 	session_start();
 
-	if(!isset($_SESSION['email'])){$_SESSION['email']=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);}
-	if(!isset($_SESSION['email'])){$_SESSION['password']=filter_input(INPUT_POST, 'InputPassword');}
+	$_SESSION['email']=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
+	$_SESSION['password']=filter_input(INPUT_POST, 'InputPassword');
 	$path=filter_input(INPUT_POST, 'path');
 	$_SESSION['account_type']= '';
 	
