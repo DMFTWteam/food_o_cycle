@@ -24,7 +24,7 @@
 				 // Get the userName and passWord
 					$query = 'SELECT u_email, u_password
 							  FROM users
-							  WHERE u_email =:emailAddress';
+							  WHERE u_email = ":emailAddress"';
 					$statement = $db->prepare($query);
 					$statement->bindValue(':emailAddress', $username);
 					$statement->execute();
