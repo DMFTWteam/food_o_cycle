@@ -51,7 +51,7 @@
 							$statement2->execute();
 							$bus_info= $statement2->fetch();
 							$statement2->closeCursor();
-
+							print_r($bus_info);
 							if($business_count > 0){
 						 		$_SESSION['business'] = $bus_info;
 								if($_SESSION['business']['business_is_donor'] === 1){
