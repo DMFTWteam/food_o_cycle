@@ -1,5 +1,5 @@
 <?php
-	include "db_connect.php";
+	include "../inc/db_connect.php";
 	session_start(); 
 
 	if(!isset($username)){
@@ -22,11 +22,11 @@
 			   else
 			   {
 				 // Get the userName and passWord
-					$query = 'SELECT u_password
+					$query = 'SELECT u_email, u_password
 							  FROM users
-							  WHERE u_email = "jsmith@email.com"';
+							  WHERE u_email = :emailAddress';
 					$statement = $db->prepare($query);
-					//$statement->bindValue(':emailAddress', $username);
+					$statement->bindValue(':emailAddress', $username);
 					$statement->execute();
 					$login= $statement->fetchAll();
 					print_r($login);
