@@ -16,11 +16,13 @@ include 'inc/header.php';
                     </ul>
                 </div>
             </div>
-            <!-- End All Title Box -->
+        </div>
+    </div>
+    <!-- End All Title Box -->
 			<div class="row">
 				<div class="col-lg-4 offset-lg-4">
-					<div class="about-content" style='margin-bottom: 20px'>
-						Food O' Cycle started off with the simple idea of reducing waste,
+					<div class="about-content">
+                        Food O' Cycle started off with the simple idea of reducing waste,
 						while trying to reduce community hunger at the same time. 
 
                         Our mission is to help others who are in need by not letting food go to waste. We want to bring 
@@ -47,14 +49,10 @@ include 'inc/header.php';
                         the organizations that could accept these donations and this is the result!
 
                         We hope you enjoy!
-
-
 					</div>
 				</div>
 			</div>
-        
-        </div>
-	</div>
+		</div>
 	</body>
 </html>
 <?php
