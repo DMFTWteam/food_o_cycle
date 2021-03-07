@@ -9,7 +9,7 @@
     } 
 	catch (PDOException $e) {
         $error_message = $e->getMessage();
-        echo  'Connection error.:$error_message';
+        echo  '<p> Connection error.: '.$error_message.'</p>';
     }
 	
 ?>
