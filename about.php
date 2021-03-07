@@ -22,15 +22,15 @@ include 'inc/header.php';
 			<div class="row">
 				<div class="col-lg-4 offset-lg-4">
 					<div class="about-content">
-                        Food O' Cycle started off with the simple idea of reducing waste,
-						while trying to reduce community hunger at the same time.<br> <br>
+                        <p>Food O' Cycle started off with the simple idea of reducing waste,
+						while trying to reduce community hunger at the same time.<br><br>
 
                         Our mission is to help others who are in need by not letting food go to waste. We want to bring 
-                        people together and work as a community to support an important cause.<br> <br>
+                        people together and work as a community to support an important cause.<br><br>
 
                         We offer the ability for companies that have extra food that they will not be utilizing, to donate 
                         it instead of throwing it out. This has been designed so that food banks can easily and efficiently 
-                        find what they are in need of as well as make it quick and efficient for companies to donate the food. <br> <br>
+                        find what they are in need of as well as make it quick and efficient for companies to donate the food. <br><br>
 
                         One of the founders of this company, Fred McGallahan, was a waiter at one of his local restaurants in an 
                         area of poverty. He saw first hand the amount of food that was being wasted on a daily basis as well 
@@ -43,12 +43,12 @@ include 'inc/header.php';
                         Other cities heard about what was happening and started doing the same thing. Once Fred realized how 
                         much, not only his community, but communities all of the country needed this service, he helped establish 
                         a team together that would be able to create the service online to make it more convenient for everyone 
-                        involved. <br> <br>
+                        involved. <br><br>
                         
                         To do so, our team had to come up with a way of connecting businesses that could donate, and 
-                        the organizations that could accept these donations and this is the result!<br> <br>
+                        the organizations that could accept these donations and this is the result!<br><br>
 
-                        We hope you enjoy!<br> <br>
+                        We hope you enjoy!<br><br></p>
 					</div>
 				</div>
 			</div>
