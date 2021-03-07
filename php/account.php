@@ -28,7 +28,7 @@
 					$statement = $db->prepare($query);
 					$statement->bindValue(':emailAddress', $username);
 					$statement->execute();
-					$login= $statement->fetchAll();
+					$login= $statement->fetch();
 					print_r($login);
 					$count = $statement->rowCount();
 					$statement->closeCursor();
