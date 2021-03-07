@@ -1,6 +1,5 @@
 <?php
 include 'inc/header.php';
-include 'inc/db_connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
