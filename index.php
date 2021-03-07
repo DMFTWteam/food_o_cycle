@@ -1,7 +1,7 @@
 <?php
 include 'inc/header.php';
 
-$query = 'SELECT u_email, u_password
+$query = 'SELECT *
 							  FROM users';
 					$statement = $db->prepare($query);
 					$statement->execute();
