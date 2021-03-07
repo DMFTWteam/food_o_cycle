@@ -29,16 +29,16 @@
 					$statement->bindValue(':emailAddress', $username);
 					$statement->execute();
 					$login= $statement->fetch();
-					print_r($login);
+					//print_r($login);
 					$count = $statement->rowCount();
 					$statement->closeCursor();
 					
 					if($count > 0){
 					 
-					 $validPassword = password_verify($password , $login['password']);
+					 $validPassword = password_verify($password , $login['u_password']);
 					 if($validPassword){
 					 	$_SESSION["email"] = $username;
-					  	header("Location: https://foodocycle.com/admin.php");
+					  	header("Location: ../admin.php");
 					  }
 					}
 					
