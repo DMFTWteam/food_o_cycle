@@ -20,7 +20,7 @@ include 'inc/header.php';
     </div>
     <!-- End All Title Box -->
 			<div class="row">
-				<div class="col-lg-6 offset-lg-2">
+				<div class="col-lg-6 offset-lg-3">
 					<div class="about-content">
                         <p>Food O' Cycle started off with the simple idea of reducing waste,
 						while trying to reduce community hunger at the same time.<br><br>
