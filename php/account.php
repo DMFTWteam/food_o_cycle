@@ -29,6 +29,7 @@
 					$statement->bindValue(':emailAddress', $username);
 					$statement->execute();
 					$login= $statement->fetch();
+					print_r($login);
 					$count = $statement->rowCount();
 					$statement->closeCursor();
 					
