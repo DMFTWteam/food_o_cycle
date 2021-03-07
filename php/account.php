@@ -36,6 +36,9 @@
 					if($count > 0){
 					 
 					 $validPassword = password_verify($password , $login['u_password']);
+					 var_dump($password);
+					 var_dump($login['u_password']);
+					 var_dump($validPassword);
 					 if($validPassword){
 					 	$_SESSION["email"] = $username;
 					  	header("Location: ../admin.php");
