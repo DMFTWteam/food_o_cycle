@@ -16,9 +16,7 @@ include 'inc/header.php';
                     </ul>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- End All Title Box -->
+            <!-- End All Title Box -->
 			<div class="row">
 				<div class="col-lg-4 offset-lg-4">
 					<div class="about-content">
@@ -29,7 +27,9 @@ include 'inc/header.php';
 					</div>
 				</div>
 			</div>
-		</div>
+        
+        </div>
+	</div>
 	</body>
 </html>
 <?php

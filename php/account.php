@@ -1,5 +1,5 @@
 <?php
-	include "../inc/db_connect.php";
+	require "../inc/db_connect.php";
 	session_start(); 
 
 	if(!isset($username)){
@@ -10,9 +10,9 @@
 		$password = filter_input(INPUT_POST,'InputPassword');
 	}
 	
-	$login = filter_input(INPUT_POST, 'login');
+	$user_info = filter_input(INPUT_POST, 'login');
 	
-	if(isset($login))  
+	if(isset($user_info))  
 		  {  
 			   if(empty($username) || empty($password))  
 			   {  
@@ -22,26 +22,45 @@
 			   else
 			   {
 				 // Get the userName and passWord
-					$query = 'SELECT u_email, u_password
+					$query = 'SELECT *
 							  FROM users
 							  WHERE u_email = :emailAddress';
 					$statement = $db->prepare($query);
 					$statement->bindValue(':emailAddress', $username);
 					$statement->execute();
-					$login= $statement->fetch();
-					//print_r($login);
-					$count = $statement->rowCount();
+					$user_info= $statement->fetch();
+					print_r($user_info);
+					$user_count = $statement->rowCount();
 					$statement->closeCursor();
 					
-					if($count > 0){
+
+					if($user_count > 0){
 					 
-					 $validPassword = password_verify($password , password_hash($login['u_password'], PASSWORD_DEFAULT));
-					 var_dump($password);
-					 var_dump($login['u_password']);
-					 var_dump($validPassword);
+					 $validPassword = password_verify($password , password_hash($user_info['u_password'], PASSWORD_DEFAULT));
 					 if($validPassword){
-					 	$_SESSION["email"] = $username;
-					  	header("Location: ../admin.php");
+						 $_SESSION['user'] = $user_info;
+					  	if($user_info['u_is_admin'] === 1){
+							  header("Location: ../admin.php");
+						}else if($user_info['u_is_standard'] === 1){
+							$query2 = 'SELECT *
+							  			FROM user_to_business, business
+							 			WHERE user_to_business.u_id = :u_id
+										AND user_to_business.business_id = business.business_id';
+							$statement2 = $db->prepare($query2);
+							$statement2->bindValue(':u_id', $user_info['u_id']);
+							$statement2->execute();
+							$bus_info= $statement2->fetch();
+							$statement2->closeCursor();
+
+							if($business_count > 0){
+						 		$_SESSION['business'] = $bus_info;
+								if($_SESSION['business']['business_is_donor'] === 1){
+									header("Location: ../donorhome.php");
+								}else{
+									header("Location: ../fbhome.php");
+								}
+							}
+						}
 					  }
 					  else{
 						echo '<label>Invalid Password.</label>'; 
