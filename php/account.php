@@ -37,7 +37,7 @@
 					 $validPassword = password_verify($password , $login['password']);
 					 if($validPassword){
 					 	$_SESSION["email"] = $username;
-					  	header("location:admin.php");
+					  	header("location: https://foodocycle.com/admin.php");
 					  }
 					}
 					
