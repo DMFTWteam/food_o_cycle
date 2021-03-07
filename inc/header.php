@@ -1,3 +1,7 @@
+<?php
+  require "db_connect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
@@ -47,7 +51,7 @@
                     </div>
                     <div class="our-link">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user s_color"></i> My Account</a></li>
+                            <li><a href="php/account.php"><i class="fa fa-user s_color"></i> My Account</a></li>
                             <li><a href="contact.php"><i class="fas fa-headset"></i> Contact Us</a></li>
                         </ul>
                     </div>
@@ -60,7 +64,12 @@
 						<div class="our-link" style="float: right;">
                         <ul style="text-align: right;">
                             <li><a href="register.php">Register</a></li>
-                            <li><a href="login.php">Sign In</a></li>
+							<?php if(!isset($_SESSION['email']) && !isset($_SESSION['password'])){
+								echo '<li><a href="login.php">Sign In</a></li>';
+							}else{
+								echo '<li><a href="php/logout.php">Sign Out</a></li>';
+							}
+							?>
                         </ul>
                     </div>
                     <!-- <div class="text-slid-box">
@@ -119,17 +128,7 @@
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
-                            <ul class="dropdown-menu">
-								<li><a href="#">Sidebar Shop</a></li>
-								<li><a href="#">Shop Detail</a></li>
-                                <li><a href="cart.php">Cart</a></li>
-                                <li><a href="#">Checkout</a></li>
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">Wishlist</a></li>
-                            </ul>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="shop.php">Shop</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
                     </ul>
                 </div>
@@ -156,23 +155,22 @@
                 <li class="cart-box">
                     <ul class="cart-list">
                         <li>
-                            <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="https://i.stack.imgur.com/y9DpT.jpg" /></a>
-                            <h6><a href="#">Delica omtantur </a></h6>
-                            <p>1x - <span class="price">$80.00</span></p>
+                            <a href="shop-detail.php?id=" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="https://i.stack.imgur.com/y9DpT.jpg" /></a>
+                            <h6><a href="shop-detail.php?id=">Delica omtantur </a></h6>
+                            <p>1</p>
                         </li>
                         <li>
-                            <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="https://i.stack.imgur.com/y9DpT.jpg" /></a>
-                            <h6><a href="#">Omnes ocurreret</a></h6>
-                            <p>1x - <span class="price">$60.00</span></p>
+                            <a href="shop-detail.php?id=" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="https://i.stack.imgur.com/y9DpT.jpg" /></a>
+                            <h6><a href="shop-detail.php?id=">Omnes ocurreret</a></h6>
+                            <p>1</p>
                         </li>
                         <li>
-                            <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="https://i.stack.imgur.com/y9DpT.jpg" /></a>
-                            <h6><a href="#">Agam facilisis</a></h6>
-                            <p>1x - <span class="price">$40.00</span></p>
+                            <a href="shop-detail.php?id=" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="https://i.stack.imgur.com/y9DpT.jpg" /></a>
+                            <h6><a href="shop-detail.php?id=">Agam facilisis</a></h6>
+                            <p>1</p>
                         </li>
                         <li class="total">
                             <a href="cart.php" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                            <span class="float-right"><strong>Total</strong>: $180.00</span>
                         </li>
                     </ul>
                 </li>
@@ -183,17 +181,6 @@
     </header>
     <!-- End Main Top -->
 
-    <!-- Start Top Search -->
-    <div class="top-search">
-        <div class="container">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-            </div>
-        </div>
-    </div>
-    <!-- End Top Search -->
 
 	
 </body>

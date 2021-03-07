@@ -1,5 +1,26 @@
 <?php
 	include 'inc/header.php';
+	$path=filter_input(INPUT_POST, "path");
+	//var_dump($path);
+	
+	if($path === '/register.php'){
+		$first_name=filter_input(INPUT_POST,'InputName');
+		$last_name=filter_input(INPUT_POST,'InputLastname');
+		$email=filter_input(INPUT_POST,'InputEmail', FILTER_VALIDATE_EMAIL);
+		$password=filter_input(INPUT_POST,'InputPassword');
+		$donor_box=filter_input(INPUT_POST,'DonorBox', FILTER_VALIDATE_BOOLEAN);
+		$bank_box=filter_input(INPUT_POST,'BankBox', FILTER_VALIDATE_BOOLEAN);
+		$business_name=filter_input(INPUT_POST,'BusinesName');
+		$ein=filter_input(INPUT_POST,'EIN', FILTER_VALIDATE_INT);
+		
+
+	}else if($path === '/resetPassword.php'){
+		$password=filter_input(INPUT_POST, 'InputPassword');
+		var_dump($password);
+	}
+	
+	
+	
 	
 ?>
 
@@ -25,17 +46,18 @@
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <form class="mt-3 review-form-box" id="formLogin" style="margin-bottom: 30%;">
+                    <form class="mt-3 review-form-box" name="formLogin" style="margin-bottom: 30%;" action='php/account.php' method='post'>
                         <div class="form-row" >
                             <div class="form-group col-md-6">
                                 <label for="InputEmail" class="mb-0">Email Address</label>
-                                <input type="email" class="form-control" id="InputEmail" placeholder="Enter Email"> </div>
+                                <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email"> </div>
                             <div class="form-group col-md-6">
                                 <label for="InputPassword" class="mb-0">Password</label>
-                                <input type="password" class="form-control" id="InputPassword" placeholder="Password"> </div>
+                                <input type="password" class="form-control" name="InputPassword" placeholder="Password"> </div>
                         </div>
-                        <button type="submit" class="btn hvr-hover">Login</button>
+                        <button type="submit" class="btn hvr-hover" name='login' value='Login'>Login</button>
 						<div>
+							<a href="register.php"><br>Create New Account</a>
 							<a href="forgotPassword.php"><br>Forgot Login Information?</a>
 						</div>
                     </form>

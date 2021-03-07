@@ -1,4 +1,6 @@
 <?php
+/*if(!isset($_SESSION['email']){header('Location: https://foodocycle.com/login.php');
+						exit();}*/
 include 'inc/header.php';
 ?>
 	<!-- To do: Change information to represent queries to db -->
