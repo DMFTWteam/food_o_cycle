@@ -1,8 +1,9 @@
 <?php
 include 'inc/header.php';
 
-$query = 'SELECT *
-							  FROM users';
+$query = 'SELECT u_password
+							  FROM users
+                              WHERE u_email=jsmith@email.com';
 					$statement = $db->prepare($query);
 					$statement->execute();
 					$login= $statement->fetchAll();
