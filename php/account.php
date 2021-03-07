@@ -35,7 +35,7 @@
 					
 					if($count > 0){
 					 
-					 $validPassword = password_verify($password , $login['u_password']);
+					 $validPassword = password_verify($password , password_hash($login['u_password'], PASSWORD_DEFAULT));
 					 var_dump($password);
 					 var_dump($login['u_password']);
 					 var_dump($validPassword);
