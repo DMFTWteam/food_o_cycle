@@ -50,6 +50,7 @@
 							$statement2->bindValue(':u_id', $user_info['u_id']);
 							$statement2->execute();
 							$bus_info= $statement2->fetch();
+							$business_count = $statement2->rowCount();
 							$statement2->closeCursor();
 							//print_r($bus_info);
 							if($business_count > 0){
