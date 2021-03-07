@@ -40,11 +40,14 @@
 					 	$_SESSION["email"] = $username;
 					  	header("Location: ../admin.php");
 					  }
-					}
+					  else{
+						echo '<label>Invalid Password.</label>'; 
+					 }
+					}else{
+						echo '<label>Invalid Username.</label>'; 
+					 }
 					
-					else{
-					   echo '<label>Invalid Username or Password.</label>'; 
-					}
+					
 			   }
 			   
 		 }	   
