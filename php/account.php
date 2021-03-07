@@ -1,5 +1,5 @@
 <?php
-	require("db_connect.php");
+	require "db_connect.php";
 	session_start(); 
 
 	if(!isset($username)){
@@ -7,7 +7,7 @@
 	}
 	
 	if(!isset($password)){
-	$password = filter_input(INPUT_POST,'InputPassword');
+		$password = filter_input(INPUT_POST,'InputPassword');
 	}
 	
 	$login = filter_input(INPUT_POST, 'login');
@@ -16,7 +16,7 @@
 		  {  
 			   if(empty($username) || empty($password))  
 			   {  
-					$message = '<label>All fields are required</label>';  
+					echo '<label>All fields are required</label>';  
 			   }  
 			   
 			   else
@@ -42,7 +42,7 @@
 					}
 					
 					else{
-					   $message = '<label>Invalid Username or Password.</label>'; 
+					   echo '<label>Invalid Username or Password.</label>'; 
 					}
 			   }
 			   
