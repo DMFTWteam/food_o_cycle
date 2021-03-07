@@ -29,7 +29,7 @@
 					$statement->bindValue(':emailAddress', $username);
 					$statement->execute();
 					$user_info= $statement->fetch();
-					print_r($user_info);
+					//print_r($user_info);
 					$user_count = $statement->rowCount();
 					$statement->closeCursor();
 					
@@ -39,9 +39,9 @@
 					 $validPassword = password_verify($password , password_hash($user_info['u_password'], PASSWORD_DEFAULT));
 					 if($validPassword){
 						 $_SESSION['user'] = $user_info;
-					  	if($user_info['u_is_admin'] === 1){
+					  	if($user_info['u_is_admin'] == 1){
 							  header("Location: ../admin.php");
-						}else if($user_info['u_is_standard'] === 1){
+						}else if($user_info['u_is_standard'] == 1){
 							$query2 = 'SELECT *
 							  			FROM user_to_business, business
 							 			WHERE user_to_business.u_id = :u_id
@@ -54,7 +54,7 @@
 							print_r($bus_info);
 							if($business_count > 0){
 						 		$_SESSION['business'] = $bus_info;
-								if($_SESSION['business']['business_is_donor'] === 1){
+								if($_SESSION['business']['business_is_donor'] == 1){
 									header("Location: ../donorhome.php");
 								}else{
 									header("Location: ../fbhome.php");
