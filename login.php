@@ -12,14 +12,8 @@
 		$bank_box=filter_input(INPUT_POST,'BankBox', FILTER_VALIDATE_BOOLEAN);
 		$business_name=filter_input(INPUT_POST,'BusinesName');
 		$ein=filter_input(INPUT_POST,'EIN', FILTER_VALIDATE_INT);
-		var_dump($first_name);
-		var_dump($last_name);
-		var_dump($email);
-		var_dump($password);
-		var_dump($donor_box);
-		var_dump($bank_box);
-		var_dump($business_name);
-		var_dump($ein);
+		
+
 	}else if($path === '/resetPassword.php'){
 		$password=filter_input(INPUT_POST, 'InputPassword');
 		var_dump($password);
@@ -61,7 +55,7 @@
                                 <label for="InputPassword" class="mb-0">Password</label>
                                 <input type="password" class="form-control" name="InputPassword" placeholder="Password"> </div>
                         </div>
-                        <button type="submit" class="btn hvr-hover">Login</button>
+                        <button type="submit" class="btn hvr-hover" name='login' value='Login'>Login</button>
 						<div>
 							<a href="register.php"><br>Create New Account</a>
 							<a href="forgotPassword.php"><br>Forgot Login Information?</a>

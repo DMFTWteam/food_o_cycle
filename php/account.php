@@ -1,26 +1,52 @@
 <?php
-	session_start();
-	
-	$_SESSION['email']=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
-	$_SESSION['password']=filter_input(INPUT_POST, 'InputPassword');
-	$path=filter_input(INPUT_POST, 'path');
-	$_SESSION['account_type']= '';
-	
-	/*
-		TO-DO: query database to find type of account - admin, food bank, donor
-	*/
-	
-	if($_SESSION['email'] == null || $_SESSION['email'] == false || $_SESSION['password'] == null){
-		header('Location: https://foodocycle.com/login.php');
-	}else{
-		header('Location: https://foodocycle.com/shop.php');
-		/*if($_SESSION['account_type'] === 'admin'){
-			header('Location: https://foodocycle.com/admin.php');
-		}else if($_SESSION['account_type'] === 'food_bank'){
-			header('Location: https://foodocycle.com/fbhome.php');
-		}else if($_SESSION['account_type'] === 'donor'){
-			header('Location: https://foodocycle.com/donorhome.php');
-		}*/
+	require("db_connect.php");
+	session_start(); 
+
+	if(!isset($username)){
+		$username = filter_input(INPUT_POST,'InputEmail');
 	}
+	
+	if(!isset($password)){
+	$password = filter_input(INPUT_POST,'InputPassword');
+	}
+	
+	$login = filter_input(INPUT_POST, 'login');
+	
+	if(isset($login))  
+		  {  
+			   if(empty($username) || empty($password))  
+			   {  
+					$message = '<label>All fields are required</label>';  
+			   }  
+			   
+			   else
+			   {
+				 // Get the userName and passWord
+					$query = 'SELECT u_email, u_password
+							  FROM users
+							  WHERE u_email =:emailAddress';
+					$statement = $db->prepare($query);
+					$statement->bindValue(':emailAddress', $username);
+					$statement->execute();
+					$login= $statement->fetch();
+					$count = $statement->rowCount();
+					$statement->closeCursor();
+					
+					if($count > 0){
+					 
+					 $validPassword = password_verify($password , $login['password']);
+					 if($validPassword){
+					 	$_SESSION["email"] = $username;
+					  	header("location:admin.php");
+					  }
+					}
+					
+					else{
+					   $message = '<label>Invalid Username or Password.</label>'; 
+					}
+			   }
+			   
+		 }	   
+	
 	
 ?>
