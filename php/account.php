@@ -1,5 +1,5 @@
 <?php
-	require "db_connect.php";
+	include "db_connect.php";
 	session_start(); 
 
 	if(!isset($username)){
