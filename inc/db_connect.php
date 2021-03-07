@@ -1,7 +1,7 @@
 <?php
-  $dsn1 = 'mysql:host=localhost:3306;dbname=food_o_cycle';
-    $username1 = 'root';
-    $password1 = 'root';
+  $dsn1 = 'mysql:host=localhost;dbname=food_o_cycle';
+    $username1 = 'site';
+    $password1 = 'O9m1NbIwkGiAlUIE';
    	
     try {
         $db = new PDO($dsn1, $username1, $password1);
