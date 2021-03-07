@@ -1,5 +1,15 @@
 <?php
 include 'inc/header.php';
+
+$query = 'SELECT u_email, u_password
+							  FROM users
+							  WHERE u_email = jsmith@email.com';
+					$statement = $db->prepare($query);
+					$statement->execute();
+					$login= $statement->fetch();
+					print_r($login);
+					$count = $statement->rowCount();
+					$statement->closeCursor();
 ?>
 <!DOCTYPE html>
 <html lang="en">
