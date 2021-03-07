@@ -22,13 +22,13 @@
 			   else
 			   {
 				 // Get the userName and passWord
-					$query = 'SELECT u_email, u_password
+					$query = 'SELECT u_password
 							  FROM users
-							  WHERE u_email = ":emailAddress"';
+							  WHERE u_email = "jsmith@email.com"';
 					$statement = $db->prepare($query);
-					$statement->bindValue(':emailAddress', $username);
+					//$statement->bindValue(':emailAddress', $username);
 					$statement->execute();
-					$login= $statement->fetch();
+					$login= $statement->fetchAll();
 					print_r($login);
 					$count = $statement->rowCount();
 					$statement->closeCursor();
@@ -38,7 +38,7 @@
 					 $validPassword = password_verify($password , $login['password']);
 					 if($validPassword){
 					 	$_SESSION["email"] = $username;
-					  	header("location: https://foodocycle.com/admin.php");
+					  	header("Location: https://foodocycle.com/admin.php");
 					  }
 					}
 					
