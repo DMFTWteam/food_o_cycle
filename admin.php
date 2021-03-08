@@ -4,7 +4,7 @@
         header('Location: login.php');
         exit();
     }
-    session_destroy();
+    //session_destroy();
 	include 'inc/header.php';
 ?>
 

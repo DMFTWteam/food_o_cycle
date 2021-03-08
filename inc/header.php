@@ -1,5 +1,6 @@
 <?php
   require "db_connect.php";
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +65,7 @@
 						<div class="our-link" style="float: right;">
                         <ul style="text-align: right;">
                             <li><a href="register.php">Register</a></li>
-							<?php if(!isset($_SESSION['email']) && !isset($_SESSION['password'])){
+							<?php if(!isset($_SESSION['user']['u_email'])){
 								echo '<li><a href="login.php">Sign In</a></li>';
 							}else{
 								echo '<li><a href="php/logout.php">Sign Out</a></li>';
