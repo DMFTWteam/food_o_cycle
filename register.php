@@ -89,7 +89,9 @@
                                 }
                             ?>
                         </optgroup>
-                    </select> </div>
+                    </select> 
+                    <?php print_r($food_donors); ?>
+                </div>
                 <div class="form-group col-md-6">
                     <label for="EIN" class="mb-0">Tax ID (EIN)</label>
                     <input type="text" class="form-control" name="EIN" placeholder="Enter EIN"> </div>
