@@ -76,7 +76,7 @@
                             ?> -->
                         </optgroup>
                         <optgroup label='Food Banks'>
-                            <?php
+                           <!-- <?php
                                 $query2 = 'SELECT business_id, business_name
                                             FROM business
                                             WHERE business_is_donor = 0';
@@ -87,7 +87,7 @@
                                 foreach($food_banks as $business){
                                     echo "<option value=".$business['business_id'].">".$business['business_name']."</option>";
                                 }
-                            ?>
+                            ?> -->
                         </optgroup>
                     </select> 
                     <?php print_r($food_donors); ?>
