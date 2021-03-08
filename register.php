@@ -71,7 +71,7 @@
                                 $food_donors = $statement->fetchAll();
                                 $statment->closeCursor();
                                 foreach($food_donors as $business){
-                                    echo '<option value='.$business['business_id'].'>'.$business['business_name'].'</option>';
+                                    echo "<option value=".$business['business_id'].">".$business['business_name']."</option>";
                                 }
                             ?>
                         </optgroup>
@@ -85,7 +85,7 @@
                                 $food_banks = $statement2->fetchAll();
                                 $statment2->closeCursor();
                                 foreach($food_banks as $business){
-                                    echo '<option value='.$business['business_id'].'>'.$business['business_name'].'</option>';
+                                    echo "<option value=".$business['business_id'].">".$business['business_name']."</option>";
                                 }
                             ?>
                         </optgroup>
