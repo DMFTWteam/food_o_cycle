@@ -62,7 +62,7 @@
                     <label for="Business" class="mb-0">Busines Name</label>
                     <select name='Business' placeholder="Enter Busines Name">
                         <optgroup label='Food Donors'>
-                            <?php
+                           <!-- <?php
                                 $query = 'SELECT business_id, business_name
                                             FROM business
                                             WHERE business_is_donor = 1';
@@ -73,7 +73,7 @@
                                 foreach($food_donors as $business){
                                     echo "<option value=".$business['business_id'].">".$business['business_name']."</option>";
                                 }
-                            ?>
+                            ?> -->
                         </optgroup>
                         <optgroup label='Food Banks'>
                             <?php
