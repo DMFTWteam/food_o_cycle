@@ -1,8 +1,10 @@
 <?php
-    /*if(!isset($_SESSION['user']['u_email'])){
-        header('Location: https://foodocycle.com/login.php');
+    /*if(empty($_SESSION['user']['u_email'])){
+        header('Location: login.php');
         exit();
     }*/
+    session_start();
+    print_r($_SESSION['user']);
 	include 'inc/header.php';
 ?>
 
