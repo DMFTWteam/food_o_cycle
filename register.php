@@ -59,8 +59,36 @@
                 <div class="col-lg-12">
             <div class="form-row">
 				<div class="form-group col-md-6">
-                    <label for="BusinesName" class="mb-0">Busines Name</label>
-                    <input type="text" class="form-control" name="BusinesName" placeholder="Enter Busines Name"> </div>
+                    <label for="Business" class="mb-0">Busines Name</label>
+                    <select name='Business' placeholder="Enter Busines Name">
+                        <optgroup label='Food Donors'>
+                            <?php
+                                $query = 'SELECT business_id, business_name
+                                            FROM business
+                                            WHERE business_is_donor = 1';
+                                $statement = $db->prepare($query);
+                                $statement->execute();
+                                $food_donors = $statement->fetchAll();
+                                $statment->closeCursor();
+                                foreach($food_donors as $business){
+                                    echo '<option value="'.$business['business_id'].'">'.$business['business_name'].'</option>';
+                                }
+                            ?>
+                        </optgroup>
+                        <optgroup label='Food Banks'>
+                            <?php
+                                $query2 = 'SELECT business_id, business_name
+                                            FROM business
+                                            WHERE business_is_donor = 0';
+                                $statement2 = $db->prepare($query2);
+                                $statement2->execute();
+                                $food_banks = $statement2->fetchAll();
+                                $statment2->closeCursor();
+                                foreach($food_banks as $business){
+                                    echo '<option value="'.$business['business_id'].'">'.$business['business_name'].'</option>';
+                                }
+                            ?>
+                        </optgroup> </div>
                 <div class="form-group col-md-6">
                     <label for="EIN" class="mb-0">Tax ID (EIN)</label>
                     <input type="text" class="form-control" name="EIN" placeholder="Enter EIN"> </div>

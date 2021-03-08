@@ -10,9 +10,43 @@
 		$password=filter_input(INPUT_POST,'InputPassword');
 		$donor_box=filter_input(INPUT_POST,'DonorBox', FILTER_VALIDATE_BOOLEAN);
 		$bank_box=filter_input(INPUT_POST,'BankBox', FILTER_VALIDATE_BOOLEAN);
-		$business_name=filter_input(INPUT_POST,'BusinesName');
+		$business_id=filter_input(INPUT_POST,'Business');
 		$ein=filter_input(INPUT_POST,'EIN', FILTER_VALIDATE_INT);
 		
+		$query = 'INSERT INTO users
+                 (u_fname, u_lname, 
+				 u_mi, u_password, u_phone, 
+				 u_email, u_is_admin, u_is_standard)
+              VALUES
+                 (:first_name, :last_name, :initial, :password, 
+				 :phone, :email, 0, 1)';
+    	$statement = $db->prepare($query);
+    	$statement->bindValue(':first_name', $first_name);
+		$statement->bindValue(':last_name', $last_name);
+		$statement->bindValue(':initial', $initial);
+		$statement->bindValue(':password', $password);
+		$statement->bindValue(':phone', $phone);
+		$statement->bindValue(':email', $email);
+		$statement->execute();
+		$statement->closeCursor();
+
+		$query2 = 'SELECT u_id
+					FROM users
+					WHERE u_email = :email';
+		$statement2 = $db->prepare($query2);
+		$statement2->bindValue(':email', $email);
+		$statement2->execute();
+		$u_id = $statement2->fetch();
+		$statement2->closeCursor();
+
+		$query2 = 'SELECT u_id
+					FROM users
+					WHERE u_email = :email';
+		$statement2 = $db->prepare($query2);
+		$statement2->bindValue(':email', $email);
+		$statement2->execute();
+		$u_id = $statement2->fetch();
+		$statement2->closeCursor();
 
 	}else if($path === '/resetPassword.php'){
 		$password=filter_input(INPUT_POST, 'InputPassword');
