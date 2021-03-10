@@ -1,2 +1,21 @@
 //queries
 
+-Alex: query to select all food items currently in the db ordered alphabetically
+
+-Alex: query to select all food items that are close to expiration (maybe like 3 days or something) ordered alphabetically
+
+-Alex: query to select all food items that are new uploads ordered alphabetically
+
+-Alex: query to select all food items by food category (dairy, bakery items, condiments, etc.) ordered alphabetically, this may need to be an additional field added to the food_item table
+
+-Alex: query to insert new user, new business, and new user_to_business entry
+
+-Alex: query to update password for a given user (for the password reset page)
+
+-Alex: query(ies) to take the current cart and create a transaction (with transaction lines) for every item in the cart
+
+-Alex: query to select all business names and ID's ordered alphabetically
+
+-Alex: query to pull access logs by business ID (or business name)
+
+-Alex: query to update user if they agree to the terms and conditions
