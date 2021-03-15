@@ -6,6 +6,7 @@ $query = 'SELECT * FROM food_item
 		  ORDER BY item_desc';
 $statement = $db->prepare($query);
 $statement->execute();
+$items = $statement->fetchAll();
 $statement->closeCursor();
 
 -Alex: query to select all food items that are close to expiration (maybe like 3 days or something) ordered alphabetically
@@ -22,7 +23,8 @@ $queryUpdate = 'UPDATE users
 				SET u_password = :password
 				WHERE u_id = :u_id';
 $statement = $db->prepare($queryUpdate);
-$statement->bindValue(':password', $u_id);
+$statement->bindValue(':u_id', $u_id);
+$statement->bindValue(':password', $password);
 $statement->execute();
 $statement->closeCursor();
 
@@ -34,6 +36,7 @@ $query = 'SELECT * FROM businesses
 		  ORDER BY business_name';
 $statement = $db->prepare($query);
 $statement->execute();
+$businesses = $statement->fetchAll();
 $statement->closeCursor();
 
 -Alex: query to pull access logs by business ID (or business name)
@@ -67,4 +70,5 @@ $query = 'SELECT u_photo, u_username, u_fname, u_lname FROM users
 		  WHERE u_id = :u_id';
 $statement = $db->prepare($query);
 $statement->execute();
+$u_info = $statement->fetch();
 $statement->closeCursor();
