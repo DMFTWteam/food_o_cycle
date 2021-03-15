@@ -2,6 +2,12 @@
 
 -Alex: query to select all food items currently in the db ordered alphabetically
 
+$query = 'SELECT * FROM food_item
+		  ORDER BY item_desc';
+$statement = $db->prepare($query);
+$statement->execute();
+$statement->closeCursor();
+
 -Alex: query to select all food items that are close to expiration (maybe like 3 days or something) ordered alphabetically
 
 -Alex: query to select all food items that are new uploads ordered alphabetically
@@ -34,3 +40,31 @@ $statement->closeCursor();
 ***not sure if this will be possible with how the database is currently setup. The logs only have the user ID not a business ID and the business table does not have a user ID column either. 
 
 -Alex: query to update user if they agree to the terms and conditions
+
+$queryUpdate = 'UPDATE users
+				SET u_fname = :fname, u_lname = :lname, u_mi = :mi, 
+				u_username = :username, u_password = :password, u_phone = :phone,
+				u_email = :email, u_photo = :photo, u_is_admin = :admin, u_is_standard = :standard,
+				WHERE u_id = :u_id';
+$statement = $db ->prepare($queryUpdate);
+$statement->bindValue(':fname', $fname);
+$statement->bindValue(':lname', $lname);
+$statement->bindValue(':mi', $mi);
+$statement->bindValue(':username', $username);
+$statement->bindValue(':password', $password);
+$statement->bindValue(':phone', $phone);
+$statement->bindValue(':email', $email);
+$statement->bindValue(':photo', $photo);
+$statement->bindValue(':admin', $admin);
+$statement->bindValue(':standard', $standard);
+$statement->execute();
+$statement->closeCursor();
+
+
+//query to display username, photo, name (Adrian)
+***we are not going to be able to get and display a location because that's not part of the database, unless you mean the business location
+$query = 'SELECT u_photo, u_username, u_fname, u_lname FROM users
+		  WHERE u_id = :u_id';
+$statement = $db->prepare($query);
+$statement->execute();
+$statement->closeCursor();
