@@ -15,17 +15,15 @@ $query = 'SELECT * FROM food_item
 		  where expirationdatesetvariable>DATEADD(day,-3, GETDATE())
 $statement = $db->prepare($query);
 $statement->execute();
-$items = $statement->fetchAll();
 $statement->closeCursor();
 
 
 -Alex: query to select all food items that are new uploads ordered alphabetically
 $query = 'SELECT * FROM food_item
 		  ORDER BY dateaddedvariable, item_desc';
-		  where dateaddedvariable<variable set equal to tomorrow
+		  where dateaddedvariable<DATEADD(day,+1, GETDATE())
 $statement = $db->prepare($query);
 $statement->execute();
-$items = $statement->fetchAll();
 $statement->closeCursor();
 
 -Alex: query to select all food items by food category (dairy, bakery items, condiments, etc.) ordered alphabetically, this may need to be an additional field added to the food_item table
