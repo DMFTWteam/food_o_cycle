@@ -90,7 +90,7 @@
                         <div class="form-group col-md-6">
                             <label for="Business" class="mb-0">Busines Name</label>
                             <div class="row">
-                                <select name='Business' placeholder="Enter Busines Name">
+                                <select  class="form-control" name='Business' placeholder="Enter Busines Name">
                                     <optgroup label='Food Donors'>
                                         <?php foreach($food_donors as $business): ?>
                                         <option value='<?php echo $business['business_id']; ?>'>
