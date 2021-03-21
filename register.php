@@ -89,22 +89,20 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="Business" class="mb-0">Busines Name</label>
-                            <div class="row">
-                                <select  class="form-control" name='Business' placeholder="Enter Busines Name">
-                                    <optgroup label='Food Donors'>
-                                        <?php foreach($food_donors as $business): ?>
-                                        <option value='<?php echo $business['business_id']; ?>'>
-                                            <?php echo $business['business_name']; ?></option>
-                                        <?php endforeach; ?>
-                                    </optgroup>
-                                    <optgroup label='Food Banks'>
-                                        <?php foreach($food_banks as $business): ?>
-                                        <option value='<?php echo $business['business_id']; ?>'>
-                                            <?php echo $business['business_name']; ?></option>
-                                        <?php endforeach; ?>
-                                    </optgroup>
-                                </select>
-                            </div>
+                            <select class="form-control" name='Business' placeholder="Enter Busines Name">
+                                <optgroup label='Food Donors'>
+                                    <?php foreach($food_donors as $business): ?>
+                                    <option value='<?php echo $business['business_id']; ?>'>
+                                        <?php echo $business['business_name']; ?></option>
+                                    <?php endforeach; ?>
+                                </optgroup>
+                                <optgroup label='Food Banks'>
+                                    <?php foreach($food_banks as $business): ?>
+                                    <option value='<?php echo $business['business_id']; ?>'>
+                                        <?php echo $business['business_name']; ?></option>
+                                    <?php endforeach; ?>
+                                </optgroup>
+                            </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="EIN" class="mb-0">Tax ID (EIN)</label>
