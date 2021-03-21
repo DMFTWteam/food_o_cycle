@@ -10,7 +10,7 @@
     $statement->execute();
     $food_donors = $statement->fetchAll();
     print_r($food_donors);
-    $statment->closeCursor();
+    $statement->closeCursor();
 
     $query2 = 'SELECT business_id, business_name
                 FROM business
@@ -19,9 +19,9 @@
     $statement2->execute();
     $food_banks = $statement2->fetchAll();
     print_r($food_banks);
-    $statment2->closeCursor();
+    $statement2->closeCursor();
     
-	include 'inc/footer.php';
+	//include 'inc/footer.php';
 ?>
 
 <!DOCTYPE html>
