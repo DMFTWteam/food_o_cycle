@@ -113,11 +113,11 @@
         </form>
     </div>
 </body>
-<script src="js/register.js"></script>
-
-</html>
 
 <?php
 	include 'inc/js_to_include.php';
 	include 'inc/footer.php';
 ?>
+
+</html>
+
