@@ -60,8 +60,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
-	<body>
-	<!-- Start All Title Box -->
+
+<body>
+    <!-- Start All Title Box -->
     <div class="all-title-box">
         <div class="container">
             <div class="row">
@@ -76,29 +77,33 @@
         </div>
     </div>
     <!-- End All Title Box -->
-		<div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <form class="mt-3 review-form-box" name="formLogin" style="margin-bottom: 30%;" action='php/account.php' method='post'>
-                        <div class="form-row" >
-                            <div class="form-group col-md-6">
-                                <label for="InputEmail" class="mb-0">Email Address</label>
-                                <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email"> </div>
-                            <div class="form-group col-md-6">
-                                <label for="InputPassword" class="mb-0">Password</label>
-                                <input type="password" class="form-control" name="InputPassword" placeholder="Password"> </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form class="mt-3 review-form-box" name="formLogin" style="margin-bottom: 30%;" action='php/account.php'
+                    method='post'>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="InputEmail" class="mb-0">Email Address</label>
+                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email">
                         </div>
-                        <button type="submit" class="btn hvr-hover" name='login' value='Login'>Login</button>
-						<div>
-							<a href="register.php"><br>Create New Account</a>
-							<a href="forgotPassword.php"><br>Forgot Login Information?</a>
-						</div>
-                    </form>
-                </div>
-			</div>
-		</div>
-				
-	</body>
+                        <div class="form-group col-md-6">
+                            <label for="InputPassword" class="mb-0">Password</label>
+                            <input type="password" class="form-control" name="InputPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn hvr-hover" name='login' value='Login'>Login</button>
+                    <div>
+                        <a href="register.php"><br>Create New Account</a>
+                        <a href="forgotPassword.php"><br>Forgot Login Information?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
 </html>
 
 <?php
