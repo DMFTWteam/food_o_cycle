@@ -1,7 +1,6 @@
 <?php
 	include 'inc/header.php';
 	$path=filter_input(INPUT_POST, "path");
-	//var_dump($path);
 	
 	if($path === '/register.php'){
 		$first_name=filter_input(INPUT_POST,'InputName');

@@ -1,6 +1,23 @@
+<!-- COMPLETE -->
+
 <?php
 	include 'inc/header.php';
 	
+    $query = 'SELECT business_id, business_name
+        FROM business
+        WHERE business_is_donor = 1';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $food_donors = $statement->fetchAll();
+    $statment->closeCursor();
+
+    $query2 = 'SELECT business_id, business_name
+                FROM business
+                WHERE business_is_donor = 0';
+    $statement2 = $db->prepare($query2);
+    $statement2->execute();
+    $food_banks = $statement2->fetchAll();
+    $statment2->closeCursor();
 ?>
 
 <!DOCTYPE html>
@@ -62,35 +79,16 @@
                     <label for="Business" class="mb-0">Busines Name</label>
                     <select name='Business' placeholder="Enter Busines Name">
                         <optgroup label='Food Donors'>
-                           <!-- <?php
-                                $query = 'SELECT business_id, business_name
-                                            FROM business
-                                            WHERE business_is_donor = 1';
-                                $statement = $db->prepare($query);
-                                $statement->execute();
-                                $food_donors = $statement->fetchAll();
-                                $statment->closeCursor();
-                                foreach($food_donors as $business){
-                                    echo "<option value=".$business['business_id'].">".$business['business_name']."</option>";
-                                }
-                            ?> -->
+                           <?php foreach($food_donors as $business): ?>
+                                    <option value='<?php echo $business['business_id']; ?>'><?php echo $business['business_name']; ?></option>
+                           <?php endforeach; ?>
                         </optgroup>
                         <optgroup label='Food Banks'>
-                           <!-- <?php
-                                $query2 = 'SELECT business_id, business_name
-                                            FROM business
-                                            WHERE business_is_donor = 0';
-                                $statement2 = $db->prepare($query2);
-                                $statement2->execute();
-                                $food_banks = $statement2->fetchAll();
-                                $statment2->closeCursor();
-                                foreach($food_banks as $business){
-                                    echo "<option value=".$business['business_id'].">".$business['business_name']."</option>";
-                                }
-                            ?> -->
+                            <?php foreach($food_banks as $business): ?>
+                                    <option value='<?php echo $business['business_id']; ?>'><?php echo $business['business_name']; ?></option>
+                           <?php endforeach; ?>
                         </optgroup>
                     </select> 
-                    <?php print_r($food_donors); ?>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="EIN" class="mb-0">Tax ID (EIN)</label>
