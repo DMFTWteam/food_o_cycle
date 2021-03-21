@@ -2,7 +2,7 @@
 
 <?php
 	include 'inc/header.php';
-	
+	include 'inc/db_connect.php';
     $query = 'SELECT business_id, business_name
         FROM business
         WHERE business_is_donor = 1';
