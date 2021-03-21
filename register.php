@@ -76,19 +76,21 @@
                         <div class="form-group col-md-6">
                             <label for="DonorBox" class="mb-0">Donor</label>
                             <input type="radio" class="form-control" name="Radio" id="DonorBox">
-                            <input type="checkbox" class="form-control-sm" name="terms_agreement">
+                            <input type="checkbox" class="form-control-sm" name="terms_agreement" onchange="donorSelect();">
                             <label for="terms_agreement" class="mb-0" name="terms_agreement_label">I have read and agree
                                 to Food O' Cycle's <a href="php/pdf_server.php?file=Terms_And_Conditions.pdf">Terms and
                                     Conditions</a></label>
                             <script>
-                            var x = document.getElementsByName("terms_agreement");
-                            var y = document.getElementsByName("terms_agreement_label");
-                            if (x.checked) {
-                                x.style.display = "block";
-                                y.style.display = "block";
-                            }else{
-                                x.style.display = "none";
-                                y.style.display = "none";
+                            function donorSelect() {
+                                var x = document.getElementsByName("terms_agreement");
+                                var y = document.getElementsByName("terms_agreement_label");
+                                if (x.checked) {
+                                    x.style.display = "block";
+                                    y.style.display = "block";
+                                } else {
+                                    x.style.display = "none";
+                                    y.style.display = "none";
+                                }
                             }
                             </script>
                         </div>
