@@ -2,13 +2,14 @@
 
 <?php
 	include 'inc/header.php';
-	include 'inc/db_connect.php';
+
     $query = 'SELECT business_id, business_name
         FROM business
         WHERE business_is_donor = 1';
     $statement = $db->prepare($query);
     $statement->execute();
     $food_donors = $statement->fetchAll();
+    print_r($food_donors);
     $statment->closeCursor();
 
     $query2 = 'SELECT business_id, business_name
@@ -17,6 +18,7 @@
     $statement2 = $db->prepare($query2);
     $statement2->execute();
     $food_banks = $statement2->fetchAll();
+    print_r($food_banks);
     $statment2->closeCursor();
 ?>
 
