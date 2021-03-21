@@ -75,11 +75,11 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="DonorBox" class="mb-0">Donor</label>
-                            <input type="checkbox" class="form-control" name="DonorBox">
+                            <input type="radio" class="form-control" name="Radio" id="DonorBox">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="BankBox" class="mb-0">Food Bank</label>
-                            <input type="checkbox" class="form-control" name="BankBox">
+                            <input type="radio" class="form-control" name="Radio" id="BankBox">
                         </div>
                     </div>
                 </div>
