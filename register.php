@@ -9,7 +9,7 @@
     $statement = $db->prepare($query);
     $statement->execute();
     $food_donors = $statement->fetchAll();
-    print_r($food_donors);
+    //print_r($food_donors);
     $statement->closeCursor();
 
     $query2 = 'SELECT business_id, business_name
@@ -18,7 +18,7 @@
     $statement2 = $db->prepare($query2);
     $statement2->execute();
     $food_banks = $statement2->fetchAll();
-    print_r($food_banks);
+    //print_r($food_banks);
     $statement2->closeCursor();
     
 	//include 'inc/footer.php';
@@ -90,7 +90,18 @@
                         <div class="form-group col-md-6">
                             <label for="Business" class="mb-0">Busines Name</label>
                             <select name='Business' placeholder="Enter Busines Name">
-
+                                <optgroup label='Food Donors'>
+                                    <?php foreach($food_donors as $business): ?>
+                                    <option value='<?php echo $business['business_id']; ?>'>
+                                        <?php echo $business['business_name']; ?></option>
+                                    <?php endforeach; ?>
+                                </optgroup>
+                                <optgroup label='Food Banks'>
+                                    <?php foreach($food_banks as $business): ?>
+                                    <option value='<?php echo $business['business_id']; ?>'>
+                                        <?php echo $business['business_name']; ?></option>
+                                    <?php endforeach; ?>
+                                </optgroup>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
