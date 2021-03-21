@@ -57,13 +57,13 @@
                                 <input type="text" class="form-control" name="InputLastname" placeholder="Last Name">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="InputEmail1" class="mb-0">Email Address</label>
+                                <label for="InputEmail" class="mb-0">Email Address</label>
                                 <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="InputPassword1" class="mb-0">Password</label>
+                                <label for="InputPassword" class="mb-0">Password</label>
                                 <input type="password" class="form-control" name="InputPassword" placeholder="Password">
-                                <input type="hidden" name="path" value="<?php echo $_SERVER['PHP_SELF']; ?>" />
+                                <input type="hidden" name="path" value="<?php echo $_SERVER['PHP_SELF']; ?>">
                             </div>
                         </div>
                     </div>
