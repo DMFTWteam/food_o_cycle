@@ -74,8 +74,7 @@
                         <div class="form-group col-md-6">
                             <label for="DonorBox" class="mb-0">Donor</label>
                             <input type="checkbox" class="form-control" name="Radio" id="DonorBox">
-                            <input type="checkbox" class="form-control-sm" name="terms_agreement" id="terms_agreement"
-                                onchange="chbx(this)">
+                            <input type="checkbox" class="form-control-sm" name="terms_agreement" id="terms_agreement">
                             <label for="terms_agreement" class="mb-0" name="terms_agreement_label"
                                 id="terms_agreement_label">I have read and agree
                                 to Food O' Cycle's <a href="php/pdf_server.php?file=Terms_And_Conditions.pdf">Terms and
@@ -83,8 +82,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="BankBox" class="mb-0">Food Bank</label>
-                            <input type="checkbox" class="form-control" name="Radio" id="BankBox"
-                                onchange="chbx(this)">
+                            <input type="checkbox" class="form-control" name="Radio" id="BankBox">
                         </div>
                     </div>
                 </div>
@@ -121,28 +119,10 @@
     </div>
 </body>
 
-<script>
-function chbx(obj) {
-    var that = obj;
-    if (document.getElementById(that.id).checked == true) {
-        document.getElementById('DonorBox').checked = false;
-        document.getElementById('BankBox').checked = false;
-        document.getElementById(that.id).checked = true;
-    }
-
-    if (document.getElementById("DonorBox").checked) {
-        document.getElementById("terms_agreement").style.display = "inline-block";
-        document.getElementById("terms_agreement_label").style.display = "inline-block";
-    } else if (document.getElementById("BankBox").checked) {
-        document.getElementById("terms_agreement").style.display = "none";
-        document.getElementById("terms_agreement_label").style.display = "none";
-    }
-}
-</script>
-
 </html>
 
 <?php
+    include 'js/register.js';
 	include 'inc/js_to_include.php';
 	include 'inc/footer.php';
 ?>
