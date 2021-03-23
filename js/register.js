@@ -1,10 +1,10 @@
 "use strict";
 
 function showTerms() {
-    if (document.getElementById("DonorBox").checked) {
+    if (document.getElementById("DonorBox").checked && !document.getElementById("BankBox").checked) {
         document.getElementById("terms_agreement").style.display = "inline-block";
         document.getElementById("terms_agreement_label").style.display = "inline-block";
-    } else if (document.getElementById("BankBox").checked) {
+    } else {
         document.getElementById("terms_agreement").style.display = "none";
         document.getElementById("terms_agreement_label").style.display = "none";
     }
