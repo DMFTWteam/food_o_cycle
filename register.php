@@ -127,11 +127,10 @@ function donorSelect() {
     var donorBox = document.getElementById("DonorBox");
     var bankBox = document.getElementById("BankBox");
     if (donorBox.checked) {
-        terms.style.display = "block";
-        termsLabel.style.display = "block";
+        terms.style.display = "inline-block";
+        termsLabel.style.display = "inline-block";
         bankBox.checked = false;
-    }
-    if (bankBox.checked) {
+    }else if (bankBox.checked) {
         terms.style.display = "none";
         termsLabel.style.display = "none";
         donorBox.checked = false;
