@@ -130,11 +130,10 @@ function donorSelect() {
         terms.style.display = "block";
         termsLabel.style.display = "block";
         bankBox.checked = false;
-        donorBox.checked = true;
-    } else if (bankBox.checked) {
+    }
+    if (bankBox.checked) {
         terms.style.display = "none";
         termsLabel.style.display = "none";
-        bankBox.checked = true;
         donorBox.checked = false;
     }
 }
