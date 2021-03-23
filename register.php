@@ -73,29 +73,17 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="DonorBox" class="mb-0">Donor</label>
-                            <input type="radio" class="form-control" name="Radio" id="DonorBox">
+                            <input type="checkbox" class="form-control" name="Radio" id="DonorBox">
                             <input type="checkbox" class="form-control-sm" name="terms_agreement" id="terms_agreement"
-                                onchange="donorSelect()">
-                            <label for="terms_agreement" class="mb-0" name="terms_agreement_label" id="terms_agreement_label">I have read and agree
+                                onchange="donorSelect();">
+                            <label for="terms_agreement" class="mb-0" name="terms_agreement_label"
+                                id="terms_agreement_label">I have read and agree
                                 to Food O' Cycle's <a href="php/pdf_server.php?file=Terms_And_Conditions.pdf">Terms and
                                     Conditions</a></label>
-                            <script>
-                            function donorSelect() {
-                                var x = document.getElementById("terms_agreement");
-                                var y = document.getElementById("terms_agreement_label");
-                                if (x.checked) {
-                                    x.style.display = "block";
-                                    y.style.display = "block";
-                                } else {
-                                    x.style.display = "none";
-                                    y.style.display = "none";
-                                }
-                            }
-                            </script>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="BankBox" class="mb-0">Food Bank</label>
-                            <input type="radio" class="form-control" name="Radio" id="BankBox">
+                            <input type="checkbox" class="form-control" name="Radio" id="BankBox" onchange="donorSelect();">
                         </div>
                     </div>
                 </div>
@@ -131,6 +119,26 @@
         </form>
     </div>
 </body>
+
+<script>
+function donorSelect() {
+    var terms = document.getElementById("terms_agreement");
+    var termsLabel = document.getElementById("terms_agreement_label");
+    var donorBox = document.getElementById("DonorBox");
+    var bankBox = document.getElementById("BankBox");
+    if (donorBox.checked) {
+        terms.style.display = "block";
+        termsLabel.style.display = "block";
+        bankBox.checked = false;
+        donorBox.checked = true;
+    } else if (bankBox.checked) {
+        terms.style.display = "none";
+        termsLabel.style.display = "none";
+        bankBox.checked = true;
+        donorBox.checked = false;
+    }
+}
+</script>
 
 </html>
 
