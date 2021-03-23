@@ -78,7 +78,7 @@
                             <label for="terms_agreement" class="mb-0" name="terms_agreement_label"
                                 id="terms_agreement_label">I have read and agree
                                 to Food O' Cycle's <a href="php/pdf_server.php?file=Terms_And_Conditions.pdf"
-                                    class="text-primary font-weight-bold"><u>Terms and
+                                    class="text-dark font-weight-bold"><u>Terms and
                                         Conditions</u></a></label>
                         </div>
                         <div class="form-group col-md-6">
@@ -119,11 +119,10 @@
         </form>
     </div>
 </body>
-
+<script src="js/register.js"></script>
 </html>
 
 <?php
-    include 'js/register.js';
 	include 'inc/js_to_include.php';
 	include 'inc/footer.php';
 ?>
