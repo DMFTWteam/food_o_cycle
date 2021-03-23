@@ -77,7 +77,7 @@
                             <input type="checkbox" class="form-control-sm" name="terms_agreement" id="terms_agreement">
                             <label for="terms_agreement" class="mb-0" name="terms_agreement_label"
                                 id="terms_agreement_label">I have read and agree
-                                to Food O' Cycle's <a href="php/pdf_server.php?file=Terms_And_Conditions.pdf">Terms and
+                                to Food O' Cycle's <a href="php/pdf_server.php?file=Terms_And_Conditions.pdf" style='text-decoration: underline;'>Terms and
                                     Conditions</a></label>
                         </div>
                         <div class="form-group col-md-6">
