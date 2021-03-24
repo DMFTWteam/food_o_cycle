@@ -18,14 +18,10 @@ function cbclick(e) {
     var cbxs = document.getElementById('radiocb').getElementsByTagName('input'),
         i = cbxs.length;
     while (i--) {
-        if (i === 1) {
+        if (cbxs[i].type && cbxs[i].type == 'checkbox' && cbxs[i].id !== cb.id && cbxs[i].id != "terms_agreement") {
+            cbxs[i].checked = false;
             showTerms();
-            continue;
-        } else {
-            if (cbxs[i].type && cbxs[i].type == 'checkbox' && cbxs[i].id !== cb.id) {
-                cbxs[i].checked = false;
-                showTerms();
-            }
         }
+
     }
 }
