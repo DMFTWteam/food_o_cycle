@@ -74,19 +74,20 @@
                         <div class="form-group col-md-6">
                             <label for="DonorBox" class="mb-0">Donor</label>
                             <input type="checkbox" class="form-control" name="DonorBox" id="cb1">
+                            <input type="checkbox" class="form-control-sm" name="terms_agreement" id="terms_agreement"
+                                style='display: none;'>
+                            <label for="terms_agreement" class="mb-0" name="terms_agreement_label"
+                                id="terms_agreement_label" style='display: none;'>I have read and agree
+                                to Food O' Cycle's <a href="php/pdf_server.php?file=Terms_And_Conditions.pdf"
+                                    class="text-dark font-weight-bold"><u>Terms and
+                                        Conditions</u></a></label>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="BankBox" class="mb-0">Food Bank</label>
                             <input type="checkbox" class="form-control" name="BankBox" id="cb2">
                         </div>
                     </div>
-                    <input type="checkbox" class="form-control-sm" name="terms_agreement" id="terms_agreement"
-                        style='display: none;'>
-                    <label for="terms_agreement" class="mb-0" name="terms_agreement_label" id="terms_agreement_label"
-                        style='display: none;'>I have read and agree
-                        to Food O' Cycle's <a href="php/pdf_server.php?file=Terms_And_Conditions.pdf"
-                            class="text-dark font-weight-bold"><u>Terms and
-                                Conditions</u></a></label>
+
                 </div>
             </div>
             <div class="row">
