@@ -1,3 +1,5 @@
+<!-- COMPLETE -->
+
 <?php
 	include 'inc/header.php';
 	$path=filter_input(INPUT_POST, "path");
@@ -13,17 +15,15 @@
 		$ein=filter_input(INPUT_POST,'EIN', FILTER_VALIDATE_INT);
 		
 		$query = 'INSERT INTO users
-                 (u_fname, u_lname, 
-				 u_mi, u_password, u_phone, 
+                 (u_fname, u_lname, u_password, u_phone, 
 				 u_email, u_is_admin, u_is_standard)
               VALUES
-                 (:first_name, :last_name, :initial, :password, 
+                 (:first_name, :last_name, :password, 
 				 :phone, :email, 0, 1)';
     	$statement = $db->prepare($query);
     	$statement->bindValue(':first_name', $first_name);
 		$statement->bindValue(':last_name', $last_name);
-		$statement->bindValue(':initial', $initial);
-		$statement->bindValue(':password', $password);
+		$statement->bindValue(':password', password_hash($password, PASSWORD_DEFAULT));
 		$statement->bindValue(':phone', $phone);
 		$statement->bindValue(':email', $email);
 		$statement->execute();
@@ -38,18 +38,27 @@
 		$u_id = $statement2->fetch();
 		$statement2->closeCursor();
 
-		$query2 = 'SELECT u_id
-					FROM users
-					WHERE u_email = :email';
-		$statement2 = $db->prepare($query2);
-		$statement2->bindValue(':email', $email);
-		$statement2->execute();
-		$u_id = $statement2->fetch();
-		$statement2->closeCursor();
+		$query3 = 'INSERT INTO user_to_business
+                 (u_id, business_id)
+              VALUES
+                 (:u_id, :business_id)';
+    	$statement3 = $db->prepare($query3);
+    	$statement3->bindValue(':u_id', $u_id);
+		$statement3->bindValue(':business_id', $business_id);
+		$statement3->execute();
+		$statement3->closeCursor();
 
 	}else if($path === '/resetPassword.php'){
 		$password=filter_input(INPUT_POST, 'InputPassword');
-		var_dump($password);
+		$u_id = filter_input(INPUT_POST, 'u_id', FILTER_VALIDATE_INT);
+		$query = 'UPDATE users
+				SET u_password = :u_password
+				WHERE u_id = :u_id';
+    	$statement = $db->prepare($query);
+    	$statement->bindValue(':u_id', $u_id);
+		$statement->bindValue(':u_password', password_hash($password, PASSWORD_DEFAULT));
+		$statement->execute();
+		$statement->closeCursor();
 	}
 	
 	

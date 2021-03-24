@@ -36,7 +36,7 @@
 
 					if($user_count > 0){
 					 
-					 $validPassword = password_verify($password , password_hash($user_info['u_password'], PASSWORD_DEFAULT));
+					 $validPassword = password_verify($password , $user_info['u_password']);
 					 if($validPassword){
 						 $_SESSION['user'] = $user_info;
 					  	if($user_info['u_is_admin'] == 1){
@@ -73,7 +73,6 @@
 					
 			   }
 			   
-		 }	   
-	
-	
-?>
+		 }else{
+			header("Location: ../login.php");
+		 }
