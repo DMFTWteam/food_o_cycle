@@ -7,6 +7,7 @@ function showTerms() {
     } else {
         document.getElementById("terms_agreement").style.display = "none";
         document.getElementById("terms_agreement_label").style.display = "none";
+        document.getElementById("terms_agreement").checked = false;
     }
 }
 
