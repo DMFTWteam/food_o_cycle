@@ -17,11 +17,11 @@ function cbclick(e) {
     if (cb.type !== 'checkbox') { return true; }
     var cbxs = document.getElementById('radiocb').getElementsByTagName('input'),
         i = cbxs.length;
-    cbxs.splice(1, 1);
-    i = i--;
     while (i--) {
-        if (cbxs[i].type && cbxs[i].type == 'checkbox' && cbxs[i].id !== cb.id) {
-            cbxs[i].checked = false;
+        if (i === 1) { continue; } else {
+            if (cbxs[i].type && cbxs[i].type == 'checkbox' && cbxs[i].id !== cb.id) {
+                cbxs[i].checked = false;
+            }
         }
     }
 }
