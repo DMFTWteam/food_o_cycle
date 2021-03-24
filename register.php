@@ -74,7 +74,7 @@
                         <div class="form-group col-md-6">
                             <label for="DonorBox" class="mb-0">Donor</label>
                             <input type="checkbox" class="form-control" name="DonorBox" id="cb1">
-                            <input type="checkbox" class="form-control-sm" name="terms_agreement" id="terms_agreement"
+                            <input type="radio" class="form-control-sm" name="terms_agreement" id="terms_agreement"
                                 style='display: none;'>
                             <label for="terms_agreement" class="mb-0" name="terms_agreement_label"
                                 id="terms_agreement_label" style='display: none;'>I have read and agree
