@@ -18,35 +18,14 @@ function cbclick(e) {
     var cbxs = document.getElementById('radiocb').getElementsByTagName('input'),
         i = cbxs.length;
     while (i--) {
-        if (i === 1) { continue; } else {
+        if (i === 1) {
+            showTerms();
+            continue;
+        } else {
             if (cbxs[i].type && cbxs[i].type == 'checkbox' && cbxs[i].id !== cb.id) {
                 cbxs[i].checked = false;
+                showTerms();
             }
         }
     }
-}
-
-function createEventListeners() {
-    if (document.getElementById('cb1').addEventListener) {
-        document.getElementById('cb1').addEventListener("click", showTerms, false);
-    } else if (document.getElementById('cb1').attachEvent) {
-        document.getElementById('cb1').attachEvent("onclick", showTerms);
-    }
-    if (document.getElementById('cb2').addEventListener) {
-        document.getElementById('cb2').addEventListener("click", showTerms, false);
-    } else if (document.getElementById('cb2').attachEvent) {
-        document.getElementById('cb2').attachEvent("onclick", showTerms);
-    }
-}
-
-
-function setUpPage() {
-    showTerms();
-    createEventListeners();
-}
-
-if (window.addEventListener) {
-    window.addEventListener("load", setUpPage, false);
-} else if (window.attachEvent) {
-    window.attachEvent("onload", setUpPage);
 }
