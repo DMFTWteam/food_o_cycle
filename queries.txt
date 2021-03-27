@@ -92,3 +92,5 @@ $statement = $db->prepare($query);
 $statement->execute();
 $u_info = $statement->fetch();
 $statement->closeCursor();
+
+-Adrian: Insert statement for food items to food_items table
