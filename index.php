@@ -1,22 +1,36 @@
 <?php
-include 'inc/header.php';
+/**
+ * Index.php Doc Comment
+ * 
+ * PHP version 7.4.8
+ * 
+ * @category File
+ * @package  Food_O_Cycle
+ * @author   Ryan Giddings <gid3877@calu.edu>
+ * @license  https://www.gnu.org/licenses/gpl-3.0.en.html GNU Public License v3.0
+ * @link     https://github.com/DMFTWteam/food_o_cycle
+ */
+
+require 'inc/header.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
-	<body>
-		<!-- Start Slider -->
+
+<body>
+    <!-- Start Slider -->
     <div id="slides-shop" class="cover-slides">
         <ul class="slides-container">
             <li class="text-center">
-                <img src="images/banner-01.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found?text=No+Image+Found">
+                <img src="images/banner-01.jpg"
+                    alt="https://via.placeholder.com/300.jpg?text=No+Image+Found?text=No+Image+Found">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Welcome To <br> Food O' Cycle</strong></h1>
                             <p class="m-b-40">Connecting food banks and local restaurants since 2021!</p>
                             <p><a class="btn hvr-hover" href="#">Shop</a></p>
-							<p><a class="btn hvr-hover" href="#">Donate</a></p>
+                            <p><a class="btn hvr-hover" href="#">Donate</a></p>
                         </div>
                     </div>
                 </div>
@@ -29,7 +43,7 @@ include 'inc/header.php';
                             <h1 class="m-b-20"><strong>Welcome To <br> Food O' Cycle</strong></h1>
                             <p class="m-b-40">Connecting food banks and local restaurants since 2021!</p>
                             <p><a class="btn hvr-hover" href="#">Shop</a></p>
-							<p><a class="btn hvr-hover" href="#">Donate</a></p>
+                            <p><a class="btn hvr-hover" href="#">Donate</a></p>
                         </div>
                     </div>
                 </div>
@@ -42,7 +56,7 @@ include 'inc/header.php';
                             <h1 class="m-b-20"><strong>Welcome To <br> Food O' Cycle</strong></h1>
                             <p class="m-b-40">Connecting food banks and local restaurants since 2021!</p>
                             <p><a class="btn hvr-hover" href="#">Shop</a></p>
-							<p><a class="btn hvr-hover" href="#">Donate</a></p>
+                            <p><a class="btn hvr-hover" href="#">Donate</a></p>
                         </div>
                     </div>
                 </div>
@@ -61,37 +75,43 @@ include 'inc/header.php';
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
+                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Produce</a>
                     </div>
                 </div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
+                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Perishables</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
+                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Canned Goods</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
+                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Seasonings and Condiments</a>
                     </div>
                 </div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
+                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Beverages</a>
                     </div>
                 </div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
+                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
+                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
                         <a class="btn hvr-hover" href="#">Miscellaneous</a>
                     </div>
                 </div>
@@ -99,7 +119,7 @@ include 'inc/header.php';
         </div>
     </div>
     <!-- End Categories -->
-	
+
 
     <!-- Start Products  -->
     <div class="products-box">
@@ -134,9 +154,12 @@ include 'inc/header.php';
                             <img src="images/img-pro-01.jpg" class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
+                                                class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
                                 <a class="cart" href="#">Add to Cart</a>
                             </div>
@@ -157,9 +180,12 @@ include 'inc/header.php';
                             <img src="images/img-pro-02.jpg" class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
+                                                class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
                                 <a class="cart" href="#">Add to Cart</a>
                             </div>
@@ -180,9 +206,12 @@ include 'inc/header.php';
                             <img src="images/img-pro-03.jpg" class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
+                                                class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
                                 <a class="cart" href="#">Add to Cart</a>
                             </div>
@@ -203,9 +232,12 @@ include 'inc/header.php';
                             <img src="images/img-pro-04.jpg" class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
+                                                class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
                                 <a class="cart" href="#">Add to Cart</a>
                             </div>
@@ -291,9 +323,10 @@ include 'inc/header.php';
         </div>
     </div>
     <!-- End Blog  -->
-	</body>
+</body>
+
 </html>
 <?php
-include 'inc/js_to_include.php';
-include 'inc/footer.php';
+require 'inc/js_to_include.php';
+require 'inc/footer.php';
 ?>

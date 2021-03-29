@@ -1,8 +1,20 @@
 <!-- COMPLETE -->
 
 <?php
-	include 'inc/header.php';
-	$u_id = filter_input(INPUT_POST, 'u_id', FILTER_VALIDATE_INT);
+/**
+ * ResetPassword.php Doc Comment
+ * 
+ * PHP version 7.4.8
+ * 
+ * @category File
+ * @package  Food_O_Cycle
+ * @author   Ryan Giddings <gid3877@calu.edu>
+ * @license  https://www.gnu.org/licenses/gpl-3.0.en.html GNU Public License v3.0
+ * @link     https://github.com/DMFTWteam/food_o_cycle
+ */
+
+    require 'inc/header.php';
+    $u_id = filter_input(INPUT_POST, 'u_id', FILTER_VALIDATE_INT);
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +53,7 @@
                             <input type="password" class="form-control" name="ConfirmPassword"
                                 placeholder="Confirm Password">
                             <input type='hidden' name='path' value='<?php echo $_SERVER['PHP_SELF']; ?>' />
-                            <input type='hidden' name='u_id' value='<?php echo $u_id; ?>'/>
+                            <input type='hidden' name='u_id' value='<?php echo $u_id; ?>' />
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover">Submit</button>
@@ -56,7 +68,7 @@
 </html>
 
 <?php
-	include 'inc/js_to_include.php';
-	include 'inc/footer.php';
-	
+    require 'inc/js_to_include.php';
+    require 'inc/footer.php';
+    
 ?>

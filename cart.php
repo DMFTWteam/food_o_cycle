@@ -1,9 +1,22 @@
 <?php
-if(!isset($_SESSION['user']['u_email'])){
+
+/**
+ * Cart.php Doc Comment
+ * 
+ * PHP version 7.4.8
+ * 
+ * @category File
+ * @package  Food_O_Cycle
+ * @author   Ryan Giddings <gid3877@calu.edu>
+ * @license  https://www.gnu.org/licenses/gpl-3.0.en.html GNU Public License v3.0
+ * @link     https://github.com/DMFTWteam/food_o_cycle
+ */
+
+if(!isset($_SESSION['user']['u_email'])) {
     header('Location: login.php');
     exit();
 }
-include 'inc/header.php';
+require 'inc/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -50,73 +63,76 @@ include 'inc/header.php';
                                 <tr>
                                     <td class="thumbnail-img">
                                         <a href="#">
-									<img class="img-fluid" src="images/img-pro-01.jpg" alt="" />
-								</a>
+                                            <img class="img-fluid" src="images/img-pro-01.jpg" alt="" />
+                                        </a>
                                     </td>
                                     <td class="name-pr">
                                         <a href="#">
-									Lorem ipsum dolor sit amet
-								</a>
+                                            Lorem ipsum dolor sit amet
+                                        </a>
                                     </td>
                                     <td class="price-pr">
                                         <p>$ 80.0</p>
                                     </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
+                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1"
+                                            class="c-input-text qty text"></td>
                                     <td class="total-pr">
                                         <p>$ 80.0</p>
                                     </td>
                                     <td class="remove-pr">
                                         <a href="#">
-									<i class="fas fa-times"></i>
-								</a>
+                                            <i class="fas fa-times"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="thumbnail-img">
                                         <a href="#">
-									<img class="img-fluid" src="images/img-pro-02.jpg" alt="" />
-								</a>
+                                            <img class="img-fluid" src="images/img-pro-02.jpg" alt="" />
+                                        </a>
                                     </td>
                                     <td class="name-pr">
                                         <a href="#">
-									Lorem ipsum dolor sit amet
-								</a>
+                                            Lorem ipsum dolor sit amet
+                                        </a>
                                     </td>
                                     <td class="price-pr">
                                         <p>$ 60.0</p>
                                     </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
+                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1"
+                                            class="c-input-text qty text"></td>
                                     <td class="total-pr">
                                         <p>$ 80.0</p>
                                     </td>
                                     <td class="remove-pr">
                                         <a href="#">
-									<i class="fas fa-times"></i>
-								</a>
+                                            <i class="fas fa-times"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="thumbnail-img">
                                         <a href="#">
-									<img class="img-fluid" src="images/img-pro-03.jpg" alt="" />
-								</a>
+                                            <img class="img-fluid" src="images/img-pro-03.jpg" alt="" />
+                                        </a>
                                     </td>
                                     <td class="name-pr">
                                         <a href="#">
-									Lorem ipsum dolor sit amet
-								</a>
+                                            Lorem ipsum dolor sit amet
+                                        </a>
                                     </td>
                                     <td class="price-pr">
                                         <p>$ 30.0</p>
                                     </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
+                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1"
+                                            class="c-input-text qty text"></td>
                                     <td class="total-pr">
                                         <p>$ 80.0</p>
                                     </td>
                                     <td class="remove-pr">
                                         <a href="#">
-									<i class="fas fa-times"></i>
-								</a>
+                                            <i class="fas fa-times"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -126,7 +142,7 @@ include 'inc/header.php';
             </div>
 
             <div class="row my-5">
-                
+
                 <div class="col-lg-6 col-sm-6">
                     <div class="update-box">
                         <input value="Update Cart" type="submit">
@@ -165,9 +181,11 @@ include 'inc/header.php';
                             <h5>Grand Total</h5>
                             <div class="ml-auto h5"> $ 388 </div>
                         </div>
-                        <hr> </div>
+                        <hr>
+                    </div>
                 </div>
-                <div class="col-12 d-flex shopping-box"><a href="checkout.php" class="ml-auto btn hvr-hover">Reserve Items</a> </div>
+                <div class="col-12 d-flex shopping-box"><a href="checkout.php" class="ml-auto btn hvr-hover">Reserve
+                        Items</a> </div>
             </div>
 
         </div>
@@ -179,6 +197,6 @@ include 'inc/header.php';
 
 
 <?php
-include 'inc/js_to_include.php';
-include 'inc/footer.php';
+require 'inc/js_to_include.php';
+require 'inc/footer.php';
 ?>

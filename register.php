@@ -1,7 +1,19 @@
 <!-- COMPLETE -->
 
 <?php
-	include 'inc/header.php';
+
+/**
+ * Register.php Doc Comment
+ * 
+ * PHP version 7.4.8
+ * 
+ * @category File
+ * @package  Food_O_Cycle
+ * @author   Ryan Giddings <gid3877@calu.edu>
+ * @license  https://www.gnu.org/licenses/gpl-3.0.en.html GNU Public License v3.0
+ * @link     https://github.com/DMFTWteam/food_o_cycle
+ */
+    require 'inc/header.php';
 
     $query = 'SELECT business_id, business_name
         FROM business
@@ -21,7 +33,7 @@
     //print_r($food_banks);
     $statement2->closeCursor();
     
-	//include 'inc/footer.php';
+    //include 'inc/footer.php';
 ?>
 
 <!DOCTYPE html>
@@ -128,6 +140,6 @@
 </html>
 
 <?php
-	include 'inc/js_to_include.php';
-	include 'inc/footer.php';
+    require 'inc/js_to_include.php';
+    require 'inc/footer.php';
 ?>

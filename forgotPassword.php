@@ -1,16 +1,29 @@
 <?php
-	include 'inc/header.php';
-	$email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
-	if(isset($email)){
-        $query = 'SELECT u_id
+
+/**
+ * ForgotPassword.php Doc Comment
+ * 
+ * PHP version 7.4.8
+ * 
+ * @category File
+ * @package  Food_O_Cycle
+ * @author   Ryan Giddings <gid3877@calu.edu>
+ * @license  https://www.gnu.org/licenses/gpl-3.0.en.html GNU Public License v3.0
+ * @link     https://github.com/DMFTWteam/food_o_cycle
+ */
+
+    require 'inc/header.php';
+    $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
+if (isset($email)) {
+       $query = 'SELECT u_id
                 FROM users
                 WHERE u_email = :email';
-    	$statement = $db->prepare($query);
-    	$statement->bindValue(':email', $email);
-		$statement->execute();
-        $u_id = $statement->fetch();
-		$statement->closeCursor();
-    }
+    $statement = $db->prepare($query);
+    $statement->bindValue(':email', $email);
+    $statement->execute();
+       $u_id = $statement->fetch();
+    $statement->closeCursor();
+}
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +69,7 @@
                 </div>
             </div>
         </form>
-        <?php if(isset($email)){ ?>
+        <?php if (isset($email)) { ?>
         <form class="mt-3 review-form-box" name="formRegister" style="margin-bottom: 10%;" action='resetPassword.php'
             method='post'>
             <div class="row">
@@ -68,7 +81,7 @@
                         <div class="form-group col-md-6">
                             <label for="Code" class="mb-0">Enter code below:</label>
                             <input type="text" class="form-control" name="Code" placeholder="Verification Code">
-                            <input type='hidden' name='u_id' value='<?php echo $u_id; ?>'/>
+                            <input type='hidden' name='u_id' value='<?php echo $u_id; ?>' />
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover">Submit</button>
@@ -82,6 +95,6 @@
 </html>
 
 <?php
-	include 'inc/js_to_include.php';
-	include 'inc/footer.php';
+    require 'inc/js_to_include.php';
+    require 'inc/footer.php';
 ?>
