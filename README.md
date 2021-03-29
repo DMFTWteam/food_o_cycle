@@ -110,6 +110,7 @@ Directory Structure (in progress):<br />
 <br />-dir:php<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-email_contact_process.php<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-form-process.php<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-user_actions.php<br />
 <br />-dir:webfonts<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-fa-brands-400.eot<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-fa-brands-400.svg<br />
