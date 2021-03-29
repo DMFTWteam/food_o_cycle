@@ -1,67 +1,98 @@
 <?php
+
 if(!isset($_SESSION['user']['u_email'])){
     header('Location: login.php');
     exit();
 }
 include 'inc/header.php';
+require_once('inc/db_connect.php');
+//Userinfo Section
+$u_id = 2;
+$biz_id = 1000;
+$query = 'SELECT u_id, u_photo, u_username, u_fname, u_lname FROM users
+		  WHERE u_id = :u_id';
+$statement = $db->prepare($query);
+$statement->bindValue(':u_id',$u_id);
+$statement->execute();
+$userInfo = $statement->fetchAll();
+$statement->closeCursor();
+//Item Section
+$query = 'SELECT * FROM food_item
+		  WHERE business_id = :u_id
+		  ORDER BY item_desc';
+$statement = $db->prepare($query);
+$statement->bindValue(':u_id',$biz_id);
+$statement->execute();
+$items = $statement->fetchAll();
+$statement->closeCursor();
 ?>
+ <script src="js/datetime.js"></script> 
 	<!-- To do: Change information to represent queries to db -->
     <div class="container-fluid gedf-wrapper">
         <div class="row">
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
-					    <img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
-                        <div class="h5">@username_here</div>
-                        <div class="h7 text-muted">Fullname : John Does Pizza</div>
-                        <div class="h7">Location: User Location Here</div>
+                        <img class="rounded-circle" width="45" src="data:image/jpeg;base64,<?php echo base64_encode(  $userInfo[0]['u_photo'] ); ?>" alt="">
+                        <div class="h5">@<?php echo $userInfo[0]['u_username']; ?> </div>
+                        <div class="h7 text-muted">Fullname : <?php echo $userInfo[0]['u_fname'] . ' ' . $userInfo[0]['u_lname']; ?> </div>
                     </div>
                 </div>
             </div>
+	<!--- \\\\\\\Post-->
             <div class="col-md-6 gedf-main">
-
-                <!--- \\\\\\\Post-->
-				<!--- Posting window-->
+				<form action="php/user_actions.php" method="get">
                 <div class="card gedf-card">
-				<form action="php\fooditems.php" method="post">
-                    <div class="card-header">
+				<div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Post an Item</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">Images</a>
+                            <li class="nav-item-post">
+								<h1 class="user-post-form-head">
+                                Post an Item
+								</h1>
                             </li>
                         </ul>
-                    </div>
-                    <div class="card-body">
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                                <div class="form-group">
-                                    <label class="sr-only" for="message">Post</label>
-                                    <textarea class="form-control" name="message" id="message" rows="3" placeholder="Describe your food donation"></textarea>
-                                </div>
-
-                            </div>
-							<!-- Are we uploading pictures? -->
-                            <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
-                                <div class="form-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Upload Image</label>
-                                    </div>
-                                </div>
-                                <div class="py-4"></div>
-                            </div>
-                        </div>
-                        <div class="btn-toolbar justify-content-between">
-                            <div class="btn-group">
-                                <button type="submit" class="btn btn-primary">Post</button>
-                            </div>
-                        </div>
-                    </div>
-				</form>
                 </div>
+				<div class="form-group row">
+					<label for="item_desc" class="col-sm-2 col-form-label">Item Description</label>
+					<div class="col-sm-10">
+					<input type="item_desc" class="form-control" name="item_desc" id="item_desc" placeholder="item_desc">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="qty" class="col-sm-2 col-form-label">Quantity Avaliable</label>
+					<div class="col-sm-10">
+					<input type="qty" class="form-control" name="qty" id="qty" placeholder="qty">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="est_val" class="col-sm-2 col-form-label">Estimated Value</label>
+					<div class="col-sm-10">
+					<input type="est_val" class="form-control" name="est_val" id="est_val" placeholder="est_val">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-2">Checkbox</div>
+					<div class="col-sm-10">
+					<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="perish" name="perish">
+					<label class="form-check-label" for="perish">
+					Item(s) Perishable?
+					</label>
+					</div>
+					</div>
+				</div>
+				<div class="expDate">
+				<label for="expDate">Expiration Date:</label>
+				<input type="date" id="expDate" name="expDate" class="expDate"> 
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-10">
+					<button type="submit" class="btn btn-primary">Post Item</button>
+					</div>
+				</div>
+
+				</form>
+            </div>
                 <!-- Post /////-->
 				
 				<!-- My Posted Items or Food View -->
@@ -77,29 +108,23 @@ include 'inc/header.php';
 
                     </div>
                     <div class="card-body">
-                        <div class="text-muted h7"> <i class="fa fa-clock-o"></i>Posted 10 min ago
-                        <a class="card-link" href="#">
-                            <h5 class="card-title">This is the decription of the item
-						</a>
+						<?php foreach($items as $item): ?>
+                        <div class="text-muted h7">
+							<h5 class="card-title">&#9862;Item Description: <?php echo $item['item_desc']; ?>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<i class="fa fa-clock-o"></i>Expiration: <?php echo $item['item_expiration']; ?>
+							<br>
+							&nbsp;&nbsp;&nbsp;&nbsp; Item ID: <?php echo $item['item_id']; ?>
 						&emsp;
-						<a href="#"
-							<i class="fa fa-trash"></i>
-						</a>
-						</h5>
-						</div>
-                        <div class="text-muted h7"> <i class="fa fa-clock-o"></i>Posted 3 days ago
-                        <a class="card-link" href="#">
-                            <h5 class="card-title">This is the decription of the item
-						</a>
-						&emsp;
+						 <?php endforeach; ?>
 						<a href="#"
 							<i class="fa fa-trash"></i>
 						</a>
 						</h5>
 						</div>
                     </div>
-                    <div class="card-footer">
-                        <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+					<div class="card-footer">
+                        <i class="fa fa-mail-forward"></i>
                     </div>
                 </div>
                 <!-- Post /////-->
@@ -135,7 +160,7 @@ include 'inc/header.php';
 					</div>
 				</form>
                     <div class="card-footer">
-                        <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+                        <i class="fa fa-mail-forward"></i>
                     </div>
                 </div>
                 <!-- Post /////-->
@@ -155,8 +180,8 @@ include 'inc/header.php';
                             <h5 class="card-title">This is the food to be picked up</h5>
 						</a>
                     </div>
-                    <div class="card-footer">
-                        <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+                 <div class="card-footer">
+                        <i class="fa fa-mail-forward"></i>
                     </div>
                 </div>
                 <!-- Post /////-->				
@@ -164,6 +189,7 @@ include 'inc/header.php';
             </div>
         </div>
     </div>
+<script src="js/userpages.js" />
 <?php
 include 'inc/js_to_include.php';
 include 'inc/footer.php';

@@ -1,9 +1,20 @@
 <?php
+
 if(!isset($_SESSION['user']['u_email'])){
     header('Location: login.php');
     exit();
 }
 include 'inc/header.php';
+require_once('inc/db_connect.php');
+//We need to get the $u_id from the session.. probably set in account.php
+$u_id = 2;
+$query = 'SELECT u_id, u_photo, u_username, u_fname, u_lname FROM users
+		  WHERE u_id = :u_id';
+$statement = $db->prepare($query);
+$statement->bindValue(':u_id',$u_id);
+$statement->execute();
+$userInfo = $statement->fetchAll();
+$statement->closeCursor();
 ?>
 
     <div class="container-fluid gedf-wrapper">
@@ -11,22 +22,29 @@ include 'inc/header.php';
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
-					    <img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
-                        <div class="h5">@username_here</div>
-                        <div class="h7 text-muted">Fullname : John Does Pizza</div>
-                        <div class="h7">Location: User Location Here</div>
-                    </div>
+					
+                        <img class="rounded-circle" width="45" src="data:image/jpeg;base64,<?php echo base64_encode(  $userInfo[0]['u_photo'] ); ?>" alt="">
+                        <div class="h5">@<?php echo $userInfo[0]['u_username']; ?> </div>
+                        <div class="h7 text-muted">Fullname : <?php echo $userInfo[0]['u_fname'] . ' ' . $userInfo[0]['u_lname']; ?> </div>
+						</div>
                 </div>
             </div>
             <div class="col-md-6 gedf-main">
 
 				<!-- Zipcode Search Bar -->
 				<div class="card gedf-card">
-					<form action="" method="get">
+					<form action="php/user_actions.php" method="get">
+					<div class="card-header">
+                    </div>
+						<h2>Search Zipcode for food items near you!</h2>
 						<div class="form-group col-md-2">
-							<label for="inputZipCode">Search Zipcode</label>
 							<input type="text" class="form-control" id="inputZipCode">
 						</div>
+					<div class="form-group row">
+						<div class="col-sm-10">
+						<button type="submit" class="btn btn-primary">Search</button>
+						</div>
+					</div>
 					</form>
 				</div>
 				<!-- My Posted Items or Food View -->
@@ -63,8 +81,8 @@ include 'inc/header.php';
 						</h5>
 						</div>
                     </div>
-                    <div class="card-footer">
-                        <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+					<div class="card-footer">
+                        <i class="fa fa-mail-forward"></i>
                     </div>
                 </div>
                 <!-- Post /////-->
@@ -99,8 +117,8 @@ include 'inc/header.php';
 					<button type="submit" class="btn btn-primary btn-sm">Submit</button>
 					</div>
 				</form>
-                    <div class="card-footer">
-                        <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+					<div class="card-footer">
+                        <i class="fa fa-mail-forward"></i>
                     </div>
                 </div>
                 <!-- Post /////-->
@@ -120,8 +138,8 @@ include 'inc/header.php';
                             <h5 class="card-title">This is the food to be picked up</h5>
 						</a>
                     </div>
-                    <div class="card-footer">
-                        <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+					<div class="card-footer">
+                        <i class="fa fa-mail-forward"></i>
                     </div>
                 </div>
                 <!-- Post /////-->				
