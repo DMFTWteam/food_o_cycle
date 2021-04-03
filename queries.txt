@@ -93,4 +93,8 @@ $statement->execute();
 $u_info = $statement->fetch();
 $statement->closeCursor();
 
--Adrian: Insert statement for food items to food_items table
+-Adrian: Insert statement for food items to food_items table (database insertion)
+
+-Adrian: Select statement for users and businesses so I can populate food items on pages
+
+-Adrian: Delete statement to delete food_items from the database
