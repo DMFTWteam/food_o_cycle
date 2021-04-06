@@ -39,8 +39,8 @@ function tableBusinessNames()
     $i = 0;
     while ($i < $min_num) {
         echo '<tr>
-                <td><?php echo $banks[$i][\'business_name\']; ?></td>
-                <td><?php echo $donors[$i][\'business_name\']; ?></td>
+                <td> $banks[$i][\'business_name\'] </td>
+                <td> $donors[$i][\'business_name\'] </td>
                 </tr>';
         $i++;
     }
@@ -49,20 +49,20 @@ function tableBusinessNames()
         if ($item['business_is_donor'] == 1) {
             echo '<tr>
                 <td></td>
-                <td><?php echo $item[\'business_name\']; ?></td>
+                <td> $item[\'business_name\'] </td>
                 </tr>';
         } else {
             echo '<tr>
-                <td><?php echo $item[\'business_name\']; ?></td>
+                <td> $item[\'business_name\'] </td>
                 <td></td>
                 </tr>';
         }
     }
 }
 
-function tableAccessLogs($business)
+/*function tableAccessLogs($business)
 {
     
-}
+}*/
 
 ?>
