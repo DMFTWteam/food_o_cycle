@@ -71,7 +71,7 @@ if (isset($user_info)) {
     header("Location: ../login.php");
 }
 
-function Log_access($u_id, $auth) 
+/*function Log_access($u_id, $auth) 
 {
     $date = new DateTime('NOW');
     $auth_query = 'INSERT INTO access_log
@@ -84,6 +84,6 @@ function Log_access($u_id, $auth)
     $auth_statement->bindValue(':log_authsuccessful', $auth);
     $auth_statement->execute();
     $auth_statement->closeCursor();
-}
+}*/
         
 ?>
