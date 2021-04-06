@@ -4,7 +4,7 @@
     session_start();
 
 if (isset($_SESSION['user'])) {
-        $_SESSION['user'] = $user_info;
+    $user_info = $_SESSION['user'];
     if ($user_info['u_is_admin'] == 1) {
         header("Location: ../admin.php");
     } else if ($user_info['u_is_standard'] == 1) {
