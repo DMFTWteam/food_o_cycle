@@ -37,6 +37,7 @@ if (isset($user_login)) {
             $validPassword = password_verify($password, $user_info['u_password']);
             var_dump($validPassword);
             if ($validPassword) {
+                echo 'Made it!';
                 $_SESSION['user'] = $user_info;
                 if ($user_info['u_is_admin'] == 1) {
                     Log_access($user_info['u_id'], 1);
@@ -50,7 +51,7 @@ if (isset($user_login)) {
                     $statement2 = $db->prepare($query2);
                     $statement2->bindValue(':u_id', $user_info['u_id']);
                     $statement2->execute();
-                    $bus_info= $statement2->fetch();
+                    $bus_info = $statement2->fetchAll();
                     $business_count = $statement2->rowCount();
                     $statement2->closeCursor();
                     print_r($bus_info);
@@ -79,6 +80,7 @@ if (isset($user_login)) {
 
 function Log_access($u_id, $auth) 
 {
+    include_once "../inc/db_connect.php";
     $date = new DateTime('NOW');
     $auth_query = 'INSERT INTO access_log
 						(u_id, log_datetime, log_authsuccessful)
