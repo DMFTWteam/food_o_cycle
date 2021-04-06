@@ -11,7 +11,8 @@
  * @license  https://www.gnu.org/licenses/gpl-3.0.en.html GNU Public License v3.0
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
-if (!isset($_SESSION['user']['u_email'])) {
+session_start();
+if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit();
 }

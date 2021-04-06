@@ -7,26 +7,16 @@ if (isset($_SESSION['user'])) {
     $user_info = $_SESSION['user'];
     if ($user_info['u_is_admin'] == 1) {
         header("Location: ../admin.php");
+        exit();
     } else if ($user_info['u_is_standard'] == 1) {
-                    
-        $query2 = 'SELECT *
-					  	FROM user_to_business, business
-					 	WHERE user_to_business.u_id = :u_id
-						AND user_to_business.business_id = business.business_id';
-        $statement2 = $db->prepare($query2);
-        $statement2->bindValue(':u_id', $user_info['u_id']);
-        $statement2->execute();
-        $bus_info = $statement2->fetchAll();
-        $business_count = $statement2->rowCount();
-        $statement2->closeCursor();
-        if ($business_count > 0) {
-             $_SESSION['business'] = $bus_info;
-            if ($_SESSION['business']['business_is_donor'] === 1) {
-                header("Location: ../donorhome.php");
-            } else {
-                header("Location: ../fbhome.php");
-            }
+        if ($_SESSION['business']['business_is_donor'] == 1) {
+            header("Location: ../donorhome.php");
+            exit();
+        } else {
+            header("Location: ../fbhome.php");
+            exit();
         }
+        
     }
 }
     $username = filter_input(INPUT_POST, 'InputEmail');
@@ -56,6 +46,7 @@ if (isset($user_login)) {
                 if ($user_info['u_is_admin'] == 1) {
                     //Log_access($user_info['u_id'], 1);
                     header("Location: ../admin.php");
+                    exit();
                 } else if ($user_info['u_is_standard'] == 1) {
                     
                     //Log_access($user_info['u_id'], 1);
@@ -72,10 +63,12 @@ if (isset($user_login)) {
                     $statement2->closeCursor();
                     if ($business_count > 0) {
                          $_SESSION['business'] = $bus_info;
-                        if ($_SESSION['business']['business_is_donor'] === 1) {
+                        if ($_SESSION['business']['business_is_donor'] == 1) {
                             header("Location: ../donorhome.php");
+                            exit();
                         } else {
                             header("Location: ../fbhome.php");
+                            exit();
                         }
                     }
                 }
@@ -91,6 +84,7 @@ if (isset($user_login)) {
                
 } else {
     header("Location: ../login.php");
+    exit();
 }
 
 function Log_access($u_id, $auth) 

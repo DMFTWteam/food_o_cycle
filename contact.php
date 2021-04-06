@@ -1,22 +1,22 @@
 <?php
-	//Start the session
-	session_start();
-	include 'inc/header.php';
+    //Start the session
+    session_start();
+    require 'inc/header.php';
 
-	if(isset($_SESSION)){
-		if(isset($_SESSION['msgSuccess']) && $_SESSION['msgSuccess'] == True){
-			$msgSuccess = True;
-		}
-		else {
-			$msgSuccess = False;
-		}
-	}
+if(isset($_SESSION)) {
+    if(isset($_SESSION['msgSuccess']) && $_SESSION['msgSuccess'] == true) {
+        $msgSuccess = true;
+    }
+    else {
+        $msgSuccess = false;
+    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-	<body>
-		<!-- Start All Title Box -->
+    <body>
+        <!-- Start All Title Box -->
     <div class="all-title-box">
         <div class="container">
             <div class="row">
@@ -31,13 +31,14 @@
         </div>
     </div>
     <!-- End All Title Box -->
-		<form class="mt-3 review-form-box" action='php\email_contact_process.php' method='post'>
-		<div class="container">
+        <form class="mt-3 review-form-box" action='php\email_contact_process.php' method='post'>
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-				<?php if ($msgSuccess == True) {
-					echo '<div class="alert alert-success" role="alert"> Message Succesfully Sent! </div>'; } 
-				?>
+                <?php if ($msgSuccess == true) {
+                    echo '<div class="alert alert-success" role="alert"> Message Succesfully Sent! </div>'; 
+                } 
+                ?>
             <div class="title-middle">
                 <h3>Contact Us!</h3>
             </div>
@@ -49,22 +50,22 @@
                         <label for="InputEmail1" class="mb-0">Email Address</label>
                         <input type="email" class="form-control" name="InputEmail" id="" placeholder="Enter Email"> </div>
                 </div>
-				<div class="form-group">
-					<label for="ContactMessage">Message</label>
-					<textarea class="form-control" name="ContactMessage" id="" rows="3"></textarea>
-				</div>
-			<button type="submit" class="btn hvr-hover">Submit Message</button>
+                <div class="form-group">
+                    <label for="ContactMessage">Message</label>
+                    <textarea class="form-control" name="ContactMessage" id="" rows="3"></textarea>
+                </div>
+            <button type="submit" class="btn hvr-hover">Submit Message</button>
         </div>
-		</div>
-		</div>
-			
-		</form>
-	</body>
+        </div>
+        </div>
+            
+        </form>
+    </body>
 </html>
 
 <?php
 
-	include 'inc/js_to_include.php';
-	include 'inc/footer.php';
-	session_destroy();
+    require 'inc/js_to_include.php';
+    require 'inc/footer.php';
+    session_destroy();
 ?>

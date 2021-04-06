@@ -2,7 +2,7 @@
 //Starting a session
 session_start();
 $errorMSG = "";
-$msgSuccess = False;
+$msgSuccess = false;
 // NAME
 if (empty($_POST["InputName"])) {
     $errorMSG = "Name is required ";
@@ -43,21 +43,21 @@ $Body .= "\n";
 // send email
 // SETTING TO TRUE UNTIL SERVER IS SETUP FOR EMAIL
 //$success = mail($EmailTo, $Subject, $Body, "From:".$email);
-$success = True;
+$success = true;
 
 // redirect to success page
-if ($success && $errorMSG == ""){
-   $_SESSION['msgSuccess'] = True;
-   header("Location: ..\contact.php");
+if ($success && $errorMSG == "") {
+    $_SESSION['msgSuccess'] = true;
+    header("Location: ..\contact.php");
 }else{
-	//TO DO: Create failure alerts
-    if($errorMSG == ""){
+    //TO DO: Create failure alerts
+    if($errorMSG == "") {
         $errorMSG = "Something went wrong :(";
-		//Unsuccessful
-		header("Location: ..\contact.php");
+        //Unsuccessful
+        header("Location: ..\contact.php");
     } else {
         //Unsuccessful
-		header("Location: ..\contact.php");
+        header("Location: ..\contact.php");
     }
 }
 //D

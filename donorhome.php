@@ -121,7 +121,7 @@ $statement->closeCursor();
                         <br>
                         &nbsp;&nbsp;&nbsp;&nbsp; Item ID: <?php echo $item['item_id']; ?>
                         &emsp;
-                        <?php endforeach; ?>
+                <?php endforeach; ?>
                         <a href="#" <i class="fa fa-trash"></i>
                         </a>
                     </h5>

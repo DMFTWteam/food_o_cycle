@@ -12,7 +12,8 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
 
-if (!isset($_SESSION['user']['u_email'])) {
+session_start();
+if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit();
 }

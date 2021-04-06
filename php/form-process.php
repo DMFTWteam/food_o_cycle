@@ -56,10 +56,10 @@ $Body .= "\n";
 $success = mail($EmailTo, $Subject, $Body, "From:".$email);
 
 // redirect to success page
-if ($success && $errorMSG == ""){
-   echo "success";
+if ($success && $errorMSG == "") {
+    echo "success";
 }else{
-    if($errorMSG == ""){
+    if($errorMSG == "") {
         echo "Something went wrong :(";
     } else {
         echo $errorMSG;

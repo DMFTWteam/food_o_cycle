@@ -54,25 +54,27 @@
 }
 -------------------------------------------------------------------*/
 
- h1.about-head {
-	 font-size: 48px; 
-	 text-align: center;
-	 font-weight: bold;
- }
- 
- h1.user-post-head {
-	 padding-top: 25px;
-	 padding-bottom: 25px;
- }
-  div.about-content {
-	 text-align: center;
-	 font-size: 16px;
-	 padding-bottom: 25px;
-	 padding-top: 25px;
-  }
-   div.request-box {
-	 font-size: 14px;
-	 color: #212121;
-	 padding: 1.25rem;
-	 flex: 1 1 auto;
-  }
+h1.about-head {
+    font-size: 48px;
+    text-align: center;
+    font-weight: bold;
+}
+
+h1.user-post-head {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+div.about-content {
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+div.request-box {
+    font-size: 14px;
+    color: #212121;
+    padding: 1.25rem;
+    flex: 1 1 auto;
+}
