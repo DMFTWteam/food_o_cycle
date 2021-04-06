@@ -37,12 +37,13 @@ if (isset($user_login)) {
             $validPassword = password_verify($password, $user_info['u_password']);
             var_dump($validPassword);
             if ($validPassword) {
-                echo 'Made it!';
                 $_SESSION['user'] = $user_info;
                 if ($user_info['u_is_admin'] == 1) {
                     Log_access($user_info['u_id'], 1);
                     //header("Location: ../admin.php");
                 } else if ($user_info['u_is_standard'] == 1) {
+                    
+                    echo 'Made it!';
                     Log_access($user_info['u_id'], 1);
                     $query2 = 'SELECT *
 							  	FROM user_to_business, business
