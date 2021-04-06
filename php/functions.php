@@ -22,10 +22,11 @@ function tableBusinessNames()
     $statement = $db->prepare($query);
     $statement->execute();
     $businesses = $statement->fetchAll();
+    
+    echo "function executed";
     $statement->closeCursor();
     $donors = array();
     $banks = array();
-    echo "function executed";
     foreach ($businesses as $item) {
         if ($item['business_is_donor'] == 1) {
             array_push($donors, $item);
