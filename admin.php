@@ -17,6 +17,7 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
     
+    require 'php/functions.php';
     require 'inc/header.php';
     
     
@@ -55,7 +56,6 @@ if (!isset($_SESSION['user'])) {
                         </thead>
                         <tbody>
                             <?php 
-                            require 'php/functions.php';
                             tableBusinessNames(); ?>
                         </tbody>
                     </table>
