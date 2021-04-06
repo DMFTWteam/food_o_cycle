@@ -1,19 +1,6 @@
 <?php
-/**
- * Account.php Doc Comment
- * 
- * PHP version 7.4.8
- * 
- * @category File
- * @package  Food_O_Cycle
- * @author   Ryan Giddings <gid3877@calu.edu>
- * @license  https://www.gnu.org/licenses/gpl-3.0.en.html GNU Public License v3.0
- * @link     https://github.com/DMFTWteam/food_o_cycle
- */
-    
     require_once "../inc/db_connect.php";
 
-    
     session_start();
 
 if (!isset($_SESSION['user']['u_email'])) {
@@ -23,11 +10,7 @@ if (!isset($_SESSION['user']['u_email'])) {
 if (!isset($_SESSION['user']['u_password'])) {
     $password = filter_input(INPUT_POST, 'InputPassword');
 }
-    
     $user_info = filter_input(INPUT_POST, 'login');
-
-    
-    
 if (isset($user_info)) {  
     if (empty($username) || empty($password)) {  
         echo '<label>All fields are required</label>';  
@@ -44,7 +27,6 @@ if (isset($user_info)) {
         $user_count = $statement->rowCount();
         $statement->closeCursor();
                     
-
         if ($user_count > 0) {
                      
             $validPassword = password_verify($password, $user_info['u_password']);
