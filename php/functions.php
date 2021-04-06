@@ -40,8 +40,8 @@ function tableBusinessNames()
     $i = 0;
     while ($i < $min_num) {
         $tableString += '<tr>
-                <td>'.$banks[$i]['business_name'].'</td>
-                <td>'.$donors[$i]['business_name'].'</td>
+                <td>$banks[$i][\'business_name\']</td>
+                <td>$donors[$i][\'business_name\']</td>
                 </tr>';
         $i++;
     }
@@ -50,11 +50,11 @@ function tableBusinessNames()
         if ($item['business_is_donor'] == 1) {
             $tableString += '<tr>
                 <td></td>
-                <td>'.$item['business_name'].'</td>
+                <td>$item[\'business_name\']</td>
                 </tr>';
         } else {
             $tableString += '<tr>
-                <td>'.$item['business_name'].'</td>
+                <td>$item[\'business_name\']</td>
                 <td></td>
                 </tr>';
         }
