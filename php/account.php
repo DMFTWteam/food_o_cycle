@@ -17,7 +17,7 @@ if (isset($_SESSION['user'])) {
         } else {
             //header("Location: ../fbhome.php");
             echo "bank";
-            print_r($_SESSION['business'][0]['business_is_donor']);
+            print_r($_SESSION['business']['business_is_donor']);
             echo '<br>';
             print_r($_SESSION['user']);
             exit();
@@ -64,7 +64,7 @@ if (isset($user_login)) {
                     $statement2 = $db->prepare($query2);
                     $statement2->bindValue(':u_id', $user_info['u_id']);
                     $statement2->execute();
-                    $bus_info = $statement2->fetchAll();
+                    $bus_info = $statement2->fetch();
                     $business_count = $statement2->rowCount();
                     $statement2->closeCursor();
                     if ($business_count > 0) {
