@@ -10,7 +10,7 @@ if (isset($_SESSION['user'])) {
         echo "admin";
         exit();
     } else if ($user_info['u_is_standard'] == 1) {
-        if ($_SESSION['business']['business_is_donor'] == 1) {
+        if ($_SESSION['business']['business_is_donor'] == '1') {
             //header("Location: ../donorhome.php");
             echo "donor";
             exit();
