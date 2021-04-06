@@ -12,14 +12,12 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
     session_start();
-    if (!isset($_SESSION['user']['u_email'])) {
-        header('Location: login.php');
-        exit();
-    }
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+}
     
     require 'inc/header.php';
-
-    
 
 ?>
 
