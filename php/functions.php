@@ -11,9 +11,6 @@
  * @license  https://www.gnu.org/licenses/gpl-3.0.en.html GNU Public License v3.0
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
-
- 
-
 function tableBusinessNames()
 {
     include "../inc/db_connect.php";
@@ -36,7 +33,8 @@ function tableBusinessNames()
             array_push($banks, $item);
         }
     }
-
+    print_r($donors);
+    print_r($banks);
     $min_num = min(count($donors), count($banks));
     $i = 0;
     while ($i < $min_num) {
