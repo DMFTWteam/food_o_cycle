@@ -22,6 +22,7 @@ function tableBusinessNames()
     $businesses = $statement->fetchAll();
     $statement->closeCursor();
     
+    print_r($businesses);
 
     $donors = array();
     $banks = array();
@@ -34,6 +35,8 @@ function tableBusinessNames()
             array_push($banks, $item);
         }
     }
+    print_r($donors);
+    print_r($banks);
     $min_num = min(count($donors), count($banks));
     $i = 0;
     while ($i < $min_num) {
@@ -57,6 +60,7 @@ function tableBusinessNames()
                 </tr>';
         }
     }
+    echo $tableString;
     return $tableString;
 }
 
