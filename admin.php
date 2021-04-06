@@ -53,18 +53,9 @@ if (!isset($_SESSION['user'])) {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><a href="#">Sample Food Bank #1</a></td>
-                                <td><a href="#">Sample Food Donor #1</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Sample Food Bank #2</a></td>
-                                <td><a href="#">Sample Food Donor #2</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Sample Food Bank #3</a></td>
-                                <td><a href="#">Sample Food Donor #3</a></td>
-                            </tr>
+                            <?php
+                            tableBusinessNames();
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -116,6 +107,7 @@ if (!isset($_SESSION['user'])) {
 
 <?php
     require 'inc/js_to_include.php';
+    require 'php/functions.php';
     require 'inc/footer.php';
     
 ?>

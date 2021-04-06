@@ -35,12 +35,30 @@ function tableBusinessNames()
         }
     }
 
-    for ($i = 0; $i < count($businesses)/2; $i++) {
+    $min_num = min(count($donors), count($banks));
+    $i = 0;
+    while ($i < $min_num) {
         echo '<tr>
-                <td><a data-filter=".businessid'.$banks[$i]['business_id'].'">'.$banks[$i]['business_name'].'</a></td>
-                <td><a data-filter=".businessid'.$donors[$i]['business_id'].'">'.$donors[$i]['business_name'].'</a></td>
-            </tr>';
+                <td>'.$banks[$i]['business_name'].'</td>
+                <td>'.$donors[$i]['business_name'].'</td>
+                </tr>';
+        $i++;
     }
+    
+    foreach (max($donors, $banks) as $item) {
+        if ($item['business_is_donor'] == 1) {
+            echo '<tr>
+                <td></td>
+                <td>'.$item['business_name'].'</td>
+                </tr>';
+        } else {
+            echo '<tr>
+                <td>'.$item['business_name'].'</td>
+                <td></td>
+                </tr>';
+        }
+    }
+
 }
 
 function tableAccessLogs($business)
