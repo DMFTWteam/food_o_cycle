@@ -5,13 +5,18 @@
 
 if (!isset($_SESSION['user']['u_email'])) {
     $username = filter_input(INPUT_POST, 'InputEmail');
+    echo 'Email already set';
+    var_dump($username);
 }
     
 if (!isset($_SESSION['user']['u_password'])) {
     $password = filter_input(INPUT_POST, 'InputPassword');
+    echo 'Password already set';
+    var_dump($password);
 }
-    $user_info = filter_input(INPUT_POST, 'login');
-if (isset($user_info)) {  
+    $user_login = filter_input(INPUT_POST, 'login');
+    var_dump($user_login);
+if (isset($user_login)) {  
     if (empty($username) || empty($password)) {  
         echo '<label>All fields are required</label>';  
     } else {
@@ -23,7 +28,7 @@ if (isset($user_info)) {
         $statement->bindValue(':emailAddress', $username);
         $statement->execute();
         $user_info= $statement->fetch();
-        //print_r($user_info);
+        print_r($user_info);
         $user_count = $statement->rowCount();
         $statement->closeCursor();
                     
@@ -34,7 +39,7 @@ if (isset($user_info)) {
                 $_SESSION['user'] = $user_info;
                 if ($user_info['u_is_admin'] == 1) {
                     Log_access($user_info['u_id'], 1);
-                    header("Location: ../admin.php");
+                    //header("Location: ../admin.php");
                 } else if ($user_info['u_is_standard'] == 1) {
                     Log_access($user_info['u_id'], 1);
                     $query2 = 'SELECT *
@@ -47,13 +52,13 @@ if (isset($user_info)) {
                     $bus_info= $statement2->fetch();
                     $business_count = $statement2->rowCount();
                     $statement2->closeCursor();
-                    //print_r($bus_info);
+                    print_r($bus_info);
                     if ($business_count > 0) {
                          $_SESSION['business'] = $bus_info;
                         if ($_SESSION['business']['business_is_donor'] === 1) {
-                            header("Location: ../donorhome.php");
+                            //header("Location: ../donorhome.php");
                         } else {
-                            header("Location: ../fbhome.php");
+                            //header("Location: ../fbhome.php");
                         }
                     }
                 }
@@ -68,10 +73,10 @@ if (isset($user_info)) {
     }
                
 } else {
-    header("Location: ../login.php");
+    //header("Location: ../login.php");
 }
 
-/*function Log_access($u_id, $auth) 
+function Log_access($u_id, $auth) 
 {
     $date = new DateTime('NOW');
     $auth_query = 'INSERT INTO access_log
@@ -84,6 +89,6 @@ if (isset($user_info)) {
     $auth_statement->bindValue(':log_authsuccessful', $auth);
     $auth_statement->execute();
     $auth_statement->closeCursor();
-}*/
+}
         
 ?>
