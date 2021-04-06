@@ -60,6 +60,7 @@ function tableBusinessNames()
                 </tr>';
         }
     }
+    echo $tableString;
     return $tableString;
 }
 
