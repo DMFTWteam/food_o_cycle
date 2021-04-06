@@ -17,7 +17,7 @@ if (isset($_SESSION['user'])) {
         } else {
             //header("Location: ../fbhome.php");
             echo "bank";
-            var_dump(array_keys($_SESSION['business']));
+            print_r($_SESSION['business']);
             exit();
         }
         
