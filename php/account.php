@@ -5,19 +5,19 @@
 
 if (!isset($_SESSION['user']['u_email'])) {
     $username = filter_input(INPUT_POST, 'InputEmail');
-    echo 'Email already set';
-    var_dump($username);
+} else {
+    $username = $_SESSION['user']['u_email'];
 }
     
 if (!isset($_SESSION['user']['u_password'])) {
     $password = filter_input(INPUT_POST, 'InputPassword');
-    echo 'Password already set';
-    var_dump($password);
+} else {
+    $password = $_SESSION['user']['u_password'];
 }
     $user_login = filter_input(INPUT_POST, 'login');
     var_dump($user_login);
 if (isset($user_login)) {  
-    if (empty($username) || empty($password) || !isset($_SESSION['user']['u_password']) || !isset($_SESSION['user']['u_email'])) {  
+    if (empty($username) || empty($password)) {  
         echo '<label>All fields are required</label>';  
     } else {
         // Get the userName and passWord
