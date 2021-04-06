@@ -28,8 +28,6 @@ $statement->closeCursor();
 
 -Alex: query to select all food items by food category (dairy, bakery items, condiments, etc.) ordered alphabetically, this may need to be an additional field added to the food_item table
 
--Alex: query to insert new user, new business, and new user_to_business entry
-
 -Alex: query to update password for a given user (for the password reset page)
 
 $queryUpdate = 'UPDATE users
@@ -85,7 +83,7 @@ $statement->closeCursor();
 
 
 //query to display username, photo, name (Adrian)
-***we are not going to be able to get and display a location because that's not part of the database, unless you mean the business location
+
 $query = 'SELECT u_photo, u_username, u_fname, u_lname FROM users
 		  WHERE u_id = :u_id';
 $statement = $db->prepare($query);
@@ -93,4 +91,36 @@ $statement->execute();
 $u_info = $statement->fetch();
 $statement->closeCursor();
 
--Adrian: Insert statement for food items to food_items table
+-Adrian: Insert statement for food items to food_items table (database insertion)
+
+$query = 'INSERT INTO food_item 
+			(item_desc, business_id, item_qty_avail, item_price, item_perishable, item_expiration)
+		  VALUES
+			(:desc, :biz_id, :qty_avail, :price, :perish, :expiration)';
+$statement = $db->prepare($query);
+$statement->bindValue(':desc', $desc);
+$statement->bindValue(':biz_id', $biz_id);
+$statement->bindValue(':qty_avail', $qty_avail);
+$statement->bindValue(':price', $price);
+$statement->bindValue(':perish', $perish);
+$statement->bindValue(':expiration', $expiration);
+$statement->execute();
+$statement->closeCursor();
+
+-Adrian: Select statement for users and businesses so I can populate food items on pages
+
+$query = 'SELECT * FROM food_item WHERE
+		  :biz_id = business_id';
+$statement = $db->prepare($query);
+$statement->bindValue(':biz_id', $biz_id);
+$statement->execute();
+$statement->closeCursor();
+
+-Adrian: Delete statement to delete food_items from the database
+
+$query = 'DELETE FROM food_item
+		  WHERE :item_id = item_id';
+$statement = $db->prepare($query);
+$statement->bindValue(':item_id', $item_id);
+$statement->execute();
+$statement->closeCursor();
