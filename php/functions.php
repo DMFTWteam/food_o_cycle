@@ -20,10 +20,9 @@ function tableBusinessNames()
             FROM businesses
 		    ORDER BY business_name";
     $statement = $db->prepare($query);
+    echo "function executed";
     $statement->execute();
     $businesses = $statement->fetchAll();
-    
-    echo "function executed";
     $statement->closeCursor();
     $donors = array();
     $banks = array();
