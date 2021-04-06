@@ -43,7 +43,7 @@ if (isset($user_login)) {
                     //header("Location: ../admin.php");
                 } else if ($user_info['u_is_standard'] == 1) {
                     
-                    Log_access($user_info['u_id'], 1);
+                    //Log_access($user_info['u_id'], 1);
                     
                     echo 'Made it!';
                     $query2 = 'SELECT *
