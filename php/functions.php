@@ -15,9 +15,9 @@
 function tableBusinessNames()
 {
     include "../inc/db_connect.php";
-    $query = 'SELECT business_id, business_name, business_is_donor 
+    $query = "SELECT business_id, business_name, business_is_donor 
             FROM businesses
-		    ORDER BY business_name';
+		    ORDER BY business_name";
     $statement = $db->prepare($query);
     $statement->execute();
     $businesses = $statement->fetchAll();
@@ -37,31 +37,29 @@ function tableBusinessNames()
     $min_num = min(count($donors), count($banks));
     $i = 0;
     while ($i < $min_num) {
-        echo '<tr>
-                <td><?php echo $banks[$i][\'business_name\'] ?></td>
-                <td><?php echo $donors[$i][\'business_name\'] ?></td>
-                </tr>';
+        echo "<tr>
+                <td> $banks[$i]['business_name'] </td>
+                <td> $donors[$i]['business_name'] </td>
+                </tr>";
         $i++;
     }
     
     foreach (max($donors, $banks) as $item) {
         if ($item['business_is_donor'] == 1) {
-            echo '<tr>
+            echo "<tr>
                 <td></td>
-                <td><?php echo $item[\'business_name\'] ?></td>
-                </tr>';
+                <td> $item['business_name'] </td>
+                </tr>";
         } else {
-            echo '<tr>
-                <td><?php echo $item[\'business_name\'] ?></td>
+            echo "<tr>
+                <td> $item['business_name'] </td>
                 <td></td>
-                </tr>';
+                </tr>";
         }
     }
 }
-
-/*function tableAccessLogs($business)
+function tableAccessLogs($business)
 {
-    
-}*/
+}
 
 ?>
