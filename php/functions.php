@@ -26,6 +26,7 @@ function tableBusinessNames()
 
     $donors = array();
     $banks = array();
+    $tableString = '';
 
     foreach ($businesses as $item) {
         if ($item['business_is_donor'] === 1) {
@@ -38,7 +39,7 @@ function tableBusinessNames()
     $min_num = min(count($donors), count($banks));
     $i = 0;
     while ($i < $min_num) {
-        echo '<tr>
+        $tableString += '<tr>
                 <td>'.$banks[$i]['business_name'].'</td>
                 <td>'.$donors[$i]['business_name'].'</td>
                 </tr>';
@@ -47,18 +48,18 @@ function tableBusinessNames()
     
     foreach (max($donors, $banks) as $item) {
         if ($item['business_is_donor'] == 1) {
-            echo '<tr>
+            $tableString += '<tr>
                 <td></td>
                 <td>'.$item['business_name'].'</td>
                 </tr>';
         } else {
-            echo '<tr>
+            $tableString += '<tr>
                 <td>'.$item['business_name'].'</td>
                 <td></td>
                 </tr>';
         }
     }
-
+    return $tableString;
 }
 
 function tableAccessLogs($business)
