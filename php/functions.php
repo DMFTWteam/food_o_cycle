@@ -23,12 +23,12 @@ function tableBusinessNames()
     echo "function executed";
     $statement = $db->prepare($query);
     $statement->execute();
-    $businesses = $statement->fetchAll();
-    print_r($businesses);
+    $bus_names = $statement->fetchAll();
+    print_r($bus_names);
     $statement->closeCursor();
     $donors = array();
     $banks = array();
-    foreach ($businesses as $item) {
+    foreach ($bus_names as $item) {
         if ($item['business_is_donor'] == 1) {
             array_push($donors, $item);
         } else {
