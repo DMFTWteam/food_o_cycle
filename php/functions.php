@@ -21,6 +21,8 @@ function tableBusinessNames()
     $statement->execute();
     $businesses = $statement->fetchAll();
     $statement->closeCursor();
+    
+    print_r($businesses);
 
     $donors = array();
     $banks = array();
