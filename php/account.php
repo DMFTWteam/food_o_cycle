@@ -43,8 +43,9 @@ if (isset($user_login)) {
                     //header("Location: ../admin.php");
                 } else if ($user_info['u_is_standard'] == 1) {
                     
-                    echo 'Made it!';
                     Log_access($user_info['u_id'], 1);
+                    
+                    echo 'Made it!';
                     $query2 = 'SELECT *
 							  	FROM user_to_business, business
 							 	WHERE user_to_business.u_id = :u_id
