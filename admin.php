@@ -55,8 +55,7 @@ if (!isset($_SESSION['user'])) {
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
-                            tableBusinessNames(); ?>
+                            <?php echo tableBusinessNames(); ?>
                         </tbody>
                     </table>
                 </div>
