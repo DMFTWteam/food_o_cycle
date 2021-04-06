@@ -15,7 +15,6 @@ if (!isset($_SESSION['user']['u_password'])) {
     $password = $_SESSION['user']['u_password'];
 }
     $user_login = filter_input(INPUT_POST, 'login');
-    var_dump($user_login);
 if (isset($user_login)) {  
     if (empty($username) || empty($password)) {  
         echo '<label>All fields are required</label>';  
@@ -28,24 +27,22 @@ if (isset($user_login)) {
         $statement->bindValue(':emailAddress', $username);
         $statement->execute();
         $user_info= $statement->fetch();
-        print_r($user_info);
         $user_count = $statement->rowCount();
         $statement->closeCursor();
                     
         if ($user_count > 0) {
                      
             $validPassword = password_verify($password, $user_info['u_password']);
-            var_dump($validPassword);
+            
             if ($validPassword) {
                 $_SESSION['user'] = $user_info;
                 if ($user_info['u_is_admin'] == 1) {
-                    Log_access($user_info['u_id'], 1);
-                    //header("Location: ../admin.php");
+                    //Log_access($user_info['u_id'], 1);
+                    header("Location: ../admin.php");
                 } else if ($user_info['u_is_standard'] == 1) {
                     
                     //Log_access($user_info['u_id'], 1);
                     
-                    echo 'Made it!';
                     $query2 = 'SELECT *
 							  	FROM user_to_business, business
 							 	WHERE user_to_business.u_id = :u_id
@@ -56,28 +53,27 @@ if (isset($user_login)) {
                     $bus_info = $statement2->fetchAll();
                     $business_count = $statement2->rowCount();
                     $statement2->closeCursor();
-                    print_r($bus_info);
                     if ($business_count > 0) {
                          $_SESSION['business'] = $bus_info;
                         if ($_SESSION['business']['business_is_donor'] === 1) {
-                            //header("Location: ../donorhome.php");
+                            header("Location: ../donorhome.php");
                         } else {
-                            //header("Location: ../fbhome.php");
+                            header("Location: ../fbhome.php");
                         }
                     }
                 }
             } else {
-                Log_access($user_info['u_id'], 0);
+                //Log_access($user_info['u_id'], 0);
                 echo '<label>Invalid Password.</label>'; 
             }
         } else {
-            Log_access($user_info['u_id'], 0);
+            //Log_access($user_info['u_id'], 0);
             echo '<label>Invalid Username.</label>'; 
         }
     }
                
 } else {
-    //header("Location: ../login.php");
+    header("Location: ../login.php");
 }
 
 function Log_access($u_id, $auth) 
