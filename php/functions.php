@@ -14,6 +14,7 @@
 
 function tableBusinessNames()
 {
+    echo "function executed";
     include "../inc/db_connect.php";
     $query = "SELECT business_id, business_name, business_is_donor 
             FROM businesses
@@ -22,7 +23,7 @@ function tableBusinessNames()
     $statement->execute();
     $businesses = $statement->fetchAll();
     $statement->closeCursor();
-
+    print_r($businesses);
     $donors = array();
     $banks = array();
 
@@ -37,27 +38,26 @@ function tableBusinessNames()
     $min_num = min(count($donors), count($banks));
     $i = 0;
     while ($i < $min_num) {
-        $tableString .=  "<tr>
-                <td>" . $banks[$i]['business_name']."</td>
-                <td>".$donors[$i]['business_name']."</td>
+        echo "<tr>
+                <td>{$banks[$i]['business_name']}</td>
+                <td>{$donors[$i]['business_name']}</td>
                 </tr>";
         $i++;
     }
     
     foreach (max($donors, $banks) as $item) {
         if ($item['business_is_donor'] == 1) {
-            $tableString .=  "<tr>
+            echo "<tr>
                 <td></td>
-                <td>".$item['business_name']."</td>
+                <td>{$item['business_name']}</td>
                 </tr>";
         } else {
-            $tableString .=  "<tr>
-                <td>".$item['business_name']."</td>
+            echo "<tr>
+                <td>{$item['business_name']}</td>
                 <td></td>
                 </tr>";
         }
     }
-    return $tableString;
 }
 /*function tableAccessLogs($business)
 {
