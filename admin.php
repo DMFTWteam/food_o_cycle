@@ -54,7 +54,7 @@ if (!isset($_SESSION['user'])) {
                         </thead>
                         <tbody>
                             <?php
-                            //echo tableBusinessNames();
+                            echo tableBusinessNames();
                             ?>
                         </tbody>
                     </table>
@@ -109,6 +109,5 @@ if (!isset($_SESSION['user'])) {
     require 'inc/js_to_include.php';
     require 'php/functions.php';
     require 'inc/footer.php';
-    echo tableBusinessNames();
     
 ?>

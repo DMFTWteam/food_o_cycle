@@ -15,14 +15,13 @@ function tableBusinessNames()
 {
     include "../inc/db_connect.php";
     $query = 'SELECT business_id, business_name, business_is_donor 
-            FROM businesses
+            FROM business
 		    ORDER BY business_name';
     $statement = $db->prepare($query);
     $statement->execute();
     $businesses = $statement->fetchAll();
     $statement->closeCursor();
     
-    print_r($businesses);
 
     $donors = array();
     $banks = array();
@@ -35,8 +34,6 @@ function tableBusinessNames()
             array_push($banks, $item);
         }
     }
-    print_r($donors);
-    print_r($banks);
     $min_num = min(count($donors), count($banks));
     $i = 0;
     while ($i < $min_num) {
@@ -60,7 +57,6 @@ function tableBusinessNames()
                 </tr>';
         }
     }
-    echo $tableString;
     return $tableString;
 }
 
