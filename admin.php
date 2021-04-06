@@ -107,7 +107,7 @@ if (!isset($_SESSION['user'])) {
 
 <?php
     require 'inc/js_to_include.php';
-    require 'php/functions.php';
+    //require 'php/functions.php';
     require 'inc/footer.php';
     
 ?>
