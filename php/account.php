@@ -3,17 +3,34 @@
 
     session_start();
 
-if (!isset($_SESSION['user']['u_email'])) {
+if (isset($_SESSION['user'])) {
+        $_SESSION['user'] = $user_info;
+    if ($user_info['u_is_admin'] == 1) {
+        header("Location: ../admin.php");
+    } else if ($user_info['u_is_standard'] == 1) {
+                    
+        $query2 = 'SELECT *
+					  	FROM user_to_business, business
+					 	WHERE user_to_business.u_id = :u_id
+						AND user_to_business.business_id = business.business_id';
+        $statement2 = $db->prepare($query2);
+        $statement2->bindValue(':u_id', $user_info['u_id']);
+        $statement2->execute();
+        $bus_info = $statement2->fetchAll();
+        $business_count = $statement2->rowCount();
+        $statement2->closeCursor();
+        if ($business_count > 0) {
+             $_SESSION['business'] = $bus_info;
+            if ($_SESSION['business']['business_is_donor'] === 1) {
+                header("Location: ../donorhome.php");
+            } else {
+                header("Location: ../fbhome.php");
+            }
+        }
+    }
+}
     $username = filter_input(INPUT_POST, 'InputEmail');
-} else {
-    $username = $_SESSION['user']['u_email'];
-}
-    
-if (!isset($_SESSION['user']['u_password'])) {
     $password = filter_input(INPUT_POST, 'InputPassword');
-} else {
-    $password = $_SESSION['user']['u_password'];
-}
     $user_login = filter_input(INPUT_POST, 'login');
 if (isset($user_login)) {  
     if (empty($username) || empty($password)) {  
