@@ -12,10 +12,11 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
 
- require "../inc/db_connect.php";
+ 
 
 function tableBusinessNames()
 {
+    include "../inc/db_connect.php";
     $query = 'SELECT business_id, business_name, business_is_donor 
             FROM businesses
 		    ORDER BY business_name';
