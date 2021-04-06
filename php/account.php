@@ -17,7 +17,7 @@ if (isset($_SESSION['user'])) {
         } else {
             //header("Location: ../fbhome.php");
             echo "bank";
-            print_r($_SESSION['business']['business_is_donor']);
+            print_r($_SESSION['business']);
             echo '<br>';
             print_r($_SESSION['user']);
             exit();
