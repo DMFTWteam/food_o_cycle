@@ -24,6 +24,7 @@ function tableBusinessNames()
     $statement = $db->prepare($query);
     $statement->execute();
     $businesses = $statement->fetchAll();
+    print_r($businesses);
     $statement->closeCursor();
     $donors = array();
     $banks = array();
