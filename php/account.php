@@ -17,7 +17,7 @@ if (!isset($_SESSION['user']['u_password'])) {
     $user_login = filter_input(INPUT_POST, 'login');
     var_dump($user_login);
 if (isset($user_login)) {  
-    if (empty($username) || empty($password)) {  
+    if (empty($username) || empty($password) || !isset($_SESSION['user']['u_password']) || !isset($_SESSION['user']['u_email'])) {  
         echo '<label>All fields are required</label>';  
     } else {
         // Get the userName and passWord
@@ -35,6 +35,7 @@ if (isset($user_login)) {
         if ($user_count > 0) {
                      
             $validPassword = password_verify($password, $user_info['u_password']);
+            var_dump($validPassword);
             if ($validPassword) {
                 $_SESSION['user'] = $user_info;
                 if ($user_info['u_is_admin'] == 1) {
