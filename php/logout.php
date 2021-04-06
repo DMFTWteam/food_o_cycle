@@ -11,7 +11,8 @@
  * @license  https://www.gnu.org/licenses/gpl-3.0.en.html GNU Public License v3.0
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
-
+    unset($_SESSION['user']);
+    unset($_SESSION['business']);
     session_destroy();
     header('Location: https://foodocycle.com/index.php');
 ?>
