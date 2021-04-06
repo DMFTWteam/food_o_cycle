@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
-	
+    
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -58,19 +58,19 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<!-- <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
-							<option href="register.php">Register Here</option>
-							<option href="login.php">Sign In</option>
-						</select> -->
-						<div class="our-link" style="float: right;">
+                        <!-- <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
+                            <option href="register.php">Register Here</option>
+                            <option href="login.php">Sign In</option>
+                        </select> -->
+                        <div class="our-link" style="float: right;">
                         <ul style="text-align: right;">
                             <li><a href="register.php">Register</a></li>
-							<?php if(!isset($_SESSION['user']['u_email'])){
-								echo '<li><a href="login.php">Sign In</a></li>';
-							}else{
-								echo '<li><a href="php/logout.php">Sign Out</a></li>';
-							}
-							?>
+                            <?php if (isset($_SESSION['user'])) {
+                                echo '<li><a href="php/logout.php">Sign Out</a></li>';
+                            } else {
+                                echo '<li><a href="login.php">Sign In</a></li>';
+                            }
+                            ?>
                         </ul>
                     </div>
                     <!-- <div class="text-slid-box">
@@ -140,17 +140,17 @@
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                         <li class="side-menu">
-							<a href="#">
-								<i class="fa fa-shopping-bag"></i>
-								<!-- <span class="badge">3</span> -->
-								<p>My Cart</p>
-							</a>
-						</li>
+                            <a href="#">
+                                <i class="fa fa-shopping-bag"></i>
+                                <!-- <span class="badge">3</span> -->
+                                <p>My Cart</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- End Atribute Navigation -->
             </div>
-			<!-- Start Side Menu -->
+            <!-- Start Side Menu -->
             <div class="side">
                 <a href="#" class="close-side"><i class="fa fa-times"></i></a>
                 <li class="cart-box">
@@ -183,7 +183,7 @@
     <!-- End Main Top -->
 
 
-	
+    
 </body>
 
 </html>
