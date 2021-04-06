@@ -6,15 +6,18 @@
 if (isset($_SESSION['user'])) {
     $user_info = $_SESSION['user'];
     if ($user_info['u_is_admin'] == 1) {
-        header("Location: ../admin.php");
-        exit();
+        //header("Location: ../admin.php");
+        echo "admin";
+        //exit();
     } else if ($user_info['u_is_standard'] == 1) {
         if ($_SESSION['business']['business_is_donor'] == 1) {
-            header("Location: ../donorhome.php");
-            exit();
+            //header("Location: ../donorhome.php");
+            echo "donor";
+            //exit();
         } else {
-            header("Location: ../fbhome.php");
-            exit();
+            //header("Location: ../fbhome.php");
+            echo "bank";
+            //exit();
         }
         
     }
