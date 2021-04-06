@@ -14,7 +14,7 @@
 
 function tableBusinessNames()
 {
-    echo "function executed";
+    
     include "../inc/db_connect.php";
     $query = "SELECT business_id, business_name, business_is_donor 
             FROM businesses
@@ -23,10 +23,9 @@ function tableBusinessNames()
     $statement->execute();
     $businesses = $statement->fetchAll();
     $statement->closeCursor();
-    print_r($businesses);
     $donors = array();
     $banks = array();
-
+    echo "function executed";
     foreach ($businesses as $item) {
         if ($item['business_is_donor'] == 1) {
             array_push($donors, $item);
