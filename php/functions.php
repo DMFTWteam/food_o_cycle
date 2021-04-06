@@ -23,7 +23,6 @@ function tableBusinessNames()
     $statement->closeCursor();
     
     print_r($businesses);
-    exit();
 
     $donors = array();
     $banks = array();

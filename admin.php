@@ -18,7 +18,8 @@ if (!isset($_SESSION['user'])) {
 }
     
     require 'inc/header.php';
-
+    
+    tableBusinessNames();
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +55,6 @@ if (!isset($_SESSION['user'])) {
                         </thead>
                         <tbody>
                             <?php
-                            tableBusinessNames();
                             ?>
                         </tbody>
                     </table>
