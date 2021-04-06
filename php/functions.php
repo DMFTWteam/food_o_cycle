@@ -19,8 +19,9 @@ function tableBusinessNames()
     $query = "SELECT business_id, business_name, business_is_donor 
             FROM businesses
 		    ORDER BY business_name";
-    $statement = $db->prepare($query);
+            
     echo "function executed";
+    $statement = $db->prepare($query);
     $statement->execute();
     $businesses = $statement->fetchAll();
     $statement->closeCursor();
