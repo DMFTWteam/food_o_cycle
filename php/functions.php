@@ -13,6 +13,7 @@
  */
 function tableBusinessNames()
 {
+    echo 'function executed';
     include "../inc/db_connect.php";
     $query = 'SELECT business_id, business_name, business_is_donor 
             FROM business
