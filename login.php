@@ -32,7 +32,7 @@ if ($path == '/register.php') {
 				 u_email, u_is_admin, u_is_standard)
               VALUES
                  (:first_name, :last_name, :upassword, 
-				 :phone, :email, 0, 1)';
+				 :phone, :email, \'0\', \'1\')';
     $statement = $db->prepare($query);
     $statement->bindValue(':first_name', $first_name);
     $statement->bindValue(':last_name', $last_name);
