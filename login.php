@@ -28,7 +28,7 @@ if ($path == '/register.php') {
     $ein=filter_input(INPUT_POST, 'EIN', FILTER_VALIDATE_INT);
         
     $query = 'INSERT INTO users
-                 (u_fname, u_lname, u_password, u_phone, 
+                 (u_fname, u_lname, u_password, 
 				 u_email, u_is_admin, u_is_standard)
               VALUES
                  (:first_name, :last_name, :upassword, :email, \'0\', \'1\')';
