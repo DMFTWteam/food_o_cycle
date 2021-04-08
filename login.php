@@ -39,6 +39,7 @@ if ($path == '/register.php') {
     $statement->bindValue(':phone', $phone);
     $statement->bindValue(':email', $email);
     $statement->execute();
+    print_r($db->errorInfo());
     $statement->closeCursor();
 
     $query2 = 'SELECT u_id
