@@ -13,6 +13,7 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
     require 'inc/header.php';
+    require 'inc/db_connect.php';
     $path=filter_input(INPUT_POST, "path");
     var_dump($path);
     
@@ -30,16 +31,16 @@ if ($path == '/register.php') {
                  (u_fname, u_lname, u_password, u_phone, 
 				 u_email, u_is_admin, u_is_standard)
               VALUES
-                 (:first_name, :last_name, :password, 
+                 (:first_name, :last_name, :upassword, 
 				 :phone, :email, 0, 1)';
     $statement = $db->prepare($query);
+    print_r($db->errorInfo());
     $statement->bindValue(':first_name', $first_name);
     $statement->bindValue(':last_name', $last_name);
-    $statement->bindValue(':password', password_hash($password, PASSWORD_DEFAULT));
+    $statement->bindValue(':upassword', password_hash($password, PASSWORD_DEFAULT));
     $statement->bindValue(':phone', $phone);
     $statement->bindValue(':email', $email);
     $statement->execute();
-    print_r($db->errorInfo());
     $statement->closeCursor();
 
     $query2 = 'SELECT u_id
