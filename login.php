@@ -14,9 +14,9 @@
  */
     require 'inc/header.php';
     $path=filter_input(INPUT_POST, "path");
-    echo $path;
+    var_dump($path);
     
-if ($path === '/register.php') {
+if ($path == '/register.php') {
     $first_name=filter_input(INPUT_POST, 'InputName');
     $last_name=filter_input(INPUT_POST, 'InputLastname');
     $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
@@ -60,7 +60,7 @@ if ($path === '/register.php') {
     $statement3->execute();
     $statement3->closeCursor();
 
-} else if ($path === '/resetPassword.php') {
+} else if ($path == '/resetPassword.php') {
     $password=filter_input(INPUT_POST, 'InputPassword');
     $u_id = filter_input(INPUT_POST, 'u_id', FILTER_VALIDATE_INT);
     $query = 'UPDATE users
