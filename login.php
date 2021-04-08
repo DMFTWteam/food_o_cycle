@@ -31,13 +31,12 @@ if ($path == '/register.php') {
                  (u_fname, u_lname, u_password, u_phone, 
 				 u_email, u_is_admin, u_is_standard)
               VALUES
-                 (:first_name, :last_name, :upassword, 
-				 :phone, :email, \'0\', \'1\')';
+                 (:first_name, :last_name, :upassword, :email, \'0\', \'1\')';
     $statement = $db->prepare($query);
     $statement->bindValue(':first_name', $first_name);
     $statement->bindValue(':last_name', $last_name);
     $statement->bindValue(':upassword', password_hash($password, PASSWORD_DEFAULT));
-    $statement->bindValue(':phone', $phone);
+    //$statement->bindValue(':phone', $phone);
     $statement->bindValue(':email', $email);
     $statement->execute();
     print_r($db->errorInfo());
