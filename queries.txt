@@ -41,6 +41,29 @@ $statement->closeCursor();
 
 -Alex: query(ies) to take the current cart and create a transaction (with transaction lines) for every item in the cart
 
+$query = 'INSERT INTO transactions
+			(business_id, trans_total_price, trans_date)
+		  VALUES
+			(:biz_id, :total_price, :date)';
+$statement = $db->prepare($query);
+$statement->bindValue(':biz_id', $biz_id);
+$statement->bindValue(':total_price', $total_price);
+$statement->bindValue(':date', $date);
+$statement->execute();
+$statement->closeCursor();
+
+$query2 = 'INSERT INTO transaction_line
+			(item_id, item_quantity)
+		   VALUES
+			(:i_id, :item_qty)
+			WHERE trans_id = :t_id';
+$statement2 = $db->prepare($query);
+$statement2->bindValue(':i_id', $i_id);
+$statement2->bindValue(':item_qty',$item_qty);
+$statement2->bindValue(':t_id', $t_id);
+$statement2->execute();
+$statement2->closeCursor();
+
 -Alex: query to select all business names and ID's ordered alphabetically
 
 $query = 'SELECT * FROM businesses
@@ -122,5 +145,17 @@ $query = 'DELETE FROM food_item
 		  WHERE :item_id = item_id';
 $statement = $db->prepare($query);
 $statement->bindValue(':item_id', $item_id);
+$statement->execute();
+$statement->closeCursor();
+
+-Adrian: Query to display food by zipcode
+
+$query = 'SELECT * FROM food_item WHERE
+		  :biz_id = business_id
+		  AND
+		  :zip = business.business_zip';
+$statement = $db->prepare($query);
+$statement->bindValue(':biz_id', $biz_id);
+$statement->bindValue(':zip', $zip);
 $statement->execute();
 $statement->closeCursor();
