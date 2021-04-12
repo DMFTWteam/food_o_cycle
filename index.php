@@ -11,6 +11,7 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
 
+require 'inc/js_to_include.php';
 require 'inc/header.php';
 session_start();
 
@@ -415,8 +416,6 @@ var_dump($serialized_item);
             </div>
         </div>
     </div> End Blog  -->
-    <script src="/lib/jquery.min.js"></script>
-    <script src="/lib/jquery.plugin.js"></script>
     <script>
     $(document).ready(function() {
         // add to cart button listener
@@ -435,6 +434,5 @@ var_dump($serialized_item);
 
 </html>
 <?php
-require 'inc/js_to_include.php';
 require 'inc/footer.php';
 ?>
