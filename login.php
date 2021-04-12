@@ -46,7 +46,7 @@ if ($path == '/register.php') {
     $statement2->bindValue(':email', $email);
     $statement2->execute();
     $u_id = $statement2->fetch();
-    var_dump($u_id);
+    var_dump($u_id['u_id']);
     $statement2->closeCursor();
 
     $query3 = 'INSERT INTO user_to_business
