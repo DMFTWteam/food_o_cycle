@@ -758,7 +758,7 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu {
     padding: 5px 10px;
 }
 
-button.btn-cart {
+.btn-cart button {
     border-bottom: solid 1px #cfcfcf !important;
     color: #000000;
     padding: 10px 15px;
@@ -767,7 +767,7 @@ button.btn-cart {
     color: #ffffff;
 }
 
-button.btn-cart:hover {
+.btn-cart button:hover {
     color: #b0b435;
 }
 
