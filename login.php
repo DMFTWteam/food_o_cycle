@@ -15,7 +15,6 @@
     require 'inc/header.php';
     require 'inc/db_connect.php';
     $path=filter_input(INPUT_POST, "path");
-    var_dump($path);
     
 if ($path == '/register.php') {
     $first_name=filter_input(INPUT_POST, 'InputName');
@@ -36,10 +35,8 @@ if ($path == '/register.php') {
     $statement->bindValue(':first_name', $first_name);
     $statement->bindValue(':last_name', $last_name);
     $statement->bindValue(':upassword', password_hash($password, PASSWORD_DEFAULT));
-    //$statement->bindValue(':phone', $phone);
     $statement->bindValue(':email', $email);
     $statement->execute();
-    print_r($db->errorInfo());
     $statement->closeCursor();
 
     $query2 = 'SELECT u_id
