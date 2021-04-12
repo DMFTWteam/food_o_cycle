@@ -92,7 +92,7 @@ foreach ($_SESSION['cart'] as $item) {
                                         echo "<td class='quantity-box'><input type='number' name='quantity{$i}' size='4' value='{$item['quantity']}' min='0' max='{$item['item_qty_avail']}' step='1'";
                                         echo "        class='c-input-text qty text'></td>";
                                         echo "<td class='remove-pr'>";
-                                        echo "    <a href='cart.php?remove=" . current($item) . "'>";
+                                        echo "    <a href='cart.php?remove={$item['item_desc']}'>";
                                         echo "        <i class='fas fa-times'></i>";
                                         echo "    </a>";
                                         echo "</td>";
