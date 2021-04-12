@@ -25,7 +25,8 @@ if (isset($remove) && $remove != '') {
     $key = array_search($remove, array_keys($_SESSION['cart']));
     var_dump($remove);
     var_dump($key);
-    if (($key = array_search($remove, array_keys($_SESSION['cart']))) !== false) {
+    if (($item = array_search($remove, $_SESSION['cart'])) !== false) {
+        $key = array_keys($item);
         array_splice($_SESSION['cart'], $key-1, 1);
     }
 }
