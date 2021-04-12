@@ -14,7 +14,8 @@
 require 'inc/header.php';
 session_start();
 
-$_SESSION['cart'] = array();
+
+print_r($_SESSION['cart']);
 
 
 ?>
@@ -152,7 +153,6 @@ $_SESSION['cart'] = array();
             <div class="row special-list">
 
                 <?php
-                print_r($_SESSION['cart']);
 
                 $action = isset($_GET['action']) ? $_GET['action'] : "";
  
