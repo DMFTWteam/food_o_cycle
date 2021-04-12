@@ -189,7 +189,7 @@ $_SESSION['cart'] = array();
                 $statement->closeCursor();
                 
                 foreach ($items as $item) {
-                    if (date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d')) {
+                    /*if (date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d')) {
                         echo "<div class='col-lg-3 col-md-6 special-grid top-featured'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
@@ -203,21 +203,21 @@ $_SESSION['cart'] = array();
                         echo "<div class='type-lb'>";
                         echo "    <p class='sale'>Expires Soon!</p>";
                         echo "</div>";
-                    } else {
+                    } else {*/
                         echo "<div class='col-lg-3 col-md-6 special-grid'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
-                    }
-                    $image = $item['item_image'];
-                    echo "<img src='data:image/jpeg;base64,".base64_encode($image->load()) ."' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
+                    //}
+                    //$image = $item['item_image'];
+                    echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
                     echo "        <div class='mask-icon'>";
                     echo "<form class='add-to-cart-form'>";
                     // product id
-                    echo "<div class='product-id display-none'>{{$item['item_id']}}</div>";
+                    echo "<div class='product-id display-none'>{$item['item_id']}</div>";
          
                     // enable add to cart button
                     echo "<button style='width:100%;' type='submit' class='btn btn-primary cart'>";
-                        echo "<span class='glyphicon glyphicon-shopping-cart'></span> Add to cart";
+                        echo "Add to cart";
                     echo "</button>";
          
                     echo "</form>";
@@ -236,7 +236,7 @@ $_SESSION['cart'] = array();
             </div>
         </div>
     </div>
-                <!-- <div class="col-lg-3 col-md-6 special-grid best-seller">
+    <!-- <div class="col-lg-3 col-md-6 special-grid best-seller">
                     <div class="products-single fix">
                         <div class="box-img-hover">
                             <div class="type-lb">
@@ -344,7 +344,7 @@ $_SESSION['cart'] = array();
     </div>
     <!-- End Products  -->
 
-                <!-- Start Blog
+    <!-- Start Blog
     <div class="latest-blog">
         <div class="container">
             <div class="row">
@@ -414,21 +414,20 @@ $_SESSION['cart'] = array();
         </div>
     </div> End Blog  -->
 
-                <script>
-                $(document).ready(function() {
-                    // add to cart button listener
-                    $('.add-to-cart-form').on('submit', function() {
+    <script>
+    $(document).ready(function() {
+        // add to cart button listener
+        $('.add-to-cart-form').on('submit', function() {
 
-                        // info is in the table / single product layout
-                        var id = $(this).find('.product-id').text();
-                        var quantity = $(this).find('.cart-quantity').val();
+            // info is in the table / single product layout
+            var id = $(this).find('.product-id').text();
 
-                        // redirect to add_to_cart.php, with parameter values to process the request
-                        window.location.href = "php/add_to_cart.php?id=" + id;
-                        return false;
-                    });
-                });
-                </script>
+            // redirect to add_to_cart.php, with parameter values to process the request
+            window.location.href = "php/add_to_cart.php?id=" + id;
+            return false;
+        });
+    });
+    </script>
 </body>
 
 </html>
