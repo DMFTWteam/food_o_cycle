@@ -22,9 +22,6 @@ require 'inc/header.php';
 $remove = urldecode($_GET['remove']);
 print_r($_SESSION['cart']);
 if (isset($remove) && $remove != '') {
-    
-    var_dump($remove);
-    var_dump($key);
     if (($key = array_search($remove, array_column($_SESSION['cart'], 'item_desc'))) !== false) {
         array_splice($_SESSION['cart'], $key, 1);
     }
@@ -93,7 +90,7 @@ foreach ($_SESSION['cart'] as $item) {
                                         echo "<td class='quantity-box'><input type='number' name='quantity{$i}' size='4' value='{$item['quantity']}' min='0' max='{$item['item_qty_avail']}' step='1'";
                                         echo "        class='c-input-text qty text'></td>";
                                         echo "<td class='remove-pr'>";
-                                        echo "    <a href='#?remove={$item['item_desc']}'>";
+                                        echo "    <a href='?remove={$item['item_desc']}'>";
                                         echo "        <i class='fas fa-times'></i>";
                                         echo "    </a>";
                                         echo "</td>";
