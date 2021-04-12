@@ -4,7 +4,7 @@ session_start();
  
 // get the product id
 $encoded_item = isset($_GET['item']) ? $_GET['item'] : "";
-$item = unserialize($encoded_item);
+$item = unserialize(urldecode($encoded_item));
 
 $item['quantity'] = 1;
  

@@ -213,7 +213,7 @@ var_dump($serialized_item);
                     echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
                     echo "        <div class='mask-icon'>";
                     echo "<form class='add-to-cart-form'>";
-                    $serialized_item = serialize($item);
+                    $serialized_item = urlencode(serialize($item));
 
                     echo "<div class='item display-none'>{$serialized_item}</div>";
          
