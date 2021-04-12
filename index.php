@@ -216,7 +216,7 @@ $_SESSION['cart'] = array();
                     echo "<div class='product-id display-none'>{$item['item_id']}</div>";
          
                     // enable add to cart button
-                    echo "<button style='background: #b0b435; border: 1px solid #000000; position: absolute; bottom: 0; left: 0px; padding: 10px 20px; font-weight: 700; color: #ffffff;' onMouseOver='this.style.backgroundColor=\"#000000\"' onMouseOut='this.style.backgroundColor=\"#b0b435\"' type='submit' class='btn btn-primary'>";
+                    echo "<button style='background: #b0b435; border: 1px solid #F5F5F5; position: absolute; bottom: 0; left: 0px; padding: 10px 20px; font-weight: 700; color: #ffffff;' onMouseOver='this.style.backgroundColor=\"#000000\"' onMouseOut='this.style.backgroundColor=\"#b0b435\"' type='submit' class='btn btn-primary'>";
                         echo "Add to cart";
                     echo "</button>";
          
