@@ -13,14 +13,14 @@
  */
 
 session_start();
-if (!isset($_SESSION['user'])) {
+/*if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit();
 }
 if ($_SESSION['business']['business_is_donor'] == 1) {
     header('Location: login.php');
     exit();
-}
+}*/
 require 'inc/header.php';
 ?>
 
