@@ -12,6 +12,11 @@
  */
 
 require 'inc/header.php';
+session_start();
+
+$_SESSION['cart'] = array();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -145,7 +150,90 @@ require 'inc/header.php';
             </div>
 
             <div class="row special-list">
-                <div class="col-lg-3 col-md-6 special-grid best-seller">
+
+                <?php
+
+                $action = isset($_GET['action']) ? $_GET['action'] : "";
+ 
+                echo "<div class='col-md-12'>";
+                if ($action=='removed') {
+                    echo "<div class='alert alert-info'>";
+                        echo "Product was removed from your cart!";
+                    echo "</div>";
+                } else if ($action=='quantity_updated') {
+                    echo "<div class='alert alert-info'>";
+                        echo "Product quantity was updated!";
+                    echo "</div>";
+                }
+                echo "</div>";
+
+                echo "<div class='col-md-12'>";
+                if ($action=='added') {
+                    echo "<div class='alert alert-info'>";
+                        echo "Product was added to your cart!";
+                    echo "</div>";
+                }
+ 
+                if ($action=='exists') {
+                    echo "<div class='alert alert-info'>";
+                        echo "Product already exists in your cart!";
+                    echo "</div>";
+                }
+                echo "</div>";
+
+                $query = 'SELECT * FROM food_item, business WHERE food_item.business_id = business.business_id ORDER BY item_desc';
+
+                $statement = $db->prepare($query);
+                $statement->execute();
+                $items = $statement->fetchAll();
+                $statement->closeCursor();
+                
+                foreach ($items as $item) {
+                    if (date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d')) {
+                        echo "<div class='col-lg-3 col-md-6 special-grid top-featured'>";
+                        echo "<div class='products-single fix'>";
+                        echo "<div class='box-img-hover'>";
+                        echo "<div class='type-lb'>";
+                        echo "    <p class='new'>New</p>";
+                        echo "</div>";
+                    } else if (!(date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d')) && (date('Y-m-d', strtotime($item['item_added'])) < date('Y-m-d', strtotime($item['item_expiration']))) && (date('Y-m-d', strtotime($item['item_added'])) > date('Y-m-d', strtotime($item['item_expiration']->modify("-2 days"))))) {
+                        echo "<div class='col-lg-3 col-md-6 special-grid best-seller'>";
+                        echo "<div class='products-single fix'>";
+                        echo "<div class='box-img-hover'>";
+                        echo "<div class='type-lb'>";
+                        echo "    <p class='sale'>Expires Soon!</p>";
+                        echo "</div>";
+                    } else {
+                        echo "<div class='col-lg-3 col-md-6 special-grid'>";
+                        echo "<div class='products-single fix'>";
+                        echo "<div class='box-img-hover'>";
+                    }
+                    $image = $item['item_image'];
+                    echo "<img src='data:image/jpeg;base64,".base64_encode($image->load()) ."' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
+                    echo "        <div class='mask-icon'>";
+                    echo "<form class='add-to-cart-form'>";
+                    // product id
+                    echo "<div class='product-id display-none'>{{$item['item_id']}}</div>";
+         
+                    // enable add to cart button
+                    echo "<button style='width:100%;' type='submit' class='btn btn-primary cart'>";
+                        echo "<span class='glyphicon glyphicon-shopping-cart'></span> Add to cart";
+                    echo "</button>";
+         
+                    echo "</form>";
+                    echo "      </div>";
+                    echo "  </div>";
+                    echo "   <div class='why-text'>";
+                    echo "       <h4>{$item['item_desc']}</h4>";
+                    echo "       <h5>{$item['business_name']}</h5>";
+                    echo "   </div>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+
+
+                ?>
+                <!-- <div class="col-lg-3 col-md-6 special-grid best-seller">
                     <div class="products-single fix">
                         <div class="box-img-hover">
                             <div class="type-lb">
@@ -321,8 +409,23 @@ require 'inc/header.php';
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Blog  -->
+    </div> End Blog  -->
+
+    <script>
+    $(document).ready(function() {
+        // add to cart button listener
+        $('.add-to-cart-form').on('submit', function() {
+
+            // info is in the table / single product layout
+            var id = $(this).find('.product-id').text();
+            var quantity = $(this).find('.cart-quantity').val();
+
+            // redirect to add_to_cart.php, with parameter values to process the request
+            window.location.href = "php/add_to_cart.php?id=" + id;
+            return false;
+        });
+    });
+    </script>
 </body>
 
 </html>
