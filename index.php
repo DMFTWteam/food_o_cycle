@@ -415,7 +415,8 @@ var_dump($serialized_item);
             </div>
         </div>
     </div> End Blog  -->
-
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/jquery.plugin.js"></script>
     <script>
     $(document).ready(function() {
         // add to cart button listener
