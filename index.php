@@ -64,7 +64,7 @@ session_start();
                 </div>
             </li>
         </ul>
-        <div class="slides-navigation">
+        <div class="slides-navigation" id='anchor'>
             <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
             <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
         </div>
@@ -77,7 +77,7 @@ session_start();
     <!-- Start Products  -->
     <div class="products-box">
         <div class="container">
-            <div class='row' id='anchor'>
+            <div class='row' >
                 <?php  $action = isset($_GET['action']) ? $_GET['action'] : "";
  
                 echo "<div class='col-md-12'>";
