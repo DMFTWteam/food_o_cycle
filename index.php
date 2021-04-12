@@ -126,6 +126,35 @@ session_start();
     <!-- Start Products  -->
     <div class="products-box">
         <div class="container">
+            <div class='row'>
+                <?php  $action = isset($_GET['action']) ? $_GET['action'] : "";
+ 
+                echo "<div class='col-md-12'>";
+                if ($action=='removed') {
+                    echo "<div class='alert alert-info'>";
+                    echo "Product was removed from your cart!";
+                    echo "</div>";
+                } else if ($action=='quantity_updated') {
+                    echo "<div class='alert alert-info'>";
+                    echo "Product quantity was updated!";
+                    echo "</div>";
+                }
+                echo "</div>";
+
+                echo "<div class='col-md-12'>";
+                if ($action=='added') {
+                    echo "<div class='alert alert-info'>";
+                    echo "Product was added to your cart!";
+                    echo "</div>";
+                }
+
+                if ($action=='exists') {
+                    echo "<div class='alert alert-info'>";
+                    echo "Product already exists in your cart!";
+                    echo "</div>";
+                }
+                echo "</div>"; ?>
+            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title-all text-center">
@@ -147,36 +176,8 @@ session_start();
             </div>
 
             <div class="row special-list">
-            <a id="anchor"></a>   
+                <a id="anchor"></a>
                 <?php
-
-                $action = isset($_GET['action']) ? $_GET['action'] : "";
- 
-                echo "<div class='col-md-12'>";
-                if ($action=='removed') {
-                    echo "<div class='alert alert-info'>";
-                        echo "Product was removed from your cart!";
-                    echo "</div>";
-                } else if ($action=='quantity_updated') {
-                    echo "<div class='alert alert-info'>";
-                        echo "Product quantity was updated!";
-                    echo "</div>";
-                }
-                echo "</div>";
-
-                echo "<div class='col-md-12'>";
-                if ($action=='added') {
-                    echo "<div class='alert alert-info'>";
-                        echo "Product was added to your cart!";
-                    echo "</div>";
-                }
- 
-                if ($action=='exists') {
-                    echo "<div class='alert alert-info'>";
-                        echo "Product already exists in your cart!";
-                    echo "</div>";
-                }
-                echo "</div>";
 
                 $query = 'SELECT * FROM food_item, business WHERE food_item.business_id = business.business_id ORDER BY item_desc';
 
