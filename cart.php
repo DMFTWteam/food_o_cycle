@@ -20,6 +20,7 @@ if (!isset($_SESSION['user']) || $_SESSION['business']['business_is_donor'] == 1
 
 require 'inc/header.php';
 $remove = urldecode($_GET['remove']);
+var_dump($remove);
 if (($key = array_search($remove, $_SESSION['cart'])) !== false) {
     array_splice($_SESSION['cart'], $key, 1);
 }
