@@ -208,7 +208,7 @@ session_start();
                     //$image = $item['item_image'];
                     echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
                     echo "        <div class='mask-icon'>";
-                    echo "<form class='add-to-cart-form' action='#anchor.row' method='post'>";
+                    echo "<form class='add-to-cart-form' action='https://foodocycle.com/index.php#anchor' method='post'>";
                     $serialized_item = urlencode(serialize($item));
 
                     echo "<div class='item display-none'>{$serialized_item}</div>";
