@@ -20,10 +20,10 @@ if (!isset($_SESSION['user']) || $_SESSION['business']['business_is_donor'] == 1
 
 require 'inc/header.php';
 $remove = urldecode($_GET['remove']);
-$key = array_search($remove, $_SESSION['cart']);
+$key = array_search($remove, array_keys($_SESSION['cart']));
 var_dump($remove);
 var_dump($key);
-if (($key = array_search($remove, $_SESSION['cart'])) !== false) {
+if (($key = array_search($remove, array_keys($_SESSION['cart']))) !== false) {
     array_splice($_SESSION['cart'], $key, 1);
 }
 $total_items = 0;
