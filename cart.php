@@ -29,6 +29,7 @@ if (isset($action) && $action == 'Update Cart') {
     foreach ($_SESSION['cart'] as $item) {
         $i = 0;
         $item['quantity'] = (int)$_POST['quantity' . $i];
+        var_dump((int)$_POST['quantity' . $i]);
         $total_items += $item['quantity'];
         $i++;
     }
