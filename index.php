@@ -126,7 +126,7 @@ session_start();
     <!-- Start Products  -->
     <div class="products-box">
         <div class="container">
-            <div class='row'>
+            <div class='row' id='anchor'>
                 <?php  $action = isset($_GET['action']) ? $_GET['action'] : "";
  
                 echo "<div class='col-md-12'>";
@@ -176,7 +176,6 @@ session_start();
             </div>
 
             <div class="row special-list">
-                <a id="anchor"></a>
                 <?php
 
                 $query = 'SELECT * FROM food_item, business WHERE food_item.business_id = business.business_id ORDER BY item_desc';
@@ -209,7 +208,7 @@ session_start();
                     //$image = $item['item_image'];
                     echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
                     echo "        <div class='mask-icon'>";
-                    echo "<form class='add-to-cart-form' action='#anchor' method='post'>";
+                    echo "<form class='add-to-cart-form' action='#anchor.row' method='post'>";
                     $serialized_item = urlencode(serialize($item));
 
                     echo "<div class='item display-none'>{$serialized_item}</div>";
