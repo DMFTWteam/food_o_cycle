@@ -208,8 +208,8 @@ $_SESSION['cart'] = array();
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
                     //}
-                    //$image = $item['item_image'];
-                    echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
+                    $image = $item['item_image'];
+                    echo "<img src='data:image/jpeg;base64,".base64_encode($image->load()) ."' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
                     echo "        <div class='mask-icon'>";
                     echo "<form class='add-to-cart-form'>";
                     // product id
