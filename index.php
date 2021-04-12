@@ -212,8 +212,9 @@ $_SESSION['cart'] = array();
                     echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
                     echo "        <div class='mask-icon'>";
                     echo "<form class='add-to-cart-form'>";
-                    // product id
-                    echo "<div class='item display-none'>{json_encode($item)}</div>";
+                    $serialized_item = serialize($item);
+
+                    echo "<div class='item display-none'>{$serialized_item}</div>";
          
                     // enable add to cart button
                     echo "<button style='background: #b0b435; border: 1px solid #b0b435; position: absolute; bottom: 0; left: 0px; padding: 10px 20px; font-weight: 700; color: #ffffff;' onMouseOver='this.style.backgroundColor=\"#000000\"' onMouseOut='this.style.backgroundColor=\"#b0b435\"' type='submit' class='btn btn-primary'>";
