@@ -71,56 +71,7 @@ session_start();
     </div>
     <!-- End Slider -->
 
-    <!-- Start Categories  -->
-    <div class="categories-shop">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
-                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
-                        <a class="btn hvr-hover" href="#">Produce</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
-                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
-                        <a class="btn hvr-hover" href="#">Perishables</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
-                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
-                        <a class="btn hvr-hover" href="#">Canned Goods</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
-                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
-                        <a class="btn hvr-hover" href="#">Seasonings and Condiments</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
-                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
-                        <a class="btn hvr-hover" href="#">Beverages</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="https://via.placeholder.com/300.jpg?text=No+Image+Found"
-                            alt="https://via.placeholder.com/300.jpg?text=No+Image+Found" />
-                        <a class="btn hvr-hover" href="#">Miscellaneous</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Categories -->
+    
 
 
     <!-- Start Products  -->
