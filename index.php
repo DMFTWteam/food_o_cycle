@@ -189,7 +189,7 @@ $_SESSION['cart'] = array();
                 $statement->closeCursor();
                 
                 foreach ($items as $item) {
-                    /*if (date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d')) {
+                    if (date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d')) {
                         echo "<div class='col-lg-3 col-md-6 special-grid top-featured'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
@@ -203,13 +203,13 @@ $_SESSION['cart'] = array();
                         echo "<div class='type-lb'>";
                         echo "    <p class='sale'>Expires Soon!</p>";
                         echo "</div>";
-                    } else {*/
+                    } else {
                         echo "<div class='col-lg-3 col-md-6 special-grid'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
-                    //}
-                    $image = $item['item_image'];
-                    echo "<img src='data:image/jpeg;base64,".base64_encode($image->load()) ."' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
+                    }
+                    //$image = $item['item_image'];
+                    echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
                     echo "        <div class='mask-icon'>";
                     echo "<form class='add-to-cart-form'>";
                     // product id
