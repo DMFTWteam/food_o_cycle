@@ -17,22 +17,23 @@ if (!isset($_SESSION['user']) || $_SESSION['business']['business_is_donor'] == 1
     header('Location: login.php');
     exit();
 }
-
-require 'inc/header.php';
 $remove = urldecode($_GET['remove']);
-print_r($_SESSION['cart']);
 if (isset($remove) && $remove != '') {
     if (($key = array_search($remove, array_column($_SESSION['cart'], 'item_desc'))) !== false) {
         array_splice($_SESSION['cart'], $key, 1);
     }
 }
-$total_items = 0;
-foreach ($_SESSION['cart'] as $item) {
-    $i = 0;
-    $item['quantity'] = $_POST['quantity' . $i];
-    $total_items += $item['quantity'];
-    $i++;
+$action = $_POST['action'];
+if (isset($action)) {
+    $total_items = 0;
+    foreach ($_SESSION['cart'] as $item) {
+        $i = 0;
+        $item['quantity'] = $_POST['quantity' . $i];
+        $total_items += $item['quantity'];
+        $i++;
+    }
 }
+require 'inc/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +108,8 @@ foreach ($_SESSION['cart'] as $item) {
                 <div class="row my-5">
                     <div class="col-lg-6 col-sm-6">
                         <div class="update-box">
-                            <input value="Update Cart" type="submit">
+                            <input name='action' value="Update Cart" type="submit">
+                            <input name='action' value="Clear Cart" type="submit">
                         </div>
                     </div>
                 </div>

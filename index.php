@@ -104,11 +104,11 @@ session_start();
  
                 echo "<div class='col-md-12'>";
                 if ($action=='removed') {
-                    echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435;'>";
+                    echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                     echo "Product was removed from your cart!";
                     echo "</div>";
                 } else if ($action=='quantity_updated') {
-                    echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435;'>";
+                    echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                     echo "Product quantity was updated!";
                     echo "</div>";
                 }
@@ -116,13 +116,13 @@ session_start();
 
                 echo "<div class='col-md-12'>";
                 if ($action=='added') {
-                    echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435;'>";
+                    echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                     echo "Product was added to your cart!";
                     echo "</div>";
                 }
 
                 if ($action=='exists') {
-                    echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435;'>";
+                    echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                     echo "Product already exists in your cart!";
                     echo "</div>";
                 }
