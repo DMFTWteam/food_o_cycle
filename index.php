@@ -152,6 +152,7 @@ $_SESSION['cart'] = array();
             <div class="row special-list">
 
                 <?php
+                print_r($_SESSION['cart']);
 
                 $action = isset($_GET['action']) ? $_GET['action'] : "";
  
