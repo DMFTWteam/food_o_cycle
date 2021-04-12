@@ -37,7 +37,7 @@ if (isset($action) && $action == 'Update Cart') {
 }
 require 'inc/header.php';
 
-print_r($_POST);
+var_dump($_POST);
 ?>
 
 <!DOCTYPE html>
