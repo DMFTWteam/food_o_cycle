@@ -24,7 +24,7 @@ if ($_SESSION['business']['business_is_donor'] == 1) {
 require 'inc/header.php';
 $remove = $_GET['remove'];
 if (isset($remove)) {
-    $_SESSION['cart'] = array_diff($_SESSION['cart'], array('id=>'.$remove));
+    $_SESSION['cart'] = array_diff($_SESSION['cart'], [$remove]);
 }
 $totalItems = 0;
 foreach ($_SESSION['cart'] as $item) {
@@ -90,7 +90,7 @@ foreach ($_SESSION['cart'] as $item) {
                                         echo "<td class='quantity-box'><input type='number' name='quantity{$i}' size='4' value='{$item['quantity']}' min='0' max='{$item['item_qty_avail']}' step='1'";
                                         echo "        class='c-input-text qty text'></td>";
                                         echo "<td class='remove-pr'>";
-                                        echo "    <a href='cart.php?remove={key($item)}'>";
+                                        echo "    <a href='cart.php?remove={$key}'>";
                                         echo "        <i class='fas fa-times'></i>";
                                         echo "    </a>";
                                         echo "</td>";
