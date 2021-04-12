@@ -22,7 +22,9 @@ if ($_SESSION['business']['business_is_donor'] == 1) {
     exit();
 }*/
 require 'inc/header.php';
+print_r($_SESSION['cart']);
 $remove = $_GET['remove'];
+var_dump($remove);
 if (isset($remove)) {
     $_SESSION['cart'] = array_diff($_SESSION['cart'], [$remove]);
 }
