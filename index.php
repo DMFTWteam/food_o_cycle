@@ -233,6 +233,9 @@ $_SESSION['cart'] = array();
 
 
                 ?>
+            </div>
+        </div>
+    </div>
                 <!-- <div class="col-lg-3 col-md-6 special-grid best-seller">
                     <div class="products-single fix">
                         <div class="box-img-hover">
@@ -341,7 +344,7 @@ $_SESSION['cart'] = array();
     </div>
     <!-- End Products  -->
 
-    <!-- Start Blog
+                <!-- Start Blog
     <div class="latest-blog">
         <div class="container">
             <div class="row">
@@ -411,21 +414,21 @@ $_SESSION['cart'] = array();
         </div>
     </div> End Blog  -->
 
-    <script>
-    $(document).ready(function() {
-        // add to cart button listener
-        $('.add-to-cart-form').on('submit', function() {
+                <script>
+                $(document).ready(function() {
+                    // add to cart button listener
+                    $('.add-to-cart-form').on('submit', function() {
 
-            // info is in the table / single product layout
-            var id = $(this).find('.product-id').text();
-            var quantity = $(this).find('.cart-quantity').val();
+                        // info is in the table / single product layout
+                        var id = $(this).find('.product-id').text();
+                        var quantity = $(this).find('.cart-quantity').val();
 
-            // redirect to add_to_cart.php, with parameter values to process the request
-            window.location.href = "php/add_to_cart.php?id=" + id;
-            return false;
-        });
-    });
-    </script>
+                        // redirect to add_to_cart.php, with parameter values to process the request
+                        window.location.href = "php/add_to_cart.php?id=" + id;
+                        return false;
+                    });
+                });
+                </script>
 </body>
 
 </html>
