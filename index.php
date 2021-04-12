@@ -189,7 +189,7 @@ $_SESSION['cart'] = array();
                 $statement->closeCursor();
                 
                 foreach ($items as $item) {
-                    if (date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d')) {
+                    if (date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d') && date('Y-m-d', strtotime($item['item_expiration']) !== date('Y-m-d'))) {
                         echo "<div class='col-lg-3 col-md-6 special-grid top-featured'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
