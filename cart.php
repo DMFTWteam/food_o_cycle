@@ -34,7 +34,7 @@ require 'inc/header.php';
                 <div class="col-lg-12">
                     <h2>Cart</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="shop.php">Shop</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item active">Cart</li>
                     </ul>
                 </div>

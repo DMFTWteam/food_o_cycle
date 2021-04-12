@@ -14,10 +14,6 @@
 require 'inc/header.php';
 session_start();
 
-
-print_r($_SESSION['cart']);
-var_dump($serialized_item);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
