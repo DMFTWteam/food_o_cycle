@@ -213,7 +213,7 @@ $_SESSION['cart'] = array();
                     echo "        <div class='mask-icon'>";
                     echo "<form class='add-to-cart-form'>";
                     // product id
-                    echo "<div class='product-id display-none'>{$item['item_id']}</div>";
+                    echo "<div class='item display-none'>{json_encode($item)}</div>";
          
                     // enable add to cart button
                     echo "<button style='background: #b0b435; border: 1px solid #b0b435; position: absolute; bottom: 0; left: 0px; padding: 10px 20px; font-weight: 700; color: #ffffff;' onMouseOver='this.style.backgroundColor=\"#000000\"' onMouseOut='this.style.backgroundColor=\"#b0b435\"' type='submit' class='btn btn-primary'>";
@@ -420,10 +420,10 @@ $_SESSION['cart'] = array();
         $('.add-to-cart-form').on('submit', function() {
 
             // info is in the table / single product layout
-            var id = $(this).find('.product-id').text();
+            var item = $(this).find('.item').text();
 
             // redirect to add_to_cart.php, with parameter values to process the request
-            window.location.href = "php/add_to_cart.php?id=" + id;
+            window.location.href = "php/add_to_cart.php?item=" + item;
             return false;
         });
     });

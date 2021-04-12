@@ -140,7 +140,7 @@
                         <li class="side-menu">
                             <a href="#">
                                 <i class="fa fa-shopping-bag"></i>
-                                <!-- <span class="badge">3</span> -->
+                                <span class="badge"><?php echo count($_SESSION['cart']); ?></span>
                                 <p>My Cart</p>
                             </a>
                         </li>
@@ -153,21 +153,15 @@
                 <a href="#" class="close-side"><i class="fa fa-times"></i></a>
                 <li class="cart-box">
                     <ul class="cart-list">
-                        <li>
-                            <a href="shop-detail.php?id=" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="https://i.stack.imgur.com/y9DpT.jpg" /></a>
-                            <h6><a href="shop-detail.php?id=">Delica omtantur </a></h6>
-                            <p>1</p>
-                        </li>
-                        <li>
-                            <a href="shop-detail.php?id=" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="https://i.stack.imgur.com/y9DpT.jpg" /></a>
-                            <h6><a href="shop-detail.php?id=">Omnes ocurreret</a></h6>
-                            <p>1</p>
-                        </li>
-                        <li>
-                            <a href="shop-detail.php?id=" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="https://i.stack.imgur.com/y9DpT.jpg" /></a>
-                            <h6><a href="shop-detail.php?id=">Agam facilisis</a></h6>
-                            <p>1</p>
-                        </li>
+                        <?php
+                        foreach ($_SESSION['cart'] as $i) {
+                            echo "<li>";
+                            echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='cart-thumb' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'/>";
+                            echo "<h6>{$i['item_desc']}</h6>";
+                            echo "<p>{$i['quantity']}</p>";
+                            echo '</li>';
+                        }
+                        ?>
                         <li class="total">
                             <a href="cart.php" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
                         </li>
