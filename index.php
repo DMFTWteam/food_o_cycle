@@ -62,13 +62,14 @@ session_start();
                         </div>
                     </div>
                 </div>
-                <div  id='anchor'></div>
             </li>
         </ul>
         <div class="slides-navigation">
             <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
             <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
         </div>
+        
+        <div  id='anchor'></div>
     </div>
     <!-- End Slider -->
 
@@ -78,6 +79,26 @@ session_start();
     <!-- Start Products  -->
     <div class="products-box">
         <div class="container">
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>Products</h1>
+                        <p>Look through the plethora of quality ingredients ready for donation!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="special-menu text-center">
+                        <div class="button-group filter-button-group">
+                            <button class="active" data-filter="*">All</button>
+                            <button data-filter=".top-featured">New additions</button>
+                            <button data-filter=".best-seller">Expires soon!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class='row' >
                 <?php  $action = isset($_GET['action']) ? $_GET['action'] : "";
  
@@ -106,25 +127,6 @@ session_start();
                     echo "</div>";
                 }
                 echo "</div>"; ?>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-all text-center">
-                        <h1>Products</h1>
-                        <p>Look through the plethora of quality ingredients ready for donation!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="special-menu text-center">
-                        <div class="button-group filter-button-group">
-                            <button class="active" data-filter="*">All</button>
-                            <button data-filter=".top-featured">New additions</button>
-                            <button data-filter=".best-seller">Expires soon!</button>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="row special-list">
