@@ -59,21 +59,7 @@ if (isset($_SESSION)) {
 				  </div>'; 
             }
             ?>
-            <div class="row new-account-login">
-                <div class="col-sm-6 col-lg-6 mb-3">
-                    <div class="title-left">
-                        <h3>Account Login</h3>
-                    </div>
-                    <h5><a href="login.php" role="button">Click here to Login</a></h5>
-                </div>
-                <div class="col-sm-6 col-lg-6 mb-3">
-                    <div class="title-left">
-                        <h3>Create New Account</h3>
-                    </div>
-                    <h5><a href="register.php" role="button">Click here to Register</a></h5>
-
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col-sm-6 col-lg-6 mb-3">
                     <div class="checkout-address">
@@ -93,14 +79,6 @@ if (isset($_SESSION)) {
                                     <input type="text" class="form-control" id="lastName" placeholder="" value=""
                                         required>
                                     <div class="invalid-feedback"> Valid last name is required. </div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="username">Username *</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="username" placeholder="" required>
-                                    <div class="invalid-feedback" style="width: 100%;"> Your username is required.
-                                    </div>
                                 </div>
                             </div>
                             <div class="mb-3">
