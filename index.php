@@ -216,9 +216,9 @@ $_SESSION['cart'] = array();
                     echo "<div class='product-id display-none'>{$item['item_id']}</div>";
          
                     // enable add to cart button
-                    echo "";
-                        echo "<a class='cart' href='#'><button type='submit'>Add to Cart</button></a>";
-                    echo "";
+                    echo "<button type='submit'>";
+                        echo "<a class='cart' href='#'>Add to Cart</a>";
+                    echo "</button>";
          
                     echo "</form>";
                     echo "      </div>";
