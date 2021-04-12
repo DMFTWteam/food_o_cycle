@@ -196,7 +196,7 @@ $_SESSION['cart'] = array();
                         echo "<div class='type-lb'>";
                         echo "    <p class='new'>New</p>";
                         echo "</div>";
-                    } else if (!(date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d')) && (date('Y-m-d', strtotime($item['item_added'])) < date('Y-m-d', strtotime($item['item_expiration']))) && (date('Y-m-d', strtotime($item['item_added'])) > date('Y-m-d', strtotime($item['item_expiration']->modify("-2 days"))))) {
+                    } else if ((date('Y-m-d', strtotime($item['item_added'])) < date('Y-m-d', strtotime($item['item_expiration']))) && (date('Y-m-d', strtotime($item['item_added'])) > date('Y-m-d', strtotime($item['item_expiration']->modify("-2 days"))))) {
                         echo "<div class='col-lg-3 col-md-6 special-grid best-seller'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
