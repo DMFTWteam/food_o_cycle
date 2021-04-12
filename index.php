@@ -62,9 +62,10 @@ session_start();
                         </div>
                     </div>
                 </div>
+                <div  id='anchor'></div>
             </li>
         </ul>
-        <div class="slides-navigation" id='anchor'>
+        <div class="slides-navigation">
             <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
             <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
         </div>
