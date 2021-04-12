@@ -21,7 +21,7 @@ if (isset($email)) {
     $statement = $db->prepare($query);
     $statement->bindValue(':email', $email);
     $statement->execute();
-       $u_id = $statement->fetch();
+    $u_id = $statement->fetch();
     $statement->closeCursor();
 }
 ?>
@@ -81,7 +81,7 @@ if (isset($email)) {
                         <div class="form-group col-md-6">
                             <label for="Code" class="mb-0">Enter code below:</label>
                             <input type="text" class="form-control" name="Code" placeholder="Verification Code">
-                            <input type='hidden' name='u_id' value='<?php echo $u_id; ?>' />
+                            <input type='hidden' name='u_id' value='<?php echo $u_id['u_id']; ?>' />
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover">Submit</button>
