@@ -22,7 +22,7 @@ require 'inc/header.php';
 $remove = urldecode($_GET['remove']);
 print_r($_SESSION['cart']);
 if (isset($remove) && $remove != '') {
-    $key = array_search($remove, $_SESSION['cart']);
+    $key = array_search($remove, array_column($_SESSION['cart'], 'item_desc'));
     var_dump($remove);
     var_dump($key);
     if (($item = array_search($remove, $_SESSION['cart'])) !== false) {
