@@ -54,7 +54,7 @@ if ($path == '/register.php') {
               VALUES
                  (:u_id, :business_id)';
     $statement3 = $db->prepare($query3);
-    $statement3->bindValue(':u_id', $u_id);
+    $statement3->bindValue(':u_id', (int)$u_id);
     $statement3->bindValue(':business_id', $business_id);
     $statement3->execute();
     $statement3->closeCursor();
