@@ -17,6 +17,10 @@ if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit();
 }
+if ($_SESSION['business']['business_is_donor'] == 1) {
+    header('Location: login.php');
+    exit();
+}
 require 'inc/header.php';
 ?>
 
@@ -61,81 +65,26 @@ require 'inc/header.php';
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-                                            <img class="img-fluid" src="images/img-pro-01.jpg" alt="" />
-                                        </a>
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-                                            Lorem ipsum dolor sit amet
-                                        </a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1"
-                                            class="c-input-text qty text"></td>
-                                    <td class="total-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="#">
-                                            <i class="fas fa-times"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-                                            <img class="img-fluid" src="images/img-pro-02.jpg" alt="" />
-                                        </a>
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-                                            Lorem ipsum dolor sit amet
-                                        </a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 60.0</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1"
-                                            class="c-input-text qty text"></td>
-                                    <td class="total-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="#">
-                                            <i class="fas fa-times"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-                                            <img class="img-fluid" src="images/img-pro-03.jpg" alt="" />
-                                        </a>
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-                                            Lorem ipsum dolor sit amet
-                                        </a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 30.0</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1"
-                                            class="c-input-text qty text"></td>
-                                    <td class="total-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="#">
-                                            <i class="fas fa-times"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                                <?php 
+                                foreach ($_SESSION['cart'] as $item) {
+                                    echo "<tr>";
+                                    echo "<td class='thumbnail-img'>";
+                                    echo "<img class='img-fluid' src='https://via.placeholder.com/300.jpg?text=No+Image+Found' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found' />";
+                                    echo "</td>";
+
+                                    echo "<td class='name-pr'>";
+                                    echo $item['item_desc'];
+                                    echo "</td>";
+                                    echo "<td class='quantity-box'><input type='number' size='4' value='1' min='0' step='1'";
+                                    echo "        class='c-input-text qty text'></td>";
+                                    echo "<td class='remove-pr'>";
+                                    echo "    <a href='#'>";
+                                    echo "        <i class='fas fa-times'></i>";
+                                    echo "    </a>";
+                                    echo "</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -198,6 +147,6 @@ require 'inc/header.php';
 
 
 <?php
-require 'inc/js_to_include.php';
-require 'inc/footer.php';
+    require 'inc/js_to_include.php';
+    require 'inc/footer.php';
 ?>
