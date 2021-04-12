@@ -22,11 +22,11 @@ require 'inc/header.php';
 $remove = urldecode($_GET['remove']);
 print_r($_SESSION['cart']);
 if (isset($remove) && $remove != '') {
-    $key = array_search($remove, array_column($_SESSION['cart'], 'item_desc'));
+    
     var_dump($remove);
     var_dump($key);
-    if (($item = array_search($remove, $_SESSION['cart'])) !== false) {
-        array_splice($_SESSION['cart'], $key-1, 1);
+    if (($key = array_search($remove, array_column($_SESSION['cart'], 'item_desc'))) !== false) {
+        array_splice($_SESSION['cart'], $key, 1);
     }
 }
 $total_items = 0;
