@@ -26,11 +26,11 @@ $remove = $_GET['remove'];
 if (isset($remove)) {
     $_SESSION['cart'] = array_diff($_SESSION['cart'], [$remove]);
 }
-$totalItems = 0;
+$total_items = 0;
 foreach ($_SESSION['cart'] as $item) {
     $i = 0;
     $item['quantity'] = $_POST['quantity' . $i];
-    $totalItems += $item['quantity'];
+    $total_items += $item['quantity'];
     $i++;
 }
 ?>
