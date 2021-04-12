@@ -758,7 +758,18 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu {
     padding: 5px 10px;
 }
 
-.btn-cart {}
+.btn-cart {
+    border-bottom: solid 1px #cfcfcf !important;
+    color: #000000;
+    padding: 10px 15px;
+    border: none;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.btn-cart:hover {
+    color: #b0b435;
+}
 
 .cart-list h6 a {
     font-size: 16px;
