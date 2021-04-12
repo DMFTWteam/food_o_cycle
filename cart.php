@@ -24,7 +24,7 @@ if ($_SESSION['business']['business_is_donor'] == 1) {
 require 'inc/header.php';
 $remove = $_GET['remove'];
 if (isset($remove)) {
-    $_SESSION['cart'] = array_diff($_SESSION['cart'], array($remove));
+    $_SESSION['cart'] = array_diff($_SESSION['cart'], array('id=>'.$remove));
 }
 $totalItems = 0;
 foreach ($_SESSION['cart'] as $item) {
