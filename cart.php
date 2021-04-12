@@ -13,20 +13,15 @@
  */
 
 session_start();
-/*if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) || $_SESSION['business']['business_is_donor'] == 1) {
     header('Location: login.php');
     exit();
 }
-if ($_SESSION['business']['business_is_donor'] == 1) {
-    header('Location: login.php');
-    exit();
-}*/
+
 require 'inc/header.php';
-print_r($_SESSION['cart']);
 $remove = $_GET['remove'];
-var_dump($remove);
-if (isset($remove)) {
-    $_SESSION['cart'] = array_diff($_SESSION['cart'], [$remove]);
+if (($key = array_search($remove, $_SESSION['cart'])) !== false) {
+    array_splice($_SESSION['cart'], $key, 1);
 }
 $total_items = 0;
 foreach ($_SESSION['cart'] as $item) {
