@@ -24,7 +24,7 @@ if (isset($remove) && $remove != '') {
     }
 }
 $action = $_POST['action'];
-if (isset($action)) {
+if (isset($action) && $action == 'Update Cart') {
     $total_items = 0;
     foreach ($_SESSION['cart'] as $item) {
         $i = 0;
@@ -32,8 +32,12 @@ if (isset($action)) {
         $total_items += $item['quantity'];
         $i++;
     }
+} elseif (isset($action) && $action == 'Clear Cart') {
+    $_SESSION['cart'] = array();
 }
 require 'inc/header.php';
+
+print_r($_POST);
 ?>
 
 <!DOCTYPE html>
