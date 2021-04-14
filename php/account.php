@@ -3,7 +3,7 @@
 
     session_start();
 
-/*if (isset($_SESSION['user'])) {
+if (isset($_SESSION['user'])) {
     $user_info = $_SESSION['user'];
     if ($user_info['u_is_admin'] == 1) {
         header("Location: ../admin.php");
@@ -19,7 +19,7 @@
         }
         
     }
-}*/
+}
     $username = filter_input(INPUT_POST, 'InputEmail');
     $password = filter_input(INPUT_POST, 'InputPassword');
     $user_login = filter_input(INPUT_POST, 'login');

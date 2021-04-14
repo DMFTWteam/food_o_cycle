@@ -68,18 +68,18 @@ session_start();
             <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
             <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
         </div>
-        
-        <div  id='anchor'></div>
+
+        <div id='anchor'></div>
     </div>
     <!-- End Slider -->
 
-    
+
 
 
     <!-- Start Products  -->
     <div class="products-box">
         <div class="container">
-            
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title-all text-center">
@@ -99,7 +99,7 @@ session_start();
                     </div>
                 </div>
             </div>
-            <div class='row' >
+            <div class='row'>
                 <?php  $action = isset($_GET['action']) ? $_GET['action'] : "";
  
                 echo "<div class='col-md-12'>";
