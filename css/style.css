@@ -1116,14 +1116,13 @@ ul.cart-list>li.total>.btn:hover {
 
 .products-single .box-img-hover {
     overflow: hidden;
-    position: static;
+    position: relative;
 }
 
 .box-img-hover img {
     margin: 0 auto;
     text-align: center;
-    display: inline-block;
-    vertical-align: middle;
+    display: block;
 }
 
 .type-lb {
