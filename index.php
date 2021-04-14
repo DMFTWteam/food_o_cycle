@@ -170,12 +170,12 @@ session_start();
                         echo "<div class='box-img-hover'>";
                     }
                     //var_dump(base64_encode($image));
-                    echo "<img src='data:image/jpg;charset=utf8;base64," .base64_encode($item['item_image']). "' class='img-fluid' />";
+                    echo "<img src='data:image/jpg;charset=utf8;base64," .base64_encode($item['item_image']). "' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found' />";
                     echo "        <div class='mask-icon'>";
                     echo "<form class='add-to-cart-form'>";
                     $serialized_item = urlencode(serialize($item));
 
-                    echo "<div class='item display-none'>{$serialized_item}</div>";
+                    echo "<div style='display: none;'>{$serialized_item}</div>";
          
                     // enable add to cart button
                     echo "<button style='background: #b0b435; border: 1px solid #b0b435; position: absolute; bottom: 0; left: 0px; padding: 10px 20px; font-weight: 700; color: #ffffff;' onMouseOver='this.style.backgroundColor=\"#000000\"' onMouseOut='this.style.backgroundColor=\"#b0b435\"' type='submit' class='btn btn-primary'>";
