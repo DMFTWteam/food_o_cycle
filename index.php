@@ -170,8 +170,8 @@ session_start();
                         echo "<div class='box-img-hover'>";
                     }
                     $image = $item['item_image'];
-                    var_dump(base64_encode($image));
-                    echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
+                    //var_dump(base64_encode($image));
+                    echo "<img src='data:image/jpeg;base64," .base64_encode($image). "' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
                     echo "        <div class='mask-icon'>";
                     echo "<form class='add-to-cart-form'>";
                     $serialized_item = urlencode(serialize($item));
