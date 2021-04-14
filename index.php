@@ -22,9 +22,11 @@ session_start();
 <body>
     <!-- Start Slider -->
     <div id="slides-shop" class="cover-slides">
+        
+
+    <div id='anchor'></div>
         <ul class="slides-container">
 
-            <div id='anchor'></div>
             <li class="text-center">
                 <img src="images/banner-01.jpg"
                     alt="https://via.placeholder.com/300.jpg?text=No+Image+Found?text=No+Image+Found">
