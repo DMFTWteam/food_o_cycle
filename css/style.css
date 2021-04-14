@@ -1120,10 +1120,9 @@ ul.cart-list>li.total>.btn:hover {
 }
 
 .box-img-hover img {
-    height: 600px;
-    /* Can be anything */
-    width: 400px;
-    /* Can be anything */
+    margin: 0 auto;
+    text-align: center;
+    display: block;
 }
 
 .type-lb {
