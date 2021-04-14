@@ -32,8 +32,6 @@ session_start();
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Welcome To <br> Food O' Cycle</strong></h1>
                             <p class="m-b-40">Connecting food banks and local restaurants since 2021!</p>
-                            <p><a class="btn hvr-hover" href="#">Shop</a></p>
-                            <p><a class="btn hvr-hover" href="#">Donate</a></p>
                         </div>
                     </div>
                 </div>
@@ -45,8 +43,6 @@ session_start();
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Welcome To <br> Food O' Cycle</strong></h1>
                             <p class="m-b-40">Connecting food banks and local restaurants since 2021!</p>
-                            <p><a class="btn hvr-hover" href="#">Shop</a></p>
-                            <p><a class="btn hvr-hover" href="#">Donate</a></p>
                         </div>
                     </div>
                 </div>
@@ -58,14 +54,12 @@ session_start();
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Welcome To <br> Food O' Cycle</strong></h1>
                             <p class="m-b-40">Connecting food banks and local restaurants since 2021!</p>
-                            <p><a class="btn hvr-hover" href="#">Shop</a></p>
-                            <p><a class="btn hvr-hover" href="#">Donate</a></p>
                         </div>
                     </div>
                 </div>
             </li>
         </ul>
-    <div id='anchor'></div>
+        <div id='anchor'></div>
         <div class="slides-navigation">
             <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
             <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
