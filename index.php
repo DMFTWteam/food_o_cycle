@@ -23,6 +23,8 @@ session_start();
     <!-- Start Slider -->
     <div id="slides-shop" class="cover-slides">
         <ul class="slides-container">
+
+            <div id='anchor'></div>
             <li class="text-center">
                 <img src="images/banner-01.jpg"
                     alt="https://via.placeholder.com/300.jpg?text=No+Image+Found?text=No+Image+Found">
@@ -64,13 +66,12 @@ session_start();
                 </div>
             </li>
         </ul>
-        <div id='anchor'></div>
         <div class="slides-navigation">
             <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
             <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
         </div>
 
-         
+
     </div>
     <!-- End Slider -->
 
@@ -141,25 +142,33 @@ session_start();
                 $statement->closeCursor();
                 
                 foreach ($items as $item) {
-                    /*if (date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d') && date('Y-m-d', strtotime($item['item_expiration']) !== date('Y-m-d'))) {
+                    if (strtotime(date("Y-m-d")) >= strtotime($item['item_added']) && strtotime(date("Y-m-d")) <= strtotime($item['item_expiration']. ' - 2 days')) {
                         echo "<div class='col-lg-3 col-md-6 special-grid top-featured'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
                         echo "<div class='type-lb'>";
                         echo "    <p class='new'>New</p>";
                         echo "</div>";
-                    } else if ((date('Y-m-d', strtotime($item['item_added'])) <= date('Y-m-d', strtotime($item['item_expiration']))) && (date('Y-m-d', strtotime($item['item_added'])) >= date('Y-m-d', strtotime($item['item_expiration']->modify("-2 days"))))) {
+                    } else if (strtotime(date("Y-m-d")) > strtotime($item['item_expiration']. ' - 2 days') && strtotime(date("Y-m-d")) <= strtotime($item['item_expiration'])) {
                         echo "<div class='col-lg-3 col-md-6 special-grid best-seller'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
                         echo "<div class='type-lb'>";
                         echo "    <p class='sale'>Expires Soon!</p>";
                         echo "</div>";
-                    } else {*/
+                    } else if (strtotime(date("Y-m-d")) > strtotime($item['item_expiration'])) {
+                        $query2 = 'DELETE FROM food_item WHERE item_id = :item_id';
+
+                        $statement2 = $db->prepare($query2);
+                        $statement2->bindValue(':item_id', $item['item_id']);
+                        $statement2->execute();
+                        $statement2->closeCursor();
+                        continue;
+                    } else {
                         echo "<div class='col-lg-3 col-md-6 special-grid'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
-                    //}
+                    }
                     //$image = $item['item_image'];
                     echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
                     echo "        <div class='mask-icon'>";
