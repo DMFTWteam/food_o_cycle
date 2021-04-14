@@ -69,7 +69,7 @@ session_start();
             <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
         </div>
 
-        <!-- <div id='anchor'></div> -->
+         <div id='anchor'></div>
     </div>
     <!-- End Slider -->
 
@@ -140,7 +140,7 @@ session_start();
                 $statement->closeCursor();
                 
                 foreach ($items as $item) {
-                    if (date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d') && date('Y-m-d', strtotime($item['item_expiration']) !== date('Y-m-d'))) {
+                    /*if (date('Y-m-d', strtotime($item['item_added'])) == date('Y-m-d') && date('Y-m-d', strtotime($item['item_expiration']) !== date('Y-m-d'))) {
                         echo "<div class='col-lg-3 col-md-6 special-grid top-featured'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
@@ -154,11 +154,11 @@ session_start();
                         echo "<div class='type-lb'>";
                         echo "    <p class='sale'>Expires Soon!</p>";
                         echo "</div>";
-                    } else {
+                    } else {*/
                         echo "<div class='col-lg-3 col-md-6 special-grid'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
-                    }
+                    //}
                     //$image = $item['item_image'];
                     echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'>";
                     echo "        <div class='mask-icon'>";
