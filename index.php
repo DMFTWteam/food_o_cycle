@@ -171,7 +171,7 @@ session_start();
                     }
                     //var_dump(base64_encode($image));
                     if ($item['item_image'] == null || $item['item_image'] == '') {
-                        echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid' style='display: block; margin-top: auto; margin-bottom: auto; height: 50%;' />";
+                        echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid'  />";
                     } else {
                         echo "<img src='data:image/jpeg;charset=utf8;base64," .base64_encode($item['item_image']). "' class='img-fluid' />";
                     }
