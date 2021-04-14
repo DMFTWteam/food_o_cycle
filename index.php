@@ -69,7 +69,7 @@ session_start();
             <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
         </div>
 
-        <div id='anchor'></div>
+        <!-- <div id='anchor'></div> -->
     </div>
     <!-- End Slider -->
 
