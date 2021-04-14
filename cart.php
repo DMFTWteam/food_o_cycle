@@ -24,7 +24,7 @@ if (isset($remove) && $remove != '') {
     }
 }
 $action = $_POST['action'];
-if (isset($action) && $action == 'Update Cart') {
+if (!isset($action) || $action == 'Update Cart') {
     $total_items = 0;
     foreach ($_SESSION['cart'] as $item) {
         $i = 0;
