@@ -1122,7 +1122,8 @@ ul.cart-list>li.total>.btn:hover {
 .box-img-hover img {
     margin: 0 auto;
     text-align: center;
-    display: block;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .type-lb {
