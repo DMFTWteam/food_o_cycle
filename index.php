@@ -22,9 +22,6 @@ session_start();
 <body>
     <!-- Start Slider -->
     <div id="slides-shop" class="cover-slides">
-        
-
-    <div id='anchor'></div>
         <ul class="slides-container">
 
             <li class="text-center">
@@ -68,6 +65,7 @@ session_start();
                 </div>
             </li>
         </ul>
+    <div id='anchor'></div>
         <div class="slides-navigation">
             <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
             <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
