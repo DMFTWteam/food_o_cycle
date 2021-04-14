@@ -170,7 +170,7 @@ session_start();
                         echo "<div class='box-img-hover'>";
                     }
                     //var_dump(base64_encode($image));
-                    echo "<img src='data:image/jpeg;charset=utf8;base64," .base64_encode($item['item_image']). "' class='img-fluid' alt='data:image/jpeg;images/300.webp' />";
+                    echo "<img src='data:image/jpeg;charset=utf8;base64," .base64_encode($item['item_image']). "' class='img-fluid' alt='data:image/jpeg;charset=utf8;base64,images/300.webp' />";
                     echo "        <div class='mask-icon'>";
                     echo "<form class='add-to-cart-form'>";
                     $serialized_item = urlencode(serialize($item));
