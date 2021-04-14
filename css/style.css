@@ -1116,7 +1116,7 @@ ul.cart-list>li.total>.btn:hover {
 
 .products-single .box-img-hover {
     overflow: hidden;
-    position: relative;
+    position: static;
 }
 
 .box-img-hover img {
