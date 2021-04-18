@@ -19,11 +19,14 @@ if (!isset($_SESSION['user']) || $_SESSION['business']['business_is_donor'] == 1
 }
 print_r($_POST);
 
-$total_items = 0;
-foreach ($_SESSION['cart'] as $item) {
-    $total_items += $item['quantity'];
-}
-
+function total_items()
+{
+    $total_items = 0;
+    foreach ($_SESSION['cart'] as $item) {
+        $total_items += $item['quantity'];
+    }
+};
+total_items();
 require 'inc/header.php';
 ?>
 
@@ -74,22 +77,22 @@ require 'inc/header.php';
                             echo "ERROR! Product could not be removed.";
                             echo "</div>";
                         }
-                        
+                        total_items();
                     } else if (isset($action) && $action=='Update Cart') {
                         for ($i = 0; $i < count($_SESSION['cart']); $i++) {
-                            $total_items = 0;
                             $_SESSION['cart'][$i]['quantity'] = (int)$_POST['quantity' .$i];
-                            $total_items += $_SESSION['cart'][$i]['quantity'];
                         }
                         
                         echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                         echo "Product quantity was updated!";
                         echo "</div>";
+                        total_items();
                     } else if (isset($action) && $action=='Clear Cart') {
                         $_SESSION['cart'] = array();
                         echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                         echo "Cart was cleared!";
                         echo "</div>";
+                        total_items();
                     }
                     echo "</div>";
 
@@ -103,6 +106,7 @@ require 'inc/header.php';
                                             <th>Images</th>
                                             <th>Product Name</th>
                                             <th>Quantity</th>
+                                            <th>Expiration</th>
                                             <th>Remove</th>
                                         </tr>
                                     </thead>
@@ -124,6 +128,14 @@ require 'inc/header.php';
                                             echo "</td>";
                                             echo "<td class='quantity-box'><input type='number' name='quantity{$i}' value='{$item['quantity']}' min='1' max='{$item['item_qty_avail']}' step='1'";
                                             echo "        class='c-input-text qty text'></td>";
+                                            echo "<td>";
+                                            if ($item['perishable'] == 1) {
+                                                $date = date("m-d-Y", strtotime($item['item_expiration']));
+                                                echo $date;
+                                            } else {
+                                                echo "Non-perishable Item";
+                                            }
+                                            echo "</td>";
                                             echo "<td class='remove-pr'>";
                                             echo "    <a href='?action=remove&remove={$item['item_id']}'>";
                                             echo "        <i class='fas fa-times'></i>";
