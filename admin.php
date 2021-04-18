@@ -171,8 +171,8 @@ try {
     </div>
     <script>
     $(document).ready(function(){
-import jsPDF from 'jspdf';
         $("#download").click(function(){
+import jsPDF from 'jspdf';
             var doc = new jsPDF()
             doc.autoTable({ html: '#log_table', styles: {halign: 'center', theme: 'grid'}})
             doc.save('access_logs.pdf')
