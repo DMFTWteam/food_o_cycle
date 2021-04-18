@@ -31,8 +31,6 @@ try {
 
 <script src="js/jspdf.umd.min.js"></script>
 <script src="js/jspdf.plugin.autotable.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
 
 <body>
     <!-- Start All Title Box -->
