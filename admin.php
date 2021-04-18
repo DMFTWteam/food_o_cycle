@@ -179,7 +179,7 @@ try {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.min.js"></script>
 <script>
     $(document).ready(function(){
-        $("#download").on("submit", function(){
+        $("#download").on("click", function(){
             $("#log_table").tableHTMLExport({
                 type:'pdf',
                 orientation:'p',
