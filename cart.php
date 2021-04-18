@@ -77,6 +77,7 @@ require 'inc/header.php';
                             echo "ERROR! Product could not be removed.";
                             echo "</div>";
                         }
+                        unset($$remove);
                     } else if (isset($action) && $action=='Update Cart') {
                         for ($i = 0; $i < count($_SESSION['cart']); $i++) {
                             $_SESSION['cart'][$i]['quantity'] = (int)$_POST['quantity' .$i];
