@@ -117,46 +117,46 @@ try {
                         </thead>
                         <tbody>
                             <tr>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
                             </tr>
                             <tr>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
                             </tr>
                             <tr>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
                             </tr>
                             <tr>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
                             </tr>
                             <tr>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
                             </tr>
                             <tr>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
                             </tr>
                             <tr>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
-                            <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
+                                <td>Sample</td>
                             </tr>
                         </tbody>
                     </table>
@@ -165,20 +165,24 @@ try {
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <button type="submit" class="btn hvr-hover" id="download" style="margin-bottom: 10%; color: #FFFFFF;">Download Logs</button>
+                <input type="button" class="btn hvr-hover" id="download" onclick='generate()'
+                    style="margin-bottom: 10%; color: #FFFFFF;" />
             </div>
         </div>
     </div>
-    <script>
-    $(document).ready(function(){
-        $("#download").click(function(){
-import jsPDF from 'jspdf';
-            var doc = new jsPDF()
-            doc.autoTable({ html: '#log_table', styles: {halign: 'center', theme: 'grid'}})
-            doc.save('access_logs.pdf')
+    <script type='text/javascript'>
+    function generate() {
+        var doc = new jsPDF();
+        doc.autoTable({
+            html: '#log_table',
+            styles: {
+                halign: 'center',
+                theme: 'grid'
+            }
         });
-    });
-</script>
+        doc.save('access_logs.pdf');
+    }
+    </script>
 
 </body>
 
