@@ -32,16 +32,6 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
-    <style>
-    ul.sidebar {
-        transition: all .3s ease-out;
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch;
-        /* position: absolute; */
-        top: 64px;
-        bottom: 0;
-    }
-    </style>
 
 
     <!--[if lt IE 9]>
