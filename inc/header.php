@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
-    
+
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -58,11 +58,11 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <!-- <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
+                    <!-- <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
                             <option href="register.php">Register Here</option>
                             <option href="login.php">Sign In</option>
                         </select> -->
-                        <div class="our-link" style="float: right;">
+                    <div class="our-link" style="float: right;">
                         <ul style="text-align: right;">
                             <li><a href="register.php">Register</a></li>
                             <?php if (isset($_SESSION['user'])) {
@@ -116,10 +116,12 @@
             <div class="container">
                 <!-- Start Header Navigation -->
                 <div class="navbar-header">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-                    <a class="navbar-brand" href="index.php"><img src="images/Logo3.png" class="logo" style="height:150px; width:150px;" alt="https://i.stack.imgur.com/y9DpT.jpg"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
+                        aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.php"><img src="images/Logo3.png" class="logo"
+                            style="height:150px; width:150px;" alt="https://i.stack.imgur.com/y9DpT.jpg"></a>
 
                 </div>
                 <!-- End Header Navigation -->
@@ -151,8 +153,11 @@
             <!-- Start Side Menu -->
             <div class="side">
                 <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+                <li class="total">
+                    <a href="cart.php" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                </li>
                 <li class="cart-box">
-                    <ul class="cart-list">
+                    <ul class="cart-list" style="overflow-y: scroll;">
                         <?php
                         foreach ($_SESSION['cart'] as $item) {
                             echo "<li>";
@@ -166,9 +171,6 @@
                             echo '</li>';
                         }
                         ?>
-                        <li class="total">
-                            <a href="cart.php" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                        </li>
                     </ul>
                 </li>
             </div>
@@ -179,7 +181,7 @@
     <!-- End Main Top -->
 
 
-    
+
 </body>
 
 </html>
