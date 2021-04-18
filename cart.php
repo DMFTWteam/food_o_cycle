@@ -78,9 +78,13 @@ require 'inc/header.php';
                     } else if (isset($action) && $action=='Update Cart') {
                         foreach ($_SESSION['cart'] as $item) {
                             $i = 0;
-                            var_dump((int)$_POST['quantity' .$i]);
+                            echo 'POST value: ';
+                            var_dump($_POST['quantity' .$i]);
+                            echo '<br>';
                             $item['quantity'] = (int)$_POST['quantity' .$i];
+                            echo 'item quan value: ';
                             var_dump($item['quantity']);
+                            echo '<br>';
                             $i++;
                         }
                         
