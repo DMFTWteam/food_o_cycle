@@ -89,7 +89,7 @@ try {
                                 $i++;
                             }
                     
-                            while ($i < max($donors, $banks)) {
+                            while ($i <= max($donors, $banks)) {
                                 if ($item['business_is_donor'] == 1) {
                                     echo "<tr>
                                 <td></td>
