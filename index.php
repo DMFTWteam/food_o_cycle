@@ -21,6 +21,22 @@ session_start();
 
 <body>
     <!-- Start Slider -->
+    <?php  
+    $msg = isset($_GET['msg']) ? $_GET['msg'] : "";
+
+    if (isset($msg)) {
+        echo "<div class='col-md-12'>";
+        if ($msg=='added') {
+            echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
+            echo urldecode($msg);
+            echo "</div>";
+        } else {
+            echo "<div class='alert alert-danger'>";
+            echo "ERROR! " .urldecode($msg);
+            echo "</div>";
+        }
+        echo "</div>";
+    }?>
     <div id="slides-shop" class="cover-slides">
         <ul class="slides-container">
 

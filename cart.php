@@ -12,40 +12,41 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
 
-session_start();
-if (!isset($_SESSION['user']) || $_SESSION['business']['business_is_donor'] == 1) {
-    header('Location: login.php');
-    exit();
-}
-
-function total_items()
-{
-    $total_items = 0;
-    foreach ($_SESSION['cart'] as $item) {
-        $total_items += $item['quantity'];
+try {
+    session_start();
+    if (!isset($_SESSION['user']) || $_SESSION['business']['business_is_donor'] == 1) {
+        header('Location: login.php');
+        exit();
     }
-    return $total_items;
-};
 
-$action = isset($_POST['action']) ? $_POST['action'] : "";
-$remove = isset($_GET['action']) ? $_GET['action'] : "";
-                   
-if (isset($remove) && $remove == 'remove') {
-    $item = urldecode($_GET['remove']);
-    if (isset($item) && $item != '') {
-        if (($key = array_search($item, array_column($_SESSION['cart'], 'item_id'))) !== false) {
-            array_splice($_SESSION['cart'], $key, 1);
+    function total_items()
+    {
+        $total_items = 0;
+        foreach ($_SESSION['cart'] as $item) {
+            $total_items += $item['quantity'];
         }
+        return $total_items;
+    };
+
+    $action = isset($_POST['action']) ? $_POST['action'] : "";
+    $remove = isset($_GET['action']) ? $_GET['action'] : "";
+                   
+    if (isset($remove) && $remove == 'remove') {
+        $item = urldecode($_GET['remove']);
+        if (isset($item) && $item != '') {
+            if (($key = array_search($item, array_column($_SESSION['cart'], 'item_id'))) !== false) {
+                array_splice($_SESSION['cart'], $key, 1);
+            }
+        }
+    } else if (isset($action) && $action=='Update Cart') {
+        for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+            $_SESSION['cart'][$i]['quantity'] = (int)$_POST['quantity' .$i];
+        }
+    } else if (isset($action) && $action=='Clear Cart') {
+        $_SESSION['cart'] = array();
     }
-} else if (isset($action) && $action=='Update Cart') {
-    for ($i = 0; $i < count($_SESSION['cart']); $i++) {
-        $_SESSION['cart'][$i]['quantity'] = (int)$_POST['quantity' .$i];
-    }
-} else if (isset($action) && $action=='Clear Cart') {
-    $_SESSION['cart'] = array();
-}
-require 'inc/header.php';
-?>
+    include 'inc/header.php';
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -190,7 +191,11 @@ require 'inc/header.php';
 </html>
 
 
-<?php
-    require 'inc/js_to_include.php';
-    require 'inc/footer.php';
+    <?php
+    include 'inc/js_to_include.php';
+    include 'inc/footer.php';
+    
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>

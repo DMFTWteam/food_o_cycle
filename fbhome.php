@@ -68,7 +68,7 @@ $statement->closeCursor();
                             <h5 class="card-title">This is the decription of the item
                         </a>
                         &emsp;
-                        <a href="#" <i class="fa fa-trash"></i>
+                        <a href="#"> <i class="fa fa-trash"></i>
                         </a>
                         </h5>
                     </div>
@@ -77,7 +77,7 @@ $statement->closeCursor();
                             <h5 class="card-title">This is the decription of the item
                         </a>
                         &emsp;
-                        <a href="#" <i class="fa fa-trash"></i>
+                        <a href="#"> <i class="fa fa-trash"></i>
                         </a>
                         </h5>
                     </div>
