@@ -142,7 +142,14 @@
                         <li class="side-menu">
                             <a href="#">
                                 <i class="fa fa-shopping-bag"></i>
-                                <span class="badge"><?php echo count($_SESSION['cart']); ?></span>
+                                <span class="badge">
+                                    <?php 
+                                    $total_items = 0;
+                                    foreach ($_SESSION['cart'] as $item) {
+                                        $total_items += $item['quantity'];
+                                    } 
+                                    echo $total_items;?>
+                                </span>
                                 <p>My Cart</p>
                             </a>
                         </li>
