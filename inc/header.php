@@ -157,7 +157,7 @@
                     <a href="cart.php" class="btn btn-default hvr-hover btn-cart" style="color: #FFFFFF;">VIEW CART</a>
                 </li>
                 <li class="cart-box">
-                    <ul class="cart-list sidebar">
+                    <ul class="cart-list">
                         <?php
                         foreach ($_SESSION['cart'] as $item) {
                             echo "<li>";

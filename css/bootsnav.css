@@ -253,15 +253,16 @@ li.close-full-menu {
 
 ul.cart-list {
     padding: 0 !important;
+    transition: all .3s ease-out;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 64px;
+    bottom: 0;
 }
 
 ul.cart-list>li {
-    transition: all .3s ease-out;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    position: fixed;
-    top: 64px;
-    bottom: 0;
+    position: relative;
     border-bottom: solid 1px #efefef;
     padding: 15px 15px 23px 15px !important;
 }
