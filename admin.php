@@ -181,9 +181,8 @@ try {
     $(document).ready(function(){
         $("#download").on("click", function(){
             $("#log_table").tableHTMLExport({
-                type:'pdf',
-                orientation:'p',
-                filename:'access_logs.pdf'
+                type:'json',
+                filename:'access_logs.json'
             });
         });
     });
