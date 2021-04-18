@@ -848,7 +848,7 @@ ul.cart-list>li.total>.btn:hover {
     margin-top: 40px;
     background: #ffffff;
     transition: all .3s ease-out;
-    overflow: scroll;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     position: absolute;
     top: 64px;

@@ -82,8 +82,8 @@ try {
                             $index = 0;
                             while ($index < $min_num) {
                                 echo "<tr>
-                                <td data-filter=\"{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</td>
-                                <td data-filter=\"{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</td>
+                                <td><a data-filter=\"{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</a></td>
+                                <td><a data-filter=\"{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</a></td>
                                 </tr>";
                                 $index++;
                             }
@@ -92,11 +92,11 @@ try {
                                 if (max($donors, $banks) == $donors) {
                                     echo "<tr>
                                     <td></td>
-                                    <td data-filter=\"{$donors[$i]['business_id']}\">{$donors[$i]['business_name']}</td>
+                                    <td><a data-filter=\"{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</a></td>
                                     </tr>";
                                 } else if (max($donors, $banks) == $banks) {
                                     echo "<tr>
-                                    <td data-filter=\"{$banks[$i]['business_id']}\">{$banks[$i]['business_name']}</td>
+                                    <td><a data-filter=\"{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</a></td>
                                     <td></td>
                                     </tr>";
                                 }
@@ -119,48 +119,20 @@ try {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                            </tr>
-                            <tr>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                            </tr>
-                            <tr>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                            </tr>
-                            <tr>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                            </tr>
-                            <tr>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                            </tr>
-                            <tr>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                            </tr>
-                            <tr>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                            </tr>
+                            <?php 
+                             $query2 = 'SELECT * 
+                             FROM access_log, user_to_business, users, business
+                             WHERE access_log.u_id = users.u_id
+                             AND users.u_id = user_to_business.u_id
+                             AND user_to_business.business_id = business.business_id';
+                         
+                             $statement2 = $db->prepare($query2);
+                             $statement2->execute();
+                             $logs = $statement2->fetchAll();
+                             $statement2->closeCursor();
+                             
+
+                             ?>
                         </tbody>
                     </table>
                 </div>
