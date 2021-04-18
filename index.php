@@ -381,13 +381,16 @@ session_start();
     $(document).ready(function() {
         // add to cart button listener
         $('.add-to-cart-form').on('submit', function() {
-
+            
+            $.post("php/add_to_cart.php", function(){
+                $(this).find('.item').text();
+            })
             // info is in the table / single product layout
-            var item = $(this).find('.item').text();
+            //var item = $(this).find('.item').text();
 
             // redirect to add_to_cart.php, with parameter values to process the request
-            window.location.href = "php/add_to_cart.php?item=" + item;
-            return false;
+            //window.location.href = "php/add_to_cart.php?item=" + item;
+            //return false;
         });
     });
     </script>
