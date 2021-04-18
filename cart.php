@@ -17,9 +17,7 @@ if (!isset($_SESSION['user']) || $_SESSION['business']['business_is_donor'] == 1
     header('Location: login.php');
     exit();
 }
-foreach ($_POST as $item) {
-    var_dump((int)$item);
-}
+print_r($_POST);
 
 $total_items = 0;
 foreach ($_SESSION['cart'] as $item) {
