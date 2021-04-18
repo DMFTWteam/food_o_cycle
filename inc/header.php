@@ -141,7 +141,7 @@
                     <ul>
                         <li class="side-menu">
                             <a href="#">
-                                <i class="fa fa-shopping-bag" id='cart_badge'></i>
+                                <i class="fa fa-shopping-bag" id="cartbadge"></i>
                                 <p>My Cart</p>
                             </a>
                         </li>

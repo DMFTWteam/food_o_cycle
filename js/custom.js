@@ -2,7 +2,7 @@
     "use strict";
 
     $(document).ready(function() {
-        $("#cart_badge").after("<span class=\"badge\"><?php echo count($_SESSION[\'cart\ ']); ?></span>");
+        $("#cartbadge").after("<span class=\"badge\"><?php echo count($_SESSION[\'cart\']); ?></span>");
     });
 
     /* ..............................................
