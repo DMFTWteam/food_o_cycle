@@ -27,6 +27,24 @@ function total_items()
     }
     return $total_items;
 };
+
+$action = isset($_POST['action']) ? $_POST['action'] : "";
+$remove = isset($_GET['action']) ? $_GET['action'] : "";
+                   
+if (isset($remove) && $remove == 'remove') {
+    $item = urldecode($_GET['remove']);
+    if (isset($item) && $item != '') {
+        if (($key = array_search($item, array_column($_SESSION['cart'], 'item_id'))) !== false) {
+            array_splice($_SESSION['cart'], $key, 1);
+        }
+    }
+} else if (isset($action) && $action=='Update Cart') {
+    for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+        $_SESSION['cart'][$i]['quantity'] = (int)$_POST['quantity' .$i];
+    }
+} else if (isset($action) && $action=='Clear Cart') {
+    $_SESSION['cart'] = array();
+}
 require 'inc/header.php';
 ?>
 
@@ -60,15 +78,9 @@ require 'inc/header.php';
             <div class="container">
                 <form action="cart.php" method='post'>
                     <div class='row'><?php
-                    $action = isset($_POST['action']) ? $_POST['action'] : "";
-                    $remove = isset($_GET['action']) ? $_GET['action'] : "";
                     echo "<div class='col-md-12'>";
                     if (isset($remove) && $remove == 'remove') {
-                        $item = urldecode($_GET['remove']);
                         if (isset($item) && $item != '') {
-                            if (($key = array_search($item, array_column($_SESSION['cart'], 'item_id'))) !== false) {
-                                array_splice($_SESSION['cart'], $key, 1);
-                            }
                             echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                             echo "Product was removed from your cart!";
                             echo "</div>";
@@ -79,15 +91,10 @@ require 'inc/header.php';
                         }
                         unset($remove);
                     } else if (isset($action) && $action=='Update Cart') {
-                        for ($i = 0; $i < count($_SESSION['cart']); $i++) {
-                            $_SESSION['cart'][$i]['quantity'] = (int)$_POST['quantity' .$i];
-                        }
-                        
                         echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                         echo "Product quantity was updated!";
                         echo "</div>";
                     } else if (isset($action) && $action=='Clear Cart') {
-                        $_SESSION['cart'] = array();
                         echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                         echo "Cart was cleared!";
                         echo "</div>";
