@@ -170,9 +170,9 @@ try {
     </div>
     <?php include 'inc/js_to_include.php'; ?>
     <script>
-    window.jsPDF = require('jspdf');
+    import jsPDF from 'jspdf';
     $(document).ready(function(){
-        $("#download").on("click", function(){
+        $("#download").click(function(){
             var doc = new jsPDF()
             doc.autoTable({ html: '#log_table', styles: {halign: 'center', theme: 'grid'}})
             doc.save('access_logs.pdf')
