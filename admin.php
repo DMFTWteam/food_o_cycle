@@ -21,7 +21,6 @@ try {
     include "inc/db_connect.php";
     include 'php/functions.php';
     include 'inc/header.php';
-    include 'inc/js_to_include.php';
     
     ?>
 
@@ -169,23 +168,21 @@ try {
             </div>
         </div>
     </div>
-
-</body>
-
-</html>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="js/tableHTMLExport.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-<script src="https://unpkg.com/jspdf-autotable@3.5.14/dist/jspdf.plugin.autotable.js"></script>
-<script>
+    <?php include 'inc/js_to_include.php'; ?>
+    <script>
     $(document).ready(function(){
         $("#download").on("click", function(){
             var doc = new jsPDF()
-            doc.autoTable({ html: '#log_table'})
+            doc.autoTable({ html: '#log_table', styles: {halign: 'center', theme: 'grid'}})
             doc.save('access_logs.pdf')
         });
     });
 </script>
+
+</body>
+
+</html>
+
 <?php
     include 'inc/footer.php';
 } catch(Exception $e) {

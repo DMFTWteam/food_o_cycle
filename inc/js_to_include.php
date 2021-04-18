@@ -20,6 +20,8 @@
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
 	<script src="js/functions.js"></script>
+	<script src="js/jspdf.umd.min.js"></script>
+	<script src="js/jspdf.plugin.autotable.js"></script>
 </body>
 
 </html>
