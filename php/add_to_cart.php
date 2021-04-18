@@ -5,7 +5,8 @@ session_start();
 // get the product id
 $encoded_item = isset($_GET['item']) ? $_GET['item'] : "";
 $item = unserialize(urldecode($encoded_item));
-
+var_dump($item);
+exit();
 $item['quantity'] = 1;
  
 /*
@@ -19,7 +20,7 @@ if (!isset($_SESSION['cart'])) {
 // check if the item is in the array, if it is, do not add
 if (array_key_exists($item['item_id'], $_SESSION['cart'])) {
     // redirect to product list and tell the user it was added to cart
-    header('Location: ../index.php?action=exists&id=' . $item['item_id']);
+    header('Location: ../index.php?action=exists#anchor');
 } else {
     array_push($_SESSION['cart'], $item);
  
@@ -27,3 +28,4 @@ if (array_key_exists($item['item_id'], $_SESSION['cart'])) {
     header('Location: ../index.php?action=added#anchor');
 }
 ?>
+
