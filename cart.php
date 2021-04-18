@@ -17,7 +17,9 @@ if (!isset($_SESSION['user']) || $_SESSION['business']['business_is_donor'] == 1
     header('Location: login.php');
     exit();
 }
-var_dump((int)$_POST['quantity' .$i]);
+foreach ($_POST as $item) {
+    var_dump((int)$item);
+}
 
 $total_items = 0;
 foreach ($_SESSION['cart'] as $item) {
@@ -122,7 +124,7 @@ require 'inc/header.php';
                                             echo "<td class='name-pr'>";
                                             echo $item['item_desc'];
                                             echo "</td>";
-                                            echo "<td class='quantity-box'><input type='number' name='quantity{$i}' size='4' value='{$item['quantity']}' min='1' max='{$item['item_qty_avail']}' step='1'";
+                                            echo "<td class='quantity-box'><input type='number' name='quantity{$i}' value='{$item['quantity']}' min='1' max='{$item['item_qty_avail']}' step='1'";
                                             echo "        class='c-input-text qty text'></td>";
                                             echo "<td class='remove-pr'>";
                                             echo "    <a href='?action=remove&remove={$item['item_id']}'>";
