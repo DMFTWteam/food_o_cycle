@@ -257,9 +257,9 @@ ul.cart-list {
 
 ul.cart-list>li {
     transition: all .3s ease-out;
-    overflow: scroll;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    position: absolute;
+    position: fixed;
     top: 64px;
     bottom: 0;
     border-bottom: solid 1px #efefef;
