@@ -32,6 +32,16 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
+    <style>
+    ul.sidebar {
+        transition: all .3s ease-out;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+        position: absolute;
+        top: 64px;
+        bottom: 0;
+    }
+    </style>
 
 
     <!--[if lt IE 9]>
@@ -157,7 +167,7 @@
                     <a href="cart.php" class="btn btn-default hvr-hover btn-cart" style="color: #FFFFFF;">VIEW CART</a>
                 </li>
                 <li class="cart-box">
-                    <ul class="cart-list" style="position: fixed; overflow-y: scroll; ">
+                    <ul class="cart-list sidebar">
                         <?php
                         foreach ($_SESSION['cart'] as $item) {
                             echo "<li>";
