@@ -215,7 +215,7 @@
     });
 
     $(window).on("load", function() {
-        $("#main-header").find("span .badge").css("background-color", "red");
+        $("#main-header").find("span .badge").css("color", "red");
     });
 
 
