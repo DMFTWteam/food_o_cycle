@@ -1,7 +1,6 @@
 <?php
     require 'header.php';
     $msg = filter_input(INPUT_GET, 'msg');
-    $path=filter_input(INPUT_POST, "path");
     $error = "<h1 style='color: red; '>".$msg."</h1>";
     echo $error; 
 ?>

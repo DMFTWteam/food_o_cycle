@@ -12,19 +12,20 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
 
-    require 'inc/header.php';
+try {
+    include 'inc/header.php';
     $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
-if (isset($email)) {
-       $query = 'SELECT u_id
+    if (isset($email)) {
+           $query = 'SELECT u_id
                 FROM users
                 WHERE u_email = :email';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':email', $email);
-    $statement->execute();
-    $u_id = $statement->fetch();
-    $statement->closeCursor();
-}
-?>
+        $statement = $db->prepare($query);
+        $statement->bindValue(':email', $email);
+        $statement->execute();
+        $u_id = $statement->fetch();
+        $statement->closeCursor();
+    }
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -95,6 +96,9 @@ if (isset($email)) {
 </html>
 
 <?php
-    require 'inc/js_to_include.php';
-    require 'inc/footer.php';
+    include 'inc/js_to_include.php';
+    include 'inc/footer.php';
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>

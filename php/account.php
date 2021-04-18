@@ -1,4 +1,6 @@
 <?php
+
+try {
     require_once "../inc/db_connect.php";
 
     session_start();
@@ -103,5 +105,7 @@ function Log_access($u_id, $auth)
     $auth_statement->execute();
     $auth_statement->closeCursor();
 }
-        
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>

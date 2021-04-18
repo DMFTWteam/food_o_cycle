@@ -1,22 +1,23 @@
 <?php
 
-session_start();
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit();
-}
-require 'inc/header.php';
-require_once 'inc/db_connect.php';
-//We need to get the $u_id from the session.. probably set in account.php
-$u_id = 2;
-$query = 'SELECT u_id, u_photo, u_username, u_fname, u_lname FROM users
+try {
+    session_start();
+    if (!isset($_SESSION['user'])) {
+        header('Location: login.php');
+        exit();
+    }
+    include 'inc/header.php';
+    include_once 'inc/db_connect.php';
+    //We need to get the $u_id from the session.. probably set in account.php
+    $u_id = 2;
+    $query = 'SELECT u_id, u_photo, u_username, u_fname, u_lname FROM users
 		  WHERE u_id = :u_id';
-$statement = $db->prepare($query);
-$statement->bindValue(':u_id', $u_id);
-$statement->execute();
-$userInfo = $statement->fetchAll();
-$statement->closeCursor();
-?>
+    $statement = $db->prepare($query);
+    $statement->bindValue(':u_id', $u_id);
+    $statement->execute();
+    $userInfo = $statement->fetchAll();
+    $statement->closeCursor();
+    ?>
 
 <div class="container-fluid gedf-wrapper">
     <div class="row">
@@ -148,7 +149,10 @@ $statement->closeCursor();
     </div>
 </div>
 </div>
-<?php
-require 'inc/js_to_include.php';
-require 'inc/footer.php';
+    <?php
+    include 'inc/js_to_include.php';
+    include 'inc/footer.php';
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>

@@ -1,4 +1,6 @@
 <?php
+
+try {
     //Start the session
     session_start();
     require 'inc/header.php';
@@ -67,5 +69,8 @@ if(isset($_SESSION)) {
 
     require 'inc/js_to_include.php';
     require 'inc/footer.php';
-    session_destroy();
+    unset($_SESSION['msgSuccess']);
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>

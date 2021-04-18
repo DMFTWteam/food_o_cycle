@@ -1,5 +1,6 @@
 <?php
 
+try {
 session_start();
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
@@ -197,4 +198,7 @@ $statement->closeCursor();
 <?php
 require 'inc/js_to_include.php';
 require 'inc/footer.php';
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Index.php Doc Comment
  * 
@@ -11,6 +12,7 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
 
+try {
 require 'inc/header.php';
 session_start();
 
@@ -21,28 +23,21 @@ session_start();
 
 <body>
     <!-- Start Slider -->
-    <?php  
+    <?php
     $msg = isset($_GET['msg']) ? $_GET['msg'] : "";
 
     if (isset($msg)) {
         echo "<div class='col-md-12'>";
-        if ($msg=='added') {
-            echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
-            echo urldecode($msg);
-            echo "</div>";
-        } else {
-            echo "<div class='alert alert-danger'>";
-            echo "ERROR! " .urldecode($msg);
-            echo "</div>";
-        }
+        echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
+        echo urldecode($msg);
         echo "</div>";
-    }?>
+        echo "</div>";
+    } ?>
     <div id="slides-shop" class="cover-slides">
         <ul class="slides-container">
 
             <li class="text-center">
-                <img src="images/banner-01.jpg"
-                    alt="https://via.placeholder.com/300.jpg?text=No+Image+Found?text=No+Image+Found">
+                <img src="images/banner-01.jpg" alt="https://via.placeholder.com/300.jpg?text=No+Image+Found?text=No+Image+Found">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -112,16 +107,16 @@ session_start();
                 </div>
             </div>
             <div class='row'>
-                <?php  $action = isset($_GET['action']) ? $_GET['action'] : "";
+                <?php $action = isset($_GET['action']) ? $_GET['action'] : "";
 
                 echo "<div class='col-md-12'>";
-                if ($action=='added') {
+                if ($action == 'added') {
                     echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                     echo "Product was added to your cart!";
                     echo "</div>";
                 }
 
-                if ($action=='exists') {
+                if ($action == 'exists') {
                     echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                     echo "Product already exists in your cart!";
                     echo "</div>";
@@ -138,16 +133,16 @@ session_start();
                 $statement->execute();
                 $items = $statement->fetchAll();
                 $statement->closeCursor();
-                
+
                 foreach ($items as $item) {
-                    if (strtotime(date("Y-m-d")) >= strtotime($item['item_added']) && strtotime(date("Y-m-d")) <= strtotime($item['item_expiration']. ' - 2 days')) {
+                    if (strtotime(date("Y-m-d")) >= strtotime($item['item_added']) && strtotime(date("Y-m-d")) <= strtotime($item['item_expiration'] . ' - 2 days')) {
                         echo "<div class='col-lg-3 col-md-6 special-grid top-featured'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
                         echo "<div class='type-lb'>";
                         echo "    <p class='new'>New</p>";
                         echo "</div>";
-                    } else if (strtotime(date("Y-m-d")) > strtotime($item['item_expiration']. ' - 2 days') && strtotime(date("Y-m-d")) <= strtotime($item['item_expiration'])) {
+                    } else if (strtotime(date("Y-m-d")) > strtotime($item['item_expiration'] . ' - 2 days') && strtotime(date("Y-m-d")) <= strtotime($item['item_expiration'])) {
                         echo "<div class='col-lg-3 col-md-6 special-grid best-seller'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
@@ -171,20 +166,20 @@ session_start();
                     if ($item['item_image'] == null || $item['item_image'] == '') {
                         echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid'  />";
                     } else {
-                        echo "<img src='data:image/jpeg;charset=utf8;base64," .base64_encode($item['item_image']). "' class='img-fluid' />";
+                        echo "<img src='data:image/jpeg;charset=utf8;base64," . base64_encode($item['item_image']) . "' class='img-fluid' />";
                     }
-                    
+
                     echo "        <div class='mask-icon'>";
                     echo "<form class='add-to-cart-form' name='add_item' action='php/add_to_cart.php' method='post'>";
                     $serialized_item = urlencode(serialize($item));
 
                     echo "<input name='item' style='display: none;' value='{$serialized_item}' />";
-         
+
                     // enable add to cart button
                     echo "<button style='background: #b0b435; border: 1px solid #b0b435; position: absolute; bottom: 0; left: 0px; padding: 10px 20px; font-weight: 700; color: #ffffff;' onMouseOver='this.style.backgroundColor=\"#000000\"' onMouseOut='this.style.backgroundColor=\"#b0b435\"' type='submit' class='btn btn-primary'>";
-                        echo "Add to cart";
+                    echo "Add to cart";
                     echo "</button>";
-         
+
                     echo "</form>";
                     echo "      </div>";
                     echo "  </div>";
@@ -384,21 +379,24 @@ session_start();
             </div>
         </div>
     </div> End Blog  -->
-    <?php 
+    <?php
     require 'inc/js_to_include.php';
     ?>
     <script>
-    $(document).ready(function() {
-        // add to cart button listener
-        $('.add-to-cart-form').on('submit', function() {
+        $(document).ready(function() {
+            // add to cart button listener
+            $('.add-to-cart-form').on('submit', function() {
 
-            document.forms['add_item'].submit();
+                document.forms['add_item'].submit();
+            });
         });
-    });
     </script>
 </body>
 
 </html>
 <?php
 require 'inc/footer.php';
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>

@@ -13,6 +13,7 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
 
+try {
     require 'inc/header.php';
     $u_id = filter_input(INPUT_POST, 'u_id', FILTER_VALIDATE_INT);
 ?>
@@ -70,5 +71,7 @@
 <?php
     require 'inc/js_to_include.php';
     require 'inc/footer.php';
-    
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>

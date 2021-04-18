@@ -1,4 +1,6 @@
 <?php
+
+try {
 // start session 
 session_start();
  
@@ -24,6 +26,9 @@ if (array_key_exists($item['item_id'], $_SESSION['cart'])) {
  
     // redirect to product list and tell the user it was added to cart
     header('Location: ../index.php?action=added#anchor');
+}
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
 }
 ?>
 

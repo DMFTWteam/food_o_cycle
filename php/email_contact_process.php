@@ -1,4 +1,6 @@
 <?php
+
+try {
 //Starting a session
 session_start();
 $errorMSG = "";
@@ -61,5 +63,7 @@ if ($success && $errorMSG == "") {
     }
 }
 //D
-
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>

@@ -1,5 +1,6 @@
 <?php
 
+try {
 $errorMSG = "";
 
 // NAME
@@ -65,5 +66,7 @@ if ($success && $errorMSG == "") {
         echo $errorMSG;
     }
 }
-
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>

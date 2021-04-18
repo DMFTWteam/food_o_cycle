@@ -38,7 +38,7 @@ try {
 
     header("Location: ../index.php?msg=" .urlencode("Transaction placed successfully!"));
 } catch(Exception $e) {
-    header("Location: ../index.php?msg=" .urlencode($e->getMessage()));
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
 }
 
 ?>

@@ -12,6 +12,7 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
 
+try {
  header("Content-Type: application/octet-stream");
 
     $file = $_GET["file"] .".pdf";
@@ -31,5 +32,7 @@ while (!feof($fp)) {
 }
 
     fclose($fp);
-
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>

@@ -12,6 +12,7 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
 
+try {
 function tableBusinessNames()
 {
     
@@ -63,5 +64,7 @@ function tableBusinessNames()
 /*function tableAccessLogs($business)
 {
 }*/
-
+} catch(Exception $e) {
+    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+}
 ?>
