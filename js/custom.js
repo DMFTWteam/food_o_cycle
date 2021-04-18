@@ -214,9 +214,6 @@
         cursorcolor: "#9b9b9c",
     });
 
-    $(window).on("load", function() {
-        $("#attr-nav").find("span .badge").css("color", "red");
-    });
 
 
 }(jQuery));
