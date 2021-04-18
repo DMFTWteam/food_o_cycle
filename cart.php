@@ -37,7 +37,7 @@ if (!isset($action) || $action == 'Update Cart') {
     $_SESSION['cart'] = array();
 }
 require 'inc/header.php';
-
+var_dump($_SESSION['cart']);
 var_dump($_POST);
 ?>
 
