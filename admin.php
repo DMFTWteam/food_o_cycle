@@ -80,29 +80,27 @@ try {
                             echo "<br>";
                             print_r($banks);
                             $min_num = min(count($donors), count($banks));
-                            $i = 0;
-                            while ($i < $min_num) {
+                            $index = 0;
+                            while ($index < $min_num) {
                                 echo "<tr>
-                                <td>{$banks[$i]['business_name']}</td>
-                                <td>{$donors[$i]['business_name']}</td>
+                                <td>{$banks[$index]['business_name']}</td>
+                                <td>{$donors[$index]['business_name']}</td>
                                 </tr>";
-                                $i++;
+                                $index++;
                             }
                     
-                            while ($i <= max($donors, $banks)) {
-                                if ($item['business_is_donor'] == 1) {
+                            for ($i = $index; $i < max(count($donors), count($banks)); $i++) {
+                                if (max($donors, $banks) == $donors) {
                                     echo "<tr>
-                                <td></td>
-                                <td>{$item['business_name']}</td>
-                                </tr>";
-                                } else {
+                                    <td></td>
+                                    <td>{$donors[$i]['business_name']}</td>
+                                    </tr>";
+                                } else if (max($donors, $banks) == $banks) {
                                     echo "<tr>
-                                <td>{$item['business_name']}</td>
-                                <td></td>
-                                </tr>";
+                                    <td>{$banks[$i]['business_name']}</td>
+                                    <td></td>
+                                    </tr>";
                                 }
-                                
-                                $i++;
                             }?>
                         </tbody>
                     </table>
