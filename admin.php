@@ -58,7 +58,7 @@ try {
                         </thead>
                         <tbody>
                             <?php 
-                            tableBusinessNames();?>
+                            echo tableBusinessNames();?>
                         </tbody>
                     </table>
                 </div>
