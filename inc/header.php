@@ -156,7 +156,11 @@
                         <?php
                         foreach ($_SESSION['cart'] as $i) {
                             echo "<li>";
-                            echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='cart-thumb' alt='https://via.placeholder.com/300.jpg?text=No+Image+Found'/>";
+                            if ($item['item_image'] == null || $item['item_image'] == '') {
+                                echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid'  />";
+                            } else {
+                                echo "<img src='data:image/jpeg;charset=utf8;base64," .base64_encode($item['item_image']). "' class='img-fluid' />";
+                            }
                             echo "<h6>{$i['item_desc']}</h6>";
                             echo "<p>{$i['quantity']}</p>";
                             echo '</li>';
