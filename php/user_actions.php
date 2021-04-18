@@ -7,7 +7,7 @@ try {
     $value = filter_input(INPUT_GET, 'perish');
     $value = filter_input(INPUT_GET, 'expDate');
     
-    require "../donorhome.php";
+    include "../donorhome.php";
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
 }

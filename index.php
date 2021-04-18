@@ -13,10 +13,10 @@
  */
 
 try {
-require 'inc/header.php';
-session_start();
+    include 'inc/header.php';
+    session_start();
 
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
@@ -380,7 +380,7 @@ session_start();
         </div>
     </div> End Blog  -->
     <?php
-    require 'inc/js_to_include.php';
+    include 'inc/js_to_include.php';
     ?>
     <script>
         $(document).ready(function() {
@@ -394,8 +394,8 @@ session_start();
 </body>
 
 </html>
-<?php
-require 'inc/footer.php';
+    <?php
+    include 'inc/footer.php';
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
 }

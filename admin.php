@@ -14,16 +14,16 @@
 
 try {
     session_start();
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit();
-}
+    if (!isset($_SESSION['user'])) {
+        header('Location: login.php');
+        exit();
+    }
     
-    require 'php/functions.php';
-    require 'inc/header.php';
+    include 'php/functions.php';
+    include 'inc/header.php';
     
     
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -108,9 +108,9 @@ if (!isset($_SESSION['user'])) {
 
 </html>
 
-<?php
-    require 'inc/js_to_include.php';
-    require 'inc/footer.php';
+    <?php
+    include 'inc/js_to_include.php';
+    include 'inc/footer.php';
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
 }

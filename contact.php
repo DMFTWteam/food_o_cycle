@@ -3,17 +3,17 @@
 try {
     //Start the session
     session_start();
-    require 'inc/header.php';
+    include 'inc/header.php';
 
-if(isset($_SESSION)) {
-    if(isset($_SESSION['msgSuccess']) && $_SESSION['msgSuccess'] == true) {
-        $msgSuccess = true;
+    if(isset($_SESSION)) {
+        if(isset($_SESSION['msgSuccess']) && $_SESSION['msgSuccess'] == true) {
+            $msgSuccess = true;
+        }
+        else {
+            $msgSuccess = false;
+        }
     }
-    else {
-        $msgSuccess = false;
-    }
-}
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,10 +65,10 @@ if(isset($_SESSION)) {
     </body>
 </html>
 
-<?php
+    <?php
 
-    require 'inc/js_to_include.php';
-    require 'inc/footer.php';
+    include 'inc/js_to_include.php';
+    include 'inc/footer.php';
     unset($_SESSION['msgSuccess']);
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));

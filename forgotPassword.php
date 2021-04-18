@@ -95,7 +95,7 @@ try {
 
 </html>
 
-<?php
+    <?php
     include 'inc/js_to_include.php';
     include 'inc/footer.php';
 } catch(Exception $e) {

@@ -13,57 +13,57 @@
  */
 
 try {
-function tableBusinessNames()
-{
+    function tableBusinessNames()
+    {
     
-    include "../inc/db_connect.php";
-    $query = 'SELECT business_id, business_name, business_is_donor 
+        include "../inc/db_connect.php";
+        $query = 'SELECT business_id, business_name, business_is_donor 
             FROM businesses
 		    ORDER BY business_name';
             
-    echo "function executed";
-    $statement = $db->prepare($query);
-    $statement->execute();
-    $bus_names = $statement->fetchAll();
-    print_r($bus_names);
-    $statement->closeCursor();
-    $donors = array();
-    $banks = array();
-    foreach ($bus_names as $item) {
-        if ($item['business_is_donor'] == 1) {
-            array_push($donors, $item);
-        } else {
-            array_push($banks, $item);
+        echo "function executed";
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $bus_names = $statement->fetchAll();
+        print_r($bus_names);
+        $statement->closeCursor();
+        $donors = array();
+        $banks = array();
+        foreach ($bus_names as $item) {
+            if ($item['business_is_donor'] == 1) {
+                array_push($donors, $item);
+            } else {
+                array_push($banks, $item);
+            }
         }
-    }
 
-    $min_num = min(count($donors), count($banks));
-    $i = 0;
-    while ($i < $min_num) {
-        echo "<tr>
+        $min_num = min(count($donors), count($banks));
+        $i = 0;
+        while ($i < $min_num) {
+            echo "<tr>
                 <td>{$banks[$i]['business_name']}</td>
                 <td>{$donors[$i]['business_name']}</td>
                 </tr>";
-        $i++;
-    }
+            $i++;
+        }
     
-    foreach (max($donors, $banks) as $item) {
-        if ($item['business_is_donor'] == 1) {
-            echo "<tr>
+        foreach (max($donors, $banks) as $item) {
+            if ($item['business_is_donor'] == 1) {
+                echo "<tr>
                 <td></td>
                 <td>{$item['business_name']}</td>
                 </tr>";
-        } else {
-            echo "<tr>
+            } else {
+                echo "<tr>
                 <td>{$item['business_name']}</td>
                 <td></td>
                 </tr>";
+            }
         }
     }
-}
-/*function tableAccessLogs($business)
-{
-}*/
+    /*function tableAccessLogs($business)
+    {
+    }*/
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
 }

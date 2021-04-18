@@ -13,7 +13,7 @@
  */
 
 try {
- header("Content-Type: application/octet-stream");
+    header("Content-Type: application/octet-stream");
 
     $file = $_GET["file"] .".pdf";
     header("Content-Disposition: attachment; filename=" . urlencode($file));
@@ -26,10 +26,10 @@ try {
 
     $fp = fopen($file, "r");
 
-while (!feof($fp)) {
-    echo fread($fp, 65536);
-    flush(); 
-}
+    while (!feof($fp)) {
+        echo fread($fp, 65536);
+        flush(); 
+    }
 
     fclose($fp);
 } catch(Exception $e) {

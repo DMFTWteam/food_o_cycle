@@ -15,7 +15,7 @@
  */
 
 try {
-    require 'inc/header.php';
+    include 'inc/header.php';
 
     $query = 'SELECT business_id, business_name
         FROM business
@@ -36,7 +36,7 @@ try {
     $statement2->closeCursor();
     
     //include 'inc/footer.php';
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -141,9 +141,9 @@ try {
 
 </html>
 
-<?php
-    require 'inc/js_to_include.php';
-    require 'inc/footer.php';
+    <?php
+    include 'inc/js_to_include.php';
+    include 'inc/footer.php';
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
 }

@@ -14,9 +14,9 @@
  */
 
 try {
-    require 'inc/header.php';
+    include 'inc/header.php';
     $u_id = filter_input(INPUT_POST, 'u_id', FILTER_VALIDATE_INT);
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,9 +68,9 @@ try {
 
 </html>
 
-<?php
-    require 'inc/js_to_include.php';
-    require 'inc/footer.php';
+    <?php
+    include 'inc/js_to_include.php';
+    include 'inc/footer.php';
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
 }

@@ -14,70 +14,70 @@
  */
 
 try {
-    require 'inc/header.php';
-    require 'inc/db_connect.php';
+    include 'inc/header.php';
+    include 'inc/db_connect.php';
     $path=filter_input(INPUT_POST, "path");
     
-if ($path == '/register.php') {
-    $first_name=filter_input(INPUT_POST, 'InputName');
-    $last_name=filter_input(INPUT_POST, 'InputLastname');
-    $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
-    $password=filter_input(INPUT_POST, 'InputPassword');
-    $donor_box=filter_input(INPUT_POST, 'DonorBox', FILTER_VALIDATE_BOOLEAN);
-    $bank_box=filter_input(INPUT_POST, 'BankBox', FILTER_VALIDATE_BOOLEAN);
-    $business_id=filter_input(INPUT_POST, 'Business');
-    $ein=filter_input(INPUT_POST, 'EIN', FILTER_VALIDATE_INT);
+    if ($path == '/register.php') {
+        $first_name=filter_input(INPUT_POST, 'InputName');
+        $last_name=filter_input(INPUT_POST, 'InputLastname');
+        $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
+        $password=filter_input(INPUT_POST, 'InputPassword');
+        $donor_box=filter_input(INPUT_POST, 'DonorBox', FILTER_VALIDATE_BOOLEAN);
+        $bank_box=filter_input(INPUT_POST, 'BankBox', FILTER_VALIDATE_BOOLEAN);
+        $business_id=filter_input(INPUT_POST, 'Business');
+        $ein=filter_input(INPUT_POST, 'EIN', FILTER_VALIDATE_INT);
         
-    $query = 'INSERT INTO users
+        $query = 'INSERT INTO users
                  (u_fname, u_lname, u_password, 
 				 u_email, u_is_admin, u_is_standard)
               VALUES
                  (:first_name, :last_name, :upassword, :email, \'0\', \'1\')';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':first_name', $first_name);
-    $statement->bindValue(':last_name', $last_name);
-    $statement->bindValue(':upassword', password_hash($password, PASSWORD_DEFAULT));
-    $statement->bindValue(':email', $email);
-    $statement->execute();
-    $statement->closeCursor();
+        $statement = $db->prepare($query);
+        $statement->bindValue(':first_name', $first_name);
+        $statement->bindValue(':last_name', $last_name);
+        $statement->bindValue(':upassword', password_hash($password, PASSWORD_DEFAULT));
+        $statement->bindValue(':email', $email);
+        $statement->execute();
+        $statement->closeCursor();
 
-    $query2 = 'SELECT u_id
+        $query2 = 'SELECT u_id
 					FROM users
 					WHERE u_email = :email';
-    $statement2 = $db->prepare($query2);
-    $statement2->bindValue(':email', $email);
-    $statement2->execute();
-    $u_id = $statement2->fetch();
-    var_dump((int)$u_id['u_id']);
-    $statement2->closeCursor();
+        $statement2 = $db->prepare($query2);
+        $statement2->bindValue(':email', $email);
+        $statement2->execute();
+        $u_id = $statement2->fetch();
+        var_dump((int)$u_id['u_id']);
+        $statement2->closeCursor();
 
-    $query3 = 'INSERT INTO user_to_business
+        $query3 = 'INSERT INTO user_to_business
                  (u_id, business_id)
               VALUES
                  (:u_id, :business_id)';
-    $statement3 = $db->prepare($query3);
-    $statement3->bindValue(':u_id', $u_id['u_id']);
-    $statement3->bindValue(':business_id', $business_id);
-    $statement3->execute();
-    $statement3->closeCursor();
+        $statement3 = $db->prepare($query3);
+        $statement3->bindValue(':u_id', $u_id['u_id']);
+        $statement3->bindValue(':business_id', $business_id);
+        $statement3->execute();
+        $statement3->closeCursor();
 
-} else if ($path == '/resetPassword.php') {
-    $password=filter_input(INPUT_POST, 'InputPassword');
-    $u_id = filter_input(INPUT_POST, 'u_id', FILTER_VALIDATE_INT);
-    $query = 'UPDATE users
+    } else if ($path == '/resetPassword.php') {
+        $password=filter_input(INPUT_POST, 'InputPassword');
+        $u_id = filter_input(INPUT_POST, 'u_id', FILTER_VALIDATE_INT);
+        $query = 'UPDATE users
 				SET u_password = :u_password
 				WHERE u_id = :u_id';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':u_id', $u_id);
-    $statement->bindValue(':u_password', password_hash($password, PASSWORD_DEFAULT));
-    $statement->execute();
-    $statement->closeCursor();
-}
+        $statement = $db->prepare($query);
+        $statement->bindValue(':u_id', $u_id);
+        $statement->bindValue(':u_password', password_hash($password, PASSWORD_DEFAULT));
+        $statement->execute();
+        $statement->closeCursor();
+    }
     
     
     
     
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -128,9 +128,9 @@ if ($path == '/register.php') {
 
 </html>
 
-<?php
-    require 'inc/js_to_include.php';
-    require 'inc/footer.php';
+    <?php
+    include 'inc/js_to_include.php';
+    include 'inc/footer.php';
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
 }
