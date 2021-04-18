@@ -87,6 +87,15 @@ require 'inc/header.php';
                             echo '<br>';
                             $i++;
                         }
+                        for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+                            echo 'POST value: ';
+                            var_dump($_POST['quantity' .$i]);
+                            echo '<br>';
+                            $_SESSION['cart'][$i]['quantity'] = (int)$_POST['quantity' .$i];
+                            echo 'item quan value: ';
+                            var_dump($item['quantity']);
+                            echo '<br>';
+                        }
                         
                         echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                         echo "Product quantity was updated!";
