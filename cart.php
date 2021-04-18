@@ -76,25 +76,10 @@ require 'inc/header.php';
                         }
                         
                     } else if (isset($action) && $action=='Update Cart') {
-                        foreach ($_SESSION['cart'] as $item) {
-                            $i = 0;
-                            echo 'POST value: ';
-                            var_dump($_POST['quantity' .$i]);
-                            echo '<br>';
-                            $item['quantity'] = (int)$_POST['quantity' .$i];
-                            echo 'item quan value: ';
-                            var_dump($item['quantity']);
-                            echo '<br>';
-                            $i++;
-                        }
                         for ($i = 0; $i < count($_SESSION['cart']); $i++) {
-                            echo 'POST value: ';
-                            var_dump($_POST['quantity' .$i]);
-                            echo '<br>';
+                            $total_items = 0;
                             $_SESSION['cart'][$i]['quantity'] = (int)$_POST['quantity' .$i];
-                            echo 'item quan value: ';
-                            var_dump($_SESSION['cart'][$i]['quantity']);
-                            echo '<br>';
+                            $total_items += $_SESSION['cart'][$i]['quantity'];
                         }
                         
                         echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
