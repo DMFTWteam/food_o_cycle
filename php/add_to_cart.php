@@ -3,10 +3,8 @@
 session_start();
  
 // get the product id
-$encoded_item = isset($_GET['item']) ? $_GET['item'] : "";
+$encoded_item = isset($_POST['item']) ? $_POST['item'] : "";
 $item = unserialize(urldecode($encoded_item));
-var_dump($_POST);
-exit();
 $item['quantity'] = 1;
  
 /*
