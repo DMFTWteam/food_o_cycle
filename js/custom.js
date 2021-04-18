@@ -215,7 +215,7 @@
     });
 
     $(window).on("load", function() {
-        $("a").find("span.badge").append("<p>test</p>");
+        $("a").find("span.badge").css("background-color", "red");
     });
 
 
