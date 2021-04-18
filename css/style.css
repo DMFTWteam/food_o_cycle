@@ -850,9 +850,7 @@ ul.cart-list>li.total>.btn:hover {
     transition: all .3s ease-out;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    position: absolute;
     top: 64px;
-    bottom: 0;
 }
 
 .main-header.fixed-menu {
