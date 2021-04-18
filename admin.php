@@ -172,7 +172,7 @@ try {
     <script>
     $(document).ready(function(){
         $("#download").on("click", function(){
-            var doc = new jsPDF()
+            var doc = new jspdf()
             doc.autoTable({ html: '#log_table', styles: {halign: 'center', theme: 'grid'}})
             doc.save('access_logs.pdf')
         });
