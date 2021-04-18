@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
-<body>	
-	<!-- ALL JS FILES -->
+
+<body>
+    <!-- ALL JS FILES -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.6.0.js"></script>
@@ -19,7 +20,10 @@
     <script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
-	<script src="js/functions.js"></script>
+    <script src="js/functions.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
 </body>
 
 </html>
