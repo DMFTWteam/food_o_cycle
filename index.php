@@ -171,10 +171,10 @@ session_start();
                     }
                     
                     echo "        <div class='mask-icon'>";
-                    echo "<form class='add-to-cart-form'>";
+                    echo "<form class='add-to-cart-form' name='add_item' action='php/add_to_cart.php' method='post'>";
                     $serialized_item = urlencode(serialize($item));
 
-                    echo "<div class='item' style='display: none;'>{$serialized_item}</div>";
+                    echo "<input name='item' style='display: none;' value='{$serialized_item}' />";
          
                     // enable add to cart button
                     echo "<button style='background: #b0b435; border: 1px solid #b0b435; position: absolute; bottom: 0; left: 0px; padding: 10px 20px; font-weight: 700; color: #ffffff;' onMouseOver='this.style.backgroundColor=\"#000000\"' onMouseOut='this.style.backgroundColor=\"#b0b435\"' type='submit' class='btn btn-primary'>";
@@ -381,16 +381,8 @@ session_start();
     $(document).ready(function() {
         // add to cart button listener
         $('.add-to-cart-form').on('submit', function() {
-            
-            $.post("php/add_to_cart.php", function(){
-                $(this).find('.item').text();
-            })
-            // info is in the table / single product layout
-            //var item = $(this).find('.item').text();
 
-            // redirect to add_to_cart.php, with parameter values to process the request
-            //window.location.href = "php/add_to_cart.php?item=" + item;
-            //return false;
+            document.forms['add_item'].submit();
         });
     });
     </script>
