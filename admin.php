@@ -21,7 +21,7 @@ try {
     include "inc/db_connect.php";
     include 'php/functions.php';
     include 'inc/header.php';
-    
+    include 'inc/js_to_include.php';
     
     ?>
 
@@ -65,7 +65,6 @@ try {
                             $statement = $db->prepare($query);
                             $statement->execute();
                             $names = $statement->fetchAll();
-                            print_r($names);
                             $statement->closeCursor();
                             $donors = array();
                             $banks = array();
@@ -76,15 +75,12 @@ try {
                                     array_push($banks, $item);
                                 }
                             }
-                            print_r($donors);
-                            echo "<br>";
-                            print_r($banks);
                             $min_num = min(count($donors), count($banks));
                             $index = 0;
                             while ($index < $min_num) {
                                 echo "<tr>
-                                <td>{$banks[$index]['business_name']}</td>
-                                <td>{$donors[$index]['business_name']}</td>
+                                <td data-filter=\"{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</td>
+                                <td data-filter=\"{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</td>
                                 </tr>";
                                 $index++;
                             }
@@ -93,11 +89,11 @@ try {
                                 if (max($donors, $banks) == $donors) {
                                     echo "<tr>
                                     <td></td>
-                                    <td>{$donors[$i]['business_name']}</td>
+                                    <td data-filter=\"{$donors[$i]['business_id']}\">{$donors[$i]['business_name']}</td>
                                     </tr>";
                                 } else if (max($donors, $banks) == $banks) {
                                     echo "<tr>
-                                    <td>{$banks[$i]['business_name']}</td>
+                                    <td data-filter=\"{$banks[$i]['business_id']}\">{$banks[$i]['business_name']}</td>
                                     <td></td>
                                     </tr>";
                                 }
@@ -110,30 +106,57 @@ try {
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-main table-responsive">
-                    <table class="table">
+                    <table class="table" id="log_table">
                         <thead>
                             <tr>
                                 <th>Business Name</th>
-                                <th>E-Mail</th>
+                                <th>E-Mail Address Used</th>
                                 <th>Date/Time Accessed</th>
                                 <th>Successful?</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
                             </tr>
                             <tr>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
                             </tr>
                             <tr>
-                                <td>Sample</td>
-                                <td>Sample</td>
-                                <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            </tr>
+                            <tr>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            </tr>
+                            <tr>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            </tr>
+                            <tr>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            </tr>
+                            <tr>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
+                            <td>Sample</td>
                             </tr>
                         </tbody>
                     </table>
@@ -142,7 +165,7 @@ try {
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <button type="submit" class="btn hvr-hover" style="margin-bottom: 10%;">Download Logs</button>
+                <button type="submit" class="btn hvr-hover" id="download" style="margin-bottom: 10%; color: #FFFFFF;">Download Logs</button>
             </div>
         </div>
     </div>
@@ -150,9 +173,22 @@ try {
 </body>
 
 </html>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="src/tableHTMLExport.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#download").on("submit", function(){
+            $("#log_table").tableHTMLExport({
+                type:'pdf',
+                orientation:'p',
+                filename:'access_logs.pdf'
+            });
+        });
+    });
+</script>
 <?php
-    include 'inc/js_to_include.php';
     include 'inc/footer.php';
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
