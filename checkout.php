@@ -97,134 +97,152 @@ require 'inc/header.php';
 
     <!-- Start Cart  -->
     <div class="cart-box-main">
-        <div class="container">
+        <form action="php/log_transaction.php" method="post">
+            <div class="container">
 
-            <div class="row">
-                <div class="col-sm-6 col-lg-6 mb-3">
-                    <div class="checkout-address">
-                        <div class="title-left">
-                            <h3>Recipient Information</h3>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-6 mb-3">
+                        <div class="checkout-address">
+                            <div class="title-left">
+                                <h3>Recipient Information</h3>
+                            </div>
+                            <form class="needs-validation" novalidate>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName">First name *</label>
+                                        <input type="text" class="form-control" id="firstName"
+                                            placeholder="Enter first name"
+                                            value="<?php echo $_SESSION['user']['u_fname']; ?>" required>
+                                        <div class="invalid-feedback"> Valid first name is required. </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName">Last name *</label>
+                                        <input type="text" class="form-control" id="lastName"
+                                            placeholder="Enter last name"
+                                            value="<?php echo $_SESSION['user']['u_lname']; ?>" required>
+                                        <div class="invalid-feedback"> Valid last name is required. </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="phone" class="form-control" id="phone" placeholder="Enter phone number"
+                                        value="<?php echo $_SESSION['user']['u_phone']; ?>" required>
+                                    <div class="invalid-feedback"> Please enter a valid phone number for shipping
+                                        updates.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                        value="<?php echo $_SESSION['user']['u_email']; ?>" required>
+                                    <div class="invalid-feedback"> Please enter a valid email address for shipping
+                                        updates.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address">Address *</label>
+                                    <input type="text" class="form-control" id="address" placeholder="Enter address"
+                                        value="<?php echo $_SESSION['busness']['business_address']; ?>" required>
+                                    <div class="invalid-feedback"> Please enter your shipping address. </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address2">Address 2 *</label>
+                                    <input type="text" class="form-control" id="address2" placeholder="Enter address"
+                                        value="<?php //echo $_SESSION['busness']['business_address2']; ?>">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 mb-3">
+                                        <label for="country">Country *</label>
+                                        <select class="wide w-100" id="country">
+                                            <?php foreach ($countries as $key) {
+                                                if ($key == 'United States') {
+                                                    echo "<option data-display=\"Select\" value='{$key}'>{$key}</option>";
+                                                } else {
+                                                    echo "<option value='{$key}'>{$key}</option>";
+                                                }
+                                            } ?>
+                                        </select>
+                                        <div class="invalid-feedback"> Please select a valid country. </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="state">State *</label>
+                                        <select class="wide w-100" id="state">
+                                            <?php foreach ($states as $key => $value) {
+                                                if ($key == $_SESSION['business']['business_state']) {
+                                                    echo "<option data-display=\"Select\" value='{$key}'>{$key}</option>";
+                                                } else {
+                                                    echo "<option value='{$key}'>{$key}</option>";
+                                                }
+                                            } ?>
+                                        </select>
+                                        <div class="invalid-feedback"> Please provide a valid state. </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="zip">Zip *</label>
+                                        <input type="text" class="form-control" id="zip" placeholder="Enter zip code"
+                                            value="<?php echo $_SESSION['busness']['business_zip']; ?>" required>
+                                        <div class="invalid-feedback"> Zip code required. </div>
+                                    </div>
+                                </div>
+                                <hr class="mb-4">
+
+
+                                <hr class="mb-1">
+                            </form>
                         </div>
-                        <form class="needs-validation" novalidate>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="firstName">First name *</label>
-                                    <input type="text" class="form-control" id="firstName"
-                                        placeholder="Enter first name" value="<?php echo $_SESSION['user']['u_fname']; ?>" required>
-                                    <div class="invalid-feedback"> Valid first name is required. </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="lastName">Last name *</label>
-                                    <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
-                                        value="<?php echo $_SESSION['user']['u_lname']; ?>" required>
-                                    <div class="invalid-feedback"> Valid last name is required. </div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="phone">Phone Number *</label>
-                                <input type="phone" class="form-control" id="phone" placeholder="Enter phone number" value="<?php echo $_SESSION['user']['u_phone']; ?>" required>
-                                <div class="invalid-feedback"> Please enter a valid phone number for shipping updates.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email">Email Address *</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" value="<?php echo $_SESSION['user']['u_email']; ?>" required>
-                                <div class="invalid-feedback"> Please enter a valid email address for shipping updates.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="address">Address *</label>
-                                <input type="text" class="form-control" id="address" placeholder="Enter address" value="<?php echo $_SESSION['busness']['business_address']; ?>"
-                                    required>
-                                <div class="invalid-feedback"> Please enter your shipping address. </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="address2">Address 2 *</label>
-                                <input type="text" class="form-control" id="address2" placeholder="Enter address" value="<?php //echo $_SESSION['busness']['business_address2']; ?>">
-                            </div>
-                            <div class="row">
-                                <div class="col-md-5 mb-3">
-                                    <label for="country">Country *</label>
-                                    <select class="wide w-100" id="country">
-                                        <?php foreach ($countries as $key) {
-                                            if ($key == 'United States') {
-                                                echo "<option data-display=\"Select\" value='{$key}'><strong>{$key}</strong></option>";
-                                            } else {
-                                                echo "<option value='{$key}'>{$key}</option>";
-                                            }
-                                        } ?>
-                                    </select>
-                                    <div class="invalid-feedback"> Please select a valid country. </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label for="state">State *</label>
-                                    <select class="wide w-100" id="state">
-                                        <?php foreach ($states as $key => $value) {
-                                            if ($key == $_SESSION['business']['business_state']) {
-                                                echo "<option data-display=\"Select\" value='{$key}'>{$key}</option>";
-                                            } else {
-                                                echo "<option value='{$key}'>{$key}</option>";
-                                            }
-                                        } ?>
-                                    </select>
-                                    <div class="invalid-feedback"> Please provide a valid state. </div>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <label for="zip">Zip *</label>
-                                    <input type="text" class="form-control" id="zip" placeholder="Enter zip code" value="<?php echo $_SESSION['busness']['business_zip']; ?>" required>
-                                    <div class="invalid-feedback"> Zip code required. </div>
-                                </div>
-                            </div>
-                            <hr class="mb-4">
-
-
-                            <hr class="mb-1">
-                        </form>
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-6 mb-3">
-                    <div class="row">
+                    <div class="col-sm-6 col-lg-6 mb-3">
+                        <div class="row">
 
-                        <div class="col-md-12 col-lg-12">
-                            <div class="odr-box">
-                                <div class="title-left">
-                                    <h3>Shopping cart</h3>
+                            <div class="col-md-12 col-lg-12">
+                                <div class="odr-box">
+                                    <div class="title-left">
+                                        <h3>Shopping cart</h3>
+                                    </div>
+                                    <div class="rounded p-2 bg-light">
+                                        <?php 
+                                        $grand_total = 0;
+                                        setlocale(LC_MONETARY, 'en_US.UTF-8');
+                                        foreach ($_SESSION['cart'] as $item) {
+                                            echo "<div class=\"media mb-2 border-bottom\">";
+                                            echo "<div class=\"media-body\"> <a href=\"detail.html\">{$item['item_desc']}</a>";
+                                            echo "<div class=\"small text-muted\">Expiration: " .date("m-d-Y", $item['item_expiration']). " <span class=\"mx-2\">|</span>";
+                                            echo "Qty: {$item['quantity']} <span class=\"mx-2\">|</span> Subtotal: " .( money_format('%.2n', ((float)$item['item_price'] * (float)$item['quantity']))). "</div>";
+                                            echo "</div>";
+                                            echo "</div>";
+                                        
+                                            $grand_total += ((float)$item['item_price'] * (float)$item['quantity']);
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
-                                <div class="rounded p-2 bg-light">
-                                    <div class="media mb-2 border-bottom">
-                                        <div class="media-body"> <a href="detail.html"> Lorem ipsum dolor sit amet</a>
-                                            <div class="small text-muted">Expiration:  <span class="mx-2">|</span>
-                                                Qty: 1 <span class="mx-2">|</span> Subtotal: $</div>
-                                        </div>
+                            </div>
+                            <div class="col-md-12 col-lg-12">
+                                <div class="order-box">
+                                    <div class="title-left">
+                                        <h3>Your order</h3>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="font-weight-bold">Product</div>
+                                        <div class="ml-auto font-weight-bold">Total</div>
                                     </div>
 
+                                    <div class="d-flex gr-total">
+                                        <h5>Grand Total</h5>
+                                        <div class="ml-auto h5"> <?php echo money_format('%.2n', $grand_total); ?>
+                                        </div>
+                                    </div>
+                                    <hr>
                                 </div>
                             </div>
+                            <div class="col-12 d-flex shopping-box"> <input type="submit" href="index.php"
+                                    class="ml-auto btn hvr-hover" value="Place Order" /> </div>
                         </div>
-                        <div class="col-md-12 col-lg-12">
-                            <div class="order-box">
-                                <div class="title-left">
-                                    <h3>Your order</h3>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="font-weight-bold">Product</div>
-                                    <div class="ml-auto font-weight-bold">Total</div>
-                                </div>
-
-                                <div class="d-flex gr-total">
-                                    <h5>Grand Total</h5>
-                                    <div class="ml-auto h5"> $ 388 </div>
-                                </div>
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-12 d-flex shopping-box"> <a href="checkout.html"
-                                class="ml-auto btn hvr-hover">Place Order</a> </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
+        </form>
     </div>
     <!-- End Cart -->
 </body>
