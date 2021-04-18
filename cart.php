@@ -63,7 +63,7 @@ require 'inc/header.php';
                     $action = isset($_POST['action']) ? $_POST['action'] : "";
                     $remove = isset($_GET['action']) ? $_GET['action'] : "";
                     echo "<div class='col-md-12'>";
-                    if (isset($remove)) {
+                    if (isset($remove) && $remove == 'remove') {
                         $item = urldecode($_GET['remove']);
                         if (isset($item) && $item != '') {
                             if (($key = array_search($item, array_column($_SESSION['cart'], 'item_id'))) !== false) {
