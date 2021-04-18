@@ -148,7 +148,7 @@ require 'inc/header.php';
                                     <select class="wide w-100" id="country">
                                         <?php foreach ($countries as $key) {
                                             if ($key == 'United States') {
-                                                echo "<option data-display=\"Select\" value='{$key}'><strong>{$key}</strong></option>";
+                                                echo "<option data-display=\"Select\" value='{$key}'><b>{$key}</b></option>";
                                             } else {
                                                 echo "<option value='{$key}'>{$key}</option>";
                                             }
