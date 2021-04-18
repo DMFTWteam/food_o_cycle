@@ -142,7 +142,7 @@
                         <li class="side-menu">
                             <a href="#">
                                 <i class="fa fa-shopping-bag"></i>
-                                <span class="badge"></span>
+                                <span class="badge">test</span>
                                 <p>My Cart</p>
                             </a>
                         </li>
