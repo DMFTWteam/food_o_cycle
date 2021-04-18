@@ -20,8 +20,7 @@ try {
         $query = 'SELECT business_id, business_name, business_is_donor 
             FROM businesses
 		    ORDER BY business_name';
-            
-        echo "function executed";
+        
         $statement = $db->prepare($query);
         $statement->execute();
         $bus_names = $statement->fetchAll();
@@ -36,7 +35,9 @@ try {
                 array_push($banks, $item);
             }
         }
-
+        print_r($donors);
+        echo "<br>";
+        print_r($banks);
         $min_num = min(count($donors), count($banks));
         $i = 0;
         while ($i < $min_num) {
