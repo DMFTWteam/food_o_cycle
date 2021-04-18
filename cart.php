@@ -17,7 +17,6 @@ if (!isset($_SESSION['user']) || $_SESSION['business']['business_is_donor'] == 1
     header('Location: login.php');
     exit();
 }
-print_r($_POST);
 
 function total_items()
 {
