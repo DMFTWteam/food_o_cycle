@@ -26,7 +26,7 @@ session_start();
     <?php
     $msg = isset($_GET['msg']) ? $_GET['msg'] : "";
 
-    if (isset($msg)) {
+    if (isset($msg) || $msg != "") {
         echo "<div class='col-md-12'>";
         echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
         echo urldecode($msg);
