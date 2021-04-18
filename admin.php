@@ -170,6 +170,7 @@ try {
     </div>
     <?php include 'inc/js_to_include.php'; ?>
     <script>
+    window.jsPDF = require('jspdf');
     $(document).ready(function(){
         $("#download").on("click", function(){
             var doc = new jsPDF()
