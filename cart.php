@@ -129,7 +129,7 @@ require 'inc/header.php';
                                             echo "<td class='quantity-box'><input type='number' name='quantity{$i}' value='{$item['quantity']}' min='1' max='{$item['item_qty_avail']}' step='1'";
                                             echo "        class='c-input-text qty text'></td>";
                                             echo "<td>";
-                                            if ($item['perishable'] == 1) {
+                                            if ($item['item_perishable'] == 1) {
                                                 $date = date("m-d-Y", strtotime($item['item_expiration']));
                                                 echo $date;
                                             } else {

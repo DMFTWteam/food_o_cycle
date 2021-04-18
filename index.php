@@ -175,7 +175,7 @@ session_start();
                     echo "   <div class='why-text'>";
                     echo "       <h2>{$item['item_desc']}</h2>";
                     echo "       <h5>{$item['business_name']}</h5>";
-                    if ($item['perishable'] == 1) {
+                    if ($item['item_perishable'] == 1) {
                         $date = date("F j, Y", strtotime($item['item_expiration']));
                         echo "       <h6>Expiration: {$date}</h6>";
                     }
