@@ -17,28 +17,13 @@ if (!isset($_SESSION['user']) || $_SESSION['business']['business_is_donor'] == 1
     header('Location: login.php');
     exit();
 }
-$remove = urldecode($_GET['remove']);
-if (isset($remove) && $remove != '') {
-    if (($key = array_search($remove, array_column($_SESSION['cart'], 'item_desc'))) !== false) {
-        array_splice($_SESSION['cart'], $key, 1);
-    }
+
+$total_items = 0;
+foreach ($_SESSION['cart'] as $item) {
+    $total_items += $item['quantity'];
 }
-$action = $_POST['action'];
-if (!isset($action) || $action == 'Update Cart') {
-    $total_items = 0;
-    foreach ($_SESSION['cart'] as $item) {
-        $i = 0;
-        $item['quantity'] = (int)$_POST['quantity' .$i];
-        var_dump((int)$_POST['quantity' .$i]);
-        $total_items += $item['quantity'];
-        $i++;
-    }
-} elseif (isset($action) && $action == 'Clear Cart') {
-    $_SESSION['cart'] = array();
-}
+
 require 'inc/header.php';
-//var_dump($_SESSION['cart']);
-//var_dump($_POST);
 ?>
 
 <!DOCTYPE html>
@@ -70,6 +55,44 @@ require 'inc/header.php';
         <form action="cart.php" method="post">
             <div class="container">
                 <form action="cart.php" method='post'>
+                    <div class='row'><?php
+                    $action = isset($_POST['action']) ? $_POST['action'] : "";
+                    $remove = isset($_GET['action']) ? $_GET['action'] : "";
+                    echo "<div class='col-md-12'>";
+                    if (isset($remove) && $remove=='remove') {
+                        $item = urldecode($_GET['remove']);
+                        if (isset($item) && $item != '') {
+                            if (($key = array_search($item, array_column($_SESSION['cart'], 'item_desc'))) !== false) {
+                                array_splice($_SESSION['cart'], $key, 1);
+                            }
+                            echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
+                            echo "Product was removed from your cart!";
+                            echo "</div>";
+                        } else {
+                            echo "<div class='alert alert-danger' >";
+                            echo "ERROR! Product could not be removed.";
+                            echo "</div>";
+                        }
+                        
+                    } else if (isset($action) && $action=='Update Cart') {
+                        foreach ($_SESSION['cart'] as $item) {
+                            $i = 0;
+                            $item['quantity'] = (int)$_POST['quantity' .$i];
+                            $i++;
+                        }
+                        
+                        echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
+                        echo "Product quantity was updated!";
+                        echo "</div>";
+                    } else if (isset($action) && $action=='Clear Cart') {
+                        $_SESSION['cart'] = array();
+                        echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
+                        echo "Cart was cleared!";
+                        echo "</div>";
+                    }
+                    echo "</div>";
+
+                    ?></div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="table-main table-responsive">
@@ -101,7 +124,7 @@ require 'inc/header.php';
                                             echo "<td class='quantity-box'><input type='number' name='quantity{$i}' size='4' value='{$item['quantity']}' min='1' max='{$item['item_qty_avail']}' step='1'";
                                             echo "        class='c-input-text qty text'></td>";
                                             echo "<td class='remove-pr'>";
-                                            echo "    <a href='?remove={$item['item_desc']}'>";
+                                            echo "    <a href='?action=remove&remove={$item['item_id']}'>";
                                             echo "        <i class='fas fa-times'></i>";
                                             echo "    </a>";
                                             echo "</td>";

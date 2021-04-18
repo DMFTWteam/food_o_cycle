@@ -97,18 +97,6 @@ session_start();
             </div>
             <div class='row'>
                 <?php  $action = isset($_GET['action']) ? $_GET['action'] : "";
- 
-                echo "<div class='col-md-12'>";
-                if ($action=='removed') {
-                    echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
-                    echo "Product was removed from your cart!";
-                    echo "</div>";
-                } else if ($action=='quantity_updated') {
-                    echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
-                    echo "Product quantity was updated!";
-                    echo "</div>";
-                }
-                echo "</div>";
 
                 echo "<div class='col-md-12'>";
                 if ($action=='added') {
