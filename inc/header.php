@@ -37,7 +37,7 @@
         transition: all .3s ease-out;
         overflow: scroll;
         -webkit-overflow-scrolling: touch;
-        position: absolute;
+        /* position: absolute; */
         top: 64px;
         bottom: 0;
     }
