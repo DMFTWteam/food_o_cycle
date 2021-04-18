@@ -23,6 +23,8 @@ try {
         
         $statement = $db->prepare($query);
         $statement->execute();
+        
+        print_r($db->errorInfo());
         $names = $statement->fetchAll();
         print_r($names);
         $statement->closeCursor();
