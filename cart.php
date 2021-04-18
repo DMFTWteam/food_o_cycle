@@ -63,10 +63,10 @@ require 'inc/header.php';
                     $action = isset($_POST['action']) ? $_POST['action'] : "";
                     $remove = isset($_GET['action']) ? $_GET['action'] : "";
                     echo "<div class='col-md-12'>";
-                    if (isset($remove) && $remove=='remove') {
+                    if (isset($remove)) {
                         $item = urldecode($_GET['remove']);
                         if (isset($item) && $item != '') {
-                            if (($key = array_search($item, array_column($_SESSION['cart'], 'item_desc'))) !== false) {
+                            if (($key = array_search($item, array_column($_SESSION['cart'], 'item_id'))) !== false) {
                                 array_splice($_SESSION['cart'], $key, 1);
                             }
                             echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
