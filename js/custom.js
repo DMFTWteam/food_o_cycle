@@ -1,7 +1,7 @@
 (function($) {
     "use strict";
 
-    $(window).on('load', function() {
+    $(document).ready(function() {
         $("#cart_badge").after("<span class=\"badge\"><?php echo count($_SESSION[\'cart\ ']); ?></span>");
     });
 
