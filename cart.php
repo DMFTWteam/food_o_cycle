@@ -93,7 +93,7 @@ require 'inc/header.php';
                             echo '<br>';
                             $_SESSION['cart'][$i]['quantity'] = (int)$_POST['quantity' .$i];
                             echo 'item quan value: ';
-                            var_dump($item['quantity']);
+                            var_dump($_SESSION['cart'][$i]['quantity']);
                             echo '<br>';
                         }
                         
