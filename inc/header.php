@@ -154,10 +154,10 @@
             <div class="side">
                 <a href="#" class="close-side"><i class="fa fa-times"></i></a>
                 <li class="total">
-                    <a href="cart.php" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                    <a href="cart.php" class="btn btn-default hvr-hover btn-cart" style="color: #FFFFFF;">VIEW CART</a>
                 </li>
                 <li class="cart-box">
-                    <ul class="cart-list" style="overflow-y: scroll;">
+                    <ul class="cart-list" style="position: fixed; overflow-y: scroll; ">
                         <?php
                         foreach ($_SESSION['cart'] as $item) {
                             echo "<li>";
