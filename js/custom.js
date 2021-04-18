@@ -1,9 +1,7 @@
 (function($) {
     "use strict";
 
-    $(window).on("load", function() {
-        $("a").find("span.badge").append("test");
-    });
+
 
     /* ..............................................
        Loader 
@@ -214,6 +212,10 @@
 
     $(".brand-box").niceScroll({
         cursorcolor: "#9b9b9c",
+    });
+
+    $(window).on("load", function() {
+        $("a").find("span.badge").append("test");
     });
 
 
