@@ -180,10 +180,9 @@ try {
 <script>
     $(document).ready(function(){
         $("#download").on("click", function(){
-            $("#log_table").tableHTMLExport({
-                type:'pdf',
-                orientation:'p'
-            });
+            var doc = new jsPDF()
+            doc.autoTable({ html: '#log_table'})
+            doc.save('access_logs.pdf')
         });
     });
 </script>

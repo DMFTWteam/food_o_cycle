@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-(function($){
+(function($) {
 
 
 
@@ -32,7 +32,7 @@ THE SOFTWARE.*/
                 newline: '\r\n',
                 ignoreColumns: '',
                 ignoreRows: '',
-                type:'csv',
+                type: 'csv',
                 htmlContent: false,
                 consoleLog: false,
                 trimContent: true,
@@ -49,11 +49,11 @@ THE SOFTWARE.*/
             }
 
 
-            function parseString(data){
+            function parseString(data) {
 
-                if(defaults.htmlContent){
+                if (defaults.htmlContent) {
                     content_data = data.html().trim();
-                }else{
+                } else {
                     content_data = data.text().trim();
                 }
                 return content_data;
@@ -77,15 +77,15 @@ THE SOFTWARE.*/
              * @param el
              * @returns {{header: *, data: Array}}
              */
-            function toJson(el){
+            function toJson(el) {
 
                 var jsonHeaderArray = [];
                 $(el).find('thead').find('tr').not(options.ignoreRows).each(function() {
-                    var tdData ="";
+                    var tdData = "";
                     var jsonArrayTd = [];
 
-                    $(this).find('th').not(options.ignoreColumns).each(function(index,data) {
-                        if ($(this).css('display') != 'none'){
+                    $(this).find('th').not(options.ignoreColumns).each(function(index, data) {
+                        if ($(this).css('display') != 'none') {
                             jsonArrayTd.push(parseString($(this)));
                         }
                     });
@@ -95,11 +95,11 @@ THE SOFTWARE.*/
 
                 var jsonArray = [];
                 $(el).find('tbody').find('tr').not(options.ignoreRows).each(function() {
-                    var tdData ="";
+                    var tdData = "";
                     var jsonArrayTd = [];
 
-                    $(this).find('td').not(options.ignoreColumns).each(function(index,data) {
-                        if ($(this).css('display') != 'none'){
+                    $(this).find('td').not(options.ignoreColumns).each(function(index, data) {
+                        if ($(this).css('display') != 'none') {
                             jsonArrayTd.push(parseString($(this)));
                         }
                     });
@@ -108,7 +108,7 @@ THE SOFTWARE.*/
                 });
 
 
-                return {header:jsonHeaderArray[0],data:jsonArray};
+                return { header: jsonHeaderArray[0], data: jsonArray };
             }
 
 
@@ -117,10 +117,10 @@ THE SOFTWARE.*/
              * @param table
              * @returns {string}
              */
-            function toCsv(table){
+            function toCsv(table) {
                 var output = "";
-                
-                if (options.utf8BOM === true) {                
+
+                if (options.utf8BOM === true) {
                     output += '\ufeff';
                 }
 
@@ -137,7 +137,7 @@ THE SOFTWARE.*/
                             var content = options.trimContent ? $.trim(column.text()) : column.text();
 
                             output += options.quoteFields ? quote(content) : content;
-                            if(i !== numCols-1) {
+                            if (i !== numCols - 1) {
                                 output += options.separator;
                             } else {
                                 output += options.newline;
@@ -151,44 +151,44 @@ THE SOFTWARE.*/
 
             var el = this;
             var dataMe;
-            if(options.type == 'csv' || options.type == 'txt'){
+            if (options.type == 'csv' || options.type == 'txt') {
 
 
                 var table = this.filter('table'); // TODO use $.each
 
-                if(table.length <= 0){
+                if (table.length <= 0) {
                     throw new Error('tableHTMLExport must be called on a <table> element')
                 }
 
-                if(table.length > 1){
+                if (table.length > 1) {
                     throw new Error('converting multiple table elements at once is not supported yet')
                 }
 
                 dataMe = toCsv(table);
 
-                if(defaults.consoleLog){
+                if (defaults.consoleLog) {
                     console.log(dataMe);
                 }
 
-                download(options.filename,dataMe);
+                download(options.filename, dataMe);
 
 
                 //var base64data = "base64," + $.base64.encode(tdData);
                 //window.open('data:application/'+defaults.type+';filename=exportData;' + base64data);
-            }else if(options.type == 'json'){
+            } else if (options.type == 'json') {
 
                 var jsonExportArray = toJson(el);
 
-                if(defaults.consoleLog){
+                if (defaults.consoleLog) {
                     console.log(JSON.stringify(jsonExportArray));
                 }
                 dataMe = JSON.stringify(jsonExportArray);
 
-                download(options.filename,dataMe)
-                /*
-                var base64data = "base64," + $.base64.encode(JSON.stringify(jsonExportArray));
-                window.open('data:application/json;filename=exportData;' + base64data);*/
-            }else if(options.type == 'pdf'){
+                download(options.filename, dataMe)
+                    /*
+                    var base64data = "base64," + $.base64.encode(JSON.stringify(jsonExportArray));
+                    window.open('data:application/json;filename=exportData;' + base64data);*/
+            } else if (options.type == 'pdf') {
 
                 var jsonExportArray = toJson(el);
 
@@ -197,11 +197,11 @@ THE SOFTWARE.*/
                     body: jsonExportArray.data
                 };
 
-                if(defaults.consoleLog){
+                if (defaults.consoleLog) {
                     console.log(contentJsPdf);
                 }
 
-                var doc = new jsPDF(defaults.orientation, 'pt');
+                var doc = new jspdf(defaults.orientation, 'pt');
                 doc.autoTable(contentJsPdf);
                 doc.save(options.filename);
 
@@ -210,4 +210,3 @@ THE SOFTWARE.*/
         }
     });
 })(jQuery);
-
