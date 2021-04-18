@@ -18,7 +18,7 @@ try {
     
         include "../inc/db_connect.php";
         $query = 'SELECT business_id, business_name, business_is_donor 
-            FROM businesses
+            FROM business
 		    ORDER BY business_name';
         
         $statement = $db->prepare($query);
