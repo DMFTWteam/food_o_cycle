@@ -29,6 +29,11 @@ try {
 <html lang="en">
 <!-- Basic -->
 
+<script src="js/jspdf.umd.min.js"></script>
+<script src="js/jspdf.plugin.autotable.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
 <body>
     <!-- Start All Title Box -->
     <div class="all-title-box">
@@ -166,7 +171,7 @@ try {
         <div class="row">
             <div class="col-lg-12">
                 <input type="button" class="btn hvr-hover" id="download" onclick='generate()'
-                    style="margin-bottom: 10%; color: #FFFFFF;" />
+                    style="margin-bottom: 10%; color: #FFFFFF;" value='Download Logs' />
             </div>
         </div>
     </div>
@@ -188,7 +193,7 @@ try {
 
 </html>
 
-<?php
+    <?php
     include 'inc/footer.php';
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
