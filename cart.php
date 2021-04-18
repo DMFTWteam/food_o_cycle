@@ -25,8 +25,8 @@ function total_items()
     foreach ($_SESSION['cart'] as $item) {
         $total_items += $item['quantity'];
     }
+    return $total_items;
 };
-total_items();
 require 'inc/header.php';
 ?>
 
@@ -77,7 +77,6 @@ require 'inc/header.php';
                             echo "ERROR! Product could not be removed.";
                             echo "</div>";
                         }
-                        total_items();
                     } else if (isset($action) && $action=='Update Cart') {
                         for ($i = 0; $i < count($_SESSION['cart']); $i++) {
                             $_SESSION['cart'][$i]['quantity'] = (int)$_POST['quantity' .$i];
@@ -86,13 +85,11 @@ require 'inc/header.php';
                         echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                         echo "Product quantity was updated!";
                         echo "</div>";
-                        total_items();
                     } else if (isset($action) && $action=='Clear Cart') {
                         $_SESSION['cart'] = array();
                         echo "<div class='alert alert-info' style='background: #b0b435; border: 1px solid #b0b435; color: #ffffff;'>";
                         echo "Cart was cleared!";
                         echo "</div>";
-                        total_items();
                     }
                     echo "</div>";
 
@@ -168,7 +165,7 @@ require 'inc/header.php';
                             <hr>
                             <div class="d-flex gr-total">
                                 <h5>Grand Total</h5>
-                                <div id='total' class="ml-auto h5"><?php echo $total_items; ?></div>
+                                <div id='total' class="ml-auto h5"><?php echo total_items(); ?></div>
                             </div>
                             <hr>
                         </div>
