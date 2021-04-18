@@ -23,12 +23,12 @@ try {
         
         $statement = $db->prepare($query);
         $statement->execute();
-        $bus_names = $statement->fetchAll();
-        print_r($bus_names);
+        $names = $statement->fetchAll();
+        print_r($names);
         $statement->closeCursor();
         $donors = array();
         $banks = array();
-        foreach ($bus_names as $item) {
+        foreach ($names as $item) {
             if ($item['business_is_donor'] == 1) {
                 array_push($donors, $item);
             } else {
