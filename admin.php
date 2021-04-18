@@ -89,7 +89,7 @@ try {
                                 $i++;
                             }
                     
-                            foreach (max($donors, $banks) as $item) {
+                            while ($i < max($donors, $banks)) {
                                 if ($item['business_is_donor'] == 1) {
                                     echo "<tr>
                                 <td></td>
@@ -101,6 +101,8 @@ try {
                                 <td></td>
                                 </tr>";
                                 }
+                                
+                                $i++;
                             }?>
                         </tbody>
                     </table>
