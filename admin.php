@@ -18,10 +18,11 @@ try {
         header('Location: login.php');
         exit();
     }
+    
+    include 'inc/js_to_include.php';
     include "inc/db_connect.php";
     include 'php/functions.php';
     include 'inc/header.php';
-    
     ?>
 
 <!DOCTYPE html>
@@ -168,7 +169,6 @@ try {
             </div>
         </div>
     </div>
-    <?php include 'inc/js_to_include.php'; ?>
     <script>window.jsPDF = require('jspdf');
     $(document).ready(function(){
         $("#download").click(function(){
