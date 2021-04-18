@@ -7,6 +7,7 @@
  *             http://opensource.org/licenses/mit-license
  *         
  */
+
 (function webpackUniversalModuleDefinition(root, factory) {
     if (typeof exports === 'object' && typeof module === 'object')
         module.exports = factory((function webpackLoadOptionalExternalModule() { try { return require("jspdf"); } catch (e) {} }()));
@@ -267,8 +268,10 @@
                         extendStatics = Object.setPrototypeOf ||
                             ({ __proto__: [] }
                                 instanceof Array && function(d, b) { d.__proto__ = b; }) ||
-                            function(d, b) { for (var p in b)
-                                    if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+                            function(d, b) {
+                                for (var p in b)
+                                    if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+                            };
                         return extendStatics(d, b);
                     };
                     return function(d, b) {
@@ -374,8 +377,7 @@
                         this.userStyles = {
                             // Black for versions of jspdf without getTextColor
                             textColor: jsPDFDocument.getTextColor ?
-                                this.jsPDFDocument.getTextColor() :
-                                0,
+                                this.jsPDFDocument.getTextColor() : 0,
                             fontSize: jsPDFDocument.internal.getFontSize(),
                             fontStyle: jsPDFDocument.internal.getFont().fontStyle,
                             font: jsPDFDocument.internal.getFont().fontName,
@@ -1471,8 +1473,10 @@
                         extendStatics = Object.setPrototypeOf ||
                             ({ __proto__: [] }
                                 instanceof Array && function(d, b) { d.__proto__ = b; }) ||
-                            function(d, b) { for (var p in b)
-                                    if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+                            function(d, b) {
+                                for (var p in b)
+                                    if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+                            };
                         return extendStatics(d, b);
                     };
                     return function(d, b) {
@@ -1664,8 +1668,7 @@
                         styles.columnStyles[column.index] || {};
                     var colStyles = sectionName === 'body' ? columnStyles : {};
                     var rowStyles = sectionName === 'body' && rowIndex % 2 === 0 ?
-                        polyfills_1.assign({}, theme.alternateRow, styles.alternateRowStyles) :
-                        {};
+                        polyfills_1.assign({}, theme.alternateRow, styles.alternateRowStyles) : {};
                     var defaultStyle = config_1.defaultStyles(scaleFactor);
                     var themeStyles = polyfills_1.assign({}, defaultStyle, otherStyles, rowStyles, colStyles);
                     return polyfills_1.assign(themeStyles, cellInputStyles);
@@ -2454,8 +2457,11 @@
             /***/
             (function(module, exports) {
 
-                if (typeof __WEBPACK_EXTERNAL_MODULE__17__ === 'undefined') { var e = new Error("Cannot find module 'undefined'");
-                    e.code = 'MODULE_NOT_FOUND'; throw e; }
+                if (typeof __WEBPACK_EXTERNAL_MODULE__17__ === 'undefined') {
+                    var e = new Error("Cannot find module 'undefined'");
+                    e.code = 'MODULE_NOT_FOUND';
+                    throw e;
+                }
                 module.exports = __WEBPACK_EXTERNAL_MODULE__17__;
 
                 /***/

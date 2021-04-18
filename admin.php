@@ -169,7 +169,7 @@ try {
             </div>
         </div>
     </div>
-    <script>window.jsPDF = require('jspdf');
+    <script>
     $(document).ready(function(){
         $("#download").click(function(){
             var doc = new jsPDF()
