@@ -1,6 +1,10 @@
 (function($) {
     "use strict";
 
+    $(window).on('load', function() {
+        document.getElementById('cart_badge').innerHTML = "<?php echo count($_SESSION['cart']); ?>";
+    });
+
     /* ..............................................
        Loader 
        ................................................. */
