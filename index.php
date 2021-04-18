@@ -174,7 +174,7 @@ session_start();
                     echo "<form class='add-to-cart-form'>";
                     $serialized_item = urlencode(serialize($item));
 
-                    echo "<div style='display: none;'>{$serialized_item}</div>";
+                    echo "<div class='item' style='display: none;'>{$serialized_item}</div>";
          
                     // enable add to cart button
                     echo "<button style='background: #b0b435; border: 1px solid #b0b435; position: absolute; bottom: 0; left: 0px; padding: 10px 20px; font-weight: 700; color: #ffffff;' onMouseOver='this.style.backgroundColor=\"#000000\"' onMouseOut='this.style.backgroundColor=\"#b0b435\"' type='submit' class='btn btn-primary'>";
