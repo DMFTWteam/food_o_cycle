@@ -25,7 +25,6 @@ try {
         $statement->execute();
         $names = $statement->fetchAll();
         print_r($names);
-        exit();
         $statement->closeCursor();
         $donors = array();
         $banks = array();

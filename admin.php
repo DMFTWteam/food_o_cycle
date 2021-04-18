@@ -18,7 +18,7 @@ try {
         header('Location: login.php');
         exit();
     }
-    
+    require "inc/db_connect.php";
     include 'php/functions.php';
     include 'inc/header.php';
     
