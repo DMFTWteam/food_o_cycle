@@ -133,7 +133,12 @@ try {
                              $statement2->closeCursor();
                              
                             foreach ($logs as $log) {
-                                echo "<input type=\"hidden\" name=\"inputs\" value=\"{$log['business_id']}\" />";
+                                if ($log['business_id'] != '' && $log['business_id'] != null) {
+                                    echo "<input type=\"hidden\" name=\"inputs\" value=\"{$log['business_id']}\" />";
+                                } else {
+                                    
+                                    echo "<input type=\"hidden\" name=\"inputs\" value=\"0\" />";
+                                }
                                 echo "<tr>";
                                 echo "<td>{$log['business_name']}</td>";
                                 echo "<td>{$log['u_email']}</td>";
@@ -171,9 +176,9 @@ try {
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[0];
 
-            console.log(ids[i].value + 1);
+            console.log(ids[i].value);
             if (td) {
-                if (ids[i].value + 1 == business_id) {
+                if (ids[i].value == business_id) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
@@ -200,7 +205,7 @@ try {
 
 </html>
 
-<?php
+    <?php
     include 'inc/footer.php';
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
