@@ -173,7 +173,7 @@ try {
 
             console.log(ids[i].value);
             if (td) {
-                if (ids[i].value == business_id) {
+                if (ids[i].value + 1 == business_id) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
