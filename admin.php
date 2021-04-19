@@ -166,14 +166,14 @@ try {
         var table, tr, td, i;
         table = document.getElementById("log_table");
         tr = table.getElementsByTagName("tr");
-        var ids = document.getElementsByName("inputs").values;
+        var ids = document.getElementsByName("inputs");
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[0];
 
-            console.log(ids[i]);
+            console.log(ids[i].value);
             if (td) {
-                if (ids[i] == business_id) {
+                if (ids[i].value == business_id) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
