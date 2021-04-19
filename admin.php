@@ -166,7 +166,7 @@ try {
         var table, tr, td, i;
         table = document.getElementById("log_table");
         tr = table.getElementsByTagName("tr");
-        var ids = document.getElementsByName("inputs");
+        var ids = document.querySelectorAll("input[type=hidden]");
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[0];
