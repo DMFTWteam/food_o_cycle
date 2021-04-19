@@ -82,8 +82,8 @@ try {
                             $index = 0;
                             while ($index < $min_num) {
                                 echo "<tr>
-                                <a data-filter=\".{$banks[$index]['business_id']}\"><td>{$banks[$index]['business_name']}</td></a>
-                                <a data-filter=\".{$donors[$index]['business_id']}\"><td>{$donors[$index]['business_name']}</td></a>
+                                <td><button data-filter=\".{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</button></td>
+                                <td><button data-filter=\".{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</button></td>
                                 </tr>";
                                 $index++;
                             }
@@ -92,11 +92,11 @@ try {
                                 if (max($donors, $banks) == $donors) {
                                     echo "<tr>
                                     <td></td>
-                                    <a data-filter=\".{$donors[$index]['business_id']}\"><td>{$donors[$index]['business_name']}</td></a>
+                                    <td><button data-filter=\".{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</button></td>
                                     </tr>";
                                 } else if (max($donors, $banks) == $banks) {
                                     echo "<tr>
-                                    <a data-filter=\".{$banks[$index]['business_id']}\"><td>{$banks[$index]['business_name']}</td></a>
+                                    <td><button data-filter=\".{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</button></td>
                                     <td></td>
                                     </tr>";
                                 }
