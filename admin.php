@@ -31,7 +31,8 @@ try {
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
 <body>
     <!-- Start All Title Box -->
     <div class="all-title-box">
@@ -51,58 +52,61 @@ try {
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="table-main table-responsive special-menu">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Food Banks</th>
-                                <th>Food Donors</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                            $query = 'SELECT business_id, business_name, business_is_donor 
+
+                <div class="button-group filter-button-group">
+                    <div class="table-main table-responsive special-menu">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Food Banks</th>
+                                    <th>Food Donors</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                $query = 'SELECT business_id, business_name, business_is_donor 
                             FROM business
                             ORDER BY business_name';
                         
-                            $statement = $db->prepare($query);
-                            $statement->execute();
-                            $names = $statement->fetchAll();
-                            $statement->closeCursor();
-                            $donors = array();
-                            $banks = array();
-                            foreach ($names as $item) {
-                                if ($item['business_is_donor'] == 1) {
-                                    array_push($donors, $item);
-                                } else {
-                                    array_push($banks, $item);
+                                $statement = $db->prepare($query);
+                                $statement->execute();
+                                $names = $statement->fetchAll();
+                                $statement->closeCursor();
+                                $donors = array();
+                                $banks = array();
+                                foreach ($names as $item) {
+                                    if ($item['business_is_donor'] == 1) {
+                                        array_push($donors, $item);
+                                    } else {
+                                        array_push($banks, $item);
+                                    }
                                 }
-                            }
-                            $min_num = min(count($donors), count($banks));
-                            $index = 0;
-                            while ($index < $min_num) {
-                                echo "<tr>
+                                $min_num = min(count($donors), count($banks));
+                                $index = 0;
+                                while ($index < $min_num) {
+                                    echo "<tr>
                                 <td><button data-filter=\".{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</button></td>
                                 <td><button data-filter=\".{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</button></td>
                                 </tr>";
-                                $index++;
-                            }
+                                    $index++;
+                                }
                     
-                            for ($i = $index; $i < max(count($donors), count($banks)); $i++) {
-                                if (max($donors, $banks) == $donors) {
-                                    echo "<tr>
+                                for ($i = $index; $i < max(count($donors), count($banks)); $i++) {
+                                    if (max($donors, $banks) == $donors) {
+                                        echo "<tr>
                                     <td></td>
                                     <td><button data-filter=\".{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</button></td>
                                     </tr>";
-                                } else if (max($donors, $banks) == $banks) {
-                                    echo "<tr>
+                                    } else if (max($donors, $banks) == $banks) {
+                                        echo "<tr>
                                     <td><button data-filter=\".{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</button></td>
                                     <td></td>
                                     </tr>";
-                                }
-                            }?>
-                        </tbody>
-                    </table>
+                                    }
+                                }?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,7 +136,7 @@ try {
                              $statement2->closeCursor();
                              
                             foreach ($logs as $log) {
-                                echo "<tr class={$log['business_id']}>";
+                                echo "<tr class=\"special-grid {$log['business_id']}\">";
                                 echo "<td>{$log['business_name']}</td>";
                                 echo "<td>{$log['u_email']}</td>";
                                 echo "<td>{$log['log_datetime']}</td>";
