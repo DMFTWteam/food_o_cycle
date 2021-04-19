@@ -133,7 +133,7 @@ try {
                              $statement2->closeCursor();
                              
                             foreach ($logs as $log) {
-                                echo "<input type=\"hidden\" value=\"{$log['business_id']}\" />";
+                                echo "<input type=\"hidden\" name=\"inputs\" value=\"{$log['business_id']}\" />";
                                 echo "<tr>";
                                 echo "<td>{$log['business_name']}</td>";
                                 echo "<td>{$log['u_email']}</td>";
@@ -166,8 +166,7 @@ try {
         var table, tr, td, i;
         table = document.getElementById("log_table");
         tr = table.getElementsByTagName("tr");
-        var ids = document.querySelectorAll("input[type=hidden]").values;
-        console.log(document.querySelectorAll("input[type=hidden]").values[0]);
+        var ids = document.getElementsByName("inputs").values;
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[0];
