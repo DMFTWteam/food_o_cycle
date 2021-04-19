@@ -57,8 +57,8 @@
                             <ul>
                                 <li><a href="about.php">About Us</a></li>
                                 <li><a href="help.php">Customer Service</a></li>
-                                <li><a href="#">Terms &amp; Conditions</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="php/pdf_server.php?file=<?php echo urlencode("../docs/terms_and_conditions.pdf"); ?>">Terms &amp; Conditions</a></li>
+                                <li><a href="php/pdf_server.php?file=<?php echo urlencode("../docs/privacy_policy.pdf"); ?>">Privacy Policy</a></li>
                             </ul>
                         </div>
                     </div>

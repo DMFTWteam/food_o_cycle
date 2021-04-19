@@ -94,7 +94,7 @@ try {
                                 style='display: none;'>
                             <label for="terms_agreement" class="mb-0" name="terms_agreement_label"
                                 id="terms_agreement_label" style='display: none;'>I have read and agree
-                                to Food O' Cycle's <a href="php/pdf_server.php?file=Terms_And_Conditions.pdf"
+                                to Food O' Cycle's <a href="php/pdf_server.php?file=<?php echo urlencode("../docs/terms_and_conditions.pdf"); ?>"
                                     class="text-dark font-weight-bold"><u>Terms and
                                         Conditions</u></a></label>
                         </div>
