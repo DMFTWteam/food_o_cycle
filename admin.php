@@ -136,7 +136,7 @@ try {
                              $statement2->closeCursor();
                              
                             foreach ($logs as $log) {
-                                echo "<div class=\"special-grid {$log['business_id']}\">"
+                                echo "<div class=\"special-grid {$log['business_id']}\">";
                                 echo "<tr>";
                                 echo "<td>{$log['business_name']}</td>";
                                 echo "<td>{$log['u_email']}</td>";
@@ -148,7 +148,7 @@ try {
                                 }
                                 echo "<td>{$successful}</td>";
                                 echo "</tr>";
-                                echo "</div>"
+                                echo "</div>";
                             }
                             ?>
                         </tbody>
