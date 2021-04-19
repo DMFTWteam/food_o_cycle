@@ -52,7 +52,7 @@ try {
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="table-main table-responsive special-menu">
+                <div class="table-main table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
