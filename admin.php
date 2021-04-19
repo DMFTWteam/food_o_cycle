@@ -82,8 +82,8 @@ try {
                             $index = 0;
                             while ($index < $min_num) {
                                 echo "<tr>
-                                <td><a data-filter=\"{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</a></td>
-                                <td><a data-filter=\"{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</a></td>
+                                <td><a data-filter=\".{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</a></td>
+                                <td><a data-filter=\".{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</a></td>
                                 </tr>";
                                 $index++;
                             }
@@ -92,11 +92,11 @@ try {
                                 if (max($donors, $banks) == $donors) {
                                     echo "<tr>
                                     <td></td>
-                                    <td><a data-filter=\"{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</a></td>
+                                    <td><a data-filter=\".{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</a></td>
                                     </tr>";
                                 } else if (max($donors, $banks) == $banks) {
                                     echo "<tr>
-                                    <td><a data-filter=\"{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</a></td>
+                                    <td><a data-filter=\".{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</a></td>
                                     <td></td>
                                     </tr>";
                                 }
@@ -120,19 +120,31 @@ try {
                         </thead>
                         <tbody>
                             <?php 
-                             $query2 = 'SELECT * 
-                             FROM access_log, user_to_business, users, business
-                             WHERE access_log.u_id = users.u_id
-                             AND users.u_id = user_to_business.u_id
-                             AND user_to_business.business_id = business.business_id';
+                             $query2 = 'SELECT * FROM access_log
+                             LEFT JOIN users ON access_log.u_id = users.u_id
+                             LEFT JOIN user_to_business ON access_log.u_id = user_to_business.u_id
+                             LEFT JOIN business ON user_to_business.business_id = business.business_id
+                             ORDER BY log_id ASC';
                          
                              $statement2 = $db->prepare($query2);
                              $statement2->execute();
                              $logs = $statement2->fetchAll();
                              $statement2->closeCursor();
                              
-
-                             ?>
+                            foreach ($logs as $log) {
+                                echo "<tr>";
+                                echo "<td>{$log['business_name']}</td>";
+                                echo "<td>{$log['u_email']}</td>";
+                                echo "<td>{$log['log_datetime']}</td>";
+                                if ($log['log_authsuccessful'] == '1') {
+                                    $successful = 'Yes';
+                                } else {
+                                    $successful = 'No';
+                                }
+                                echo "<td>{$successful}</td>";
+                                echo "</tr>";
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
