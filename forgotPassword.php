@@ -55,15 +55,19 @@ try {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="InputName" class="mb-0">First Name</label>
-                            <input type="text" class="form-control" name="InputName" placeholder="First Name">
+                            <input type="text" class="form-control" name="InputName" placeholder="First Name" required>
+                            
+                            <div class="invalid-feedback"> Valid first name is required. </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="InputLastname" class="mb-0">Last Name</label>
-                            <input type="text" class="form-control" name="InputLastname" placeholder="Last Name">
+                            <input type="text" class="form-control" name="InputLastname" placeholder="Last Name" required>
+                            <div class="invalid-feedback"> Valid last name is required. </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="InputEmail" class="mb-0">Email Address</label>
-                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email">
+                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email" required>
+                            <div class="invalid-feedback"> Valid email is required. </div>
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover">Submit</button>
@@ -81,7 +85,8 @@ try {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="Code" class="mb-0">Enter code below:</label>
-                            <input type="text" class="form-control" name="Code" placeholder="Verification Code">
+                            <input type="number" minlength="6" maxlength="6" class="form-control" name="Code" placeholder="Verification Code" required>
+                            <div class="invalid-feedback"> Valid verification code is required. </div>
                             <input type='hidden' name='u_id' value='<?php echo $u_id['u_id']; ?>' />
                         </div>
                     </div>

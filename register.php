@@ -66,19 +66,23 @@ try {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="InputName" class="mb-0">First Name</label>
-                            <input type="text" class="form-control" name="InputName" placeholder="First Name">
+                            <input type="text" class="form-control" name="InputName" placeholder="First Name" required>
+                            <div class="invalid-feedback"> Valid first name is required. </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="InputLastname" class="mb-0">Last Name</label>
-                            <input type="text" class="form-control" name="InputLastname" placeholder="Last Name">
+                            <input type="text" class="form-control" name="InputLastname" placeholder="Last Name" required>
+                            <div class="invalid-feedback"> Valid last name is required. </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="InputEmail" class="mb-0">Email Address</label>
-                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email">
+                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email" required>
+                            <div class="invalid-feedback"> Valid email is required. </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="InputPassword" class="mb-0">Password</label>
-                            <input type="password" class="form-control" name="InputPassword" placeholder="Password">
+                            <input type="password" class="form-control" name="InputPassword" minlength="8" maxlength="25" placeholder="Password" required>
+                            <div class="invalid-feedback"> Valid password is required. </div>
                             <input type="hidden" name="path" value="<?php echo $_SERVER['PHP_SELF']; ?>">
                         </div>
                     </div>
@@ -91,7 +95,8 @@ try {
                             <label for="DonorBox" class="mb-0">Donor</label>
                             <input type="checkbox" class="form-control" name="DonorBox" id="cb1">
                             <input type="radio" class="form-control-sm" name="terms_agreement" id="terms_agreement"
-                                style='display: none;'>
+                                style='display: none;' required>
+                            <div class="invalid-feedback"> Terms and conditions must be accepted to continue. </div>
                             <label for="terms_agreement" class="mb-0" name="terms_agreement_label"
                                 id="terms_agreement_label" style='display: none;'>I have read and agree
                                 to Food O' Cycle's <a href="php/pdf_server.php?file=<?php echo urlencode("../docs/terms_and_conditions.pdf"); ?>"
@@ -111,7 +116,7 @@ try {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="Business" class="mb-0">Busines Name</label>
-                            <select class="form-control" name='Business' placeholder="Enter Busines Name">
+                            <select class="form-control" name='Business' placeholder="Select Busines Name...">
                                 <optgroup label='Food Donors'>
                                     <?php foreach($food_donors as $business): ?>
                                     <option value='<?php echo $business['business_id']; ?>'>
@@ -128,7 +133,8 @@ try {
                         </div>
                         <div class="form-group col-md-6">
                             <label for="EIN" class="mb-0">Tax ID (EIN)</label>
-                            <input type="text" class="form-control" name="EIN" placeholder="Enter EIN">
+                            <input type="number" class="form-control" name="EIN" minlength="9" maxlength="9" placeholder="Enter EIN" required>
+                            <div class="invalid-feedback"> Valid EIN is required. </div>
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover">Create Account</button>

@@ -47,14 +47,19 @@ try {
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="InputName" class="mb-0">Contact Name</label>
-                        <input type="text" class="form-control" name="InputName" id="" placeholder="First Name"> </div>
+                        <input type="text" class="form-control" name="InputName" id="" placeholder="First Name" required>
+                        <div class="invalid-feedback"> Valid first name is required. </div>
+                        </div>
                     <div class="form-group col-md-6">
                         <label for="InputEmail1" class="mb-0">Email Address</label>
-                        <input type="email" class="form-control" name="InputEmail" id="" placeholder="Enter Email"> </div>
+                        <input type="email" class="form-control" name="InputEmail" id="" placeholder="Enter Email" required> 
+                        <div class="invalid-feedback"> Valid first name is required. </div>
+                        </div>
                 </div>
                 <div class="form-group">
                     <label for="ContactMessage">Message</label>
-                    <textarea class="form-control" name="ContactMessage" id="" rows="3"></textarea>
+                    <textarea class="form-control" name="ContactMessage" id="" rows="3" required></textarea>
+                    <div class="invalid-feedback"> Please input your inquiry. </div>
                 </div>
             <button type="submit" class="btn hvr-hover">Submit Message</button>
         </div>

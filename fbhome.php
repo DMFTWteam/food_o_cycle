@@ -8,15 +8,7 @@ try {
     }
     include 'inc/header.php';
     include_once 'inc/db_connect.php';
-    //We need to get the $u_id from the session.. probably set in account.php
-    $u_id = 2;
-    $query = 'SELECT u_id, u_photo, u_username, u_fname, u_lname FROM users
-		  WHERE u_id = :u_id';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':u_id', $u_id);
-    $statement->execute();
-    $userInfo = $statement->fetchAll();
-    $statement->closeCursor();
+    
     ?>
 
 <div class="container-fluid gedf-wrapper">
@@ -24,12 +16,15 @@ try {
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-
-                    <img class="rounded-circle" width="45"
-                        src="data:image/jpeg;base64,<?php echo base64_encode($userInfo[0]['u_photo']); ?>" alt="">
-                    <div class="h5">@<?php echo $userInfo[0]['u_username']; ?> </div>
+                    <?php  if ($_SESSION['user']['u_photo'] == null || $_SESSION['user']['u_photo'] == '') {
+                            echo "<img class=\"rounded-circle\" width=\"45\" src='images/Profile-no-Found.png'/>";
+                    } else {
+                        echo "<img class=\"rounded-circle\" width=\"45\"
+                        src='data:image/jpeg;base64," .base64_encode($_SESSION['user']['u_photo']). "' />";
+                    } ?>
+                    <div class="h5">@<?php echo $_SESSION['user']['u_username']; ?> </div>
                     <div class="h7 text-muted">Fullname :
-                        <?php echo $userInfo[0]['u_fname'] . ' ' . $userInfo[0]['u_lname']; ?> </div>
+                        <?php echo $_SESSION['user']['u_fname'] . ' ' . $_SESSION['user']['u_lname']; ?> </div>
                 </div>
             </div>
         </div>

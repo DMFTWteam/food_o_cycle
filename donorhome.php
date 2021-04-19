@@ -9,21 +9,13 @@ try {
     include 'inc/header.php';
     include_once 'inc/db_connect.php';
     //Userinfo Section
-    $u_id = 2;
-    $biz_id = 1000;
-    $query = 'SELECT u_id, u_photo, u_username, u_fname, u_lname FROM users
-		  WHERE u_id = :u_id';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':u_id', $u_id);
-    $statement->execute();
-    $userInfo = $statement->fetchAll();
-    $statement->closeCursor();
+    
     //Item Section
     $query = 'SELECT * FROM food_item
-		  WHERE business_id = :u_id
+		  WHERE business_id = :business_id
 		  ORDER BY item_desc';
     $statement = $db->prepare($query);
-    $statement->bindValue(':u_id', $biz_id);
+    $statement->bindValue(':business_id', $_SESSION['business']['business_id']);
     $statement->execute();
     $items = $statement->fetchAll();
     $statement->closeCursor();
@@ -35,11 +27,15 @@ try {
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-                    <img class="rounded-circle" width="45"
-                        src="data:image/jpeg;base64,<?php echo base64_encode($userInfo[0]['u_photo']); ?>" alt="">
-                    <div class="h5">@<?php echo $userInfo[0]['u_username']; ?> </div>
+                <?php  if ($_SESSION['user']['u_photo'] == null || $_SESSION['user']['u_photo'] == '') {
+                            echo "<img class=\"rounded-circle\" width=\"45\" src='images/Profile-no-Found.png'/>";
+                    } else {
+                        echo "<img class=\"rounded-circle\" width=\"45\"
+                        src='data:image/jpeg;base64," .base64_encode($_SESSION['user']['u_photo']). "' />";
+                    } ?>
+                    <div class="h5">@<?php echo $_SESSION['user']['u_username']; ?> </div>
                     <div class="h7 text-muted">Fullname :
-                        <?php echo $userInfo[0]['u_fname'] . ' ' . $userInfo[0]['u_lname']; ?> </div>
+                        <?php echo $_SESSION['user']['u_fname'] . ' ' . $_SESSION['user']['u_lname']; ?> </div>
                 </div>
             </div>
         </div>

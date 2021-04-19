@@ -36,6 +36,36 @@ try {
     $statement2->execute();
     $statement2->closeCursor();
 
+    $query3 = 'SELECT trans_id FROM transactions WHERE
+                business_id = :business_id AND
+                trans_total_price = :trans_total_price AND
+                trans_date = DATE_FORMAT(NOW(), "%Y-%m-%d")';
+    $statement3 = $db->prepare($query3);
+    $statement3->bindValue(':business_id', $business_id);
+    $statement3->bindValue(':trans_total_price', $trans_total_price);
+    $statement3->execute();
+    $trans_id = $statement3->fetch();
+    $statement3->closeCursor();
+
+    foreach ($_SESSION['cart'] as $item) {
+        $query4 = 'INSERT INTO transaction_line (trans_id, item_id, item_quantity)
+            VALUES (:trans_id, :item_id, :item_quantity)';
+        $statement4 = $db->prepare($query4);
+        $statement4->bindValue(':trans_id', $trans_id);
+        $statement4->bindValue(':item_id', $item['item_id']);
+        $statement4->bindValue(':item_quantity', $item['quantity']);
+        $statement4->execute();
+        $statement4->closeCursor();
+
+        $query5 = 'UPDATE food_item SET item_qty_avail = (item_qty_avail - :item_quantity)
+            WHERE item_id = :item_id';
+        $statement5 = $db->prepare($query5);
+        $statement5->bindValue(':item_id', $item['item_id']);
+        $statement5->bindValue(':item_quantity', $item['quantity']);
+        $statement5->execute();
+        $statement5->closeCursor();
+    }
+
     header("Location: ../index.php?msg=" .urlencode("Transaction placed successfully!"));
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));

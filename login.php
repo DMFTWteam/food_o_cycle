@@ -107,11 +107,13 @@ try {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="InputEmail" class="mb-0">Email Address</label>
-                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email">
+                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email" required>
+                            <div class="invalid-feedback"> Valid email is required. </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="InputPassword" class="mb-0">Password</label>
                             <input type="password" class="form-control" name="InputPassword" placeholder="Password">
+                            <div class="invalid-feedback"> Valid password is required. </div>
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover" name='login' value='Login'>Login</button>

@@ -47,12 +47,15 @@ try {
                         <div class="form-group col-md-6">
                             <label for="InputPassword" class="mb-0">New Password</label>
                             <input type="password" class="form-control" name="InputPassword"
-                                placeholder="Enter Password">
+                            minlength="8" maxlength="25" id="InputPassword" placeholder="Enter Password" required>
+                                
+                            <div class="invalid-feedback"> Valid password is required. </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="ConfirmPassword" class="mb-0">Confirm Password</label>
                             <input type="password" class="form-control" name="ConfirmPassword"
-                                placeholder="Confirm Password">
+                                id="ConfirmPassword" placeholder="Confirm Password" required>
+                            <div class="invalid-feedback"> Password must be confirmed. </div>
                             <input type='hidden' name='path' value='<?php echo $_SERVER['PHP_SELF']; ?>' />
                             <input type='hidden' name='u_id' value='<?php echo $u_id; ?>' />
                         </div>
@@ -63,6 +66,22 @@ try {
             </div>
         </div>
     </div>
+
+    <script>
+var password = document.getElementById("InputPassword")
+  , confirm_password = document.getElementById("ConfirmPassword");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+    </script>
 
 </body>
 
