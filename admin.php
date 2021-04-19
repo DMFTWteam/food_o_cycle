@@ -51,7 +51,7 @@ try {
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="table-main table-responsive">
+                <div class="table-main table-responsive special-menu">
                     <table class="table">
                         <thead>
                             <tr>
@@ -108,7 +108,7 @@ try {
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="table-main table-responsive">
+                <div class="table-secondary table-responsive special-list">
                     <table class="table" id="log_table">
                         <thead>
                             <tr>
