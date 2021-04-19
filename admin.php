@@ -134,7 +134,7 @@ try {
                              
                             foreach ($logs as $log) {
                                 echo "<tr>";
-                                echo "<td>{$log['business_name']}</td>";
+                                echo "<td>{$log['business_name']}<input type=\"hidden\" value=\"{$log['business_id']}\"</td>";
                                 echo "<td>{$log['u_email']}</td>";
                                 echo "<td>{$log['log_datetime']}</td>";
                                 if ($log['log_authsuccessful'] == '1') {
