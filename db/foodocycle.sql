@@ -61,6 +61,9 @@ CREATE TABLE food_item
  item_price			FLOAT(5,2)		NOT NULL,
  item_perishable	INT(1)			NOT NULL,
  item_expiration	DATE			NOT NULL,
+ picked_up			tinyint(1) DEFAULT 0,
+ awaiting_pickup	tinyint(1) DEFAULT 0,
+ pickup_user_id		int(11) NOT NULL,
  PRIMARY KEY (item_id),
  INDEX business_id (business_id));
  

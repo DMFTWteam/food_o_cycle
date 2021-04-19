@@ -24,6 +24,10 @@ Directory Structure (in progress):<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-superslides.css<br />
 <br />-dir:db<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-foodocycle.sql<br />
+<br />-dir:docs<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-newsletter.jpg<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-privacy_policy.pdf<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-terms_and_conditions.pdf<br />
 <br />-dir:images<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-dir:payment-icon<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.png<br />
