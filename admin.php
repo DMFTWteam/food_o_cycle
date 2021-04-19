@@ -171,9 +171,9 @@ try {
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[0];
 
-            console.log(ids[i-1].value + 1);
+            console.log(ids[i].value + 1);
             if (td) {
-                if (ids[i-1].value + 1 == business_id) {
+                if (ids[i].value + 1 == business_id) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
