@@ -160,6 +160,7 @@ try {
     </div>
     <script type='text/javascript'>
     function filterTable(business_id) {
+        console.log(business_id);
         // Declare variables
         var table, tr, td, i;
         table = document.getElementById("log_table");
@@ -169,6 +170,8 @@ try {
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[0];
+            
+        console.log(ids[i]);
             if (td) {
                 if (ids[i] == business_id) {
                     tr[i].style.display = "";
