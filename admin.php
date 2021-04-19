@@ -179,9 +179,9 @@ try {
             console.log(ids[i].value);
             if (td) {
                 if (ids[i].value == business_id) {
-                    tr[i].style.display = "";
+                    tr[i+1].style.display = "";
                 } else {
-                    tr[i].style.display = "none";
+                    tr[i+1].style.display = "none";
                 }
             }
         }
