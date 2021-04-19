@@ -132,7 +132,7 @@ try {
                              $statement2->closeCursor();
                              
                             foreach ($logs as $log) {
-                                echo "<tr>";
+                                echo "<tr class={$log['business_id']}>";
                                 echo "<td>{$log['business_name']}</td>";
                                 echo "<td>{$log['u_email']}</td>";
                                 echo "<td>{$log['log_datetime']}</td>";
