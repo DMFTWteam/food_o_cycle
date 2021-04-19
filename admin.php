@@ -83,8 +83,8 @@ try {
                                 $index = 0;
                             while ($index < $min_num) {
                                 echo "<tr>
-                                <td><button data-filter=\".{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</button></td>
-                                <td><button data-filter=\".{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</button></td>
+                                <td><button onclick=\"filterTable({$banks[$index]['business_id']})\">{$banks[$index]['business_name']}</button></td>
+                                <td><button onclick=\"filterTable({$donors[$index]['business_id']})\">{$donors[$index]['business_name']}</button></td>
                                 </tr>";
                                 $index++;
                             }
@@ -93,11 +93,11 @@ try {
                                 if (max($donors, $banks) == $donors) {
                                     echo "<tr>
                                     <td></td>
-                                    <td><button data-filter=\".{$donors[$index]['business_id']}\">{$donors[$index]['business_name']}</button></td>
+                                    <td><button onclick=\"filterTable({$donors[$i]['business_id']})\">{$donors[$i]['business_name']}</button></td>
                                     </tr>";
                                 } else if (max($donors, $banks) == $banks) {
                                     echo "<tr>
-                                    <td><button data-filter=\".{$banks[$index]['business_id']}\">{$banks[$index]['business_name']}</button></td>
+                                    <td><button onclick=\"filterTable({$banks[$index]['business_id']})\">{$banks[$i]['business_name']}</button></td>
                                     <td></td>
                                     </tr>";
                                 }
@@ -133,7 +133,6 @@ try {
                              $statement2->closeCursor();
                              
                             foreach ($logs as $log) {
-                                echo "<div class=\"special-grid {$log['business_id']}\">";
                                 echo "<tr>";
                                 echo "<td>{$log['business_name']}</td>";
                                 echo "<td>{$log['u_email']}</td>";
@@ -145,7 +144,6 @@ try {
                                 }
                                 echo "<td>{$successful}</td>";
                                 echo "</tr>";
-                                echo "</div>";
                             }
                             ?>
                         </tbody>
@@ -161,6 +159,27 @@ try {
         </div>
     </div>
     <script type='text/javascript'>
+    function filterTable(business_id) {
+        // Declare variables
+        var table, tr, td, i;
+        table = document.getElementById("log_table");
+        tr = table.getElementsByTagName("tr");
+        var ids = document.querySelectorAll("input[hidden]");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (ids[i] == business_id) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+
     function generate() {
         var doc = new jsPDF();
         doc.autoTable({
