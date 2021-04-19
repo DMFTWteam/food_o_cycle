@@ -134,7 +134,7 @@ try {
                              
                             foreach ($logs as $log) {
                                 echo "<tr>";
-                                echo "<td>{$log['business_name']}<input type=\"hidden\" value=\"{$log['business_id']}\"</td>";
+                                echo "<td>{$log['business_name']}<input type=\"hidden\" value=\"{$log['business_id']}\" /></td>";
                                 echo "<td>{$log['u_email']}</td>";
                                 echo "<td>{$log['log_datetime']}</td>";
                                 if ($log['log_authsuccessful'] == '1') {
@@ -170,8 +170,8 @@ try {
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[0];
-            
-        console.log(ids[i]);
+
+            console.log(ids[i]);
             if (td) {
                 if (ids[i] == business_id) {
                     tr[i].style.display = "";
@@ -200,7 +200,7 @@ try {
 
 </html>
 
-    <?php
+<?php
     include 'inc/footer.php';
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
