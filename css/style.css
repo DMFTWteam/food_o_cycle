@@ -847,10 +847,6 @@ ul.cart-list>li.total>.btn:hover {
 .cart-box {
     margin-top: 40px;
     background: #ffffff;
-    transition: all .3s ease-out;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    top: 64px;
 }
 
 .main-header.fixed-menu {
