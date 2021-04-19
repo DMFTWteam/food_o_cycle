@@ -97,7 +97,7 @@ try {
                                     </tr>";
                                 } else if (max($donors, $banks) == $banks) {
                                     echo "<tr>
-                                    <td><button onclick=\"filterTable({$banks[$index]['business_id']})\">{$banks[$i]['business_name']}</button></td>
+                                    <td><button onclick=\"filterTable({$banks[$i]['business_id']})\">{$banks[$i]['business_name']}</button></td>
                                     <td></td>
                                     </tr>";
                                 }
@@ -171,9 +171,9 @@ try {
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[0];
 
-            console.log(ids[i].value);
+            console.log(ids[i-1].value + 1);
             if (td) {
-                if (ids[i].value + 1 == business_id) {
+                if (ids[i-1].value + 1 == business_id) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
