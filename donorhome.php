@@ -27,7 +27,7 @@ try {
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-                <?php  if ($_SESSION['user']['u_photo'] == null || $_SESSION['user']['u_photo'] == '') {
+                    <?php  if ($_SESSION['user']['u_photo'] == null || $_SESSION['user']['u_photo'] == '') {
                             echo "<img class=\"rounded-circle\" width=\"45\" src='images/Profile-no-Found.png'/>";
                     } else {
                         echo "<img class=\"rounded-circle\" width=\"45\"
@@ -118,7 +118,7 @@ try {
                         <br>
                         &nbsp;&nbsp;&nbsp;&nbsp; Item ID: <?php echo $item['item_id']; ?>
                         &emsp;
-                <?php endforeach; ?>
+                        <?php endforeach; ?>
                         <a href="#" <i class="fa fa-trash"></i>
                         </a>
                     </h5>
@@ -188,10 +188,8 @@ try {
         <!-- Post /////-->
     </div>
 </div>
-</div>
-</div>
 <script src="js/userpages.js" />
-    <?php
+<?php
     include 'inc/js_to_include.php';
     include 'inc/footer.php';
 } catch(Exception $e) {

@@ -65,7 +65,7 @@ try {
         $statement5->execute();
         $statement5->closeCursor();
     }
-
+    unset($_SESSION['cart']);
     header("Location: ../index.php?msg=" .urlencode("Transaction placed successfully!"));
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));

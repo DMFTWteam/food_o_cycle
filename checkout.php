@@ -149,7 +149,7 @@ try {
                                     <div class="invalid-feedback"> Please enter your shipping address. </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="address2">Address 2 *</label>
+                                    <label for="address2">Address 2</label>
                                     <input type="text" class="form-control" name="address2" placeholder="Enter address"
                                         value="<?php //echo $_SESSION['busness']['business_address2']; ?>">
                                 </div>
@@ -209,8 +209,10 @@ try {
                                         foreach ($_SESSION['cart'] as $item) {
                                             echo "<div class=\"media mb-2 border-bottom\">";
                                             echo "<div class=\"media-body\"> <a href=\"detail.html\">{$item['item_desc']}</a>";
-                                            echo "<div class=\"small text-muted\">Expiration: " .date("m-d-Y", $item['item_expiration']). " <span class=\"mx-2\">|</span>";
-                                            echo "Qty: {$item['quantity']} <span class=\"mx-2\">|</span> Subtotal: " .( money_format('%.2n', ((float)$item['item_price'] * (float)$item['quantity']))). "</div>";
+                                            if ($item['item_perishable'] == 1) {
+                                                echo "<div class=\"small text-muted\">Expiration: " .date("m-d-Y", $item['item_expiration']). " <span class=\"mx-2\">|</span>";
+                                            }
+                                            echo "Qty: {$item['quantity']} <span class=\"mx-2\">|</span> Subtotal: $" .( money_format('%.2n', ((float)$item['item_price'] * (float)$item['quantity']))). "</div>";
                                             echo "</div>";
                                             echo "</div>";
                                         
@@ -226,13 +228,13 @@ try {
                                         <h3>Your order</h3>
                                     </div>
                                     <div class="d-flex">
-                                        <div class="font-weight-bold">Product</div>
+                                        <div class="font-weight-bold"></div>
                                         <div class="ml-auto font-weight-bold">Total</div>
                                     </div>
 
                                     <div class="d-flex gr-total">
                                         <h5>Grand Total</h5>
-                                        <div class="ml-auto h5"> <?php echo money_format('%.2n', $grand_total); ?>
+                                        <div class="ml-auto h5"> $<?php echo money_format('%.2n', $grand_total); ?>
                                             <input type="hidden" name="trans_total_price"
                                                 value="<?php echo $grand_total; ?>" />
                                         </div>
@@ -241,7 +243,7 @@ try {
                                 </div>
                             </div>
                             <div class="col-12 d-flex shopping-box"> <input type="submit" class="ml-auto btn hvr-hover"
-                                    value="Place Order" /> </div>
+                                    value="Place Order" style="color: #FFFFFF" /> </div>
                         </div>
                     </div>
                 </div>

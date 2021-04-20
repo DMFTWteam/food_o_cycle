@@ -61,7 +61,7 @@ try {
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover">Submit</button>
-                    <button type="submit" class="btn hvr-hover">Cancel</button>
+                    <button href="index.php" class="btn hvr-hover">Cancel</button>
                 </form>
             </div>
         </div>

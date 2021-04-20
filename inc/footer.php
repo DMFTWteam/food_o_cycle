@@ -32,33 +32,26 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-                        <div class="footer-top-box">
-                            <h3>Social Media</h3>
-                            <p>Check out our impact and follow our journey on social media!</p>
-                            <ul>
-                                <li style='left: 0%; position: relative;'><a href="#" target="_blank"><i
-                                            class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                                <li style='left: 25%; position: relative;'><a href="#" target="_blank"><i
-                                            class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                                <li style='left: 50%; position: relative;'><a href="#" target="_blank"><i
-                                            class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                                <li style='left: 75%; position: relative;'><a href="#" target="_blank"><i
-                                            class="fab fa-pinterest" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-widget">
                             <h4>About Food O' Cycle</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. </p>
+                            Food O' Cycle started off with the simple idea of reducing waste,
+                            while trying to reduce community hunger at the same time.<br><br>
+
+                            Our mission is to help others who are in need by not letting food go to waste. We want to
+                            bring
+                            people together and work as a community to support an important cause.<br><br>
+
+                            We offer the ability for companies that have extra food that they will not be utilizing, to
+                            donate
+                            it instead of throwing it out. This has been designed so that food banks can easily and
+                            efficiently
+                            find what they are in need of as well as make it quick and efficient for companies to donate
+                            the
+                            food. </p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12">

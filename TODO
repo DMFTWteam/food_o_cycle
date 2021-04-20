@@ -1,13 +1,8 @@
--Create Privacy Policy PDF
--Create Terms & Conditions PDF
--Create Sample Newsletter PDF
--Find good stock images for all food items and sample users
+
 -implement mail server for outgoing emails
-
--INDEX.PHP
-    -queries for products display
-
--CONTACT.PHP
-    -add email functionality to contact sheet
-    
--FAQ's Adrian do these
+-login redirects to original page requested
+-add profile picture upload, username, phone number, middle initial to register
+-fix access log insert issue
+-fix access log table filter issue
+-only allow food banks to shop and reserve food
+-add item description page
