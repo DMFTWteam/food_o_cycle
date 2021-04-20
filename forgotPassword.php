@@ -13,10 +13,12 @@
  */
 
 try {
+    session_start();
     include 'inc/header.php';
     $user_code=filter_input(INPUT_POST, 'Code', FILTER_VALIDATE_INT);
     if (isset($user_code) && $user_code != '') {
-        if ($user_code == $sent_code ) {
+        echo $_SESSION['code']. ' ' .$user_code;
+        if ($user_code == $_SESSION['code'] ) {
             header("Location: resetPassword.php?u_id=" .$u_id);
         } else {
             echo "code is incorrect";
@@ -39,7 +41,7 @@ try {
                  unset($email);
                  echo "email not found";
             } else {
-                      $sent_code = mt_rand(100000, 999999);
+                      $_SESSION['code'] = mt_rand(100000, 999999);
                       $subject = "Verification Code";
                       $message = "<html>
                              <head>
@@ -51,7 +53,7 @@ try {
                                  Your verification code for Food O' Cycle account <strong>" .$email. "</strong> is:<br>
                              </h3>
                              <h1>
-                                 " .$sent_code. "
+                                 " .$_SESSION['code']. "
                              </h1>
                          </html>";
                       // Always set content-type when sending HTML email
