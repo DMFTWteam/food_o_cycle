@@ -37,9 +37,9 @@ try {
                                     Food O' Cycle Password Reset Verification
                                 </title>
                             </head>
-                            <h5>
+                            <h3>
                                 Your verification code for Food O' Cycle account <strong>" .$email. "</strong> is:<br>
-                            </h5>
+                            </h3>
                             <h1>
                                 " .$_SESSION['code']. "
                             </h1>
