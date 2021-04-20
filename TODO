@@ -1,8 +1,13 @@
 
--implement mail server for outgoing emails
 -login redirects to original page requested
 -add profile picture upload, username, phone number, middle initial to register
 -fix access log insert issue
 -fix access log table filter issue
 -only allow food banks to shop and reserve food
 -add item description page
+
+The web server is hosted on a Debian 9 (Stretch) LXC container running on the type-1 hypervisor Proxmox. 
+The web server is configured using the LEMP (Linux, Nginx, MySQL, and PHP) stack.
+The MySQL relational database used is MariaDB. 
+Domain name is registered using NameCheap.
+HTTPS is enabled using an SSL/TLS certificate from certificate authority Let's Encrypt and configured in Nginx using certbot.

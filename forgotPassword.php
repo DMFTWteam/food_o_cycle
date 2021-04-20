@@ -15,7 +15,7 @@
 try {
     include 'inc/header.php';
     $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
-    if (isset($email)) {
+    if (isset($email) && $email != '') {
            $query = 'SELECT u_id
                 FROM users
                 WHERE u_email = :email';
@@ -23,7 +23,36 @@ try {
         $statement->bindValue(':email', $email);
         $statement->execute();
         $u_id = $statement->fetch();
+        $row = $statement->rowCount();
         $statement->closeCursor();
+
+        if ($row <= 0) {
+
+        } else {
+            $_SESSION['code'] = mt_rand(100000, 999999);
+            $subject = "Verification Code";
+            $message = "<html>
+                            <head>
+                                <title>
+                                    Food O' Cycle Password Reset Verification
+                                </title>
+                            </head>
+                            <h5>
+                                Your verification code for Food O' Cycle account <strong>" .$email. "</strong> is:<br>
+                            </h5>
+                            <h1>
+                                " .$_SESSION['code']. "
+                            </h1>
+                        </html>";
+            // Always set content-type when sending HTML email
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+            // More headers
+            $headers .= 'From: <no-reply@foodocycle.com>' . "\r\n";
+
+            mail($email, $subject, $message, $headers);
+        }
     }
     ?>
 
@@ -56,17 +85,19 @@ try {
                         <div class="form-group col-md-6">
                             <label for="InputName" class="mb-0">First Name</label>
                             <input type="text" class="form-control" name="InputName" placeholder="First Name" required>
-                            
+
                             <div class="invalid-feedback"> Valid first name is required. </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="InputLastname" class="mb-0">Last Name</label>
-                            <input type="text" class="form-control" name="InputLastname" placeholder="Last Name" required>
+                            <input type="text" class="form-control" name="InputLastname" placeholder="Last Name"
+                                required>
                             <div class="invalid-feedback"> Valid last name is required. </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="InputEmail" class="mb-0">Email Address</label>
-                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email" required>
+                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email"
+                                required>
                             <div class="invalid-feedback"> Valid email is required. </div>
                         </div>
                     </div>
@@ -85,7 +116,8 @@ try {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="Code" class="mb-0">Enter code below:</label>
-                            <input type="number" minlength="6" maxlength="6" class="form-control" name="Code" placeholder="Verification Code" required>
+                            <input type="number" minlength="6" maxlength="6" class="form-control" name="Code"
+                                placeholder="Verification Code" required>
                             <div class="invalid-feedback"> Valid verification code is required. </div>
                             <input type='hidden' name='u_id' value='<?php echo $u_id['u_id']; ?>' />
                         </div>
