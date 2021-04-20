@@ -19,8 +19,8 @@ try {
     $u_id = filter_input(INPUT_POST, 'u_id');
     if (isset($user_code) && $user_code != '') {
         if ($user_code == $_SESSION['code'] ) {
-            echo "got here";
-            header("Location: resetPassword.php?u_id=" .$u_id);
+            //echo "got here";
+            header("Location: resetPassword.php?" .urlencode("u_id=" .$u_id));
         } else {
             echo "code is incorrect";
         }
