@@ -21,6 +21,7 @@ try {
         if ($user_code == $_SESSION['code'] ) {
             //echo "got here";
             header("Location: resetPassword.php?" .urlencode("u_id=" .$u_id));
+            exit();
         } else {
             echo "code is incorrect";
         }
