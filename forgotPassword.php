@@ -27,7 +27,7 @@ try {
         $statement->closeCursor();
 
         if ($row <= 0) {
-
+            echo "email not found";
         } else {
             $_SESSION['code'] = mt_rand(100000, 999999);
             $subject = "Verification Code";
