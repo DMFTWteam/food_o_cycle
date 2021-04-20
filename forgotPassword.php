@@ -14,44 +14,56 @@
 
 try {
     include 'inc/header.php';
-    $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
-    if (isset($email) && $email != '') {
-           $query = 'SELECT u_id
-                FROM users
-                WHERE u_email = :email';
-        $statement = $db->prepare($query);
-        $statement->bindValue(':email', $email);
-        $statement->execute();
-        $u_id = $statement->fetch();
-        $row = $statement->rowCount();
-        $statement->closeCursor();
-
-        if ($row <= 0) {
-            echo "email not found";
+    $user_code=filter_input(INPUT_POST, 'Code', FILTER_VALIDATE_INT);
+    if (isset($user_code) && $user_code != '') {
+        if ($user_code == $sent_code ) {
+            header("Location: resetPassword.php?u_id=" .$u_id);
         } else {
-            $_SESSION['code'] = mt_rand(100000, 999999);
-            $subject = "Verification Code";
-            $message = "<html>
-                            <head>
-                                <title>
-                                    Food O' Cycle Password Reset Verification
-                                </title>
-                            </head>
-                            <h3>
-                                Your verification code for Food O' Cycle account <strong>" .$email. "</strong> is:<br>
-                            </h3>
-                            <h1>
-                                " .$_SESSION['code']. "
-                            </h1>
-                        </html>";
-            // Always set content-type when sending HTML email
-            $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-            // More headers
-            $headers .= 'From: <no-reply@foodocycle.com>' . "\r\n";
-
-            mail($email, $subject, $message, $headers);
+            echo "code is incorrect";
+        }
+    } else {
+        
+        $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
+        if (isset($email) && $email != '') {
+            $query = 'SELECT u_id
+                 FROM users
+                 WHERE u_email = :email';
+            $statement = $db->prepare($query);
+            $statement->bindValue(':email', $email);
+            $statement->execute();
+            $u_id = $statement->fetch();
+            $row = $statement->rowCount();
+            $statement->closeCursor();
+ 
+            if ($row <= 0) {
+                 unset($email);
+                 echo "email not found";
+            } else {
+                      $sent_code = mt_rand(100000, 999999);
+                      $subject = "Verification Code";
+                      $message = "<html>
+                             <head>
+                                 <title>
+                                     Food O' Cycle Password Reset Verification
+                                 </title>
+                             </head>
+                             <h3>
+                                 Your verification code for Food O' Cycle account <strong>" .$email. "</strong> is:<br>
+                             </h3>
+                             <h1>
+                                 " .$sent_code. "
+                             </h1>
+                         </html>";
+                      // Always set content-type when sending HTML email
+                      $headers = "MIME-Version: 1.0" . "\r\n";
+                      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+ 
+                      // More headers
+                      $headers .= 'From: <no-reply@foodocycle.com>' . "\r\n";
+ 
+                      mail($email, $subject, $message, $headers);
+            }
+        
         }
     }
     ?>
@@ -106,7 +118,7 @@ try {
             </div>
         </form>
         <?php if (isset($email)) { ?>
-        <form class="mt-3 review-form-box" name="formRegister" style="margin-bottom: 10%;" action='resetPassword.php'
+        <form class="mt-3 review-form-box" name="formRegister" style="margin-bottom: 10%;" action='forgotPassword.php'
             method='post'>
             <div class="row">
                 <div class="col-lg-12">
@@ -119,7 +131,6 @@ try {
                             <input type="number" minlength="6" maxlength="6" class="form-control" name="Code"
                                 placeholder="Verification Code" required>
                             <div class="invalid-feedback"> Valid verification code is required. </div>
-                            <input type='hidden' name='u_id' value='<?php echo $u_id['u_id']; ?>' />
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover">Submit</button>
