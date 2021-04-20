@@ -18,6 +18,7 @@ try {
     $user_code=filter_input(INPUT_POST, 'Code', FILTER_VALIDATE_INT);
     if (isset($user_code) && $user_code != '') {
         if ($user_code == $_SESSION['code'] ) {
+            echo "got here";
             header("Location: resetPassword.php?u_id=" .$u_id);
         } else {
             echo "code is incorrect";
