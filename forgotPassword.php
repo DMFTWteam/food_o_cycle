@@ -17,7 +17,6 @@ try {
     include 'inc/header.php';
     $user_code=filter_input(INPUT_POST, 'Code', FILTER_VALIDATE_INT);
     if (isset($user_code) && $user_code != '') {
-        echo $_SESSION['code']. ' ' .$user_code;
         if ($user_code == $_SESSION['code'] ) {
             header("Location: resetPassword.php?u_id=" .$u_id);
         } else {
