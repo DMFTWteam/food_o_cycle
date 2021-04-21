@@ -10,9 +10,7 @@ if (isset($email) && $email != '') {
     $type = filetype("../docs/may_newsletter.jpg");
     $subject = "Check out the Food O' Cycle May Newsletter!";
     $boundary = md5("random");
-    $handle = fopen("../docs/may_newsletter", "r");  // set the file handle only for reading the file
-    $content = fread($handle, $size); // reading the file
-    $encoded_content = chunk_split(base64_encode($content));
+    $encoded_content = chunk_split(base64_encode(file_get_contents("../docs/may_newsletter.jpg")));
 
     //header
     $headers = "MIME-Version: 1.0\r\n"; // Defining the MIME version
@@ -27,8 +25,8 @@ if (isset($email) && $email != '') {
           
     //attachment
     $body .= "--$boundary\r\n";
-    $body .="Content-Type: $type; name=\"may_newsletter.jpg\"\r\n";
-    $body .="Content-Disposition: attachment; filename=\"may_newsletter.jpg\"\r\n";
+    $body .="Content-Type: $type; name=".basename("../docs/may_newsletter.jpg")."\r\n";
+    $body .="Content-Disposition: attachment; filename=".basename("../docs/may_newsletter.jpg")."\r\n";
     $body .="Content-Transfer-Encoding: base64\r\n";
     $body .="X-Attachment-Id: ".rand(1000, 99999)."\r\n\r\n"; 
     $body .= $encoded_content; // Attaching the encoded file with email
