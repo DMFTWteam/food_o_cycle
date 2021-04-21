@@ -15,7 +15,7 @@
 try {
     session_start();
     $user_code=filter_input(INPUT_POST, 'Code', FILTER_VALIDATE_INT);
-    //$u_id = filter_input(INPUT_POST, 'u_id');
+    $u_id = filter_input(INPUT_POST, 'u_id');
     if (isset($user_code) && $user_code != '') {
         if ($user_code == $_SESSION['code']) {
             //echo "got here";
@@ -38,7 +38,7 @@ try {
             $row = $statement->rowCount();
             $statement->closeCursor();
  
-            if ($row <= 0) {
+           /* if ($row <= 0) {
                  unset($email);
                  echo "email not found";
             } else {
@@ -65,7 +65,7 @@ try {
                       $headers .= 'From: <no-reply@foodocycle.com>' . "\r\n";
  
                       mail($email, $subject, $message, $headers);
-            }
+            }*/
         
         }
     }
@@ -135,7 +135,7 @@ try {
                             <input type="number" minlength="6" maxlength="6" class="form-control" name="Code"
                                 placeholder="Verification Code" required>
                             <div class="invalid-feedback"> Valid verification code is required. </div>
-                            <input type='hidden' name='u_id' value='<?php echo (int)$u_id; ?>' >
+                            <input type='hidden' name='u_id' value='<?php echo (int)$u_id; ?>'>
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover">Submit</button>
@@ -148,7 +148,7 @@ try {
 
 </html>
 
-    <?php
+<?php
     include 'inc/js_to_include.php';
     include 'inc/footer.php';
 } catch(Exception $e) {
