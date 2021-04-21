@@ -16,12 +16,13 @@ try {
     
     include 'inc/header.php';
     
+    session_start();
     $user_code=filter_input(INPUT_POST, 'Code', FILTER_VALIDATE_INT);
     $user_id = filter_input(INPUT_POST, 'u_id');
     if (isset($user_code) && $user_code != '') {
         if ($user_code == $_SESSION['code']) {
             
-            header("Location: https://foodocycle.com/resetPassword.php");
+            header("Location: resetPassword.php");
             exit();
         } else {
             echo "code is incorrect";
@@ -53,7 +54,6 @@ try {
                  echo "email not found";
             } else {
                 
-                session_start();
                   $_SESSION['code'] = mt_rand(100000, 999999);
                   $subject = "Verification Code";
                   $message = "<html>
