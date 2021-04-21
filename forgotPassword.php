@@ -15,11 +15,11 @@
 try {
     session_start();
     $user_code=filter_input(INPUT_POST, 'Code', FILTER_VALIDATE_INT);
-    $u_id = filter_input(INPUT_POST, 'u_id');
+    //$u_id = filter_input(INPUT_POST, 'u_id');
     if (isset($user_code) && $user_code != '') {
         if ($user_code == $_SESSION['code']) {
             //echo "got here";
-            header("Location: resetPassword.php?" .urlencode("u_id=" .$u_id));
+            header("Location: https://foodocycle.com/resetPassword.php?" .urlencode("u_id=" .$u_id));
             exit();
         } else {
             echo "code is incorrect";
