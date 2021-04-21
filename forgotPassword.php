@@ -17,7 +17,7 @@ try {
     $user_code=filter_input(INPUT_POST, 'Code', FILTER_VALIDATE_INT);
     $u_id = filter_input(INPUT_POST, 'u_id');
     if (isset($user_code) && $user_code != '') {
-        if ($user_code == $_SESSION['code'] ) {
+        if ($user_code == $_SESSION['code']) {
             //echo "got here";
             header("Location: https://foodocycle.com/resetPassword.php?" .urlencode("u_id=" .$u_id));
             exit();
@@ -69,7 +69,6 @@ try {
         
         }
     }
-    
     include 'inc/header.php';
     ?>
 
@@ -136,7 +135,7 @@ try {
                             <input type="number" minlength="6" maxlength="6" class="form-control" name="Code"
                                 placeholder="Verification Code" required>
                             <div class="invalid-feedback"> Valid verification code is required. </div>
-                            <input type='hidden' name='u_id' value='<?php echo $u_id; ?>' >
+                            <input type='hidden' name='u_id' value='<?php echo (int)$u_id; ?>' >
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover">Submit</button>
