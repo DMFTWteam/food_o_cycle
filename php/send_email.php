@@ -32,12 +32,6 @@ if (isset($email) && $email != '') {
     $body .="Content-Transfer-Encoding: base64\r\n";
     $body .="X-Attachment-Id: ".rand(1000, 99999)."\r\n\r\n"; 
     $body .= $encoded_content; // Attaching the encoded file with email
-              // Always set content-type when sending HTML email
-              $headers = "MIME-Version: 1.0" . "\r\n";
-              $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
- 
-              // More headers
-              $headers .= 'From: <no-reply@foodocycle.com>' . "\r\n";
  
               mail($email, $subject, $body, $headers);
 }
