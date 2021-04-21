@@ -145,7 +145,7 @@ try {
                             <input type="number" minlength="6" maxlength="6" class="form-control" name="Code"
                                 placeholder="Verification Code" required>
                             <div class="invalid-feedback"> Valid verification code is required. </div>
-                            <input type='hidden' name='u_id' value='<?php echo $u_id; ?>'>
+                            <input type='hidden' name='u_id' value='<?php echo $u_id[0]; ?>'>
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover">Submit</button>
