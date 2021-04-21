@@ -5,6 +5,14 @@ try {
     session_start();
     $errorMSG = "";
     $msgSuccess = false;
+    
+    $Subject = "Food O' Cycle - Customer Message Received";
+                  // Always set content-type when sending HTML email
+                  $headers = "MIME-Version: 1.0" . "\r\n";
+                  $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+ 
+                  // More headers
+                  $headers .= "From: Food O' Cycle Customer Service <custserv@foodocycle.com>" . "\r\n";
     // NAME
     if (empty($_POST["InputName"])) {
         $errorMSG = "Name is required ";
@@ -26,25 +34,33 @@ try {
         $message = $_POST["ContactMessage"];
     }
 
-
-    $EmailTo = "giddingsra0@gmail.com";
-    $Subject = "Food O' Cycle - Customer Message Received";
+    $EmailTo = "gidingsra0@gmail.com";
 
     // prepare email body text
-    $Body = "";
+    $Body = "<html>
+                             <head>
+                                 <title>
+                                     Customer Service Request
+                                 </title>
+                             </head>
+                             <h1>
+                             Customer Service Request
+                             </h1>
+                             <h3>";
     $Body .= "Name: ";
-    $Body .= $name;
+    $Body .= "<strong>{$name}</strong>";
     $Body .= "\n";
     $Body .= "Email: ";
-    $Body .= $email;
+    $Body .= "<strong>{$email}</strong>";
     $Body .= "\n";
     $Body .= "Message: ";
-    $Body .= $message;
+    $Body .= "<strong>{$message}</strong>";
     $Body .= "\n";
+    
+    $Body .="</h3>
+        </html>";
 
-    // send email
-    // SETTING TO TRUE UNTIL SERVER IS SETUP FOR EMAIL
-    $success = mail($EmailTo, $Subject, $Body, "From: {$name} <{$email}>");
+    $success = mail($EmailTo, $Subject, $Body, $headers);
     
 
     // redirect to success page
