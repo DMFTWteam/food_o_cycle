@@ -21,7 +21,6 @@ try {
     $user_id = filter_input(INPUT_POST, 'u_id');
     if (isset($user_code) && $user_code != '') {
         if ($user_code == $_SESSION['code']) {
-            
             header("Location: resetPassword.php?u_id=" .$user_id);
             exit();
         } else {
@@ -43,7 +42,7 @@ try {
             $statement->execute();
             //echo "got here";
             $u_id = $statement->fetch();
-            //echo "got here";
+            echo $u_id. " " .$email;
             $row = $statement->rowCount();
             //echo "got here";
             $statement->closeCursor();
