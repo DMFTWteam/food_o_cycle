@@ -9,10 +9,9 @@ if (isset($email) && $email != '') {
     $subject = "Check out the Food O' Cycle May Newsletter!";// Boundary  
     $semi_rand = md5(time());  
     $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";  
-    $encoded_content = chunk_split(base64_encode(file_get_contents("../docs/may_newsletter.jpg")));
 
 // Email body content 
-$htmlContent = ''; 
+$htmlContent = '<h1>Hello</h1>'; 
  
 // Header for sender info 
 $headers = "From: Info - Food O' Cycle"." <".$from_email.">"; 
@@ -32,10 +31,10 @@ $message = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"UTF-8\"\
 if (!empty($file) > 0) { 
     if (is_file($file)) { 
         $message .= "--{$mime_boundary}\n"; 
-        $fp =    @fopen($file, "rb"); 
-        $data =  @fread($fp, filesize($file)); 
+        $fp =    fopen($file, "rb"); 
+        $data =  fread($fp, filesize($file)); 
  
-        @fclose($fp); 
+        fclose($fp); 
         $data = chunk_split(base64_encode($data)); 
         $message .= "Content-Type: application/octet-stream; name=\"".basename($file)."\"\n" .  
         "Content-Description: ".basename($file)."\n" . 
@@ -47,9 +46,6 @@ $message .= "--{$mime_boundary}--";
 $returnpath = "-f" . $from_email; 
 
 // Send email 
-$mail = @mail($email, $subject, $message, $headers, $returnpath);  
- 
-// Email sending status 
-echo $mail?"<h1>Email Sent Successfully!</h1>":"<h1>Email sending failed.</h1>";
+mail($email, $subject, $message, $headers, $returnpath);
 
 ?>
