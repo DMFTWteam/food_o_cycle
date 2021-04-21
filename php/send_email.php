@@ -47,6 +47,8 @@ if (isset($email) && $email != '') {
     $returnpath = "-f" . $from_email; 
 
     // Send email 
-    mail($email, $subject, $message, $headers, $returnpath);
+    $mail = mail($email, $subject, $message, $headers, $returnpath);
+    // Email sending status 
+    echo $mail?"<h1>Email Sent Successfully!</h1>":"<h1>Email sending failed.</h1>"; 
 }
 ?>
