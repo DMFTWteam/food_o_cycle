@@ -28,8 +28,8 @@
                             <form class="newsletter-box" action="../php/send_email.php" method="post">
                                 <div class="form-group">
                                     <input class="" type="text" name="Name" placeholder="Full Name*" />
-                                    <input class="" type="email" name="Email" placeholder="Email Address*" />
                                     <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                    <input class="" type="email" name="Email" placeholder="Email Address*" />
                                     <i class="fa fa-envelope"></i>
                                 </div>
                                 <button class="btn hvr-hover" type="submit">Submit</button>

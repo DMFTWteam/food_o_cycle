@@ -7,7 +7,7 @@ if (isset($email) && $email != '') {
     //Load POST data from HTML form
     $recipient_name    = $_POST["Name"]; //sender name
     $size = filesize("../docs/may_newsletter.jpg");
-    $mime = mime_content_type("../docs/may_newsletter.jpg");
+    $type = filetype("../docs/may_newsletter.jpg");
     $subject = "Check out the Food O' Cycle May Newsletter!";
     $boundary = md5("random");
     $handle = fopen("../docs/may_newsletter", "r");  // set the file handle only for reading the file
@@ -27,8 +27,8 @@ if (isset($email) && $email != '') {
           
     //attachment
     $body .= "--$boundary\r\n";
-    $body .="Content-Type: $mime; name=may_newsletter.jpg\r\n";
-    $body .="Content-Disposition: attachment; filename=may_newsletter.jpg\r\n";
+    $body .="Content-Type: $type; name=\"may_newsletter.jpg\"\r\n";
+    $body .="Content-Disposition: attachment; filename=\"may_newsletter.jpg\"\r\n";
     $body .="Content-Transfer-Encoding: base64\r\n";
     $body .="X-Attachment-Id: ".rand(1000, 99999)."\r\n\r\n"; 
     $body .= $encoded_content; // Attaching the encoded file with email
