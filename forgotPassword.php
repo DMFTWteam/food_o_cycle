@@ -18,7 +18,7 @@ try {
     $user_id = filter_input(INPUT_POST, 'u_id');
     if (isset($user_code) && $user_code != '') {
         if ($user_code == $_SESSION['code']) {
-            //echo "got here";
+            
             header("Location: https://foodocycle.com/resetPassword.php?" .urlencode("u_id=" .$user_id));
             exit();
         } else {
@@ -28,15 +28,23 @@ try {
         
         $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
         if (isset($email) && $email != '') {
+            echo "got here";
             $query = 'SELECT u_id
                  FROM users
                  WHERE u_email = :email';
+                 echo "got here";
             $statement = $db->prepare($query);
+            echo "got here";
             $statement->bindValue(':email', $email);
+            echo "got here";
             $statement->execute();
+            echo "got here";
             $u_id = $statement->fetch();
+            echo "got here";
             $row = $statement->rowCount();
+            echo "got here";
             $statement->closeCursor();
+            echo "got here";
  
             if ($row <= 0) {
                  unset($email);
