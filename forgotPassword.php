@@ -28,7 +28,7 @@ try {
         
         $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
         if (isset($email) && $email != '') {
-            $query = 'SELECT u_id
+            /*$query = 'SELECT u_id
                  FROM users
                  WHERE u_email = :email';
             $statement = $db->prepare($query);
@@ -38,10 +38,10 @@ try {
             $row = $statement->rowCount();
             $statement->closeCursor();
  
-           /* if ($row <= 0) {
+            if ($row <= 0) {
                  unset($email);
                  echo "email not found";
-            } else {
+            } else {*/
                       $_SESSION['code'] = mt_rand(100000, 999999);
                       $subject = "Verification Code";
                       $message = "<html>
@@ -65,7 +65,7 @@ try {
                       $headers .= 'From: <no-reply@foodocycle.com>' . "\r\n";
  
                       mail($email, $subject, $message, $headers);
-            }*/
+            //}
         
         }
     }
