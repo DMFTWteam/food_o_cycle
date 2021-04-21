@@ -48,14 +48,14 @@ try {
                              </h1>
                              <h3>";
     $Body .= "Name: ";
-    $Body .= "<strong>{$name}</strong>";
-    $Body .= "\n";
+    $Body .= "<strong style='color: blue'>{$name}</strong>";
+    $Body .= "<br>";
     $Body .= "Email: ";
-    $Body .= "<strong>{$email}</strong>";
-    $Body .= "\n";
+    $Body .= "<strong style='color: blue'>{$email}</strong>";
+    $Body .= "<br>";
     $Body .= "Message: ";
-    $Body .= "<strong>{$message}</strong>";
-    $Body .= "\n";
+    $Body .= "<strong style='color: blue'>{$message}</strong>";
+    $Body .= "<br>";
     
     $Body .="</h3>
         </html>";
