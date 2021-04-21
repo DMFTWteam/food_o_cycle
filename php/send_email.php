@@ -28,7 +28,7 @@ if (isset($email) && $email != '') {
     $message = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"UTF-8\"\n" . 
     "Content-Transfer-Encoding: 7bit\n\n" . $htmlContent . "\n\n";  
  
-    // Preparing attachment 
+    /*// Preparing attachment 
     if (!empty($file) > 0) { 
         if (is_file($file)) { 
             $message .= "--{$mime_boundary}\n"; 
@@ -42,7 +42,7 @@ if (isset($email) && $email != '') {
             "Content-Disposition: attachment;\n" . " filename=\"".basename($file)."\"; size=".filesize($file).";\n" .  
             "Content-Transfer-Encoding: base64\n\n" . $data . "\n\n"; 
         } 
-    } 
+    } */
     $message .= "--{$mime_boundary}--"; 
     $returnpath = "-f" . $from_email; 
 
