@@ -14,9 +14,9 @@
 
 try {
     
+    include 'inc/header.php';
     session_start();
     
-    include 'inc/header.php';
     $user_code=filter_input(INPUT_POST, 'Code', FILTER_VALIDATE_INT);
     $user_id = filter_input(INPUT_POST, 'u_id');
     if (isset($user_code) && $user_code != '') {
