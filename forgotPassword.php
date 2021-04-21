@@ -42,9 +42,9 @@ try {
                  unset($email);
                  echo "email not found";
             } else {
-                      $_SESSION['code'] = mt_rand(100000, 999999);
-                      $subject = "Verification Code";
-                      $message = "<html>
+                  $_SESSION['code'] = mt_rand(100000, 999999);
+                  $subject = "Verification Code";
+                  $message = "<html>
                              <head>
                                  <title>
                                      Food O' Cycle Password Reset Verification
@@ -57,15 +57,15 @@ try {
                                  " .$_SESSION['code']. "
                              </h1>
                          </html>";
-                      // Always set content-type when sending HTML email
-                      $headers = "MIME-Version: 1.0" . "\r\n";
-                      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                  // Always set content-type when sending HTML email
+                  $headers = "MIME-Version: 1.0" . "\r\n";
+                  $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
  
-                      // More headers
-                      $headers .= 'From: <no-reply@foodocycle.com>' . "\r\n";
+                  // More headers
+                  $headers .= 'From: <no-reply@foodocycle.com>' . "\r\n";
  
-                      mail($email, $subject, $message, $headers);
-            //}
+                  mail($email, $subject, $message, $headers);
+            }
         
         }
     }
@@ -121,7 +121,7 @@ try {
                 </div>
             </div>
         </form>
-        <?php if (isset($email)) { ?>
+    <?php if (isset($email)) { ?>
         <form class="mt-3 review-form-box" name="formRegister" style="margin-bottom: 10%;" action='forgotPassword.php'
             method='post'>
             <div class="row">
@@ -142,13 +142,13 @@ try {
                 </div>
             </div>
         </form>
-        <?php  }  ?>
+    <?php  }  ?>
     </div>
 </body>
 
 </html>
 
-<?php
+    <?php
     include 'inc/js_to_include.php';
     include 'inc/footer.php';
 } catch(Exception $e) {
