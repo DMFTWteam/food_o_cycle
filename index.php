@@ -13,6 +13,8 @@
  */
 
 try {
+    
+    ob_start();
     include 'inc/header.php';
     session_start();
 

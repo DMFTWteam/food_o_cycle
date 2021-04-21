@@ -13,6 +13,7 @@
  */
 
 try {
+    ob_end_clean();
     session_start();
     session_unset();
     session_destroy();

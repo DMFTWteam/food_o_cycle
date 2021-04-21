@@ -22,7 +22,7 @@ try {
     if (isset($user_code) && $user_code != '') {
         if ($user_code == $_SESSION['code']) {
             
-            header("Location: resetPassword.php");
+            header("Location: resetPassword.php?u_id=" .$user_id);
             exit();
         } else {
             echo "code is incorrect";
