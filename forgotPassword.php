@@ -15,7 +15,6 @@
 try {
     
     include 'inc/header.php';
-    session_start();
     
     $user_code=filter_input(INPUT_POST, 'Code', FILTER_VALIDATE_INT);
     $user_id = filter_input(INPUT_POST, 'u_id');
@@ -53,6 +52,8 @@ try {
                  unset($email);
                  echo "email not found";
             } else {
+                
+                session_start();
                   $_SESSION['code'] = mt_rand(100000, 999999);
                   $subject = "Verification Code";
                   $message = "<html>
@@ -131,7 +132,7 @@ try {
                 </div>
             </div>
         </form>
-    <?php if (isset($email)) { ?>
+        <?php if (isset($email)) { ?>
         <form class="mt-3 review-form-box" name="formRegister" style="margin-bottom: 10%;" action='forgotPassword.php'
             method='post'>
             <div class="row">
@@ -152,13 +153,13 @@ try {
                 </div>
             </div>
         </form>
-    <?php  }  ?>
+        <?php  }  ?>
     </div>
 </body>
 
 </html>
 
-    <?php
+<?php
     include 'inc/js_to_include.php';
     include 'inc/footer.php';
 } catch(Exception $e) {
