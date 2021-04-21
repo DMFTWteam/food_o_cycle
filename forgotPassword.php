@@ -42,7 +42,7 @@ try {
             $statement->execute();
             //echo "got here";
             $u_id = $statement->fetch();
-            echo $u_id. " " .$email;
+            echo print_r($u_id). " " .$email;
             $row = $statement->rowCount();
             //echo "got here";
             $statement->closeCursor();
@@ -145,7 +145,7 @@ try {
                             <input type="number" minlength="6" maxlength="6" class="form-control" name="Code"
                                 placeholder="Verification Code" required>
                             <div class="invalid-feedback"> Valid verification code is required. </div>
-                            <input type='hidden' name='u_id' value='<?php echo (int)$u_id; ?>'>
+                            <input type='hidden' name='u_id' value='<?php echo $u_id; ?>'>
                         </div>
                     </div>
                     <button type="submit" class="btn hvr-hover">Submit</button>
