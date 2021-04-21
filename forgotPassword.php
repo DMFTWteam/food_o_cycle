@@ -15,11 +15,11 @@
 try {
     session_start();
     $user_code=filter_input(INPUT_POST, 'Code', FILTER_VALIDATE_INT);
-    $u_id = filter_input(INPUT_POST, 'u_id');
+    $user_id = filter_input(INPUT_POST, 'u_id');
     if (isset($user_code) && $user_code != '') {
         if ($user_code == $_SESSION['code']) {
             //echo "got here";
-            header("Location: https://foodocycle.com/resetPassword.php?" .urlencode("u_id=" .$u_id));
+            header("Location: https://foodocycle.com/resetPassword.php?" .urlencode("u_id=" .$user_id));
             exit();
         } else {
             echo "code is incorrect";
@@ -28,7 +28,7 @@ try {
         
         $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
         if (isset($email) && $email != '') {
-            /*$query = 'SELECT u_id
+            $query = 'SELECT u_id
                  FROM users
                  WHERE u_email = :email';
             $statement = $db->prepare($query);
@@ -41,7 +41,7 @@ try {
             if ($row <= 0) {
                  unset($email);
                  echo "email not found";
-            } else {*/
+            } else {
                       $_SESSION['code'] = mt_rand(100000, 999999);
                       $subject = "Verification Code";
                       $message = "<html>
