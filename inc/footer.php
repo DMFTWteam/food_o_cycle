@@ -21,10 +21,13 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12">
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-top-box">
-                            <h3>Newsletter</h3>
-                            <form class="newsletter-box">
+                            <h3>Subscribe to our Newsletter!</h3>
+                            <form class="newsletter-box" action="../php/send_email.php" method="post">
                                 <div class="form-group">
+                                <input class="" type="text" name="Name" placeholder="Full Name*" />
                                     <input class="" type="email" name="Email" placeholder="Email Address*" />
                                     <i class="fa fa-envelope"></i>
                                 </div>
@@ -41,14 +44,9 @@
                             Food O' Cycle started off with the simple idea of reducing waste,
                             while trying to reduce community hunger at the same time.<br><br>
 
-                            Our mission is to help others who are in need by not letting food go to waste. We want to
-                            bring
-                            people together and work as a community to support an important cause.<br><br>
-
                             We offer the ability for companies that have extra food that they will not be utilizing, to
                             donate
-                            it instead of throwing it out. This has been designed so that food banks can easily and
-                            efficiently
+                            it instead of throwing it out. This has been designed so that food banks can easily 
                             find what they are in need of as well as make it quick and efficient for companies to donate
                             the
                             food. </p>

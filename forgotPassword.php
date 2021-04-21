@@ -42,7 +42,7 @@ try {
             $statement->execute();
             //echo "got here";
             $u_id = $statement->fetch();
-            echo print_r($u_id). " " .$email;
+            //echo print_r($u_id). " " .$email;
             $row = $statement->rowCount();
             //echo "got here";
             $statement->closeCursor();
