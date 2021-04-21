@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     $email = filter_input(INPUT_POST, 'Email', FILTER_VALIDATE_EMAIL);
 
 if (isset($email) && $email != '') {
