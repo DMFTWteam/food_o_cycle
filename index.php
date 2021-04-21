@@ -14,7 +14,7 @@
 
 try {
     
-    ob_start();
+    //ob_start();
     include 'inc/header.php';
     session_start();
 
