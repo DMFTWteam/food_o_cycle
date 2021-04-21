@@ -1,5 +1,15 @@
 <?php
-
+/**
+ * contact.php Doc Comment
+ * 
+ * PHP version 7.4.8
+ * 
+ * @category File
+ * @package  Food_O_Cycle
+ * @author   A Camuti <cam6579@calu.edu>
+ * @license  https://www.gnu.org/licenses/gpl-3.0.en.html GNU Public License v3.0
+ * @link     https://github.com/DMFTWteam/food_o_cycle
+ */
 try {
     //Start the session
     session_start();
@@ -53,7 +63,7 @@ try {
                     <div class="form-group col-md-6">
                         <label for="InputEmail1" class="mb-0">Email Address</label>
                         <input type="email" class="form-control" name="InputEmail" id="" placeholder="Enter Email" required> 
-                        <div class="invalid-feedback"> Valid first name is required. </div>
+                        <div class="invalid-feedback"> Valid email is required. </div>
                         </div>
                 </div>
                 <div class="form-group">
