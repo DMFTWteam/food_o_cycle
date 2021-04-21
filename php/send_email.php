@@ -3,35 +3,53 @@
 
 if (isset($email) && $email != '') {
     $from_email         = 'info@foodocycle.com'; //from mail, sender email addrress
-      
+    $file = "../docs/may_newsletter.jpg";
     //Load POST data from HTML form
     $recipient_name    = $_POST["Name"]; //sender name
-    $size = filesize("../docs/may_newsletter.jpg");
-    $type = filetype("../docs/may_newsletter.jpg");
-    $subject = "Check out the Food O' Cycle May Newsletter!";
-    $boundary = md5("random");
+    $subject = "Check out the Food O' Cycle May Newsletter!";// Boundary  
+    $semi_rand = md5(time());  
+    $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";  
     $encoded_content = chunk_split(base64_encode(file_get_contents("../docs/may_newsletter.jpg")));
 
-    //header
-    $headers = "MIME-Version: 1.0\r\n"; // Defining the MIME version
-    $headers .= "From:".$from_email."\r\n"; // Sender Email
-    $headers .= "Reply-To: ".$from_email."\r\n"; // Email addrress to reach back
-    $headers .= "Content-Type: multipart/mixed;\r\n"; // Defining Content-Type
-    $headers .= "boundary = $boundary\r\n"; //Defining the Boundary
-          
-    //HTML text 
-    $body = "--$boundary\r\n";
-    $body .= "Content-type:text/html;charset=UTF-8\r\n";
-          
-    //attachment
-    $body .= "--$boundary\r\n";
-    $body .="Content-Type: $type; name=".basename("../docs/may_newsletter.jpg")."\r\n";
-    $body .="Content-Disposition: attachment; filename=".basename("../docs/may_newsletter.jpg")."\r\n";
-    $body .="Content-Transfer-Encoding: base64\r\n";
-    $body .="X-Attachment-Id: ".rand(1000, 99999)."\r\n\r\n"; 
-    $body .= $encoded_content; // Attaching the encoded file with email
+// Email body content 
+$htmlContent = ''; 
  
-              mail($email, $subject, $body, $headers);
-}
+// Header for sender info 
+$headers = "From: Info - Food O' Cycle"." <".$from_email.">"; 
+ 
+// Boundary  
+$semi_rand = md5(time());  
+$mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";  
+ 
+// Headers for attachment  
+$headers .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\""; 
+ 
+// Multipart boundary  
+$message = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"UTF-8\"\n" . 
+"Content-Transfer-Encoding: 7bit\n\n" . $htmlContent . "\n\n";  
+ 
+// Preparing attachment 
+if (!empty($file) > 0) { 
+    if (is_file($file)) { 
+        $message .= "--{$mime_boundary}\n"; 
+        $fp =    @fopen($file, "rb"); 
+        $data =  @fread($fp, filesize($file)); 
+ 
+        @fclose($fp); 
+        $data = chunk_split(base64_encode($data)); 
+        $message .= "Content-Type: application/octet-stream; name=\"".basename($file)."\"\n" .  
+        "Content-Description: ".basename($file)."\n" . 
+        "Content-Disposition: attachment;\n" . " filename=\"".basename($file)."\"; size=".filesize($file).";\n" .  
+        "Content-Transfer-Encoding: base64\n\n" . $data . "\n\n"; 
+    } 
+} 
+$message .= "--{$mime_boundary}--"; 
+$returnpath = "-f" . $from_email; 
+
+// Send email 
+$mail = @mail($email, $subject, $message, $headers, $returnpath);  
+ 
+// Email sending status 
+echo $mail?"<h1>Email Sent Successfully!</h1>":"<h1>Email sending failed.</h1>";
 
 ?>
