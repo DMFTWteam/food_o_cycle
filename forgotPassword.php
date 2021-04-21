@@ -21,7 +21,7 @@ try {
     if (isset($user_code) && $user_code != '') {
         if ($user_code == $_SESSION['code']) {
             
-            header("Location: https://foodocycle.com/resetPassword.php?" .urlencode("u_id=" .$user_id));
+            header("Location: https://foodocycle.com/resetPassword.php");
             exit();
         } else {
             echo "code is incorrect";
