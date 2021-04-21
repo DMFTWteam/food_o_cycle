@@ -19,7 +19,7 @@ try {
     if (isset($user_code) && $user_code != '') {
         if ($user_code == $_SESSION['code']) {
             //echo "got here";
-            header("Location: https://foodocycle.com/resetPassword.php?" .urlencode("u_id=" .$u_id));
+            header("Location: resetPassword.php?" .urlencode("u_id=" .$u_id));
             exit();
         } else {
             echo "code is incorrect";
