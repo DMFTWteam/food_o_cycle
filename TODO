@@ -11,3 +11,4 @@ The web server is configured using the LEMP (Linux, Nginx, MySQL, and PHP) stack
 The MySQL relational database used is MariaDB. 
 Domain name is registered using NameCheap.
 HTTPS is enabled using an SSL/TLS certificate from certificate authority Let's Encrypt and configured in Nginx using certbot.
+Using Postfix 6.4 as an SMTP server

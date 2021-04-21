@@ -27,8 +27,8 @@ try {
     }
 
 
-    $EmailTo = "admin@foodocycle.com";
-    $Subject = "New Message Received";
+    $EmailTo = "giddingsra0@gmail.com";
+    $Subject = "Food O' Cycle - Customer Message Received";
 
     // prepare email body text
     $Body = "";
@@ -44,16 +44,16 @@ try {
 
     // send email
     // SETTING TO TRUE UNTIL SERVER IS SETUP FOR EMAIL
-    //$success = mail($EmailTo, $Subject, $Body, "From:".$email);
-    $success = true;
+    $success = mail($EmailTo, $Subject, $Body, "From: {$name} <{$email}>");
+    
 
     // redirect to success page
     if ($success && $errorMSG == "") {
         $_SESSION['msgSuccess'] = true;
         header("Location: ..\contact.php");
-    }else{
+    } else {
         //TO DO: Create failure alerts
-        if($errorMSG == "") {
+        if ($errorMSG == "") {
             $errorMSG = "Something went wrong :(";
             //Unsuccessful
             header("Location: ..\contact.php");

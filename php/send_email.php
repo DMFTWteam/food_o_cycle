@@ -49,6 +49,6 @@ if (isset($email) && $email != '') {
     // Send email 
     $mail = mail($email, $subject, $message, $headers, $returnpath);
     // Email sending status 
-    $mail?header("Location: ../index.php"):header("Location: error.php?msg=" .urlencode("Email sending failed.")); 
+    $mail?header("Location: ../index.php"):header("Location: error.php?msg=" .urlencode("Email sending failed."));
 }
 ?>
