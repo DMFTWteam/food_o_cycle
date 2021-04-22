@@ -61,7 +61,7 @@ try {
     <!-- End All Title Box -->
     <div class="container">
         <form class="mt-3 review-form-box" name="formRegister" style="margin-bottom: 10%;" action="login.php"
-            method="post">
+            method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="form-row">
@@ -72,18 +72,43 @@ try {
                         </div>
                         <div class="form-group col-md-6">
                             <label for="InputLastname" class="mb-0">Last Name</label>
-                            <input type="text" class="form-control" name="InputLastname" placeholder="Last Name" required>
+                            <input type="text" class="form-control" name="InputLastname" placeholder="Last Name"
+                                required>
                             <div class="invalid-feedback"> Valid last name is required. </div>
                         </div>
                         <div class="form-group col-md-6">
+                            <label for="initial" class="mb-0">Middle Initial</label>
+                            <input type="text" class="form-control" name="initial" placeholder="Middle Initial">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="Phone" class="mb-0">Phone Number</label>
+                            <input type="number" minlength='10' maxlength='11' class="form-control" name="Phone"
+                                placeholder="Phone Number" required>
+                            <div class="invalid-feedback"> Valid phone number is required. </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="Username" class="mb-0">Username</label>
+                            <input type="text" class="form-control" name="Username" placeholder="Username" required>
+                            <div class="invalid-feedback"> Valid username is required. </div>
+                        </div>
+                        <div class="form-group col-md-6">
                             <label for="InputEmail" class="mb-0">Email Address</label>
-                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email" required>
+                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email"
+                                required>
                             <div class="invalid-feedback"> Valid email is required. </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="InputPassword" class="mb-0">Password</label>
-                            <input type="password" class="form-control" name="InputPassword" minlength="8" maxlength="25" placeholder="Password" required>
+                            <input type="password" class="form-control" name="InputPassword" minlength="8"
+                                maxlength="25" placeholder="Password" required>
                             <div class="invalid-feedback"> Valid password is required. </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="fileToUpload" class="mb-0">Profile Picture</label>
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+
                         </div>
                     </div>
                 </div>
@@ -99,7 +124,8 @@ try {
                             <div class="invalid-feedback"> Terms and conditions must be accepted to continue. </div>
                             <label for="terms_agreement" class="mb-0" name="terms_agreement_label"
                                 id="terms_agreement_label" style='display: none;'>I have read and agree
-                                to Food O' Cycle's <a href="php/pdf_server.php?file=<?php echo urlencode("../docs/terms_and_conditions.pdf"); ?>"
+                                to Food O' Cycle's <a
+                                    href="php/pdf_server.php?file=<?php echo urlencode("../docs/terms_and_conditions.pdf"); ?>"
                                     class="text-dark font-weight-bold"><u>Terms and
                                         Conditions</u></a></label>
                         </div>
@@ -133,7 +159,8 @@ try {
                         </div>
                         <div class="form-group col-md-6">
                             <label for="EIN" class="mb-0">Tax ID (EIN)</label>
-                            <input type="number" class="form-control" name="EIN" minlength="9" maxlength="9" placeholder="Enter EIN" required>
+                            <input type="number" class="form-control" name="EIN" minlength="9" maxlength="9"
+                                placeholder="Enter EIN" required>
                             <div class="invalid-feedback"> Valid EIN is required. </div>
                         </div>
                     </div>

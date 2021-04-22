@@ -20,6 +20,12 @@ try {
         exit();
     }
 
+    if ($_SESSION['business']['business_is_donor'] == 1 || $_SESSION['user']['user_is_admin'] == 1)) {
+        $_SESSION['path'] = $_SERVER['PHP_SELF'];
+        header('Location: php/error.php?msg=' .urlencode("Only food banks can reserve food. Please use an account associated with a food bank."));
+        exit();
+    }
+    
     function total_items()
     {
         $total_items = 0;

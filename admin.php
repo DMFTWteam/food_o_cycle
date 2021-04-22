@@ -140,7 +140,7 @@ try {
                                     
                                     echo "<input type=\"hidden\" name=\"inputs\" value=\"0\" />";
                                 }
-                                echo "<tr>";
+                                echo "<tr id='{$log['business_id']}'>";
                                 echo "<td>{$log['business_name']}</td>";
                                 echo "<td>{$log['u_email']}</td>";
                                 echo "<td>{$log['log_datetime']}</td>";
@@ -167,24 +167,18 @@ try {
     </div>
     <script type='text/javascript'>
     function filterTable(business_id) {
-        console.log(business_id);
+        //console.log(business_id);
         // Declare variables
-        var table, tr, td, i;
+        var table, tr, i;
         table = document.getElementById("log_table");
         tr = table.getElementsByTagName("tr");
-        var ids = document.querySelectorAll("input[type=hidden]");
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-
-            console.log(ids[i].value);
-            if (td) {
-                if (ids[i].value == business_id) {
-                    tr[i+1].style.display = "";
+                if (tr[i].id == business_id) {
+                    tr[i].style.display = "";
                 } else {
-                    tr[i+1].style.display = "none";
+                    tr[i].style.display = "none";
                 }
-            }
         }
     }
 

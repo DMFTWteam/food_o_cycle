@@ -21,6 +21,56 @@ try {
     if ($_SESSION['path'] == '/register.php') {
         $first_name=filter_input(INPUT_POST, 'InputName');
         $last_name=filter_input(INPUT_POST, 'InputLastname');
+        $initial=filter_input(INPUT_POST, 'initial');
+        $phone=filter_input(INPUT_POST, 'Phone');
+        $username=filter_input(INPUT_POST, 'Username');
+        $target_dir = "images/";
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        // Check if image file is a actual image or fake image
+        if(isset($_POST["submit"])) {
+            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+            if($check !== false) {
+                echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
+        }
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["fileToUpload"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        ) {
+            echo "Sorry, only JPG, JPEG, & PNG files are allowed.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                echo "The file ". htmlspecialchars(basename($_FILES["fileToUpload"]["name"])). " has been uploaded.";
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
         $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
         $password=filter_input(INPUT_POST, 'InputPassword');
         $donor_box=filter_input(INPUT_POST, 'DonorBox', FILTER_VALIDATE_BOOLEAN);
@@ -29,12 +79,17 @@ try {
         $ein=filter_input(INPUT_POST, 'EIN', FILTER_VALIDATE_INT);
         
         $query = 'INSERT INTO users
-                 (u_fname, u_lname, u_password, 
-				 u_email, u_is_admin, u_is_standard)
+                 (u_fname, u_lname, u_mi, u_username, u_password, 
+				 u_phone, u_email, u_photo, u_is_admin, u_is_standard)
               VALUES
-                 (:first_name, :last_name, :upassword, :email, \'0\', \'1\')';
+              (:first_name, :last_name, :initial, :username, :upassword, 
+              :phone, :email, LOAD_FILE(:image), \'0\', \'1\')';
         $statement = $db->prepare($query);
         $statement->bindValue(':first_name', $first_name);
+        $statement->bindValue(':initial', $initial);
+        $statement->bindValue(':username', $username);
+        $statement->bindValue(':phone', $phone);
+        $statement->bindValue(':image', $target_file);
         $statement->bindValue(':last_name', $last_name);
         $statement->bindValue(':upassword', password_hash($password, PASSWORD_DEFAULT));
         $statement->bindValue(':email', $email);
@@ -102,12 +157,13 @@ try {
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <form class="mt-3 review-form-box" name="formLogin" style="margin-bottom: 30%;" action='<?php echo "php/account.php?" .$path ?>'
-                    method='post'>
+                <form class="mt-3 review-form-box" name="formLogin" style="margin-bottom: 30%;"
+                    action='<?php echo "php/account.php?" .$path ?>' method='post'>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="InputEmail" class="mb-0">Email Address</label>
-                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email" required>
+                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter Email"
+                                required>
                             <div class="invalid-feedback"> Valid email is required. </div>
                         </div>
                         <div class="form-group col-md-6">
@@ -130,7 +186,7 @@ try {
 
 </html>
 
-    <?php
+<?php
     include 'inc/js_to_include.php';
     include 'inc/footer.php';
 } catch(Exception $e) {

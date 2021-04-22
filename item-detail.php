@@ -2,6 +2,7 @@
 
 session_start();
 $_SESSION['path'] = $_SERVER['PHP_SELF']; 
+$item_id = filter_input(INPUT_GET, 'item_id');
 
 require "inc/header.php";
 require "inc/js_to_include.php";
