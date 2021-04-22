@@ -46,7 +46,7 @@ try {
                              <h1>
                              Customer Service Request
                              </h1>
-                             <h3>";
+                             <p>";
     $Body .= "Name: ";
     $Body .= "<strong style='color: blue'>{$name}</strong>";
     $Body .= "<br>";
@@ -54,10 +54,10 @@ try {
     $Body .= "<strong style='color: blue'>{$email}</strong>";
     $Body .= "<br>";
     $Body .= "Message: ";
-    $Body .= "<strong style='color: blue'>{$message}</strong>";
+    $Body .= "<b>{$message}</b>";
     $Body .= "<br>";
     
-    $Body .="</h3>
+    $Body .="</p>
         </html>";
 
     $success = mail($EmailTo, $Subject, $Body, $headers);
