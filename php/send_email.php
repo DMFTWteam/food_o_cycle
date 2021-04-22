@@ -2,6 +2,16 @@
     ob_start();
     $email = filter_input(INPUT_POST, 'Email', FILTER_VALIDATE_EMAIL);
 
+function binaryImages($imgSrc)
+{
+    $img_src = $imgSrc;
+    $imgbinary = fread(fopen($img_src, "r"), filesize($img_src));
+    $img_str = base64_encode($imgbinary);
+    
+    return 'src="data:image/jpg;base64,'.$img_str.'"';
+    
+}
+
 if (isset($email) && $email != '') {
     $from_email         = 'info@foodocycle.com'; //from mail, sender email addrress
     $file = "../docs/may_newsletter.jpg";
@@ -168,7 +178,7 @@ if (isset($email) && $email != '') {
     <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
     <!--<![endif]-->
     <div align="center" class="img-container center autowidth" style="padding-right: 0px;padding-left: 0px;">
-    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" border="0" class="center autowidth" src="images/Logo3.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 122px; display: block;" width="122"/>
+    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" border="0" class="center autowidth" ' .binaryImages("images\Logo3.png"). ' style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 122px; display: block;" width="122"/>
     <!--[if mso]></td></tr></table><![endif]-->
     </div>
     <!--[if (!mso)&(!IE)]><!-->
@@ -253,7 +263,7 @@ if (isset($email) && $email != '') {
     </tbody>
     </table>
     <div align="center" class="img-container center autowidth" style="padding-right: 0px;padding-left: 0px;">
-    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" border="0" class="center autowidth" src="images/c8c16019-9dd1-4744-87de-d3550a98e42b.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 490px; display: block;" width="490"/>
+    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" border="0" class="center autowidth" ' .binaryImages("images/c8c16019-9dd1-4744-87de-d3550a98e42b.jpg"). ' style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 490px; display: block;" width="490"/>
     <!--[if mso]></td></tr></table><![endif]-->
     </div>
     <!--[if (!mso)&(!IE)]><!-->
@@ -284,7 +294,7 @@ if (isset($email) && $email != '') {
     <table cellpadding="0" cellspacing="0" class="icons-inner" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block; margin-right: -4px; padding-left: 0px; padding-right: 0px;" valign="top">
     <!--<![endif]-->
     <tr style="vertical-align: top;" valign="top">
-    <td align="center" style="word-break: break-word; vertical-align: top; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 6px;" valign="top"><a href="https://www.designedwithbee.com/"><img align="center" alt="Designed with BEE" class="icon" height="32" src="images/bee.png" style="border:0;" width="null"/></a></td>
+    <td align="center" style="word-break: break-word; vertical-align: top; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 6px;" valign="top"><a href="https://www.designedwithbee.com/"><img align="center" alt="Designed with BEE" class="icon" height="32" ' .binaryImages("images/bee.png"). ' style="border:0;" width="null"/></a></td>
     <td style="word-break: break-word; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-size: 15px; color: #9d9d9d; vertical-align: middle; letter-spacing: undefined;" valign="middle"><a href="https://www.designedwithbee.com/" style="color:#9d9d9d;text-decoration:none;">Designed with BEE</a></td>
     </tr>
     </table>
