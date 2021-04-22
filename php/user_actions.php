@@ -21,7 +21,7 @@
 		else {$perish = 0;}
 	}
 	//Adding to the DB
-	if (isset($biz_id))
+	if (isset($biz_id) AND !isset($confirmed_pickup_food_id))
 		{
 			$query = 'INSERT INTO food_item 
 					(item_desc, business_id, item_qty_avail, item_price, item_perishable, item_expiration)
@@ -50,6 +50,7 @@
 		}
 	elseif (isset($confirmed_pickup_food_id) AND $usertype == "donor")
 		{
+			
 			$query = 'UPDATE food_item
 					  SET picked_up=1, awaiting_pickup=0
 					  WHERE :confirmed_pickup_food_id = item_id';
@@ -57,18 +58,32 @@
 			$statement->bindValue(':confirmed_pickup_food_id', $confirmed_pickup_food_id);
 			$statement->execute();
 			$statement->closeCursor();
-
+			
+			
+			//Getting item information
+			$itemQuery = 'SELECT item_price, item_qty_avail
+					  FROM food_item
+					  WHERE :confirmed_pickup_food_id = item_id';
+			$itemStatement = $db->prepare($itemQuery);
+			$itemStatement->bindValue(':confirmed_pickup_food_id', $confirmed_pickup_food_id);
+			$itemStatement->execute();
+			$itemInfo = $itemStatement->fetchAll();
+			$itemStatement->closeCursor();			
+			foreach($itemInfo as $result)
+			{
+				$totalPrice = $result['item_price'] * $result['item_qty_avail'];
+			}
+			
 			//Inserting confirmation into transcations
-			$totalPrice = $price * $qty_avail;
 			$todaysDate = date("Y-m-d");
-			$transQuery = 'INSERT INTO transcations (trans_id, business_id, trans_total_price, trans_date)
-					  VALUES (NULL, :biz_id, :totalPrice, :todaysDate)';
+			$transQuery = 'INSERT INTO transactions (trans_id, business_id, trans_total_price, trans_date) VALUES (NULL, :biz_id, :totalPrice, :todaysDate)';
 			$transStatement = $db->prepare($transQuery);
 			$transStatement->bindValue(':biz_id', $biz_id);
 			$transStatement->bindValue(':totalPrice', $totalPrice);
 			$transStatement->bindValue(':todaysDate', $todaysDate);
 			$transStatement->execute();
 			$transStatement->closeCursor();
+
 			header("location: ../donorhome.php");
 		}
 	elseif (isset($confirmed_pickup_food_id) AND $usertype == "foodbank")

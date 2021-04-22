@@ -11,7 +11,6 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
 try {
-    session_start();
     if (!isset($_SESSION['user'])) {
         header('Location: login.php');
         exit();
@@ -19,8 +18,8 @@ try {
     include 'inc/header.php';
     include_once 'inc/db_connect.php';
     //Userinfo Section
-$u_id =  $_SESSION[‘user’]['u_id'];
-$biz_id = $_SESSION[‘business’]['busienss_id'];
+$u_id = $_SESSION['user']['u_id'];
+$biz_id = $_SESSION['business']['busienss_id'];
 $query = 'SELECT u_id, u_photo, u_username, u_fname, u_lname FROM users
 		  WHERE u_id = :u_id';
 $statement = $db->prepare($query);
@@ -46,7 +45,6 @@ $statement->bindValue(':biz_id', $biz_id);
 $statement->execute();
 $logs = $statement->fetchAll();
 $statement->closeCursor();
-var_dump($logs);
 ?>
 
     <div class="container-fluid gedf-wrapper">
@@ -135,7 +133,7 @@ var_dump($logs);
 				
                 <!--- \\\\\\\Post-->
 				<form action="php/user_actions.php" method="get">
-				<input type="hidden" name="usertype" value="donor" > 
+				<input type="hidden" name="usertype" value="donor" > 				
                 <div class="card gedf-card">
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center"></div>
@@ -176,7 +174,8 @@ var_dump($logs);
 				
                 <!--- \\\\\\\Post-->
 				<form class="form-inline" action="php/user_actions.php" method="get">
-				<input type="hidden" name="usertype" value="donor" >                
+				<input type="hidden" name="usertype" value="donor" >
+				<input type="hidden" name="ID" value="<?php echo $biz_id; ?>" >                
 				<div class="card gedf-card">
                     <div class="card-header">
                     </div>
