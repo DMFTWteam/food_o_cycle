@@ -15,6 +15,7 @@
 try {
     session_start();
     if (!isset($_SESSION['user'])) {
+        $_SESSION['path'] = $_SERVER['PHP_SELF'];
         header('Location: login.php');
         exit();
     }

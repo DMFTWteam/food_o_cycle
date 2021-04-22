@@ -2,6 +2,9 @@
 
 try {
     include 'inc/header.php';
+    
+    session_start();
+    $_SESSION['path'] = $_SERVER['PHP_SELF'];
     ?>
 <!DOCTYPE html>
 <html lang="en">

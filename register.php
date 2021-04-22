@@ -16,7 +16,8 @@
 
 try {
     include 'inc/header.php';
-
+    session_start();
+    $_SESSION['path'] = $_SERVER['PHP_SELF'];
     $query = 'SELECT business_id, business_name
         FROM business
         WHERE business_is_donor = 1';
@@ -83,7 +84,6 @@ try {
                             <label for="InputPassword" class="mb-0">Password</label>
                             <input type="password" class="form-control" name="InputPassword" minlength="8" maxlength="25" placeholder="Password" required>
                             <div class="invalid-feedback"> Valid password is required. </div>
-                            <input type="hidden" name="path" value="<?php echo $_SERVER['PHP_SELF']; ?>">
                         </div>
                     </div>
                 </div>

@@ -8,16 +8,12 @@ try {
     if (isset($_SESSION['user'])) {
         $user_info = $_SESSION['user'];
         if ($user_info['u_is_admin'] == 1) {
-            header("Location: ../admin.php");
-            echo "admin";
-            exit();
+            $_SESSION['path'] = "/admin.php";
         } else if ($user_info['u_is_standard'] == 1) {
             if ($_SESSION['business'][11] == '1') {
-                header("Location: ../donorhome.php");
-                exit();
+                $_SESSION['path'] = "/donorhome.php";
             } else {
-                header("Location: ../fbhome.php");
-                exit();
+                $_SESSION['path'] = "/fbhome.php";
             }
         
         }
@@ -46,50 +42,51 @@ try {
             
                 if ($validPassword) {
                     $_SESSION['user'] = $user_info;
-                    if ($user_info['u_is_admin'] == 1) {
-                        //Log_access($user_info['u_id'], 1);
-                        header("Location: ../admin.php");
-                        exit();
-                    } else if ($user_info['u_is_standard'] == 1) {
                     
-                        //Log_access($user_info['u_id'], 1);
-                    
-                        $query2 = 'SELECT *
-							  	FROM user_to_business, business
-							 	WHERE user_to_business.u_id = :u_id
-								AND user_to_business.business_id = business.business_id';
-                        $statement2 = $db->prepare($query2);
-                        $statement2->bindValue(':u_id', $user_info['u_id']);
-                        $statement2->execute();
-                        $bus_info = $statement2->fetch();
-                        $business_count = $statement2->rowCount();
-                        $statement2->closeCursor();
-                        if ($business_count > 0) {
-                             $_SESSION['business'] = $bus_info;
-                            if ($_SESSION['business']['business_is_donor'] == 1) {
-                                header("Location: ../donorhome.php");
-                                exit();
-                            } else {
-                                header("Location: ../fbhome.php");
-                                exit();
+                    if (isset($path) && $path != '' && $path != '/account.php') {
+                        redirectPath($path);
+                    } else {
+                        if ($user_info['u_is_admin'] == 1) {
+                            Log_access($user_info['u_id'], '1');
+                            $_SESSION['path'] = "/admin.php";
+                        } else if ($user_info['u_is_standard'] == 1) {
+                        
+                            Log_access($user_info['u_id'], '1');
+                        
+                            $query2 = 'SELECT *
+                                      FROM user_to_business, business
+                                     WHERE user_to_business.u_id = :u_id
+                                    AND user_to_business.business_id = business.business_id';
+                            $statement2 = $db->prepare($query2);
+                            $statement2->bindValue(':u_id', $user_info['u_id']);
+                            $statement2->execute();
+                            $bus_info = $statement2->fetch();
+                            $business_count = $statement2->rowCount();
+                            $statement2->closeCursor();
+                            if ($business_count > 0) {
+                                 $_SESSION['business'] = $bus_info;
+                                if ($_SESSION['business']['business_is_donor'] == 1) {
+                                    $_SESSION['path'] = "/donorhome.php";
+                                } else {
+                                    $_SESSION['path'] = "/fbhome.php";
+                                }
                             }
                         }
                     }
                 } else {
-                    //Log_access($user_info['u_id'], 0);
+                    Log_access($user_info['u_id'], '0');
                     echo '<label>Invalid Password.</label>'; 
                 }
             } else {
-                //Log_access($user_info['u_id'], 0);
+                Log_access($user_info['u_id'], '0');
                 echo '<label>Invalid Username.</label>'; 
             }
         }
                
     } else {
-        header("Location: ../login.php");
-        exit();
+        $_SESSION['path'] = "/login.php";
     }
-
+    redirectPath($_SESSION['path']);
     function Log_access($u_id, $auth) 
     {
         include_once "../inc/db_connect.php";
@@ -104,6 +101,12 @@ try {
         $auth_statement->bindValue(':log_authsuccessful', $auth);
         $auth_statement->execute();
         $auth_statement->closeCursor();
+    }
+
+    function redirectPath($path)
+    {
+        header("Location: .." .$path);
+        exit();
     }
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));

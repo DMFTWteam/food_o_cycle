@@ -16,6 +16,9 @@
 try {
     include 'inc/header.php';
     $u_id = filter_input(INPUT_GET, 'u_id', FILTER_VALIDATE_INT);
+    
+    session_start();
+    $_SESSION['path'] = $_SERVER['PHP_SELF'];
     ?>
 
 <!DOCTYPE html>
@@ -56,7 +59,6 @@ try {
                             <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword"
                                 placeholder="Confirm Password" required>
                             <div class="invalid-feedback"> Password must be confirmed. </div>
-                            <input type='hidden' name='path' value='<?php echo $_SERVER['PHP_SELF']; ?>' />
                             <input type='hidden' name='u_id' value='<?php echo $u_id; ?>' />
                         </div>
                     </div>

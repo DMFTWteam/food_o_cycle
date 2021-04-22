@@ -16,9 +16,9 @@
 try {
     include 'inc/header.php';
     include 'inc/db_connect.php';
-    $path=filter_input(INPUT_POST, "path");
+    session_start();
     
-    if ($path == '/register.php') {
+    if ($_SESSION['path'] == '/register.php') {
         $first_name=filter_input(INPUT_POST, 'InputName');
         $last_name=filter_input(INPUT_POST, 'InputLastname');
         $email=filter_input(INPUT_POST, 'InputEmail', FILTER_VALIDATE_EMAIL);
@@ -61,7 +61,7 @@ try {
         $statement3->execute();
         $statement3->closeCursor();
 
-    } else if ($path == '/resetPassword.php') {
+    } else if ($_SESSION['path'] == '/resetPassword.php') {
         $password=filter_input(INPUT_POST, 'InputPassword');
         $u_id = filter_input(INPUT_POST, 'u_id', FILTER_VALIDATE_INT);
         $query = 'UPDATE users
@@ -102,7 +102,7 @@ try {
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <form class="mt-3 review-form-box" name="formLogin" style="margin-bottom: 30%;" action='php/account.php'
+                <form class="mt-3 review-form-box" name="formLogin" style="margin-bottom: 30%;" action='<?php echo "php/account.php?" .$path ?>'
                     method='post'>
                     <div class="form-row">
                         <div class="form-group col-md-6">

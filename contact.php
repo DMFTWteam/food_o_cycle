@@ -12,7 +12,9 @@
  */
 try {
     //Start the session
+    
     session_start();
+    $_SESSION['path'] = $_SERVER['PHP_SELF'];
     include 'inc/header.php';
 
     if(isset($_SESSION)) {
