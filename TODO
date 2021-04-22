@@ -1,7 +1,7 @@
 
--login redirects to original page requested
+X-login redirects to original page requested
 -add profile picture upload, username, phone number, middle initial to register
--fix access log insert issue
+X-fix access log insert issue
 -fix access log table filter issue
 -only allow food banks to shop and reserve food
 -add item description page
