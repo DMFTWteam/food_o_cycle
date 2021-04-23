@@ -17,7 +17,6 @@ try {
     include 'inc/header.php';
     include 'inc/db_connect.php';
     session_start();
-    
     if ($_SESSION['path'] == '/register.php') {
         $first_name=filter_input(INPUT_POST, 'InputName');
         $last_name=filter_input(INPUT_POST, 'InputLastname');
@@ -130,6 +129,7 @@ try {
     }
     
     
+    $_SESSION['path'] = $_SERVER['PHP_SELF'];
     
     
     ?>
