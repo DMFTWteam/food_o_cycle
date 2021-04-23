@@ -158,7 +158,7 @@ try {
         <div class="row">
             <div class="col-lg-12">
                 <form class="mt-3 review-form-box" name="formLogin" style="margin-bottom: 30%;"
-                    action='<?php echo "php/account.php?" .$path ?>' method='post'>
+                    action='<?php echo "php/account.php?" .$_SESSION['path']; ?>' method='post'>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="InputEmail" class="mb-0">Email Address</label>
