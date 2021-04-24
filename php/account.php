@@ -14,7 +14,7 @@ try {
                         
         echo "got here";
         $auth_statement = $db->prepare($auth_query);
-        
+        print_r($db->errorInfo());
         echo "got here";
         $auth_statement->bindValue(':u_id', $u_id);
         
