@@ -7,13 +7,11 @@ try {
     function Log_access($u_id, $auth) 
     {
         include_once "../inc/db_connect.php";
-        $date = new DateTime('NOW');
         $auth_query = 'INSERT INTO access_log
 						(u_id, log_datetime, log_authsuccessful)
 						VALUES
-						(:u_id, :log_datetime, :log_authsuccessful)';
+						(:u_id, NOW(), :log_authsuccessful)';
         $auth_statement = $db->prepare($auth_query);
-        $auth_statement->bindValue(':log_datetime', $date->format(DateTimeInterface::RFC850));
         $auth_statement->bindValue(':u_id', $u_id);
         $auth_statement->bindValue(':log_authsuccessful', $auth);
         $auth_statement->execute();
@@ -66,7 +64,7 @@ try {
                         exit();
                     } else { */
                     if ($user_info['u_is_admin'] == 1) {
-                        Log_access($user_info['u_id'], '1');
+                        //Log_access($user_info['u_id'], '1');
                         header("Location: ../admin.php");
                         exit();
                     } else if ($user_info['u_is_standard'] == 1) {
