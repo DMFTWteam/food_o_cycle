@@ -152,7 +152,7 @@ try {
                         echo "<div class='type-lb'>";
                         echo "    <p class='sale'>Expires Soon!</p>";
                         echo "</div>";
-                    } else if (strtotime(date("Y-m-d")) > strtotime($item['item_expiration']) || (int)$item['item_qty_avail'] <= 0) {
+                    } else if ((strtotime(date("Y-m-d")) > strtotime($item['item_expiration'])) || ($item['item_qty_avail'] <= 0 || $item['item_qty_avail'] <= '0')) {
                         $query2 = 'DELETE FROM food_item WHERE item_id = :item_id';
                         
                         $statement2 = $db->prepare($query2);
