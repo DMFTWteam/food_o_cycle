@@ -84,7 +84,7 @@ $statement->closeCursor();
 
                     <div class="price-box-bar">
                         <div class="cart-and-bay-btn">
-                            <a class="btn hvr-hover" data-fancybox-close="" href="#">Add to cart</a>
+                            <button id="button" name="button" class="btn hvr-hover">Add to cart</button>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ $statement->closeCursor();
         </div>
 
 <script type='text/javascript'>
-$('.btn hvr-hover').click(function() {
+$('#button').click(function() {
     var itemQuantity = $("#quantity").val();
   $.ajax({
     type: "POST",
