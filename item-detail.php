@@ -61,6 +61,7 @@ $statement->closeCursor();
                     <p style='display: inline;'>Item Donor:
                     <h5 style='display: inline;'><?php echo $item_info['business_name']; ?></h5>
                     </p>
+                    <p class="available-stock"><span>Estimated price per item: $<?php echo $item_info['item_price']; ?></span>
                     <p class="available-stock"><span><?php echo $item_info['item_qty_avail']; ?> available</span>
                     <p>
                         <?php 
