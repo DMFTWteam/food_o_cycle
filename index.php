@@ -137,6 +137,9 @@ try {
                 $statement->closeCursor();
 
                 foreach ($items as $item) {
+                    var_dump($item['item_id']);
+                        echo "<br>";
+                        var_dump($item['item_qty_avail']);
                     if (strtotime(date("Y-m-d")) >= strtotime($item['item_added']) && strtotime(date("Y-m-d")) <= strtotime($item['item_expiration'] . ' - 2 days')) {
                         echo "<div class='col-lg-3 col-md-6 special-grid top-featured'>";
                         echo "<div class='products-single fix'>";
@@ -153,9 +156,7 @@ try {
                         echo "</div>";
                     } else if (strtotime(date("Y-m-d")) > strtotime($item['item_expiration']) || (int)$item['item_qty_avail'] <= 0) {
                         $query2 = 'DELETE FROM food_item WHERE item_id = :item_id';
-                        var_dump($item['item_id']);
-                        echo "<br>";
-                        var_dump($item['item_qty_avail']);
+                        
                         $statement2 = $db->prepare($query2);
                         $statement2->bindValue(':item_id', $item['item_id']);
                         $statement2->execute();
