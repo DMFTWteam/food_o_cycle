@@ -59,6 +59,7 @@ print_r($_SESSION['cart'][0]['quantity']);
             <div class="col-xl-7 col-lg-7 col-md-6">
                 <div class="single-product-details">
                     <h2><?php echo $item_info['item_desc']; ?></h2>
+                    <p>Item Donor: </p>
                     <h5><?php echo $item_info['business_name']; ?></h5>
                     <p class="available-stock"><span><?php echo $item_info['item_qty_avail']; ?> available</span>
                     <p>
@@ -74,8 +75,9 @@ print_r($_SESSION['cart'][0]['quantity']);
                         <li>
                             <div class="form-group quantity-box">
                                 <label class="control-label">Quantity</label>
-                                <input class="form-control" value="0" min="0"
-                                    max="<?php echo $item_info['item_qty_avail']; ?>" type="number">
+                                <input class="form-control"
+                                    value="<?php echo $_SESSION['cart'][array_search($item_info['item_id'], $_SESSION['cart'])]['quantity'] ?>"
+                                    min="0" max="<?php echo $item_info['item_qty_avail']; ?>" type="number">
                             </div>
                         </li>
                     </ul>
