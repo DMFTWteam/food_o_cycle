@@ -94,10 +94,11 @@ $statement->closeCursor();
 <script type='text/javascript'>
 $('#button').click(function() {
     var itemQuantity = $("#quantity").val();
+
   $.ajax({
     type: "POST",
     url: "php/updateQuan.php",
-    data: { item_id: "<?php $_SESSION['item_id']; ?>",
+    data: { item_id: "<?php echo $item_info['item_id']; ?>",
     quantity: itemQuantity }
   }).done(function( msg ) {
     alert(msg);
