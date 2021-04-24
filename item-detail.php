@@ -19,7 +19,6 @@ $statement->execute();
 $item_info = $statement->fetch();
 $statement->closeCursor();
 
-print_r($_SESSION['cart'][0]['quantity']);
 
 ?>
 
@@ -59,7 +58,9 @@ print_r($_SESSION['cart'][0]['quantity']);
             <div class="col-xl-7 col-lg-7 col-md-6">
                 <div class="single-product-details">
                     <h2><?php echo $item_info['item_desc']; ?></h2>
-                    <p style='display: inline;'>Item Donor: <h5 style='display: inline;'><?php echo $item_info['business_name']; ?></h5></p>
+                    <p style='display: inline;'>Item Donor:
+                    <h5 style='display: inline;'><?php echo $item_info['business_name']; ?></h5>
+                    </p>
                     <p class="available-stock"><span><?php echo $item_info['item_qty_avail']; ?> available</span>
                     <p>
                         <?php 
