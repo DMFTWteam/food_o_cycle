@@ -104,7 +104,7 @@ try {
     }
 
     function redirectPath($path)
-    {
+    {   echo "got here";
         header("Location: .." .$path);
         exit();
     }
