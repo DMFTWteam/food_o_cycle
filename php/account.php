@@ -51,12 +51,12 @@ try {
                         exit();
                     } else { */
                     if ($user_info['u_is_admin'] == 1) {
-                        Log_access($user_info['u_id'], '1');
+                        //Log_access($user_info['u_id'], '1');
                         header("Location: ../admin.php");
                         exit();
                     } else if ($user_info['u_is_standard'] == 1) {
                         
-                        Log_access($user_info['u_id'], '1');
+                        //Log_access($user_info['u_id'], '1');
                         
                         $query2 = 'SELECT *
                                       FROM user_to_business, business
@@ -81,11 +81,11 @@ try {
                     }
                     //}
                 } else {
-                    Log_access($user_info['u_id'], '0');
+                    //Log_access($user_info['u_id'], '0');
                     echo '<label>Invalid Password.</label>'; 
                 }
             } else {
-                Log_access($user_info['u_id'], '0');
+                //Log_access($user_info['u_id'], '0');
                 echo '<label>Invalid Username.</label>'; 
             }
         }
