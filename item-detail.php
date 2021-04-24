@@ -19,7 +19,7 @@ $statement->execute();
 $item_info = $statement->fetch();
 $statement->closeCursor();
 
-echo array_search($item_info['item_id'], array_column($_SESSION['cart'], 'item_id'));
+
 ?>
 
 <!-- Start All Title Box -->
@@ -76,7 +76,7 @@ echo array_search($item_info['item_id'], array_column($_SESSION['cart'], 'item_i
                             <div class="form-group quantity-box">
                                 <label class="control-label">Quantity</label>
                                 <input class="form-control" id='quantity' name='quantity'
-                                    value="<?php echo $_SESSION['cart'][array_search($item_info['item_id'], $_SESSION['cart'])]['quantity'] ?>"
+                                    value="<?php echo $_SESSION['cart'][array_search($item_info['item_id'], array_column($_SESSION['cart'], 'item_id'))]['quantity'] ?>"
                                     min="0" max="<?php echo $item_info['item_qty_avail']; ?>" type="number">
                             </div>
                         </li>
@@ -98,7 +98,7 @@ $('#button').click(function() {
   $.ajax({
     type: "POST",
     url: "php/updateQuan.php",
-    data: { index: "<?php echo array_search($item_info['item_id'], $_SESSION['cart']); ?>",
+    data: { index: "<?php echo array_search($item_info['item_id'], array_column($_SESSION['cart'], 'item_id')); ?>",
         item_id: "<?php echo $item_info['item_id']; ?>",
     quantity: itemQuantity }
   }).done(function( msg ) {
