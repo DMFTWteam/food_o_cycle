@@ -75,7 +75,7 @@ $statement->closeCursor();
                         <li>
                             <div class="form-group quantity-box">
                                 <label class="control-label">Quantity</label>
-                                <input class="form-control"
+                                <input class="form-control" id='quantity' name='quantity'
                                     value="<?php echo $_SESSION['cart'][array_search($item_info['item_id'], $_SESSION['cart'])]['quantity'] ?>"
                                     min="0" max="<?php echo $item_info['item_qty_avail']; ?>" type="number">
                             </div>
@@ -91,7 +91,19 @@ $statement->closeCursor();
             </div>
         </div>
 
-
+<script type='text/javascript'>
+$('.btn hvr-hover').click(function() {
+    var itemQuantity = $("#quantity").val();
+  $.ajax({
+    type: "POST",
+    url: "php/updateQuan.php",
+    data: { item_id: "<?php $_SESSION['item_id']; ?>",
+    quantity: itemQuantity }
+  }).done(function( msg ) {
+    alert(msg);
+  });
+});
+</script>
 
     </div>
 </div>
