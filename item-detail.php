@@ -53,47 +53,48 @@ print_r($_SESSION['cart'][0]['quantity']);
                             echo "<img class=\"d-block w-100 img-fluid\" src='data:image/jpeg;charset=utf8;base64," . base64_encode($item_info['item_image']) . "' />";
                         } ?>
                     </div>
-
-
                 </div>
-                <div class="col-xl-7 col-lg-7 col-md-6">
-                    <div class="single-product-details">
-                        <h2><?php echo $item_info['item_desc']; ?></h2>
-                        <h5><?php echo $item_info['business_name']; ?></h5>
-                        <p class="available-stock"><span><?php echo $item_info['item_qty_avail']; ?> available</span>
-                        <p>
-                            <?php 
-                            if ($item_info['item_perishable'] == 1) {
-                                $date = date("m-d-Y", strtotime($item_info['item_expiration']));
-                                echo "<h4>Expiration: {$date}</h4>";
-                            } else {
-                                echo "<h4>Non-perishable Item</h4>";
-                            } ?>
-                        <p></p>
-                        <ul>
-                            <li>
-                                <div class="form-group quantity-box">
-                                    <label class="control-label">Quantity</label>
-                                    <input class="form-control" value="0" min="0" max="<?php echo $item_info['item_qty_avail']; ?>" type="number">
-                                </div>
-                            </li>
-                        </ul>
 
-                        <div class="price-box-bar">
-                            <div class="cart-and-bay-btn">
-                                <a class="btn hvr-hover" data-fancybox-close="" href="#">Add to cart</a>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6">
+                <div class="single-product-details">
+                    <h2><?php echo $item_info['item_desc']; ?></h2>
+                    <h5><?php echo $item_info['business_name']; ?></h5>
+                    <p class="available-stock"><span><?php echo $item_info['item_qty_avail']; ?> available</span>
+                    <p>
+                        <?php 
+                        if ($item_info['item_perishable'] == 1) {
+                            $date = date("m-d-Y", strtotime($item_info['item_expiration']));
+                            echo "<h4>Expiration: {$date}</h4>";
+                        } else {
+                            echo "<h4>Non-perishable Item</h4>";
+                        } ?>
+                    <p></p>
+                    <ul>
+                        <li>
+                            <div class="form-group quantity-box">
+                                <label class="control-label">Quantity</label>
+                                <input class="form-control" value="0" min="0"
+                                    max="<?php echo $item_info['item_qty_avail']; ?>" type="number">
                             </div>
+                        </li>
+                    </ul>
+
+                    <div class="price-box-bar">
+                        <div class="cart-and-bay-btn">
+                            <a class="btn hvr-hover" data-fancybox-close="" href="#">Add to cart</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-    </div>
-    <!-- End Cart -->
 
-    <?php 
+
+
+    </div>
+</div>
+<!-- End Cart -->
+
+<?php 
     require "inc/footer.php";
-    ?>
+?>
