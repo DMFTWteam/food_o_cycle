@@ -64,7 +64,7 @@ try {
                         exit();
                     } else { */
                     if ($user_info['u_is_admin'] == 1) {
-                        //Log_access($user_info['u_id'], '1');
+                        Log_access($user_info['u_id'], '1');
                         header("Location: ../admin.php");
                         exit();
                     } else if ($user_info['u_is_standard'] == 1) {
