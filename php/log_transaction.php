@@ -1,7 +1,7 @@
 <?php
 
 require "../inc/db_connect.php";
-
+session_start();
 
 try {
     $firstName = filter_input(INPUT_POST, "firstName");
@@ -14,24 +14,11 @@ try {
     $zip = filter_input(INPUT_POST, "zip", FILTER_VALIDATE_INT);
     $trans_total_price = filter_input(INPUT_POST, "trans_total_price", FILTER_VALIDATE_FLOAT);
 
-    $query = 'SELECT business_id FROM business WHERE
-                business_address = :address AND
-                business_country = :country AND
-                business_state = :state AND
-                business_zip = :zip';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':address', $address);
-    $statement->bindValue(':country', $country);
-    $statement->bindValue(':state', $state);
-    $statement->bindValue(':zip', $zip);
-    $statement->execute();
-    $business_id = $statement->fetch();
-    $statement->closeCursor();
 
     $query2 = 'INSERT INTO transactions (business_id, trans_total_price, trans_date)
             VALUES (:business_id, :trans_total_price, DATE_FORMAT(NOW(), "%Y-%m-%d"))';
     $statement2 = $db->prepare($query2);
-    $statement2->bindValue(':business_id', $business_id);
+    $statement2->bindValue(':business_id', $_SESSION['business']['business_id']);
     $statement2->bindValue(':trans_total_price', $trans_total_price);
     $statement2->execute();
     $statement2->closeCursor();
@@ -41,7 +28,7 @@ try {
                 trans_total_price = :trans_total_price AND
                 trans_date = DATE_FORMAT(NOW(), "%Y-%m-%d")';
     $statement3 = $db->prepare($query3);
-    $statement3->bindValue(':business_id', $business_id);
+    $statement3->bindValue(':business_id', $_SESSION['business']['business_id']);
     $statement3->bindValue(':trans_total_price', $trans_total_price);
     $statement3->execute();
     $trans_id = $statement3->fetch();
