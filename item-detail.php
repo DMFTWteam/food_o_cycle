@@ -19,7 +19,7 @@ $statement->execute();
 $item_info = $statement->fetch();
 $statement->closeCursor();
 
-print_r($_SESSION['cart']);
+print_r($_SESSION['cart'][0]['quantity']);
 
 ?>
 
