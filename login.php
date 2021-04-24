@@ -23,8 +23,9 @@ try {
         $initial=filter_input(INPUT_POST, 'initial');
         $phone=filter_input(INPUT_POST, 'Phone');
         $username=filter_input(INPUT_POST, 'Username');
-        $target_dir = "images/";
+        $target_dir = "/images/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        print_r($_FILES['fileToUpload']);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
