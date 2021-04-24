@@ -38,7 +38,7 @@ try {
     print_r($db->errorInfo());
     echo "<br>";
     echo "<br>";
-    $trans_id = $statement3->fetchAll();
+    $trans_id = $statement3->fetch();
     var_dump($_SESSION['business']['business_id']);
     echo "<br>";
     var_dump($trans_total_price);
