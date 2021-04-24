@@ -1,13 +1,13 @@
 <?php
 
 try {
-    include_once "../inc/db_connect.php";
+    include "../inc/db_connect.php";
 
     session_start();
 
     function Log_access($u_id, $auth) 
     {
-        include_once "../inc/db_connect.php";
+        include "../inc/db_connect.php";
         $auth_query = 'INSERT INTO access_log
 						(u_id, log_datetime, log_authsuccessful)
 						VALUES
