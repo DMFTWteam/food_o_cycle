@@ -99,7 +99,6 @@ $('#button').click(function() {
     type: "POST",
     url: "php/updateQuan.php",
     data: { index: "<?php echo array_search($item_info['item_id'], array_column($_SESSION['cart'], 'item_id')); ?>",
-        item_id: "<?php echo $item_info['item_id']; ?>",
     quantity: itemQuantity }
   }).done(function( msg ) {
     alert(msg);
