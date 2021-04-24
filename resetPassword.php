@@ -18,7 +18,6 @@ try {
     $u_id = filter_input(INPUT_GET, 'u_id', FILTER_VALIDATE_INT);
     
     session_start();
-    $_SESSION['path'] = $_SERVER['PHP_SELF'];
     ?>
 
 <!DOCTYPE html>
