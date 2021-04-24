@@ -23,22 +23,15 @@ try {
     if ($statement2->execute()) {
         $statement2->closeCursor();
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        $query3 = 'SELECT * FROM transactions WHERE
-                    business_id = :business_id AND
-                    trans_total_price = :trans_total_price AND
-                    trans_date = DATE_FORMAT(NOW(), "%Y-%m-%d")';
+        $query3 = 'SELECT    *
+        FROM      transactions
+        WHERE     business_id = :business_id
+        ORDER BY  trans_id DESC
+        LIMIT     1';
         $statement3 = $db->prepare($query3);
-        print_r($db->errorInfo());
-        echo "<br>";
         $statement3->bindValue(':business_id', $_SESSION['business']['business_id']);
-        $statement3->bindValue(':trans_total_price', $trans_total_price);
-        print_r($db->errorInfo());
-        echo "<br>";
         $statement3->execute();
-        print_r($db->errorInfo());
-        echo "<br>";
-        echo "<br>";
-        $trans_id = $statement3->fetchAll();
+        $trans_id = $statement3->fetch();
         var_dump($_SESSION['business']['business_id']);
         echo "<br>";
         var_dump($trans_total_price);
