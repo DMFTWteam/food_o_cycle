@@ -170,11 +170,11 @@
                         foreach ($_SESSION['cart'] as $item) {
                             echo "<li>";
                             if ($item['item_image'] == null || $item['item_image'] == '') {
-                                echo "<img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid'  />";
+                                echo "<a href=\"item-detail.php?item_id={$item['item_id']}\" class=\"photo\"><img src='https://via.placeholder.com/300.jpg?text=No+Image+Found' class='img-fluid'  /></a>";
                             } else {
-                                echo "<img src='data:image/jpeg;charset=utf8;base64," .base64_encode($item['item_image']). "' class='img-fluid' />";
+                                echo "<a href=\"item-detail.php?item_id={$item['item_id']}\" class=\"photo\"><img src='data:image/jpeg;charset=utf8;base64," .base64_encode($item['item_image']). "' class='img-fluid' /></a>";
                             }
-                            echo "<h6>{$item['item_desc']}</h6>";
+                            echo "<h6><a href=\"item-detail.php?item_id={$item['item_id']}\">{$item['item_desc']}</a></h6>";
                             echo "<p>{$item['quantity']}</p>";
                             echo '</li>';
                         }
