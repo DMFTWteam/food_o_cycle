@@ -1,10 +1,10 @@
 <?php
     require 'inc/header.php';
     $msg = filter_input(INPUT_GET, 'msg');
-    $error = "<h1 style='color: red;'>".$msg."</h1>";
+    $error = "<h1 style='color: red; text-align: center;'>".$msg."</h1>";
     echo $error; 
 ?>
-<p>You will be redirected to home page in <span id='counter'>5</span> second(s).</p>
+<p style='text-align: center;'>You will be redirected to home page in <span id='counter'>5</span> second(s).</p>
 <script type='text/javascript'>
 function countdown() {
     var i = document.getElementById('counter');
