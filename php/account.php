@@ -43,8 +43,8 @@ try {
                 if ($validPassword) {
                     $_SESSION['user'] = $user_info;
                     
-                    if (isset($path) && $path != '' && $path != '/account.php') {
-                        redirectPath($path);
+                    if (isset($_SESSION['path']) && $_SESSION['path'] != '' && $_SESSION['path'] != '/account.php') {
+                        redirectPath($_SESSION['path']);
                     } else {
                         if ($user_info['u_is_admin'] == 1) {
                             //Log_access($user_info['u_id'], '1');
