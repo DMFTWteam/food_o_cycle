@@ -22,7 +22,7 @@ try {
     $statement2->bindValue(':trans_total_price', $trans_total_price);
     $statement2->execute();
     $statement2->closeCursor();
-
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $query3 = 'SELECT * FROM transactions WHERE
                 business_id = :business_id AND
                 trans_total_price = :trans_total_price AND
