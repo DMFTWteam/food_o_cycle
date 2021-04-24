@@ -210,9 +210,11 @@ try {
                                         setlocale(LC_MONETARY, 'en_US.UTF-8');
                                         foreach ($_SESSION['cart'] as $item) {
                                             echo "<div class=\"media mb-2 border-bottom\">";
-                                            echo "<div class=\"media-body\"> <a href=\"detail.html\">{$item['item_desc']}</a>";
+                                            echo "<div class=\"media-body\"> <a href=\"detail.html\">{$item['item_desc']}    </a>";
                                             if ($item['item_perishable'] == 1) {
                                                 echo "<div class=\"small text-muted\">Expiration: " .date("m-d-Y", $item['item_expiration']). " <span class=\"mx-2\">|</span>";
+                                            } else {
+                                                echo "<div class=\"small text-muted\">Non-perishable Item<span class=\"mx-2\">|</span>";
                                             }
                                             echo "Qty: {$item['quantity']} <span class=\"mx-2\">|</span> Subtotal: $" .( money_format('%.2n', ((float)$item['item_price'] * (float)$item['quantity']))). "</div>";
                                             echo "</div>";
