@@ -23,7 +23,7 @@ try {
     $statement2->execute();
     $statement2->closeCursor();
 
-    $query3 = 'SELECT trans_id FROM transactions WHERE
+    $query3 = 'SELECT * FROM transactions WHERE
                 business_id = :business_id AND
                 trans_total_price = :trans_total_price AND
                 trans_date = DATE_FORMAT(NOW(), "%Y-%m-%d")';
