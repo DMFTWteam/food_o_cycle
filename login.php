@@ -77,13 +77,13 @@ try {
 				 u_phone, u_email, u_photo, u_is_admin, u_is_standard)
               VALUES
               (:first_name, :last_name, :initial, :username, :upassword, 
-              :phone, :email, LOAD_FILE(:target_file), \'0\', \'1\')';
+              :phone, :email, :blob, \'0\', \'1\')';
         $statement = $db->prepare($query);
         $statement->bindValue(':first_name', $first_name);
         $statement->bindValue(':initial', $initial);
         $statement->bindValue(':username', $username);
         $statement->bindValue(':phone', $phone);
-        $statement->bindParam(':data', $blob, PDO::PARAM_LOB);
+        $statement->bindParam(':blob', $blob, PDO::PARAM_LOB);
         $statement->bindValue(':last_name', $last_name);
         $statement->bindValue(':upassword', password_hash($password, PASSWORD_DEFAULT));
         $statement->bindValue(':email', $email);
