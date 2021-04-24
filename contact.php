@@ -88,6 +88,6 @@ try {
     include 'inc/footer.php';
     unset($_SESSION['msgSuccess']);
 } catch(Exception $e) {
-    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+    header("Location: error.php?msg=" .urlencode($e->getMessage()));
 }
 ?>

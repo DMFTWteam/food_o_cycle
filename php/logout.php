@@ -22,6 +22,6 @@ try {
     session_regenerate_id(true);
     header('Location: https://foodocycle.com/index.php');
 } catch(Exception $e) {
-    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+    header("Location: ../error.php?msg=" .urlencode($e->getMessage()));
 }
 ?>

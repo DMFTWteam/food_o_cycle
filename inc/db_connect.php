@@ -9,7 +9,7 @@ try {
     //echo '<p> You are connected to the database.</p>';
 } 
 catch (PDOException $e) {
-        header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+        header("Location: ../error.php?msg=" .urlencode($e->getMessage()));
 }
     
 ?>

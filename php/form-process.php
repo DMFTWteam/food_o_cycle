@@ -67,6 +67,6 @@ try {
         }
     }
 } catch(Exception $e) {
-    header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
+    header("Location: ../error.php?msg=" .urlencode($e->getMessage()));
 }
 ?>
