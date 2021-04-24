@@ -32,6 +32,8 @@ try {
     $statement3->bindValue(':trans_total_price', $trans_total_price);
     $statement3->execute();
     $trans_id = $statement3->fetch();
+    var_dump($trans_id);
+    exit();
     $statement3->closeCursor();
 
     foreach ($_SESSION['cart'] as $item) {
