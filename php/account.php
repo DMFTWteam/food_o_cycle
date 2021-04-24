@@ -12,25 +12,11 @@ try {
 						(u_id, log_datetime, log_authsuccessful)
 						VALUES
 						(:u_id, NOW(), :log_authsuccessful)';
-                        
-        echo "got here";
         $auth_statement = $db->prepare($auth_query);
-        if (!$auth_statement) {
-            print_r($db->errorInfo());
-        }
-        echo "got here";
         $auth_statement->bindValue(':u_id', $u_id);
-        
-        echo "got here";
         $auth_statement->bindValue(':log_authsuccessful', $auth);
-        
-        echo "got here";
         $auth_statement->execute();
-        
-        echo "got here";
         $auth_statement->closeCursor();
-        
-        echo "got here";
     }
 
     if (isset($_SESSION['user'])) {
