@@ -6,7 +6,7 @@
        
 try {
     $db = new PDO($dsn1, $username1, $password1);
-    //echo '<p> You are connected to the database.</p>';
+    echo '<p> You are connected to the database.</p>';
 } 
 catch (PDOException $e) {
         header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
