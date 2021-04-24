@@ -20,38 +20,64 @@ try {
     $statement2 = $db->prepare($query2);
     $statement2->bindValue(':business_id', $_SESSION['business']['business_id']);
     $statement2->bindValue(':trans_total_price', $trans_total_price);
-    $statement2->execute();
-    $statement2->closeCursor();
-    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    $query3 = 'SELECT * FROM transactions WHERE
+    if ($statement2->execute()) {
+        $statement2->closeCursor();
+        $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        $query3 = 'SELECT * FROM transactions WHERE
+                    business_id = :business_id AND
+                    trans_total_price = :trans_total_price AND
+                    trans_date = DATE_FORMAT(NOW(), "%Y-%m-%d")';
+        $statement3 = $db->prepare($query3);
+        print_r($db->errorInfo());
+        echo "<br>";
+        $statement3->bindValue(':business_id', $_SESSION['business']['business_id']);
+        $statement3->bindValue(':trans_total_price', $trans_total_price);
+        print_r($db->errorInfo());
+        echo "<br>";
+        $statement3->execute();
+        print_r($db->errorInfo());
+        echo "<br>";
+        echo "<br>";
+        $trans_id = $statement3->fetchAll();
+        var_dump($_SESSION['business']['business_id']);
+        echo "<br>";
+        var_dump($trans_total_price);
+        echo "<br>";
+        var_dump($trans_id);
+        exit();
+        $statement3->closeCursor();();
+        $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        $query3 = 'SELECT * FROM transactions WHERE
                 business_id = :business_id AND
                 trans_total_price = :trans_total_price AND
                 trans_date = DATE_FORMAT(NOW(), "%Y-%m-%d")';
-    $statement3 = $db->prepare($query3);
-    print_r($db->errorInfo());
-    echo "<br>";
-    $statement3->bindValue(':business_id', $_SESSION['business']['business_id']);
-    $statement3->bindValue(':trans_total_price', $trans_total_price);
-    print_r($db->errorInfo());
-    echo "<br>";
-    $statement3->execute();
-    print_r($db->errorInfo());
-    echo "<br>";
-    echo "<br>";
-    $trans_id = $statement3->fetch();
-    var_dump($_SESSION['business']['business_id']);
-    echo "<br>";
-    var_dump($trans_total_price);
-    echo "<br>";
-    var_dump($trans_id);
-    exit();
-    $statement3->closeCursor();
+        $statement3 = $db->prepare($query3);
+        print_r($db->errorInfo());
+        echo "<br>";
+        $statement3->bindValue(':business_id', $_SESSION['business']['business_id']);
+        $statement3->bindValue(':trans_total_price', $trans_total_price);
+        print_r($db->errorInfo());
+        echo "<br>";
+        $statement3->execute();
+        print_r($db->errorInfo());
+        echo "<br>";
+        echo "<br>";
+        $trans_id = $statement3->fetchAll();
+        var_dump($_SESSION['business']['business_id']);
+        echo "<br>";
+        var_dump($trans_total_price);
+        echo "<br>";
+        var_dump($trans_id);
+        exit();
+        $statement3->closeCursor();
+    }
+    
 
     foreach ($_SESSION['cart'] as $item) {
         $query4 = 'INSERT INTO transaction_line (trans_id, item_id, item_quantity)
             VALUES (:trans_id, :item_id, :item_quantity)';
         $statement4 = $db->prepare($query4);
-        $statement4->bindValue(':trans_id', $trans_id);
+        $statement4->bindValue(':trans_id', $trans_id[count($trans_id) - 1]['trans_id']);
         $statement4->bindValue(':item_id', $item['item_id']);
         $statement4->bindValue(':item_quantity', $item['quantity']);
         $statement4->execute();
