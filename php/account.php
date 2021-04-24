@@ -4,6 +4,7 @@ try {
     include_once "../inc/db_connect.php";
 
     session_start();
+
     function Log_access($u_id, $auth) 
     {
         include_once "../inc/db_connect.php";
@@ -14,7 +15,9 @@ try {
                         
         echo "got here";
         $auth_statement = $db->prepare($auth_query);
-        print_r($db->errorInfo());
+        if (!$auth_statement) {
+            print_r($db->errorInfo());
+        }
         echo "got here";
         $auth_statement->bindValue(':u_id', $u_id);
         
