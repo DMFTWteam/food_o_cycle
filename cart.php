@@ -14,14 +14,14 @@
 
 try {
     session_start();
+    $_SESSION['path'] = $_SERVER['PHP_SELF'];
     if (!isset($_SESSION['user'])) {
-        $_SESSION['path'] = $_SERVER['PHP_SELF'];
         header('Location: login.php');
         exit();
     }
 
     if ($_SESSION['business']['business_is_donor'] == 1 || $_SESSION['user']['u_is_admin'] == 1) {
-        $_SESSION['path'] = $_SERVER['PHP_SELF'];
+        
         header('Location: error.php?msg=' .urlencode("Only food banks can reserve food. Please use an account associated with a food bank."));
         exit();
     }

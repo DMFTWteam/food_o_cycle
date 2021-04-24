@@ -17,7 +17,6 @@
 try {
     include 'inc/header.php';
     session_start();
-    $_SESSION['path'] = $_SERVER['PHP_SELF'];
     $query = 'SELECT business_id, business_name
         FROM business
         WHERE business_is_donor = 1';
@@ -121,6 +120,7 @@ try {
                             <input type="checkbox" class="form-control" name="DonorBox" id="cb1">
                             <input type="radio" class="form-control-sm" name="terms_agreement" id="terms_agreement"
                                 style='display: none;'>
+                            <input type='hidden' name='path' value='<?php echo $_SERVER['PHP_SELF']; ?>' />
                             <div class="invalid-feedback"> Terms and conditions must be accepted to continue. </div>
                             <label for="terms_agreement" class="mb-0" name="terms_agreement_label"
                                 id="terms_agreement_label" style='display: none;'>I have read and agree

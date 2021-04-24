@@ -50,7 +50,7 @@ try {
                             <label for="InputPassword" class="mb-0">New Password</label>
                             <input type="password" class="form-control" name="InputPassword" minlength="8"
                                 maxlength="25" id="InputPassword" placeholder="Enter Password" required>
-
+                                <input type='hidden' name='path' value='<?php echo $_SERVER['PHP_SELF']; ?>' />
                             <div class="invalid-feedback"> Valid password is required. </div>
                         </div>
                         <div class="form-group col-md-6">

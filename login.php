@@ -17,7 +17,8 @@ try {
     include 'inc/header.php';
     include 'inc/db_connect.php';
     session_start();
-    if ($_SESSION['path'] == '/register.php') {
+    $path = filter_input(INPUT_POST, 'path');
+    if ($path == '/register.php') {
         $first_name=filter_input(INPUT_POST, 'InputName');
         $last_name=filter_input(INPUT_POST, 'InputLastname');
         $initial=filter_input(INPUT_POST, 'initial');
@@ -25,7 +26,7 @@ try {
         $username=filter_input(INPUT_POST, 'Username');
         $target_dir = "/images/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-        print_r($_FILES['fileToUpload']);
+        //print_r($_FILES['fileToUpload']);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -61,7 +62,7 @@ try {
         } else {
             $blob = fopen($_FILES["fileToUpload"]["tmp_name"], 'rb');
             if (isset($blob) && $blob != '') {
-                echo "The file ". htmlspecialchars(basename($_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                //echo "The file ". htmlspecialchars(basename($_FILES["fileToUpload"]["name"])). " has been uploaded.";
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
@@ -110,7 +111,7 @@ try {
         $statement3->execute();
         $statement3->closeCursor();
 
-    } else if ($_SESSION['path'] == '/resetPassword.php') {
+    } else if ($path == '/resetPassword.php') {
         $password=filter_input(INPUT_POST, 'InputPassword');
         $u_id = filter_input(INPUT_POST, 'u_id', FILTER_VALIDATE_INT);
         $query = 'UPDATE users
