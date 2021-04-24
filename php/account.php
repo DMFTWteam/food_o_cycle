@@ -60,7 +60,7 @@ try {
                 if ($validPassword) {
                     $_SESSION['user'] = $user_info;
                     
-                    if (isset($_SESSION['path']) && $_SESSION['path'] != '' && $_SESSION['path'] != '/account.php') {
+                    if (isset($_SESSION['path']) && $_SESSION['path'] != '' && $_SESSION['path'] != '/account.php' && $_SESSION['path'] != '/login.php') {
                         header("Location: .." .$_SESSION['path']);
                         exit();
                     } else {
