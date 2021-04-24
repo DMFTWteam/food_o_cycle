@@ -129,9 +129,6 @@ try {
     }
     
     
-    $_SESSION['path'] = $_SERVER['PHP_SELF'];
-    
-    
     ?>
 
 <!DOCTYPE html>
