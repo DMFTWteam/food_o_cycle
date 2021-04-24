@@ -6,17 +6,28 @@ try {
     session_start();
     function Log_access($u_id, $auth) 
     {
-        echo "got here";
         include_once "../inc/db_connect.php";
         $auth_query = 'INSERT INTO access_log
 						(u_id, log_datetime, log_authsuccessful)
 						VALUES
 						(:u_id, NOW(), :log_authsuccessful)';
+                        
+        echo "got here";
         $auth_statement = $db->prepare($auth_query);
+        
+        echo "got here";
         $auth_statement->bindValue(':u_id', $u_id);
+        
+        echo "got here";
         $auth_statement->bindValue(':log_authsuccessful', $auth);
+        
+        echo "got here";
         $auth_statement->execute();
+        
+        echo "got here";
         $auth_statement->closeCursor();
+        
+        echo "got here";
     }
 
     if (isset($_SESSION['user'])) {
