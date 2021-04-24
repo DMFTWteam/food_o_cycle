@@ -98,7 +98,8 @@ $('#button').click(function() {
   $.ajax({
     type: "POST",
     url: "php/updateQuan.php",
-    data: { item_id: "<?php echo $item_info['item_id']; ?>",
+    data: { index: "<?php echo array_search($item_info['item_id'], $_SESSION['cart']); ?>",
+        item_id: "<?php echo $item_info['item_id']; ?>",
     quantity: itemQuantity }
   }).done(function( msg ) {
     alert(msg);
