@@ -46,12 +46,6 @@ try {
             $uploadOk = 0;
         }
 
-        // Check file size
-        if ($_FILES["fileToUpload"]["size"] > 500000) {
-            echo "Sorry, your file is too large.";
-            $uploadOk = 0;
-        }
-
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         ) {
@@ -82,13 +76,13 @@ try {
 				 u_phone, u_email, u_photo, u_is_admin, u_is_standard)
               VALUES
               (:first_name, :last_name, :initial, :username, :upassword, 
-              :phone, :email, LOAD_FILE(:image), \'0\', \'1\')';
+              :phone, :email, LOAD_FILE(:target_file), \'0\', \'1\')';
         $statement = $db->prepare($query);
         $statement->bindValue(':first_name', $first_name);
         $statement->bindValue(':initial', $initial);
         $statement->bindValue(':username', $username);
         $statement->bindValue(':phone', $phone);
-        $statement->bindValue(':image', $target_file);
+        $statement->bindValue(':target_file', $target_file);
         $statement->bindValue(':last_name', $last_name);
         $statement->bindValue(':upassword', password_hash($password, PASSWORD_DEFAULT));
         $statement->bindValue(':email', $email);
