@@ -22,7 +22,7 @@ try {
 
     if ($_SESSION['business']['business_is_donor'] == 1 || $_SESSION['user']['u_is_admin'] == 1) {
         $_SESSION['path'] = $_SERVER['PHP_SELF'];
-        header('Location: php/error.php?msg=' .urlencode("stupid is as. stupid does"));
+        header('Location: error.php?msg=' .urlencode("stupid is as. stupid does"));
         exit();
     }
     
