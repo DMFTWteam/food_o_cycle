@@ -6,6 +6,7 @@ try {
     session_start();
     function Log_access($u_id, $auth) 
     {
+        echo "got here";
         include_once "../inc/db_connect.php";
         $auth_query = 'INSERT INTO access_log
 						(u_id, log_datetime, log_authsuccessful)
@@ -64,7 +65,7 @@ try {
                         exit();
                     } else { */
                     if ($user_info['u_is_admin'] == 1) {
-                        Log_access($user_info['u_id'], '1');
+                        Log_access($user_info['u_id'], 1);
                         header("Location: ../admin.php");
                         exit();
                     } else if ($user_info['u_is_standard'] == 1) {
