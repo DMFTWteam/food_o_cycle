@@ -1,5 +1,5 @@
 <?php
-
+updateQuan($_POST['item_id'], $_POST['quantity']);
 function updateQuan($item_id, $quantity) {
     $item = array_search($item_id, $_SESSION['cart']);
     if (isset($item) && $item != '') {
