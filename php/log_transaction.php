@@ -31,6 +31,8 @@ try {
     $statement3->bindValue(':business_id', $_SESSION['business']['business_id']);
     $statement3->bindValue(':trans_total_price', $trans_total_price);
     $statement3->execute();
+    print_r($db->errorInfo());
+    echo "<br>";
     $trans_id = $statement3->fetchAll();
     var_dump($_SESSION['business']['business_id']);
     echo "<br>";
