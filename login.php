@@ -59,7 +59,8 @@ try {
             echo "Sorry, your file was not uploaded.";
             // if everything is ok, try to upload file
         } else {
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            $blob = fopen($_FILES["fileToUpload"]["tmp_name"], 'rb');
+            if (isset($blob) && $blob != '') {
                 echo "The file ". htmlspecialchars(basename($_FILES["fileToUpload"]["name"])). " has been uploaded.";
             } else {
                 echo "Sorry, there was an error uploading your file.";
@@ -71,7 +72,6 @@ try {
         $bank_box=filter_input(INPUT_POST, 'BankBox', FILTER_VALIDATE_BOOLEAN);
         $business_id=filter_input(INPUT_POST, 'Business');
         $ein=filter_input(INPUT_POST, 'EIN', FILTER_VALIDATE_INT);
-        
         $query = 'INSERT INTO users
                  (u_fname, u_lname, u_mi, u_username, u_password, 
 				 u_phone, u_email, u_photo, u_is_admin, u_is_standard)
@@ -83,7 +83,7 @@ try {
         $statement->bindValue(':initial', $initial);
         $statement->bindValue(':username', $username);
         $statement->bindValue(':phone', $phone);
-        $statement->bindValue(':target_file', $target_file);
+        $statement->bindParam(':data', $blob, PDO::PARAM_LOB);
         $statement->bindValue(':last_name', $last_name);
         $statement->bindValue(':upassword', password_hash($password, PASSWORD_DEFAULT));
         $statement->bindValue(':email', $email);
