@@ -8,12 +8,15 @@ try {
     if (isset($_SESSION['user'])) {
         $user_info = $_SESSION['user'];
         if ($user_info['u_is_admin'] == 1) {
-            $_SESSION['path'] = "/admin.php";
+            header("Location: ../admin.php");
+            exit();
         } else if ($user_info['u_is_standard'] == 1) {
             if ($_SESSION['business'][11] == '1') {
-                $_SESSION['path'] = "/donorhome.php";
+                header("Location: ../donorhome.php");
+                exit();
             } else {
-                $_SESSION['path'] = "/fbhome.php";
+                header("Location: ../fbhome.php");
+                exit();
             }
         
         }
@@ -44,14 +47,16 @@ try {
                     $_SESSION['user'] = $user_info;
                     
                     if (isset($_SESSION['path']) && $_SESSION['path'] != '' && $_SESSION['path'] != '/account.php') {
-                        redirectPath($_SESSION['path']);
+                        header("Location: .." .$_SESSION['path']);
+                        exit();
                     } else {
                         if ($user_info['u_is_admin'] == 1) {
-                            //Log_access($user_info['u_id'], '1');
-                            $_SESSION['path'] = "/admin.php";
+                            Log_access($user_info['u_id'], '1');
+                            header("Location: ../admin.php");
+                            exit();
                         } else if ($user_info['u_is_standard'] == 1) {
                         
-                            //Log_access($user_info['u_id'], '1');
+                            Log_access($user_info['u_id'], '1');
                         
                             $query2 = 'SELECT *
                                       FROM user_to_business, business
@@ -66,27 +71,30 @@ try {
                             if ($business_count > 0) {
                                  $_SESSION['business'] = $bus_info;
                                 if ($_SESSION['business']['business_is_donor'] == 1) {
-                                    $_SESSION['path'] = "/donorhome.php";
+                                    header("Location: ../donorhome.php");
+                                    exit();
                                 } else {
-                                    $_SESSION['path'] = "/fbhome.php";
+                                    header("Location: ../fbhome.php");
+                                    exit();
                                 }
                             }
                         }
                     }
                 } else {
-                    //Log_access($user_info['u_id'], '0');
+                    Log_access($user_info['u_id'], '0');
                     echo '<label>Invalid Password.</label>'; 
                 }
             } else {
-             //Log_access($user_info['u_id'], '0');
+                Log_access($user_info['u_id'], '0');
                 echo '<label>Invalid Username.</label>'; 
             }
         }
                
     } else {
-        $_SESSION['path'] = "/login.php";
+        header("Location: ../login.php");
+        exit();
     }
-    redirectPath($_SESSION['path']);
+    
     function Log_access($u_id, $auth) 
     {
         include_once "../inc/db_connect.php";
@@ -103,11 +111,6 @@ try {
         $auth_statement->closeCursor();
     }
 
-    function redirectPath($path)
-    {   echo "got here";
-        header("Location: .." .$path);
-        exit();
-    }
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
 }
