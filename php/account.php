@@ -4,6 +4,21 @@ try {
     include_once "../inc/db_connect.php";
 
     session_start();
+    function Log_access($u_id, $auth) 
+    {
+        include_once "../inc/db_connect.php";
+        $date = new DateTime('NOW');
+        $auth_query = 'INSERT INTO access_log
+						(u_id, log_datetime, log_authsuccessful)
+						VALUES
+						(:u_id, :log_datetime, :log_authsuccessful)';
+        $auth_statement = $db->prepare($auth_query);
+        $auth_statement->bindValue(':log_datetime', $date->format(DateTimeInterface::RFC850));
+        $auth_statement->bindValue(':u_id', $u_id);
+        $auth_statement->bindValue(':log_authsuccessful', $auth);
+        $auth_statement->execute();
+        $auth_statement->closeCursor();
+    }
 
     if (isset($_SESSION['user'])) {
         $user_info = $_SESSION['user'];
@@ -95,21 +110,7 @@ try {
         exit();
     }
     
-    function Log_access($u_id, $auth) 
-    {
-        include_once "../inc/db_connect.php";
-        $date = new DateTime('NOW');
-        $auth_query = 'INSERT INTO access_log
-						(u_id, log_datetime, log_authsuccessful)
-						VALUES
-						(:u_id, :log_datetime, :log_authsuccessful)';
-        $auth_statement = $db->prepare($auth_query);
-        $auth_statement->bindValue(':log_datetime', $date->format(DateTimeInterface::RFC850));
-        $auth_statement->bindValue(':u_id', $u_id);
-        $auth_statement->bindValue(':log_authsuccessful', $auth);
-        $auth_statement->execute();
-        $auth_statement->closeCursor();
-    }
+    
 
 } catch(Exception $e) {
     header("Location: inc/error.php?msg=" .urlencode($e->getMessage()));
