@@ -19,7 +19,7 @@ $statement->execute();
 $item_info = $statement->fetch();
 $statement->closeCursor();
 
-echo array_search($item_info['item_id'], $_SESSION['cart']);
+echo array_search($item_info['item_id'], array_column($_SESSION['cart'], 'item_id'));
 ?>
 
 <!-- Start All Title Box -->
