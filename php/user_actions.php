@@ -11,6 +11,7 @@
  * @link     https://github.com/DMFTWteam/food_o_cycle
  */
     require_once '../inc/db_connect.php';
+    session_start();
     //Food item_id for deletion
     $item_id = filter_input(INPUT_POST, 'deleteFromDb');
     //Food to be confirmed for pickup
