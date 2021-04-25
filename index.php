@@ -148,7 +148,7 @@ try {
                         continue;
                     }
                     
-                    if (strtotime(date("Y-m-d")) > strtotime($item['item_expiration'] . ' - 2 days') && strtotime(date("Y-m-d")) < strtotime($item['item_expiration'])) {
+                    if (strtotime(date("Y-m-d")) >= strtotime($item['item_expiration'] . ' - 2 days') && strtotime(date("Y-m-d")) < strtotime($item['item_expiration'])) {
                         echo "<div class='col-lg-3 col-md-6 special-grid best-seller'>";
                         echo "<div class='products-single fix'>";
                         echo "<div class='box-img-hover'>";
