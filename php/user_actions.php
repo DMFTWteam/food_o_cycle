@@ -44,6 +44,7 @@ if($usertype == "donor") {
         } else {
             echo "File is not an image.";
             $uploadOk = 0;
+            exit();
         }
     }
 
@@ -51,6 +52,7 @@ if($usertype == "donor") {
     if (file_exists($target_file)) {
         echo "Sorry, file already exists.";
         $uploadOk = 0;
+        exit();
     }
 
         // Allow certain file formats
@@ -58,6 +60,7 @@ if($usertype == "donor") {
     ) {
         echo "Sorry, only JPG, JPEG, & PNG files are allowed.";
         $uploadOk = 0;
+        exit();
     }
 
         // Check if $uploadOk is set to 0 by an error
