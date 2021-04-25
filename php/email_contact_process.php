@@ -34,7 +34,7 @@ try {
         $message = $_POST["ContactMessage"];
     }
 
-    $EmailTo = "giddingsra0@gmail.com";
+    $EmailTo = "giddingsra0@gmail.com,jakewhitt21@gmail.com";
 
     // prepare email body text
     $Body = "<html>
