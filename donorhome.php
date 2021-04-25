@@ -117,6 +117,12 @@ $statement->closeCursor();
                         </div>
                     </div>
                     <div class="form-group row">
+                    <label for="fileToUpload" class="col-sm-2 col-form-label">Profile Picture</label>
+                        <div class="col-sm-10">
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <div class="col-sm-2">Checkbox</div>
                         <div class="col-sm-10">
                             <div class="form-check">
