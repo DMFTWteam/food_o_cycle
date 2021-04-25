@@ -31,6 +31,7 @@ if($usertype == "donor") {
     $expiration = filter_input(INPUT_POST, 'expDate');
     $target_dir = "../images/";
         $target_file = $target_dir . basename($_FILES["itemfileToUpload"]["name"]);
+        print_r($_FILES);
         var_dump($_FILES['itemfileToUpload']['tmp_name']);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
