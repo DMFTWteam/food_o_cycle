@@ -70,7 +70,7 @@ try {
                             glaring problem in the supply chain from food donors to food banks.</p>
                         </div>
                         <div class='special-grid q1' style="display: block; text-align: center;">
-                        <h2 style="display: block; text-align: center;">Why only food donations?</h2>
+                        <h2 style="margin: auto; height: 50%; display: block; text-align: center;">Why only food donations?</h2>
                             <p style="display: block; text-align: center;">We may open this up to other types of donations in the future, but we consider the mission of providing food 
                             to the needy as a very high priority. Food banks have a very hard time finding donors and businesses that are willing 
                             to donate do not have the time to find recipients or are unsure where to even start looking. This application solves 
