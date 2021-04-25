@@ -85,7 +85,7 @@ try {
         <div class="col-md-6 gedf-main">
 
             <div class="card gedf-card">
-                <form action="php/user_actions.php" method="POST">
+                <form action="php/user_actions.php" enctype="multipart/form-data" method="POST">
 		    <input type="hidden" id="ID" name="ID" value= <?php echo $biz_id ?> >
                     <input type="hidden" name="usertype" value="donor">
                     <div class="card-header">
