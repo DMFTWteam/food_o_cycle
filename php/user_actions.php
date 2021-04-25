@@ -174,8 +174,29 @@ elseif (isset($confirmed_pickup_food_id) AND $usertype == "foodbank") {
     $statement->bindValue(':confirmed_pickup_food_id', $confirmed_pickup_food_id);
     $statement->execute();
     $statement->closeCursor();
+    // get the product id
+    $encoded_item = isset($_POST['item']) ? $_POST['item'] : "";
+    $item = unserialize(urldecode($encoded_item));
+    $item['quantity'] = 1;
+    /*
+    * check if the 'cart' session array was created
+    * if it is NOT, create the 'cart' session array
+    */
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = array();
+    }
+ 
+    // check if the item is in the array, if it is, do not add
+    if (!in_array($item['item_desc'], array_column($_SESSION['cart'], 'item_desc'))) {
+        array_push($_SESSION['cart'], $item);
+ 
+        // redirect to product list and tell the user it was added to cart
+        header("location: ../fbhome.php");
+    } else {
+        // redirect to product list and tell the user it was added to cart
+        header("location: ../fbhome.php");
+    }
     
-    header("location: ../fbhome.php");
 }
 elseif (isset($inputBizName) AND (!empty($inputBizName))) {
     $query = 'SELECT business_id

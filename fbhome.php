@@ -131,7 +131,9 @@ try {
                                                     <?php endif; ?>
                                     <input type="hidden" id="ID" name="ID" value=<?php echo $u_id ?>>
                                     &emsp;
-                                    <?php array_push($_SESSION['cart'], $item); ?>
+                                    <?php $serialized_item = urlencode(serialize($item));
+
+echo "<input name='item' style='display: none;' value='{$serialized_item}' />"; ?>
                                     <button type="submit" class="btn btn-primary btn-sm" name="pickup_confirmed"
                                         value="<?php echo $item['item_id']?>">Add to cart</button>
                             </h5>
