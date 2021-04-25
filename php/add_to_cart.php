@@ -8,7 +8,7 @@ try {
     $encoded_item = isset($_POST['item']) ? $_POST['item'] : "";
     $item = unserialize(urldecode($encoded_item));
     $item['quantity'] = 1;
- 
+    print_r($item);
     /*
     * check if the 'cart' session array was created
     * if it is NOT, create the 'cart' session array
