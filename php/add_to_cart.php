@@ -18,7 +18,7 @@ try {
     }
  
     // check if the item is in the array, if it is, do not add
-    if (!array_search($item['item_id'], array_column($_SESSION['cart'], 'item_id'))) {
+    if (!in_array($item['item_desc'], $_SESSION['cart'])) {
         array_push($_SESSION['cart'], $item);
  
         // redirect to product list and tell the user it was added to cart
