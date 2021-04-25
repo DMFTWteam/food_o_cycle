@@ -12,7 +12,7 @@ try {
                   $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
  
                   // More headers
-                  $headers .= "From: Food O' Cycle Customer Service <custserv@foodocycle.com>" . "\r\n";
+                  $headers .= "From: Food O' Cycle Customer Service <cust-request@foodocycle.com>" . "\r\n";
     // NAME
     if (empty($_POST["InputName"])) {
         $errorMSG = "Name is required ";
