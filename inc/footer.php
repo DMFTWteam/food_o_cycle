@@ -28,7 +28,7 @@
                             <form class="newsletter-box" action="../php/send_email.php" method="post">
                                 <div class="form-group">
                                     <input class="" type="text" name="Name" placeholder="Full Name*" />
-                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                    <i class="fa fa-user-circle"></i>
                                 </div>
                                 <div class="form-group">
                                     <input class="" type="email" name="Email" placeholder="Email Address*" />
