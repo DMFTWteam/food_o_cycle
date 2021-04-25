@@ -52,33 +52,33 @@ try {
                     </div>
                     <div class="row special-list">
                         <div class='special-grid q1' style="display: block; text-align: center;">
-                            <h2>What is Food O' Cycle?</h2>
-                            <p>Food O' Cycle is an application that allows companies that have extra food that they will not be utilizing, to donate
+                            <h2 style="display: block; text-align: center;">What is Food O' Cycle?</h2>
+                            <p style="display: block; text-align: center;">Food O' Cycle is an application that allows companies that have extra food that they will not be utilizing, to donate
                     it instead of throwing it out. This has been designed so that food banks can easily and efficiently
                     find what they are in need of as well as make it quick and efficient for companies to donate the
                     food.</p>
                         </div>
                         <div class='special-grid q1' style="display: block; text-align: center;">
-                        <h2>How does the system work?</h2>
-                            <p>Food donors can post items that they wish to donate and food banks can look for the items that they need. 
+                        <h2 style="display: block; text-align: center;">How does the system work?</h2>
+                            <p style="display: block; text-align: center;">Food donors can post items that they wish to donate and food banks can look for the items that they need. 
                             Once a food bank selects the desired items, the donor and food bank coordinate pickup. The donor also has the 
                             ability to download a reciept of estimated prices of items donated to easily claim these donations on their taxes.</p>
                         </div>
                         <div class='special-grid q1' style="display: block; text-align: center;">
-                        <h2>Is Food O' Cycle for profit?</h2>
-                            <p>No. We do not receive any payment for our services. We wish to provide a free and open-source solution to a 
+                        <h2 style="display: block; text-align: center;">Is Food O' Cycle for profit?</h2>
+                            <p style="display: block; text-align: center;">No. We do not receive any payment for our services. We wish to provide a free and open-source solution to a 
                             glaring problem in the supply chain from food donors to food banks.</p>
                         </div>
                         <div class='special-grid q1' style="display: block; text-align: center;">
-                        <h2>Why only food donations?</h2>
-                            <p>We may open this up to other types of donations in the future, but we consider the mission of providing food 
+                        <h2 style="display: block; text-align: center;">Why only food donations?</h2>
+                            <p style="display: block; text-align: center;">We may open this up to other types of donations in the future, but we consider the mission of providing food 
                             to the needy as a very high priority. Food banks have a very hard time finding donors and businesses that are willing 
                             to donate do not have the time to find recipients or are unsure where to even start looking. This application solves 
                             both of these problems and incentivises businesses to donate.</p>
                         </div>
                         <div class='special-grid q1' style="display: block; text-align: center;">
-                        <h2>I am ready to help the cause. Where do I start?</h2>
-                            <p>You can always inquire by sending a contact request at our <a href="contact.php">Contact Us</a> page or by 
+                        <h2 style="display: block; text-align: center;">I am ready to help the cause. Where do I start?</h2>
+                            <p style="display: block; text-align: center;">You can always inquire by sending a contact request at our <a href="contact.php">Contact Us</a> page or by 
                             subscribing to our monthly newsletter!</p>
                         </div>
                     </div>
