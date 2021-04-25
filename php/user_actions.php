@@ -175,7 +175,7 @@ elseif (isset($confirmed_pickup_food_id) AND $usertype == "foodbank") {
     $statement->execute();
     $statement->closeCursor();
     // get the product id
-    $encoded_item = isset($_POST['item']) ? $_POST['item'] : "";
+    $encoded_item = isset($_GET['item']) ? $_GET['item'] : "";
     $item = unserialize(urldecode($encoded_item));
     $item['quantity'] = 1;
     /*
