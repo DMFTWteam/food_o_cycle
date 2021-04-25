@@ -22,7 +22,7 @@ try {
     $statement2->bindValue(':trans_total_price', $trans_total_price);
     $statement2->execute();
         $statement2->closeCursor();
-        $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
         $query3 = 'SELECT    *
         FROM      transactions
         WHERE     business_id = :business_id
@@ -41,7 +41,7 @@ try {
         $query4 = 'INSERT INTO transaction_line (trans_id, item_id, item_quantity)
             VALUES (:trans_id, :item_id, :item_quantity)';
         $statement4 = $db->prepare($query4);
-        $statement4->bindValue(':trans_id', $trans_id[count($trans_id) - 1]['trans_id']);
+        $statement4->bindValue(':trans_id', $trans_id['trans_id']);
         $statement4->bindValue(':item_id', $item['item_id']);
         $statement4->bindValue(':item_quantity', $item['quantity']);
         $statement4->execute();
