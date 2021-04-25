@@ -27,12 +27,10 @@
                             <h3>Subscribe to our Newsletter!</h3>
                             <form class="newsletter-box" action="../php/send_email.php" method="post">
                                 <div class="form-group">
-                                <i class="fa fa-user-circle" style="position: absolute;"></i>
                                     <input class="" type="text" name="Name" placeholder="Full Name*" />
                                    
                                 </div>
                                 <div class="form-group">
-                                <i class="fa fa-envelope" style="position: absolute;"></i>
                                     <input class="" type="email" name="Email" placeholder="Email Address*" />
                                     
                                 </div>
