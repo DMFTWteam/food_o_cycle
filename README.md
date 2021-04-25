@@ -5,7 +5,7 @@ This application is designed to connect food donors to food banks.<br />
 <br />
 Styling template obtained from https://www.free-css.com/free-css-templates/page246/freshshop.<br />
 <br />
-Directory Structure (in progress):<br />
+Directory Structure:<br />
 <br />
 -dir:css<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-all.css<br />
@@ -102,6 +102,7 @@ Directory Structure (in progress):<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-contact-form-script.js<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-custom.js<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-form-validator.min.js<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-functions.js<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-images-loaded.min.js<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-inewsticker.js<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-isotope.min.js<br />
@@ -111,9 +112,17 @@ Directory Structure (in progress):<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-jquery-ui.js<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-owl.carousel.min.js<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-popper.min.js<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-register.js<br />
 <br />-dir:php<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-account.php<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-add_to_cart.php<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-email_contact_process.php<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-log_transaction.php<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-form-process.php<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-logout.php<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-pdf_server.php<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-send_email.php<br />
+&nbsp;&nbsp;&nbsp;&nbsp;-updateQuan.php<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-user_actions.php<br />
 <br />-dir:webfonts<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-fa-brands-400.eot<br />
@@ -133,12 +142,16 @@ Directory Structure (in progress):<br />
 &nbsp;&nbsp;&nbsp;&nbsp;-fa-solid-900.woff2<br />
 <br />-about.php<br />
 <br />-admin.php<br />
+<br />-cart.php<br />
+<br />-checkout.php<br />
 <br />-contact.php<br />
 <br />-donorhome.php<br />
 <br />-fbhome.php<br />
 <br />-forgotPassword.php<br />
 <br />-help.php<br />
 <br />-index.php<br />
+<br />-item-detail.php<br />
+<br />-LICENSE<br />
 <br />-login.php<br />
 <br />-README.md<br />
 <br />-register.php<br />

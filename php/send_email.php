@@ -1,7 +1,7 @@
 <?php
     ob_start();
     $email = filter_input(INPUT_POST, 'Email', FILTER_VALIDATE_EMAIL);
-
+    $name = filter_input(INPUT_POST, 'Name');
 function binaryImages($imgSrc)
 {
     $img_src = $imgSrc;
@@ -196,7 +196,7 @@ if (isset($email) && $email != '') {
     <table cellpadding="0" cellspacing="0" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" valign="top" width="100%">
     <tr style="vertical-align: top;" valign="top">
     <td align="center" style="word-break: break-word; vertical-align: top; padding-bottom: 0px; padding-left: 60px; padding-right: 60px; padding-top: 0px; text-align: center; width: 100%;" valign="top" width="100%">
-    <h1 style="color:#555555;direction:ltr;font-family:\'Roboto\', Tahoma, Verdana, Segoe, sans-serif;font-size:23px;font-weight:normal;letter-spacing:normal;line-height:200%;text-align:center;margin-top:0;margin-bottom:0;"><strong>Welcome to the Food O\' Cycle family!</strong></h1>
+    <h1 style="color:#555555;direction:ltr;font-family:\'Roboto\', Tahoma, Verdana, Segoe, sans-serif;font-size:23px;font-weight:normal;letter-spacing:normal;line-height:200%;text-align:center;margin-top:0;margin-bottom:0;"><strong>' .$name. ', Welcome to the Food O\' Cycle family!</strong></h1>
     </td>
     </tr>
     </table>
