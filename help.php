@@ -42,11 +42,44 @@ try {
                 <div class="col-lg-12">
                     <div class="special-menu text-center">
                         <div class="button-group filter-button-group">
-                            <button class="active" data-filter="*">Question 1</button>
-                            <button data-filter=".top-featured">Question 2</button>
-                            <button data-filter=".best-seller">Question 3</button>
-                            <button data-filter=".top-featured">Question 4</button>
-                            <button data-filter=".best-seller">Question 5</button>
+                            <button class="active" data-filter="*">All</button>
+                            <button data-filter=".q1">Question 1</button>
+                            <button data-filter=".q2">Question 2</button>
+                            <button data-filter=".q3">Question 3</button>
+                            <button data-filter=".q4">Question 4</button>
+                            <button data-filter=".q5">Question 5</button>
+                        </div>
+                    </div>
+                    <div class="row special-list">
+                        <div class='col-lg-3 col-md-6 special-grid q1'>
+                            <h3>What is Food O' Cycle?</h3>
+                            <p>Food O' Cycle is an application that allows companies that have extra food that they will not be utilizing, to donate
+                    it instead of throwing it out. This has been designed so that food banks can easily and efficiently
+                    find what they are in need of as well as make it quick and efficient for companies to donate the
+                    food.</p>
+                        </div>
+                        <div class='col-lg-3 col-md-6 special-grid q2'>
+                        <h3>How does the system work?</h3>
+                            <p>Food donors can post items that they wish to donate and food banks can look for the items that they need. 
+                            Once a food bank selects the desired items, the donor and food bank coordinate pickup. The donor also has the 
+                            ability to download a reciept of estimated prices of items donated to easily claim these donations on their taxes.</p>
+                        </div>
+                        <div class='col-lg-3 col-md-6 special-grid q3'>
+                        <h3>Is Food O' Cycle for profit?</h3>
+                            <p>No. We do not receive any payment for our services. We wish to provide a free and open-source solution to a 
+                            glaring problem in the supply chain from food donors to food banks.</p>
+                        </div>
+                        <div class='col-lg-3 col-md-6 special-grid q4'>
+                        <h3>Why only food donations?</h3>
+                            <p>We may open this up to other types of donations in the future, but we consider the mission of providing food 
+                            to the needy as a very high priority. Food banks have a very hard time finding donors and businesses that are willing 
+                            to donate do not have the time to find recipients or are unsure where to even start looking. This application solves 
+                            both of these problems and incentivises businesses to donate.</p>
+                        </div>
+                        <div class='col-lg-3 col-md-6 special-grid q5'>
+                        <h3>I am ready to help the cause. Where do I start?</h3>
+                            <p>You can always inquire by sending a contact request at our <a href="contact.php">Contact Us</a> page or by 
+                            subscribing to our monthly newsletter!</p>
                         </div>
                     </div>
                 </div>
@@ -64,7 +97,7 @@ try {
 </body>
 
 </html>
-    <?php
+<?php
     include 'inc/js_to_include.php';
     include 'inc/footer.php';
 } catch(Exception $e) {
