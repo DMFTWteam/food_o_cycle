@@ -174,7 +174,7 @@ try {
         tr = table.getElementsByTagName("tr");
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
-                if (tr[i].id == business_id) {
+                if (i = 0 || tr[i].id == business_id) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
