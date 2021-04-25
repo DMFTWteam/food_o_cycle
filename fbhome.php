@@ -124,9 +124,10 @@ try {
                                     <br>
                                     Item ID: <?php echo $item['item_id']; ?>
                                     &emsp;
-                                    Business Name: <?php if(!isset($BusinessName)) :echo $item['business_name']; ?>
-                                    <?php else: echo $BusinessName; ?>
-                                    <?php endif; ?>
+                                    Business Name: <?php if($biz_id >= 1): ?>
+													<?php echo $BusinessName; ?>
+													<?php else: echo $item['business_name']; ?>
+													<?php endif; ?>
                                     <input type="hidden" id="ID" name="ID" value=<?php echo $u_id ?>>
                                     &emsp;
                                     <button type="submit" class="btn btn-primary btn-sm" name="pickup_confirmed"
