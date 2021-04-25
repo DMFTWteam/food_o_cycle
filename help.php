@@ -78,7 +78,7 @@ try {
                         </div>
                         <div class='col-lg-12 col-md-6 special-grid q5'>
                         <h2 style="margin: auto; height: 50%; display: block; text-align: center;">I am ready to help the cause. Where do I start?<br></h2>
-                            <p style="display: block; text-align: center;">You can always inquire by sending a contact request at our <a href="contact.php"  style="color: #b0b435;">Contact Us</a> page or by 
+                            <p style="display: block; text-align: center;">You can always inquire by sending a contact request at our <a href="contact.php"  style="color: #b0b435;"><u>Contact Us</u></a> page or by 
                             subscribing to our monthly newsletter!<br><br></p>
                         </div>
                     </div>
@@ -87,7 +87,7 @@ try {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title-all text-center">
-                        <h1>Cant find an answer to your questions? <a href="contact.php" style="color: #b0b435;">Contact Us </a></h1>
+                        <h1>Cant find an answer to your questions? <a href="contact.php" style="color: #b0b435;">Contact Us!</a></h1>
                         
                     </div>
                 </div>
