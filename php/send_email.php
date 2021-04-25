@@ -2,6 +2,7 @@
     ob_start();
     $email = filter_input(INPUT_POST, 'Email', FILTER_VALIDATE_EMAIL);
     $name = filter_input(INPUT_POST, 'Name');
+    
 function binaryImages($imgSrc)
 {
     $img_src = $imgSrc;
