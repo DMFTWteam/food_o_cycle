@@ -85,7 +85,7 @@ try {
         <div class="col-md-6 gedf-main">
 
             <div class="card gedf-card">
-                <form action="php/user_actions.php" method="get">
+                <form action="php/user_actions.php" method="POST">
                     <input type="hidden" id="ID" name="ID" value=<?php echo $u_id ?>>
                     <input type="hidden" name="usertype" value="donor">
                     <div class="card-header">
@@ -151,7 +151,7 @@ try {
             </div>
 
             <!--- \\\\\\\Post-->
-            <form action="php/user_actions.php" method="get">
+            <form action="php/user_actions.php" method="POST">
                 <input type="hidden" name="usertype" value="donor">
                 <div class="card gedf-card">
                     <div class="card-header">
@@ -194,7 +194,7 @@ try {
             </div>
 
             <!--- \\\\\\\Post-->
-            <form class="form-inline" action="php/user_actions.php" method="get">
+            <form class="form-inline" action="php/user_actions.php" method="POST">
                 <input type="hidden" name="usertype" value="donor">
                 <input type="hidden" name="ID" value="<?php echo $biz_id; ?>">
                 <div class="card gedf-card">

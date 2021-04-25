@@ -12,22 +12,22 @@
  */
     require_once '../inc/db_connect.php';
     //Food item_id for deletion
-    $item_id = filter_input(INPUT_GET, 'deleteFromDb');
+    $item_id = filter_input(INPUT_POST, 'deleteFromDb');
     //Food to be confirmed for pickup
-    $confirmed_pickup_food_id = filter_input(INPUT_GET, 'pickup_confirmed');
-    $confirmed_pickup_user_id = filter_input(INPUT_GET, 'ID');
+    $confirmed_pickup_food_id = filter_input(INPUT_POST, 'pickup_confirmed');
+    $confirmed_pickup_user_id = filter_input(INPUT_POST, 'ID');
     //Business search
-    $inputBizName = filter_input(INPUT_GET, 'inputBizName', FILTER_SANITIZE_STRING);
+    $inputBizName = filter_input(INPUT_POST, 'inputBizName', FILTER_SANITIZE_STRING);
     //Donor or FB
-    $usertype = filter_input(INPUT_GET, 'usertype');
+    $usertype = filter_input(INPUT_POST, 'usertype');
     //Grabbing the values the user input
 if($usertype == "donor") {
-    $biz_id = filter_input(INPUT_GET, 'ID');
-    $desc = filter_input(INPUT_GET, 'item_desc');
-    $qty_avail = filter_input(INPUT_GET, 'qty', FILTER_VALIDATE_INT);
-    $price = filter_input(INPUT_GET, 'est_val');
-    $perish = filter_input(INPUT_GET, 'perish');
-    $expiration = filter_input(INPUT_GET, 'expDate');
+    $biz_id = filter_input(INPUT_POST, 'ID');
+    $desc = filter_input(INPUT_POST, 'item_desc');
+    $qty_avail = filter_input(INPUT_POST, 'qty', FILTER_VALIDATE_INT);
+    $price = filter_input(INPUT_POST, 'est_val');
+    $perish = filter_input(INPUT_POST, 'perish');
+    $expiration = filter_input(INPUT_POST, 'expDate');
     $target_dir = "../images/";
         $target_file = $target_dir . basename($_FILES["itemfileToUpload"]["name"]);
         //print_r($_FILES['itemfileToUpload']);
@@ -175,7 +175,7 @@ elseif (isset($confirmed_pickup_food_id) AND $usertype == "foodbank") {
     $statement->execute();
     $statement->closeCursor();
     // get the product id
-    $encoded_item = isset($_GET['item']) ? $_GET['item'] : "";
+    $encoded_item = isset($_POST['item']) ? $_POST['item'] : "";
     $item = unserialize(urldecode($encoded_item));
     $item['quantity'] = 1;
     /*

@@ -84,7 +84,7 @@ try {
 
             <!-- Zipcode Search Bar -->
             <div class="card gedf-card">
-                <form action="php/user_actions.php" method="get">
+                <form action="php/user_actions.php" method="POST">
                     <input type="hidden" name="usertype" value="foodbank">
                     <div class="card-header">
                     </div>
@@ -105,7 +105,7 @@ try {
             </div>
 
             <!--- \\\\\\\Post-->
-            <form action="php/user_actions.php" method="get">
+            <form action="php/user_actions.php" method="POST">
                 <input type="hidden" name="usertype" value="foodbank">
                 <div class="card gedf-card">
                     <div class="card-header">
