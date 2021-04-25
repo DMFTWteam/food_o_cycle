@@ -51,7 +51,7 @@ try {
                         </div>
                     </div>
                     <div class="row special-list">
-                        <div class='col-lg-3 col-md-6 special-grid q1' style="display: block; text-align: center;">
+                        <div class='special-grid q1' style="display: block; text-align: center;">
                             <h2>What is Food O' Cycle?</h2>
                             <p>Food O' Cycle is an application that allows companies that have extra food that they will not be utilizing, to donate
                     it instead of throwing it out. This has been designed so that food banks can easily and efficiently
