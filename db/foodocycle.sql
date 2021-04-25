@@ -53,14 +53,16 @@ CREATE TABLE transactions
  PRIMARY KEY (trans_id),
  INDEX business_id (business_id));
  
-CREATE TABLE food_item
+CREATE or replace TABLE food_item
 (item_id			INT(10)			NOT NULL	AUTO_INCREMENT,
  item_desc			VARCHAR(256),	
  business_id		INT(10)			NOT NULL,
  item_qty_avail		INT(4)			NOT NULL,
  item_price			FLOAT(5,2)		NOT NULL,
+ item_image   LONGBLOB,
  item_perishable	INT(1)			NOT NULL,
  item_expiration	DATE			NOT NULL,
+ item_added DATE       NOT NULL,
  picked_up			tinyint(1) DEFAULT 0,
  awaiting_pickup	tinyint(1) DEFAULT 0,
  pickup_user_id		int(11) NOT NULL,
