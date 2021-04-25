@@ -56,7 +56,7 @@ try {
                             <p style="display: block; text-align: center;">Food O' Cycle is an application that allows companies that have extra food that they will not be utilizing, to donate
                     it instead of throwing it out. This has been designed so that food banks can easily and efficiently
                     find what they are in need of as well as make it quick and efficient for companies to donate the
-                    food.<br></p>
+                    food.<br><br></p>
                         </div>
                         <div class='col-lg-12 col-md-6 special-grid q2' >
                         <h2 style="margin: auto; height: 50%; display: block; text-align: center;">How does the system work?</h2>
