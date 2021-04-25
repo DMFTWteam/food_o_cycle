@@ -88,7 +88,7 @@ try {
                 <div class="col-lg-12">
                     <div class="title-all text-center">
                         <h1>Cant find an answer to your questions? <a href="contact.php">Contact Us </a></h1>
-                        <p>The sections/links below will lead customers/users to their answers..</p>
+                        
                     </div>
                 </div>
             </div>
