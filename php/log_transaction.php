@@ -20,7 +20,7 @@ try {
     $statement2 = $db->prepare($query2);
     $statement2->bindValue(':business_id', $_SESSION['business']['business_id']);
     $statement2->bindValue(':trans_total_price', $trans_total_price);
-    if ($statement2->execute()) {
+    $statement2->execute();
         $statement2->closeCursor();
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         $query3 = 'SELECT    *
@@ -32,15 +32,9 @@ try {
         $statement3->bindValue(':business_id', $_SESSION['business']['business_id']);
         $statement3->execute();
         $trans_id = $statement3->fetch();
-        var_dump($_SESSION['business']['business_id']);
-        echo "<br>";
-        var_dump($trans_total_price);
-        echo "<br>";
-        var_dump($trans_id);
-        exit();
         $statement3->closeCursor();
         
-    }
+    
     
 
     foreach ($_SESSION['cart'] as $item) {
