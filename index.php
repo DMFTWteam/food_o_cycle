@@ -162,7 +162,7 @@ try {
                         echo "<div class='type-lb'>";
                         echo "    <p class='new'>New</p>";
                         echo "</div>";
-                    } else if ((strtotime(date("Y-m-d")) > strtotime($item['item_expiration']))) {
+                    } else if ((strtotime(date("Y-m-d")) >= strtotime($item['item_expiration']))) {
                         $query2 = 'DELETE FROM food_item WHERE item_id = :item_id';
                         
                         $statement2 = $db->prepare($query2);
