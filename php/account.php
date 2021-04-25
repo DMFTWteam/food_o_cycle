@@ -115,11 +115,11 @@ try {
                     
                 } else {
                     Log_access($user_info['u_id'], '0');
-                    echo '<label>Invalid Password.</label>'; 
+                    header("Location: ../error.php?msg=" .urlencode("Invalid Password."));
                 }
             } else {
                 Log_access($user_info['u_id'], '0');
-                echo '<label>Invalid Username.</label>'; 
+                header("Location: ../error.php?msg=" .urlencode("Invalid Username."));
             }
         }
                

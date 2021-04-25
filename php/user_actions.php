@@ -31,8 +31,8 @@ if($usertype == "donor") {
     $expiration = filter_input(INPUT_POST, 'expDate');
     $target_dir = "../images/";
         $target_file = $target_dir . basename($_FILES["itemfileToUpload"]["name"]);
-        print_r($_FILES);
-        var_dump($_FILES['itemfileToUpload']['tmp_name']);
+        //print_r($_FILES);
+        //var_dump($_FILES['itemfileToUpload']['tmp_name']);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -40,12 +40,12 @@ if($usertype == "donor") {
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["itemfileToUpload"]["tmp_name"]);
         if($check !== false) {
-            echo "File is an image - " . $check["mime"] . ".";
+            //echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
         } else {
             echo "File is not an image.";
             $uploadOk = 0;
-            exit();
+            //exit();
         }
     }
 
@@ -53,7 +53,7 @@ if($usertype == "donor") {
     if (file_exists($target_file)) {
         echo "Sorry, file already exists.";
         $uploadOk = 0;
-        exit();
+        //exit();
     }
 
         // Allow certain file formats
@@ -61,7 +61,7 @@ if($usertype == "donor") {
     ) {
         echo "Sorry, only JPG, JPEG, & PNG files are allowed.";
         $uploadOk = 0;
-        exit();
+        //exit();
     }
 
         // Check if $uploadOk is set to 0 by an error
@@ -71,11 +71,11 @@ if($usertype == "donor") {
     } else {
         $blob = fopen($_FILES["itemfileToUpload"]["tmp_name"], 'rb');
         if (isset($blob) && $blob != '') {
-            echo "The file ". htmlspecialchars(basename($_FILES["itemfileToUpload"]["name"])). " has been uploaded.";
-            exit();
+            //echo "The file ". htmlspecialchars(basename($_FILES["itemfileToUpload"]["name"])). " has been uploaded.";
+            //exit();
         } else {
             echo "Sorry, there was an error uploading your file.";
-            exit();
+            //exit();
         }
     }
     if (isset($perish)) {
