@@ -123,6 +123,7 @@ try {
                                     </li>
                                     <br>
                                     Item ID: <?php echo $item['item_id']; ?>
+
                                     &emsp;
                                     Business Name: <?php if($biz_id >= 1) : ?>
                                         <?php echo $BusinessName; ?>
@@ -130,6 +131,7 @@ try {
                                                     <?php endif; ?>
                                     <input type="hidden" id="ID" name="ID" value=<?php echo $u_id ?>>
                                     &emsp;
+                                    <?php array_push($_SESSION['cart'], $item); ?>
                                     <button type="submit" class="btn btn-primary btn-sm" name="pickup_confirmed"
                                         value="<?php echo $item['item_id']?>">Add to cart</button>
                             </h5>

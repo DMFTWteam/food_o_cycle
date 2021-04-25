@@ -174,6 +174,7 @@ elseif (isset($confirmed_pickup_food_id) AND $usertype == "foodbank") {
     $statement->bindValue(':confirmed_pickup_food_id', $confirmed_pickup_food_id);
     $statement->execute();
     $statement->closeCursor();
+    
     header("location: ../fbhome.php");
 }
 elseif (isset($inputBizName) AND (!empty($inputBizName))) {
