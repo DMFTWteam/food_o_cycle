@@ -2,10 +2,10 @@
 
 session_start();
 $_SESSION['path'] = $_SERVER['PHP_SELF'];
-    if (!isset($_SESSION['user'])) {
-        header('Location: login.php');
-        exit();
-    }
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+}
 $item_id = filter_input(INPUT_GET, 'item_id');
 
 require "inc/header.php";

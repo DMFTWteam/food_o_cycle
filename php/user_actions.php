@@ -60,17 +60,18 @@ if($usertype == "donor") {
             echo "Sorry, there was an error uploading your file.";
         }
     }
-    if (isset($perish)) {$perish = 1;
-    }
-    else {$perish = 0;
+    if (isset($perish)) {
+        $perish = 1;
+    } else {
+        $perish = 0;
     }
 }
     //Adding to the DB
 if (isset($biz_id) AND !isset($confirmed_pickup_food_id) AND !isset($item_id)) {
     $query = 'INSERT INTO food_item 
-					(item_desc, business_id, item_qty_avail, item_price, item_image, item_perishable, item_expiration)
+					(item_desc, business_id, item_qty_avail, item_price, item_image, item_perishable, item_expiration, item_added)
 				  VALUES
-					(:desc, :biz_id, :qty_avail, :price, :blob, :perish, :expiration)';
+					(:desc, :biz_id, :qty_avail, :price, :blob, :perish, :expiration, CURDATE())';
     $statement = $db->prepare($query);
     $statement->bindValue(':desc', $desc);
     $statement->bindValue(':biz_id', $biz_id);
@@ -78,7 +79,11 @@ if (isset($biz_id) AND !isset($confirmed_pickup_food_id) AND !isset($item_id)) {
     $statement->bindParam(':blob', $blob, PDO::PARAM_LOB);
     $statement->bindValue(':price', $price);
     $statement->bindValue(':perish', $perish);
-    $statement->bindValue(':expiration', $expiration);
+    if ($perish == 1) {
+        $statement->bindValue(':expiration', $expiration);
+    } else if ($perish == 0) {
+        $statement->bindValue(':expiration', '2040-01-01');
+    }
     $statement->execute();
     $statement->closeCursor();
     header("location: ../donorhome.php");

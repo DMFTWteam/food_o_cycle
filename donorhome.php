@@ -19,43 +19,44 @@ try {
     }
     include 'inc/header.php';
     include_once 'inc/db_connect.php';
-//Userinfo Section
-$u_id = $_SESSION['user']['u_id'];
-$query = 'SELECT u_id, u_photo, u_username, u_fname, u_lname FROM users
+    //Userinfo Section
+    $u_id = $_SESSION['user']['u_id'];
+    $query = 'SELECT u_id, u_photo, u_username, u_fname, u_lname FROM users
 		  WHERE u_id = :u_id';
-$statement = $db->prepare($query);
-$statement->bindValue(':u_id',$u_id);
-$statement->execute();
-$userInfo = $statement->fetchAll();
-$statement->closeCursor();
-//Business ID section
-$businessIdQuery = 'SELECT business_id FROM user_to_business
+    $statement = $db->prepare($query);
+    $statement->bindValue(':u_id', $u_id);
+    $statement->execute();
+    $userInfo = $statement->fetchAll();
+    $statement->closeCursor();
+    //Business ID section
+    $businessIdQuery = 'SELECT business_id FROM user_to_business
 		  WHERE u_id = :u_id';
-$statementBId = $db->prepare($businessIdQuery);
-$statementBId->bindValue(':u_id',$u_id);
-$statementBId->execute();
-$idResults = $statementBId->fetchAll();
-$statementBId->closeCursor();
-foreach ($idResults as $id){$biz_id = $id['business_id'];}
-//Item Section
-$query = 'SELECT * FROM food_item WHERE
+    $statementBId = $db->prepare($businessIdQuery);
+    $statementBId->bindValue(':u_id', $u_id);
+    $statementBId->execute();
+    $idResults = $statementBId->fetchAll();
+    $statementBId->closeCursor();
+    foreach ($idResults as $id){$biz_id = $id['business_id'];
+    }
+    //Item Section
+    $query = 'SELECT * FROM food_item WHERE
 		  :biz_id = business_id';
-$statement = $db->prepare($query);
-$statement->bindValue(':biz_id', $biz_id);
-$statement->execute();
-$items = $statement->fetchAll();
-$statement->closeCursor();
-//Tax record query
-$query = 'SELECT * FROM transactions 
+    $statement = $db->prepare($query);
+    $statement->bindValue(':biz_id', $biz_id);
+    $statement->execute();
+    $items = $statement->fetchAll();
+    $statement->closeCursor();
+    //Tax record query
+    $query = 'SELECT * FROM transactions 
           INNER JOIN transaction_line
           ON transactions.trans_id = transaction_line.trans_id
           WHERE :biz_id = transactions.business_id';
-$statement = $db->prepare($query);
-$statement->bindValue(':biz_id', $biz_id);
-$statement->execute();
-$logs = $statement->fetchAll();
-$statement->closeCursor();
-?>
+    $statement = $db->prepare($query);
+    $statement->bindValue(':biz_id', $biz_id);
+    $statement->execute();
+    $logs = $statement->fetchAll();
+    $statement->closeCursor();
+    ?>
 
 <div class="container-fluid gedf-wrapper">
     <div class="row">
@@ -209,7 +210,7 @@ $statement->closeCursor();
                                 &emsp;
                                 <input class="form-check-input" type="checkbox" id="inlineFormCheck"
                                     name="pickup_confirmed" value="<?php echo $item['item_id']?>"> Confirm Pickup
-								<input type="hidden" name="qty" value="<?php echo $item['item_qty_avail']?>" >
+                                <input type="hidden" name="qty" value="<?php echo $item['item_qty_avail']?>" >
 
                                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                             </li>
