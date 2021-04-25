@@ -140,7 +140,7 @@ try {
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Post Item</button>
+                            <button type="submit" name="submit" id="submit" class="btn btn-primary">Post Item</button>
                         </div>
                     </div>
                 </form>
