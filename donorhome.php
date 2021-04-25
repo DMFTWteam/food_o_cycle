@@ -86,7 +86,7 @@ try {
 
             <div class="card gedf-card">
                 <form action="php/user_actions.php" method="POST">
-                    <input type="hidden" id="ID" name="ID" value=<?php echo $u_id ?>>
+		    <input type="hidden" id="ID" name="ID" value= <?php echo $biz_id ?> >
                     <input type="hidden" name="usertype" value="donor">
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
