@@ -200,9 +200,6 @@ try {
                     echo "       <h2>{$item['item_desc']}</h2>";
                     echo "       <h4>{$item['business_name']}</h4>";
                     
-                    var_dump($item['item_id']);
-                        echo "<br>";
-                        var_dump($item['item_qty_avail']);
                     if ($item['item_perishable'] == 1) {
                         $date = date("F j, Y", strtotime($item['item_expiration']));
                         echo "       <h6>Expiration: {$date}</h6>";

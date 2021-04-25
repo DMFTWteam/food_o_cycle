@@ -18,14 +18,14 @@ try {
     }
  
     // check if the item is in the array, if it is, do not add
-    if (array_key_exists($item['item_id'], $_SESSION['cart'])) {
-        // redirect to product list and tell the user it was added to cart
-        header('Location: ../index.php?action=exists#anchor');
-    } else {
+    if (!array_search($item['item_id'], array_column($_SESSION['cart'], 'item_id'))) {
         array_push($_SESSION['cart'], $item);
  
         // redirect to product list and tell the user it was added to cart
         header('Location: ../index.php?action=added#anchor');
+    } else {
+        // redirect to product list and tell the user it was added to cart
+        header('Location: ../index.php?action=exists#anchor');
     }
 } catch(Exception $e) {
     header("Location: ../error.php?msg=" .urlencode($e->getMessage()));
