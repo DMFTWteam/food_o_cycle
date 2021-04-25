@@ -67,7 +67,7 @@ if($usertype == "donor") {
     } else {
         $blob = fopen($_FILES["itemfileToUpload"]["tmp_name"], 'rb');
         if (isset($blob) && $blob != '') {
-            //echo "The file ". htmlspecialchars(basename($_FILES["itemfileToUpload"]["name"])). " has been uploaded.";
+            echo "The file ". htmlspecialchars(basename($_FILES["itemfileToUpload"]["name"])). " has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
