@@ -76,8 +76,8 @@ try {
                             to donate do not have the time to find recipients or are unsure where to even start looking. This application solves 
                             both of these problems and incentivises businesses to donate.</p>
                         </div>
-                        <div class='special-grid q1' style="display: block; text-align: center;">
-                        <h2 style="margin-right: auto; margin-left: auto; display: block; text-align: center;">I am ready to help the cause. Where do I start?</h2>
+                        <div class='special-grid q1' style="display: flex; justify-content: center; text-align: center;">
+                        <h2 style="text-align: center;">I am ready to help the cause. Where do I start?</h2>
                             <p style="display: block; text-align: center;">You can always inquire by sending a contact request at our <a href="contact.php">Contact Us</a> page or by 
                             subscribing to our monthly newsletter!</p>
                         </div>
