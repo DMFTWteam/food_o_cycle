@@ -29,6 +29,8 @@
                                 <div class="form-group">
                                     <input class="" type="text" name="Name" placeholder="Full Name*" />
                                     <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                </div>
+                                <div class="form-group">
                                     <input class="" type="email" name="Email" placeholder="Email Address*" />
                                     <i class="fa fa-envelope"></i>
                                 </div>
