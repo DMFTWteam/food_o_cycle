@@ -5,7 +5,7 @@
 function binaryImages($imgSrc)
 {
     $img_src = $imgSrc;
-    $imgbinary = fread(fopen($img_src, "r"), filesize($img_src));
+    $imgbinary = fread(fopen($img_src, "rb"), filesize($img_src));
     $img_str = base64_encode($imgbinary);
     
     return 'src="data:image/jpg;base64,'.$img_str.'"';
